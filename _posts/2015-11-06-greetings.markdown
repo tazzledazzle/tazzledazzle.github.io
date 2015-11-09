@@ -10,7 +10,7 @@ Hooray this works
 def print_msg(name)
   puts "#{name} is Awesome!"
 end
-print_hi('Terence')
+print_msg('Terence')
 #=> prints 'Terence is Awesome!' to STDOUT.
 {% endhighlight %}
 
