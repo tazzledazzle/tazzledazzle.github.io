@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
+
     <body>
     Hello World
     <br/>
@@ -33,7 +34,30 @@
             </ul>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+
+    <div>
+        <h1>Invitation to Angular</h1>
+        <input type="text" ng-model="mySpecies" placeholder="What is your species?">
+        <p>
+            It is a great honor to bask
+            in the presence of a {{ mySpecies || 'human' }}.
+        </p>
+        <p>Angular humbly welcomes you.</p>
+    </div>
+    <div>
+        <h2>Scope</h2>
+        <div>
+            <h1>Black and Yellow</h1>
+            <div style="background: {{ color }}; height: 40px; widows: 40px;" ng-init="color = 'white'"></div>
+            <button ng-click="color= 'black'">Black</button>
+            <button ng-click="color= 'yellow'">Yellow</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+        console.log($rootScope);
+        var myApp = angular.Module('myApp', []);
+    </script>
 
     </body>
 </html>

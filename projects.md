@@ -5,7 +5,7 @@ permalink: /projects/
 ---
 <img src="http://iads-web.org/wp-content/uploads/2012/10/projects.jpg" alt="" style="padding: 5px">
 This is a list of a couple of my projects:   
-* [Angular-JS](/angular)   
+* [Angular-JS](angular/angular)
 * test   
 * test   
 * test   
