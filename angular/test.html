@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testing</title>
+</head>
+<body>
+	<div ng-app="controllerTest">	
+		<div ng-controller="contr">
+			<div ng-model="customers">
+			<ul>
+				<li ng-repeat="cust in customers | orderBy: name">{{ cust.name }}</li>
+			</ul>
+			</div>
+		</div>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+	angular.module('controllerTest', [])
+	.controller('contr',
+		function contr($scope){
+			alert("it works");
+			$scope.customers = [
+			{name: 'John Smith', city: 'Phoenix'},
+        {name: 'John Doe', city: 'New York'}, {name: 'Jane Doe', city: 'San Francisco'}]
+		});
+	</script>
+</body>
+</html>
