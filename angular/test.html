@@ -5,26 +5,56 @@
 	<title>Testing</title>
 </head>
 <body>
+
 	<div ng-app="controllerTest">	
-		<div ng-controller="contr">
-			<input type="text" ng-model="name">{{name}}
-			<div ng-model="customers">
+		<div data-ng-view="">
+		<!-- 	Name: <input type="text" ng-model="name"> {{name}}
+			<div ng-controller="SimpleController">
 			<ul>
-				<li ng-repeat="cust in customers | orderBy: cust.name">{{ cust.name }}- {{cust.city}}</li>
+				<li ng-repeat="cust in customers | orderBy: cust.name | filter: name">{{ cust.name }}- {{cust.city}}</li>
 			</ul>
+			
+			<br>
+			Customer Name: <br>
+			<input type="text" ng-model="newCustomer.name"/>
+			<br>
+			Customer City: <br>
+			<input type="text" ng-model="newCustomer.city" />
+			<button ng-click="addCustomer()">Add Customer</button>
 			</div>
+ -->
 		</div>
 	</div>
-	<script src="angular.js"></script>
+	<script src="js/angular.js"></script>
+	<script src="https://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
 	<script>
-	angular.module('controllerTest', [])
-	.controller('contr',
-		function contr($scope){
-			alert("it works");
+	var myApp = angular.module('controllerTest', ['ngRoute']);
+	var controller = {};
+	myApp.config(function ($routeProvider){
+		$routeProvider
+			.when('/view1', {
+				controller: 'SimpleController',
+				templateUrl: 'Partials/View1.html'
+			})
+			.when('/view2', {
+				controller: 'SimpleController',
+				templateUrl: 'Partials/View2.html'
+			})
+			.otherwise({ redirectTo: '/view1'});
+	});
+	controller['SimpleController'] = function SimpleController($scope){
 			$scope.customers = [
-			{name: 'John Smith', city: 'Phoenix'},
-        {name: 'John Doe', city: 'New York'}, {name: 'Jane Doe', city: 'San Francisco'}]
-		});
+				{name: 'John Smith', city: 'Phoenix'},
+        		{name: 'John Doe', city: 'New York'}, 
+        		{name: 'Jane Doe', city: 'San Francisco'}
+    		];
+
+        	$scope.addCustomer = function () {
+        		$scope.customers.push({name: $scope.newCustomer.name, city: $scope.newCustomer.city});
+			};
+		};
+
+	myApp.controller(controller);
 	</script>
 </body>
 </html>
