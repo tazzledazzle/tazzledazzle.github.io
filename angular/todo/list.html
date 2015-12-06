@@ -1,6 +1,12 @@
 <div class="list">
+	<!--<p> todoList {{ todoList }}</p>-->
 	<ul>
-		<li ng-repeat="i in todoList"></li>
-		<li><input type="text" ng-model="item.name">  <input type="text" ng-model="item.priority"></li>
+		<li ng-repeat="i in todoList"> {{ i.name }} - {{ i.priority }}
+			<input ng-click="completeItem()" value="Done" type="button"/>
+			<input ng-click="deleteItem()" value="Delete" type="button"/></li>
+		<li><input type="text" ng-model="item.name" value="">
+			<select name="priorityOptions" id="selectOptions">
+				<option ng-repeat="option in options" value="{{ option }}">{{ option }}</option></select>
+			<input ng-click="addToList()" type="button" value="Add"/></li>
 	</ul>
 </div>

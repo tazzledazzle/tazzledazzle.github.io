@@ -12,10 +12,14 @@ todoListApp.config(function ($routeProvider){
 });
 
 controllers['TodoController'] = function TodoController($scope){
-	$scope.todoList = [{name: "Test", priority: "MUST"}];
+	$scope.todoList = [];
+	$scope.options = ["MUST", "SHOULD", "UNKNOWN", "COULD"];
 
 	$scope.addToList = function(){
-		$scope.todoList.push({item: $scope.item.name, priority: $scope.item.priority});
+		var select = document.getElementById('selectOptions');
+		$scope.todoList.push({name: $scope.item.name, priority: select[select.selectedIndex].value});
+		$scope.item.name = "";
+		$scope.item.priority = "";
 	};
 };
 
