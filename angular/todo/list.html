@@ -1,12 +1,22 @@
 <div class="list">
 	<!--<p> todoList {{ todoList }}</p>-->
-	<ul>
-		<li ng-repeat="i in todoList"> {{ i.name }} - {{ i.priority }}
-			<input ng-click="completeItem()" value="Done" type="button"/>
-			<input ng-click="deleteItem()" value="Delete" type="button"/></li>
-		<li><input type="text" ng-model="item.name" value="">
-			<select name="priorityOptions" id="selectOptions">
-				<option ng-repeat="option in options" value="{{ option }}">{{ option }}</option></select>
-			<input ng-click="addToList()" type="button" value="Add"/></li>
-	</ul>
+	<table clasS="table table-bordered table-striped">
+		<tr><th>Item</th><th>Priority</th><th colspan="2">Actions</th></tr>
+		<tr  ng-repeat="i in todoList" class="row_{{i.id}}"	><td> {{ i.name }}</td><td>{{ i.priority }}</td>
+			<td><input ng-click="completeItem()" id="doneBtn" value="Done" type="button"/></td>
+			<td><input ng-click="deleteItem()" id="deleteBtn" value="Delete" type="button"/></td>
+		</tr>
+		<tr>
+		<td><input type="text" ng-model="item.name" value=""></td>
+			<td>
+				<select name="priorityOptions" id="selectOptions">
+					<option ng-repeat="option in options" value="{{ option }}">{{ option }}</option>
+				</select>
+			</td>
+			<!--<td></td>-->
+			<td colspan="2">
+				<input ng-click="addToList()" type="button" value="Add"/>
+			</td>
+		</tr>
+	</table>
 </div>
