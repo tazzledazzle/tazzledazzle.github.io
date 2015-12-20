@@ -22,4 +22,4 @@ And These are projects from classes I took:
 * [CSS 432 - Network Design](https://github.com/tazzledazzle/UW-CSS/tree/master/432)
 * [CSS 475 - Database Systems](https://github.com/tazzledazzle/UW-CSS/tree/master/475)
 * [CSS 490 - Multimedia Information Processing](https://github.com/tazzledazzle/UW-CSS/tree/master/490)
-* [CSS 490 - Web Programming](https://github.com/tazzledazzle/UW-CSS/tree/master/490Web)
+* [CSS 490 - Web Programming](https://github.com/brunnerjosh/book-store)
