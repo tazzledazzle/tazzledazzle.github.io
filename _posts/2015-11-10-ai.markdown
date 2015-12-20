@@ -39,6 +39,14 @@ elif input == 'So What?':
 {% endhighlight %}
 
 
+Prolog things:   
+{% highlight prolog %}
+
+?- likes(george, susie)
+:= X
+
+{% endhighlight %}
+
 These Production Systems can be ordered or unordered. Ordered is a bit harder to be discrete with testing 
 and is harder to add/remove rules.
 
