@@ -1,0 +1,28 @@
+<div class="container">
+    Hello again
+
+
+    <input type="file" onchange="playFile(this)" class="file_upload"/>
+    <button ng-click="analyze()">Analyze</button>
+    <audio id="sound" class="hidden" controls></audio>
+    <div class="controls">
+        <button ng-click="start()">Start</button>
+        <button ng-click="stop()">Stop</button>
+    </div>
+    <ul id="songs">
+        <li ng-repeat="i in audioFiles"> {{ i }} </li>
+    </ul>
+    <canvas id="waveform" height="200" width="400" style="border: 1px solid black;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <canvas id="bargraph" height="200" width="400" style="margin:5px; border: 1px solid black;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <script>
+        var c = document.getElementById('waveform');
+        var ctx = c.getContext('2d');
+        ctx.fillStyle = "#FF0000";
+
+    </script>
+</div>
