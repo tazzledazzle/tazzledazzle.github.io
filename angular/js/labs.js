@@ -55,7 +55,9 @@ controllers["densityController"] = function densityController($scope) {
 
         }
 
-        function insertSorted(list)
+        function insertSorted(list) {
+
+        }
     }
 };
 
