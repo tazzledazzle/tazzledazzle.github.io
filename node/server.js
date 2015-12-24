@@ -5,6 +5,11 @@ var http = require('http'),
 var messages = ["testing"];
 var clients = [];
 
+//todo improvements
+//todo  -persistent message storage (setInterval or database)
+//todo  -improve client (interface, client side javascript, add name of user)
+//todo  -improve server (support multiple channels, user nicknames, user and channel class)
+
 http.createServer(function (req, res){
 
     var url_parts = url.parse(req.url);
@@ -12,7 +17,7 @@ http.createServer(function (req, res){
     if (url_parts.pathname == '/') {
         fs.readFile('./index.html', function (err, data) {
             res.end(data);
-            console.log(err);
+            //console.log(err);
 
         });
         //res.end("hello world");
@@ -28,22 +33,37 @@ http.createServer(function (req, res){
         }
         else {
             clients.push(res);
+            console.log(clients);
         }
     }
     else if (url_parts.pathname.substr(0, 5) == '/msg/') {
         var msg = unescape(url_parts.pathname.substr(5));
-        messages.push(msg);
+        if (msg === ""){
+            //todo make check against empty url '/msg/'
+            console.log("found")
+        }
+        messages.push("*"+msg);
         while (clients.length > 0) {
-            var client = client.pop();
+            var client = clients.pop();
             client.end(JSON.stringify( {
                 count: messages.length,
                 append: msg + "\n"
             }));
         }
-        res.end();
+        fs.readFile('./client.html', function (err, data) {
+            res.end(data);
+            //console.log(err);
+            if (messages.length > count) {
+                res.end(JSON.stringify( {
+                    count: messages.length,
+                    append: messages.slice(parseInt(count, 10)).join("\n") + "\n"
+                }));
+            }
+
+        });
     }
 }).listen(8081, 'localhost');
-console.log('Server Running');
+console.log('Server Running on http://localhost:8081');
 
 
 
