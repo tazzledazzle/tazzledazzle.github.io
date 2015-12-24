@@ -12,11 +12,34 @@ LabApp.config(function ($routeProvider){
 
 controllers["densityController"] = function densityController($scope) {
     $scope.compute = function(){
-        debugger;
         var data = $('#data').html();
+        var cities = [];
+        data = data.split('\n');
+        for (var i = 0; i < data.length; i += 1){
+            var city = data[i].split("	");
+            if (city.length === 3) {
+                var city_obj = {
+                    "name": city[0],
+                    "population": parseInt(city[1],10),
+                    "area": parseInt(city[2],10)
+                };
+
+                city_obj["density"] = calculateDensity(city_obj);
+                insertSorted(city_obj, cities);
+                cities.push(city_obj);
+            }
+        }
+        debugger;
+
+        traverseAndDisplay(cities);
 
         function calculateDensity(obj) {
-
+            if (obj.area > 0) {
+                return obj.population / obj.area;
+            }
+            else {
+                return obj.population;
+            }
         }
 
         function displayMedianDensity(list) {
@@ -55,7 +78,7 @@ controllers["densityController"] = function densityController($scope) {
 
         }
 
-        function insertSorted(list) {
+        function insertSorted(city_obj, list) {
 
         }
     }
