@@ -13,7 +13,8 @@ LabApp.config(function ($routeProvider){
 controllers["densityController"] = function densityController($scope) {
     $scope.compute = function(){
         var data = $('#data').html();
-        var cities = [];
+        var max = 250;
+        var cities = [max];
         data = data.split('\n');
         for (var i = 0; i < data.length; i += 1){
             var city = data[i].split("	");
@@ -79,7 +80,14 @@ controllers["densityController"] = function densityController($scope) {
         }
 
         function insertSorted(city_obj, list) {
+            for (var i = list.length-1; i > 0; i--) {
+                if (city_obj["density"] < list[i].density){
 
+                }
+                else if (city_obj.density === list[i].density && city_obj.name) {
+
+                }
+            }
         }
     }
 };
