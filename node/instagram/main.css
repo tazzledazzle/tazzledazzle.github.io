@@ -1,0 +1,35 @@
+body {
+    margin: 40px;
+    background-color: #b3cce6;
+    padding: 10px;
+}
+div.container {
+    padding: 45px 35px;
+    background-color: #DEEAF7;
+
+}
+div.searchControls {
+    color: #000088;
+}
+
+input.input {
+    margin: 5px;
+    width: 25%;
+}
+
+ul.list {
+    word-wrap: break-word;
+    text-align: center;
+}
+div.results {
+    padding: 20px 190px;
+}
+
+li {
+
+}
+
+div#tag-item {
+    text-align: center;
+    padding: 20px 3px;
+}
