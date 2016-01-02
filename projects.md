@@ -7,10 +7,10 @@ permalink: /projects/
 This is a list of a couple of my projects:   
 * [Angular-JS](/angular/) <br/>
 * [Backbone-JS](/backbone/backbone) <br/>
-* test   
+* [Instagram Tag Search](/node/instagram/) <br/>
 * test   
 
-And These are projects from classes I took:    
+And These are projects from classes I took:
 * [CSS 342 - Data Structures, Algorithms and Mathematics](https://github.com/tazzledazzle/UW-CSS/tree/master/342)
 * [CSS 343 - Data Structures, Algorithms and Mathematics 2](https://github.com/tazzledazzle/UW-CSS/tree/master/343)
 * [CSS 344 - Introduction to Database Management](https://github.com/tazzledazzle/UW-CSS/tree/master/344)
