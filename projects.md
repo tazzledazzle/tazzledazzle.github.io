@@ -10,7 +10,7 @@ This is a list of a couple of my projects:
 * [Instagram Tag Search](/node/instagram/) <br/>
 * test   
 
-And These are projects from classes I took:
+And These are projects from classes I took:  <br/>
 * [CSS 342 - Data Structures, Algorithms and Mathematics](https://github.com/tazzledazzle/UW-CSS/tree/master/342)  <br/>
 * [CSS 343 - Data Structures, Algorithms and Mathematics 2](https://github.com/tazzledazzle/UW-CSS/tree/master/343)  <br/>
 * [CSS 344 - Introduction to Database Management](https://github.com/tazzledazzle/UW-CSS/tree/master/344)  <br/>
