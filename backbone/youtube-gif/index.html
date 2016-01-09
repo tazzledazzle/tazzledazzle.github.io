@@ -8,37 +8,63 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-	<form class="navbar-form navbar" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-      </form>
+
+	
 	<div class="container">
+		
 		<div id="video-collection"></div>
-		<div class="footer col-md-12">
-			<input type="button" class="btn btn-primary center-block" name="loadMore" value="Load More">
-		</div>
+		
 	</div>
 	
 	<!-- templates -->
 	<script type="text/template" id="app-template">
         <!--index.html-->
-		<div class="col-md-3 panel panel-default" id="results">
-		Hello World<%= title %> <%= url %></div>
-
+		<div class="navbar-form navbar" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" id="search" placeholder="Search">
+        <button type="submit" class="btn btn-default" id="submitBtn">Submit</button>
+        </div>
+      </div>
+		<div class="col-md-12 panel panel-default" id="results">
+		</div>
+		<div class="footer col-md-12">
+			<input type="button" class="btn btn-primary center-block" name="loadMore" value="Load More">
+		</div>
 	</script>
 	<script type="text/template" id="video-template">
-        <div class="view panel panel-default">
+	<div class="col-md-4">
+        <div class="video-view panel panel-default">
+			<div class="panel-heading"><%= title%></div>            
             <div class="panel-body">
-	            <div id="player"></div>			
-	            <label><%= title %></label>
-	            <button class="destroy"></button>
+				<div class="thumbnail">
+					<a href="<%= source %>"><img src="<%= url%>" alt=""></a>
+					<div class="caption">
+						<%= description%>
+					</div>
+				</div>
             </div>
         </div>
-        <input class="edit" value="<%= title%>" type="text"/>
+    </div>
     </script>
 
+        <script src="https://apis.google.com/js/client.js?"></script>
+		<script>
+		onload = function() {
+		  gapi.client.load('youtube','v3');
+		  gapi.client.setApiKey('AIzaSyDbpM0CkVgnQQaHhvufkFO_74W_JxH6mBA');
+		}
+		</script>
+		<!-- Video / Generic Modal -->
+		<div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+		    <div class="modal-body">
+		      <!-- content dynamically inserted -->
+		    </div>
+		  </div>
+		</div>
+		</div>
+		
         <script src="../js/jquery.js"></script>
         <script src="../js/underscore.js"></script>
         <script src="../js/backbone.js"></script>
@@ -49,34 +75,5 @@
         <script src="views/app.js"></script>
         <script src="routers/router.js"></script>
         <script src="app.js"></script>
-        <script src="https://apis.google.com/js/client.js?onload=onClientLoad">
-        	debugger;
-			var api_key = 'AIzaSyA18m9fi3OZydepSNskAs_jMmRH77HPy9I';
-			var OAUTH2_CLIENT_ID = '174759681990-rrdpr48oaj49c56h94ku5gb38837dhsu.apps.googleusercontent.com';
-			var OAUTH2_SCOPES = [
-				'https://tazzledazzle.github.io'
-			];
-			function onClientLoad() {
-				debugger;
-				gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-			}	
-			function onYouTubeApiLoad() {
-				gapi.client.setApiKey(api_key);
-				search();
-			}
-			function search() {
-				var q = 'zelda'; //todo: this should be the input on the top of the screen
-				var request = gapi.client.youtube.search.list({
-					q:q,
-					part: 'snippet'
-				});
-
-				request.execute(function(response) {
-					var str = JSON.stringify(response.result);
-					debugger;
-					$('#results').html('<pre>' + str + '</pre>');
-				});
-			}
-        </script>
 </body>
 </html>

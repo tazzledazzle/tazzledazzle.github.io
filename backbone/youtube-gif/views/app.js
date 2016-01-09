@@ -5,58 +5,83 @@ var app = app || {};
 app.AppView = Backbone.View.extend({
 	el: '#video-collection',
 	videoTemplate: _.template($('#app-template').html()),
-	events: {},
+	events: {
+		'click #submitBtn' : '_onSearch',
+		'click input[name="loadMore"]' : '_onLoadMore',
+		'click a[href^="http://www.youtube.com"]': '_onVideoClick',
+		'keyup ': '_onKeyUp'
+	},
 	initialize: function() {
 		this.$container = this.$('#video-collection');
-		this.$videoData = this.grabVideos()
+		// this.$videoData = this.grabVideos();
+		this.$videoData = [1,2,3,4,5];
 		// app.Videos.fetch();
+		
 		this.render();
 	},
 	render: function() {
-		
-		_.each(this.$videoData.length, function (i){
-			this.$el.append(this.videoTemplate({
-				title: 'Hello ' + i,
-				url: 'weee'
-			}));
-		}, this);
+		this.$el.append(this.videoTemplate({
+			// title: 'Hello ',
+			// url: 'weee'
+		}));
 	},
-	grabVideos: function () {
+	_onKeyUp: function(e){
+		if (e.keyCode == 13){
+			this._onSearch();
+		}
+	},
+	_onSearch: function () {
+		var query = this.$el.find('#search').val();
 		
-		var api_key = 'AIzaSyA18m9fi3OZydepSNskAs_jMmRH77HPy9I';
-		var OAUTH2_CLIENT_ID = '174759681990-rrdpr48oaj49c56h94ku5gb38837dhsu.apps.googleusercontent.com';
-		var OAUTH2_SCOPES = [
-			'https://tazzledazzle.github.io'
-		];
-		function onClientLoad() {
-			gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-		}	
-		function onYouTubeApiLoad() {
-			gapi.client.setApiKey(api_key);
-			search();
-		}
-		function search() {
-			var q = 'zelda'; //todo: this should be the input on the top of the screen
-			var request = gapi.client.youtube.search.list({
-				q:q,
-				part: 'snippet'
-			});
+		var request = gapi.client.youtube.search.list({   
+		    q: query,
+		    part: 'snippet',
+		    maxResults: 30
+		  });
+		  request.execute(function(response) {
+		    var template = _.template($('#video-template').html());
+		    var list = $('#results');
+		    list.html('');
+		    for (var i = 0; i < response.items.length; i++) {
+		    	list.append(template({
+	    			title: response.items[i].snippet.title,
+	    			url: response.items[i].snippet.thumbnails.default.url,
+	    			description: response.items[i].snippet.description,
+	    			source: "https://www.youtube.com/watch?v=" + response.items[i].id.videoId
+		    	}));
+		    }
+	    	
+	    	$('input[name="loadMore"]').attr('next', response.nextPageToken);
+		  }, this);
+	},
+	_onLoadMore: function (e) {
+		var query = this.$el.find('#search').val();
 
-			request.execute(function(response) {
-				var str = JSON.stringify(response.result);
-				debugger;
-				$('#results').html('<pre>' + str + '</pre>');
-			});
-		}
-		var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&key="+api_key;
-		//url = "https://accounts.google.com/o/oauth2/auth?client_id=" + OAUTH2_CLIENT_ID;
-		$.ajax({
-			type: "GET",
-			dataType: "jsonp",
-			url: url
-		}).success(function(r,d){
-			debugger;
+		var request = gapi.client.youtube.search.list({
+			q: query,
+			part: 'snippet',
+			pageToken: e.target.getAttribute('next'),
+			maxResults: 20
 		});
-		return {length: 5};
+
+		request.execute(function(response) {
+		    var template = _.template($('#video-template').html());
+		    var list = $('#results');
+		    // list.html('');
+		    for (var i = 0; i < response.items.length; i++) {
+		    	list.append(template({
+	    			title: response.items[i].snippet.title,
+	    			url: response.items[i].snippet.thumbnails.default.url,
+	    			description: response.items[i].snippet.description,
+	    			source: "https://www.youtube.com/watch?v=" + response.items[i].id.videoId
+		    	}));
+		    }
+	    	
+	    	$('input[name="loadMore"]').attr('next', response.nextPageToken);
+		  }, this);
+	},
+	_onVideoClick: function (e) {
+		debugger;
+		e.preventDefault();
 	}
 });
