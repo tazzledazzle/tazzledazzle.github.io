@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Youtube to Gif Converter</title>
+    <link rel="stylesheet" href="assets/main.css"/>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+	<form class="navbar-form navbar" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+	<div class="container">
+		<div id="video-collection"></div>
+		<div class="footer col-md-12">
+			<input type="button" class="btn btn-primary center-block" name="loadMore" value="Load More">
+		</div>
+	</div>
+	
+	<!-- templates -->
+	<script type="text/template" id="app-template">
+        <!--index.html-->
+		<div class="col-md-3 panel panel-default" id="results">
+		Hello World<%= title %> <%= url %></div>
+
+	</script>
+	<script type="text/template" id="video-template">
+        <div class="view panel panel-default">
+            <div class="panel-body">
+	            <div id="player"></div>			
+	            <label><%= title %></label>
+	            <button class="destroy"></button>
+            </div>
+        </div>
+        <input class="edit" value="<%= title%>" type="text"/>
+    </script>
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/underscore.js"></script>
+        <script src="../js/backbone.js"></script>
+        <script src="../js/backbone.localstorage.js"></script>
+        <script src="models/video.js"></script>
+        <script src="collections/videos.js"></script>
+        <script src="views/videos.js"></script>
+        <script src="views/app.js"></script>
+        <script src="routers/router.js"></script>
+        <script src="app.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=onClientLoad">
+        	debugger;
+			var api_key = 'AIzaSyA18m9fi3OZydepSNskAs_jMmRH77HPy9I';
+			var OAUTH2_CLIENT_ID = '174759681990-rrdpr48oaj49c56h94ku5gb38837dhsu.apps.googleusercontent.com';
+			var OAUTH2_SCOPES = [
+				'https://tazzledazzle.github.io'
+			];
+			function onClientLoad() {
+				debugger;
+				gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+			}	
+			function onYouTubeApiLoad() {
+				gapi.client.setApiKey(api_key);
+				search();
+			}
+			function search() {
+				var q = 'zelda'; //todo: this should be the input on the top of the screen
+				var request = gapi.client.youtube.search.list({
+					q:q,
+					part: 'snippet'
+				});
+
+				request.execute(function(response) {
+					var str = JSON.stringify(response.result);
+					debugger;
+					$('#results').html('<pre>' + str + '</pre>');
+				});
+			}
+        </script>
+</body>
+</html>
