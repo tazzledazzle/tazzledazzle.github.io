@@ -37,7 +37,7 @@
 			<div class="panel-heading"><%= title%></div>            
             <div class="panel-body">
 				<div class="thumbnail">
-					<a href="<%= source %>"><img src="<%= url%>" alt=""></a>
+					<img class="video-image" src="<%= url%>" alt="<%= source %>">
 					<div class="caption">
 						<%= description%>
 					</div>
@@ -61,11 +61,18 @@
 		    <div class="modal-body">
 		      <!-- content dynamically inserted -->
 		    </div>
+		    <div class="modal-footer">
+		    	<input type="text" placeholder="Start time"><input type="text" placeholder="End time"><input type="text" placeholder="Total time" editable="false">
+		    	<br>
+		    	<input type="button" class="btn btn-primary center-block" id="generate" value="Generate Gif">
+		    </div>
 		  </div>
 		</div>
 		</div>
-		
+
         <script src="../js/jquery.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
         <script src="../js/underscore.js"></script>
         <script src="../js/backbone.js"></script>
         <script src="../js/backbone.localstorage.js"></script>
