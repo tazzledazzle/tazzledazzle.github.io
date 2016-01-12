@@ -67,7 +67,44 @@ char .cents pairs at # of characters
 # of lines of input for article
 lines of article following
 
+{% highlight java %}
+public static String evaluateCost(String article, HashMap<Character, Double> prices) {
+	char [] arr = article.toCharArray();
+	Double price = 0.0;
+	for(int i = 0; i < arr.length; i++) {
+		Double found = prices.get(arr[i]);
+		
+		if (found != null){
+		//	System.out.println("Found " + String.valueOf(found));
+			price += found;	// optimize
+		}
+	}
+	return String.valueOf(price)+"$";	
+}
 
 public static void main(String [] args) {
+	Scanner in = new Scanner(System.in);
+	int n = Integer.parseInt(in.next());	// test cases
+	int k = Integer.parseInt(in.next());	// paid lines
+	HashMap<Character, Double> prices = new HashMap<>();
+	for (int i = 0; i < k; i++) {
+		// need a container to store the characters
+		Character ch = in.next().charAt(0);
+		Double cost = Double.parseDouble(in.next()) * 0.01;
 	
+		prices.put(ch, cost);
+
+	}
+
+	int v = Integer.parseInt(in.next());	// input lines
+	String article = "";
+	for (int i = 0; i < v; i++) {
+		article += in.nextLine();
+	}
+
+	System.out.println(evaluateCost(article, prices));
 }
+{% endhighlight %}
+
+
+
