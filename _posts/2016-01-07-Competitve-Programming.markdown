@@ -54,3 +54,20 @@ UVa 00467 - Synching Signals
 {% endhighlight %}
 
 
+
+
+UVa 11340 - Newspaper
+
+print out how much money it will cost to print a newspaper depending on significant case words
+
+input format
+# of tests
+# of characters
+char .cents pairs at # of characters
+# of lines of input for article
+lines of article following
+
+
+public static void main(String [] args) {
+	
+}

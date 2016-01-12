@@ -115,17 +115,40 @@ app.AppView = Backbone.View.extend({
 			});
 			// Open Modal
 			$('#mediaModal').modal();
-			var ytplayer;
+			var ytplayer, startTime = 0, stopTime = 0;
+			function triggerTimeCapture(player) {
+				var genButton = $('#generate'), elapsed = 0;
+				
+				if (genButton.val() === "Start Recording") {
+					genButton.val("Stop Recording");
+					startTime = player.getCurrentTime();
+					stopTime = 0;
+				}
+				else {
+					genButton.val("Start Recording");
+					stopTime = player.getCurrentTime();
+					return (stopTime - startTime);
+				}
+			}
 
 			$('#generate').click(function () {
 				ytplayer = document.getElementById("my-video");
 				ytplayer.playVideo();
-				debugger;
-				$('#startTime').val(ytplayer.getCurrentTime());
-				//todo get duration
+				var elapsed = triggerTimeCapture(ytplayer);
+				$('#startTime').val(startTime);
+				$('#endTime').val(stopTime);
+				$('#totalTime').val(elapsed);
 				//todo actually generate on stop of video
 				//send over to https://giflayer.com/dashboard api
-
+				
+				if (elapsed !== 0){				
+			    	var api = 'http://apilayer.net/api/capture',
+			    		key = '?access_key=df2428455970d83566bb7a81bdc330af',
+				    	url = '&url=' + getUrl(ytplayer), 
+				    	start = '&start=' + startTime,
+				    	end = '& end=' + stopTime;
+			    	// GET gif (ajax call?)
+				}
 			});
 		}
 
