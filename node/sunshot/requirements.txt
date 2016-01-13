@@ -1,0 +1,450 @@
+requirements.txt
+
+You will address the following in this challenge :
+
+TECHNOLOGY STACK
+
+You will use MongoDB, NodeJS, ExpressJS, and AngularJS stack in this challenge.
+
+MONGO COLLECTIONS
+
+We will have the following mongo collections :
+
+User
+- userName
+- name
+- first
+- last
+- email
+- phone
+- address
+- street
+-  street2
+- city
+- state
+- zip
+- role : three possible values admin/Enterprise/user
+
+Enterprise
+- enterpriseID : this is the mongo#_id
+- name
+- address
+- street
+-  street2
+- city
+- state
+- zip
+- phone
+- websiteUrl
+- EnterpriseContactID : reference User
+
+Enterprize_user
+- enterprize_id
+- user_id
+
+Site
+- siteID : this is the mongo#_id
+- EnterpriseID : reference Enterprise#EnterpriseID
+- brandID : reference Brand#brandID
+- address
+- street
+-  street2
+- city
+- state
+- zip
+- phone
+- websiteURL
+- storeHours : an array of seven days with each day having an open time and close time e.g. (Mo,9,21),(Tu,9,18),... etc. If closed, it would be (Su,,) :
+- day (Sat, Sun, Mon .. Fri)
+- open_time : 00-24
+- close_time : 00-24
+- siteContactID : reference User#UserID
+- geoLocation:
+- latitude
+- longitude
+- m2xAPI
+- APIKeyID
+- collectionID
+
+Site_user
+- site_id
+- user_id
+
+Brand
+- brandID :  this is the mongo#_id
+- name
+- address
+- street
+-  street2
+- city
+- state
+- zip
+- phone
+- websiteURL
+
+Notification
+- notificationID : this is the mongo#_id
+- siteID : reference site#siteID
+- sensorID : reference device#deviceID
+- typeID : References NotificationTypeID
+- severityLevel  : (one of values : Critical, High, Medium, and Low)
+- status : (one of values : Open, Pending, On-Hold, Closed)
+- createdDate
+- lastChangedDate
+- closedDate
+- m2xTriggerID : reference the trigger ID sent from Trigger payload notification.
+
+NotificationData
+- notificationID : reference notification#notificationID
+- action
+- actionType : possible values
+	- Status: Open
+	- Status: Pending
+	-  Status: On-Hold
+	- Status: Closed
+	- Action: Assign
+	- Action: Mark Complete
+	- Action: Add to Watch
+	- Action: Add to Work Queue
+	- Action : view data
+- actionBy : reference User
+- actionTo : reference User
+- timestamp
+- masterUserID : reference User#userID
+- noteData (string)
+
+NotificationTypeID
+This is a lookup data
+- typeID : this is the mongo _id
+- description (string) : this corresponds to “trigger” field in M2X Trigger payload.
+- defaultSeverity : possible values (Critical, High, Medium, and Low)
+
+LOAD DATABASE FROM JSON FILES
+
+Write a script that read json files and load them in mongo database.
+
+We will have one json file per mongo collection, each file will contain array of items per collection :
+- Brands.json
+- Enterprises.json
+- Notifications.json
+- Sites.json
+- Users.json
+- NotificationTypeIDs.json
+- NotificationData.json
+- EnterprizeUser.json
+- SiteUser.json
+
+PAGES AND BACKEND FUNCTIONALITY
+
+Login Page
+- Page : #/login
+- Authenticate user.
+- All users will be navigated to  #/dashboard
+- On backend, on successful login, retrieve first “Enterprise” document in the database associated with the user.
+
+Welcome Page
+Page is static for now
+
+Header
+Header For logged in user will be display the user first name and last name (full name).
+
+Enterprises Page
+-  Page : #/enterprise
+- This page render Sites associated with Enterprise. Each block/div represents a site.
+- API Endpoint :
+- Route : GET /Enterprises/{id}
+- Require authorization/authentication.
+- Input parameter :
+- id : represents Enterprise#EnterpriseID
+- Logic :
+- Retrieve Enterprise of the passed id
+- Retrieve associated Sites
+- For each site populate associated Brand
+- For each site retrieve notifications counts grouped by severityLevel where status != “closed”.
+- Return response
+- Clicking on site name should take user to Site Details page.
+- Here is the mapping using the first Site block :
+- “Brand 1” : brand#name
+- “UPS Stores” : site#name
+- “Cedar Road, South Euclid, OH 44118” : site#address
+- “ups-store.com” : site#websiteURL
+- “23 sites” : remove this link
+- “Notifications” link : takes user to Site Details (#/detail/{id}) page with “Notification” tab opened.
+- “Notification icons” next to “notifications” link render the count of pending site notifications grouped by the severityLevel.
+- Red represents critical
+- Orange : High
+- Gray :Medium
+- Light gray : Low
+
+All Sites Page
+- Page  :#/dashboard
+- This page renders all sites of the Enterprise the user has permission to access.
+- Endpoint :
+- Route : GET /Enterprise/{id}/sites
+- Require authentication/authorization.
+- Input parameter :
+- id : represents Enterprise#EnterpriseID
+- Logic :
+- Retrieve all sites where site#EnterpriseID == id
+- For each site fetch associated Brand
+- For each site retrieve notifications counts grouped by severityLevel where status == “open”.
+- For each site populate user of siteContactID field.
+- For each notification, use sensorID to pull device metadata via M2X API, we need the device name.
+- Return response
+- Brand(s) column should be renamed to Brand, and it will display the brand#name
+- Clicking on Site ID will take user to site details page.
+- Markers on map are rendered using site#geolocation fields.
+- Note that map clustering is implemented in the google map in UI prototype.
+- Left side Site Menu Item :
+- Clicking + icon will expand sites list, each record display {site#name}, {site#siteID}
+- Clicking on an item will take user to site details screen.
+
+Site Details Page
+- Page : #/detail/{site-id}
+
+- This page render site related information.
+
+- Clicking < > arrows in top right of the page will navigate between next/previous sites (adjacent sites)
+
+Overview Tab
+- This display site information.
+
+- API Endpoint :
+
+- Route : GET /sites/{id}
+
+- Require authentication
+
+- Input parameter :
+
+- id : represents site#siteID
+
+- Logic :
+
+- Retrieve the site of the passed siteID
+
+- Populate the Enterprise name associated with the site
+
+- Populate the brand name associated with the site
+
+- Populate the user of the site#siteContactID
+
+- Retrieve associated notifications grouped by severityLevel where status != closed.
+
+- Please ask in forums if mapping between DB and UI fields are not clear.
+
+- Map is showing clustering and multiple sites, but it should be showing only 1 markup that represents current site location.
+
+Notifications Tab
+- This render notifications associated with the site.
+
+- API Endpoint :
+
+- Route : GET /site/{id}/notifications
+
+- Require authentication/authorization
+
+- Input parameter :
+
+- id : represents site#siteID
+
+- Logic :
+
+- Return all notifications where siteID == {id}
+
+- Retrieve the associated site : siteID and siteContactID#name
+
+- Return response
+
+- Mapping between the table and notification mongo collection looks straightforward, if you need any clarifications please ask in forums.
+
+- Expanding a notification record will load associated notificationData
+
+- API Endpoint :
+
+- Route : GET /notification/{id}/data
+
+- Require authentication/authorization
+
+- Input parameter :
+
+- id : represents notification#notificationID
+
+- Logic :
+
+- Retrieve notificationData documents where notificationID == {id}
+
+- For each record populate associated actionBy user.
+
+- Mapping between columns and mongo documents are straightforward, if you need any clarifications please ask in forums.
+
+- View Data button :
+
+- Using notification#sensorID get the charts of the device using M2X Charts API.
+
+- Render the charts in popup in carousel.
+
+- Also it should create record in NotificationData of type “view data”
+
+- Change Status :
+
+- This opens up a popup to change status, it should also ask for remainder time if new status is pending/on-hold/open. Clicking “Save” in popup will save the changes in backend. It will update notification#status.
+
+- Use PUT /notification/{id} to update it.
+
+- Also it should create record in NotificationData of type “action: assign”
+
+- Take Action
+
+- This opens up a popup to assign to user (default to the logged in user), it will contain a dropdown listing users associated with the Enterprize, with names in the application, and text area to insert note. Clicking “Save” in popup will create notificationData document with information :
+
+- notificationID : is the associated notification.
+
+- actionType : assign
+
+- actionBy : the logged in user
+
+- actionTo : user to assign (selected from drop down)
+
+- timestamp : current date
+
+- masterUserID : the notification#siteId#siteContactID
+
+- noteData : store the textarea note.
+
+- Use PUT /notificationData/{id} to update it.
+
+- Completed Checkbox
+
+- This will make notification#status to “completed”.
+
+- Use PUT /notification/{id}
+
+- This should also create NotificationData record of type “Actoin : Mark complete”
+
+- Add to Watch List Checkbox : out of scope.
+
+- Add to Work Queue Checkbox
+
+- This will create new WorkWatch entry.
+
+- Add new endpoint POST /workwatches endpoint
+
+- Fields :
+
+- userID : logged in user
+
+- notificationID : selected notification
+
+- type : Work Queue
+
+- remainderDateTime : passed remainder time from frontend if set.
+
+- This also create new record in NotificationData of type “Action : Add Work Queue”
+
+Data Tab
+- Represents M2X Charts for the devices associated with the selected site.
+
+- API Endpoint :
+
+- Route : GET /site/{id}/charts
+
+- Require authentication/authorization
+
+- Input parameter :
+
+id : site id
+
+- Logic :
+
+- Retrieve site#m2xAPI object of the passed site id
+
+- Retrieve devices associated with the site using this API
+
+- Retrieve charts associated with the devices using this API
+
+- Return array of chart ids as response (M2X GET/chart)
+
+- In frontend, use this endpiont to render each chart
+
+- id : is the returned chart id
+
+- format : svg
+
+- optional parameters should be the defaults.
+
+Notification Page
+- Page : #/notification
+
+- This page list notifications from all sites.
+
+- It has same functionality as in notification tab of site details page exept that we list all sites notifications.
+
+- API endpoint :
+
+- Route : GET /notifications
+
+- Require authentication/authorization
+
+- Logic will be same as GET /site/{id}/notifications except we are retrieving all notifications of the sites the user has access to.
+
+M2X Trigger Callback Handler
+We will implement a callback endpoint that handle triggers by devices :
+
+- Callback will handle calls from M2X Triggers Notification Payload
+
+- Naming of the callback endpoint is up to you
+
+- Logic :
+
+- Parse the passed json.
+
+- Using device#id retrieve the device details using this api endpoint.
+
+- From response, lookup ‘collection’ id from device details.
+
+- If not set, log error and exit the logic.
+
+- Lookup the site id associated with the collection id.
+
+- Retrieve the trigger id by using this api endpoint
+
+- Find the trigger where trigger#created == callback json#timestmap
+
+- Create notification document with information :
+
+- notificationID : sequential value
+
+- siteID : the site id associated with device collection
+
+- sensorID : the device#id
+
+- typeID : The description (string) field in the NotificationTypeID should equate to the "trigger" field in the payload. Based on that, get the typeID from the NotificationTypeID.
+
+- severityLevel : From the notificationTypeID#severityLevel looked up and set for typeID field.
+
+- status : OPEN
+
+- createdDate : current date
+
+- lastChangedDate : current date
+
+- closeDate : null
+
+- m2xTriggerID : the retrieved trigger id.
+
+Pagination
+In all get-all endpoints we need to enforce pagination, these endpoints should have the following parameters :
+
+- offset (default 0)
+
+- limit (default 10)
+
+The parameters should be returned in the response with the total count of matching records as well, It is preferred if the default values are configurable.
+
+Documentation
+Provide a detailed README documentation for how to setup and configure the application.
+
+Configurations
+You are expected to use environment variables to store sensitive information and environment-specific configurations.
+

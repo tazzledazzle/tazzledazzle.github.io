@@ -152,4 +152,28 @@ Sample Output
 0 1 0 0
 1 0 1 0
 
+while input != null
+read in dimension
+populate first array with read values
+populate second array with read values
+for i to 4 
+	pass through array
+	if match increment count
+print out counts
 
+{% highlight java%}
+public static void main(String [] args) {
+	Scanner in = new Scanner(System.in);
+	while (in.hasNext()) {
+		int bigN = Integer.parseInt(in.next()), smallN = Integer.parseInt(in.next());
+
+		char [][] bigArr = new char[bigN][bigN];
+		char [][] smallArr = new char[smallN][smallN];
+
+		for(int i = 0; i < bigN; i++) {
+			String [] line = in.nextLine().toCharArray();
+			if (line.length == bigN) //todo
+		}
+	}
+}
+{% endhighlight%}
