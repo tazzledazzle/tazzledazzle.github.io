@@ -1,0 +1,141 @@
+requirements.txt
+
+Overview
+
+ 
+
+The backend application will be written in node.js (v5) and will do the following:
+
+* Authentication
+* Authorisation for admin and normal users
+* Provide API endpoints for storing marker coordinates for images
+
+
+User Types
+
+ 
+
+The Corn Stalk application has 2 types of users
+
+- Administrator
+- Normal Users (plant counter)
+
+As you can see in the UI, the admin user has the ability to upload multiple images
+ of corn stalks. The admin user can also mark stalks on any image as well as add comments on the image.
+
+When a plant counter (normal user) loads the site, randomly display one of the crop row images for them
+ to mark. A normal user can only mark stalks on the image and comment on it. They can not upload any new image.
+
+
+ 
+
+Data Model
+
+ 
+
+Please build the following data model in mongodb. We’ve analysed the data model for this application to contain
+ the following entities. Feel free to suggest improvements or point out any pitfalls that you foresee.
+
+ 
+
+Users
+-id
+-First Name
+-Last Name
+-Username (email)
+-isAdmin
+-isActivated
+-Last Logged In Date, Time
+
+Image
+-Id
+-Path
+-ThumbnailPath
+-User
+-Image
+-Markers - represents which all users place markers on which images
+ 
+
+-UserId
+
+-ImageId
+
+-MarkerPos (stalk #, array of [x,y] coordinates where the markers are put)
+
+* User
+-Image
+-Comments
+ 
+-UserId
+-ImageId
+-Comments
+ 
+Note that each image is expected to have upto 5 sets of markers and 5 user names (1 for each marker). A set of markers is basically one or more stalk coordinates (x,y) positions.
+
+ 
+
+Configuration
+
+ 
+
+- All email server settings must be read from a configuration file.
+- The limit of markers for each image (5 by default) must be kept configurable.
+
+ 
+
+API Endpoints Needed
+
+- Please use Express to implement all API endpoints
+
+* register
+* login
+* logout
+* forgotpassword
+* Add image
+* Get all Images
+* Get images for processing for user
+* Update info (markers/ comment) for image
+
+ 
+
+Detailed API definition
+
+==All APIs are expected to return a JSON payload
+
+* register(First Name, Last Name, Username, isAdmin)
+--> returns success if user is created successfully. Send an email to user’s email address for successful registration. The registration email must contain a link to activate the user
+
+--> handle error scenarios like first name/ last name/ username null or combination already exists
+ 
+* login(username, password)
+--> returns success if credentials are correct
+--> return error if invalid or null params specified
+
+* logout()
+--> Clear current user sesion and return success
+
+* forgotpassword(username)
+--> Should trigger an email to user’s email address returning the user’s password.
+--> Return error if username is invalid
+
+* addImage(file) - This will only be called by the admin user
+--> If successful, store the image locally and populate the path
+--> Return error if the image could not be uploaded
+
+* getAllImages - This will return all images for the admin view.
+--> For each image, return id, name, thumbnail path and comments
+
+* getImagesForUserProcessing 
+--> This will return only images which have not been already marked by the current user do not have all 5 (or the actual limit) sets of markers marked
+--> Input argument - user id
+--> For each image, return id, name, image path and comments
+
+* updateImageInformation - This will be used to update the information associated with each image
+--> Input arguments - user id, image id
+--> Return the updated marker coordinates and comments (if any)
+
+(Optional) Send an email to a pre-configured email id if all 5 markers have been marked for this image
+
+PLATFORMS
+
+NodeJS
