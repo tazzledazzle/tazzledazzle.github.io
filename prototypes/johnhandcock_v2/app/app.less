@@ -4,6 +4,13 @@
 @fa-font-path: "assets/fonts/font-awesome";
 @import "../bower_components/angular-loading-bar/build/loading-bar.css";
 
+// light-blue #7fc5e4
+// gray #333333
+// other-gray #292929
+// dark-blue #242e3d
+// royal-blue #142b56
+
+
 /* Component LESS */
 @import "home/home.less";
 @import "help/help.less";
@@ -24,7 +31,7 @@
   line-height: 1.428571429;
   border-radius: 15px;
   margin: 10px 20px;
-  background-color: red;
+  background-color: #7fc5e4;
 }
 .btn-circle.btn-lg {
   width: 50px;
@@ -43,4 +50,26 @@
   border-radius: 35px;
 }
 
-
+.user-btn-group {
+  background-color: #242e3d;
+  left:0;
+  width: 100%;
+  .list-group-item {
+    background-color: #242e3d;
+    color: white;
+    border: none;
+  }
+}
+.navbar {
+  position: fixed;
+  background-color: #142b56;
+  width: 100%;
+}
+.footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  //position: absolute;
+}
