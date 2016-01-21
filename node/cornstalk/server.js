@@ -8,7 +8,27 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://node:node@ds045970.mongolab.com:45970/testnodejsdb');
+var MONGO = {
+    username: "node",
+    password: "node",
+    server: 'ds045785.mongolab.com',
+    port: '45785',
+    db: 'sample-db',
+    connectionString: function(){
+        return 'mongodb://'+this.username+':'+this.password+'@'+this.server+':'+this.port+'/'+this.db;
+    },
+    options: {
+        server:{
+            auto_reconnect: true,
+            socketOptions:{
+                connectTimeoutMS:3600000,
+                keepAlive:3600000,
+                socketTimeoutMS:3600000
+            }
+        }
+    }
+};
+mongoose.createConnection('mongodb://node:node@ds045785.mongolab.com:045785/sample-db');
 var Bear = require('./app/models/bear');
 // configure app to use bodyParser()
 // this will let us get the data from a POST
