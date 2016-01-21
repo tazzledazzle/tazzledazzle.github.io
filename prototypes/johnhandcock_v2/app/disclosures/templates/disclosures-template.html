@@ -1,0 +1,20 @@
+<div class="container">
+    <ul class="list-inline list-group">
+        <li class="list-group-item">User Info</li>
+        <li data-ng-repeat="item in userBtns" class="list-group-item"> <i class="{{item.icon}}"></i>{{ item }}</li>
+    </ul>
+    <br/>
+    <button class="btn btn-success">Add Disclosure</button>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="disclosures in disclosuresList"> 
+        	<div class=" btn btn-circle">
+        		<i class="{{ disclosures.listIcon }}"></i>
+        	</div>
+        	<h3>{{disclosures.title}}</h3> <div class="editable-description">{{ disclosures.content }}<p>{{disclosures.date}}</p></div>
+        	<div class="disclosure-btn-controls">
+        		<i class="fa fa-pencil"></i>
+        		<i class="fa fa-times"></i>
+        	</div>
+        </li>
+    </ul>
+</div>

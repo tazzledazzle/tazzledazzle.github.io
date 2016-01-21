@@ -1,0 +1,43 @@
+<div class="container">
+    <ul class="list-inline list-group">
+        <li class="list-group-item">User Info</li>
+        <li data-ng-repeat="item in userBtns" class="list-group-item"> <i class="{{item.icon}}"></i>{{ item }}</li>
+    </ul>
+	<br/>
+    <div class="application-manager">
+        <div class="nav navbar-default">
+            <div class="navbar-header">
+                <span class="navbar-brand">Manage Applications</span>
+                <span class="navbar-nav">Sort By:</span>
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posted <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Application</button>
+                </form>
+            </div>
+        </div>
+
+
+        <ul class="list-group">
+            <li class="list-group-item" data-ng-repeat="app in applicationList">
+                <div class="application-summary">
+                    {{ app }}
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
