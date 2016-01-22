@@ -1,0 +1,17 @@
+{
+  "type": "application",
+  "username": "tazzledazzle",
+  "branch": "~2.0.0",
+  "module": "AdminHome",
+  "modules": [
+    "router",
+    "forms",
+    "http"
+  ],
+  "transpilers": {
+    "views": "jade",
+    "scripts": "babel",
+    "styles": "less"
+  },
+  "locale": "en"
+}

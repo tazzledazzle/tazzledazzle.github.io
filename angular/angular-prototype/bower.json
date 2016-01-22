@@ -1,0 +1,17 @@
+{
+  "name": "angular-prototype",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap": "^3.3",
+    "font-awesome": "^4.3",
+    "angular-strap": "^2.3",
+    "angular-motion": "^0.4",
+    "bootstrap-additions": "^0.3",
+    "ui-router": "^0.2",
+    "lodash": "^3.5",
+    "angular-extend-promises": "^1.0",
+    "socket.io-client": "^1.2",
+  }
+}
+
+
