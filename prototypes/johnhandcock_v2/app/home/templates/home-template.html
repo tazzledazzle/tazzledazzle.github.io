@@ -1,12 +1,20 @@
-<div class="container">
+<div class="user-navigation">
     <ul class="list-inline list-group">
-        <li class="list-group-item">User Info</li>
-        <li data-ng-repeat="item in userBtns" class="list-group-item"> <i class="{{item.icon}}"></i>{{ item }}</li>
+        <!--<li class="list-group-item">User Info</li>-->
+        <li data-ng-repeat="item in userBtns" class="list col-md-3">
+            <button class="btn-circle btn-xl "><i class="{{item.icon}} icon-button"></i></button>
+            <div class="list-group-item-component">
+                <div class="component-num">{{ item.num}}</div> <div class="component-label">{{ item.label }}</div>
+                <div class="component-date">{{ item.date}}</div>
+            </div>
+        </li>
     </ul>
-	<br/>
+</div>
+
+<div class="container home">
     <div class="application-manager">
         <div class="nav navbar-default">
-            <div class="navbar-header">
+            <div class="navbar-header-manage">
                 <span class="navbar-brand">Manage Applications</span>
                 <span class="navbar-nav">Sort By:</span>
                 <ul class="nav navbar-nav">

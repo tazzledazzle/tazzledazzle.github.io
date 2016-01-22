@@ -31,6 +31,29 @@
             }
         };
 
+        $rootScope.checkLogin = function () {
+            var username = $('.username-login').val();
+            var password = $('.password-login').val();
+
+            // remove this when you have a database check
+            if (username !== 'admin' || password !== 'test') {
+                if ($('.invalid-user').length === 0) {
+                    $('.panel-login').prepend('<span class="invalid-user">Please Enter correct Username/Password</span>');
+                }
+            }
+            else {
+                window.location.replace("/app/#/home");
+            }
+        };
+
+
+        $rootScope.userBtns = [
+            {icon: "", label: "Administrator", date: "Last Logged In: 12/11/15 6:30pm", num: "Shawn Michael"},
+            {icon: "fa fa-bell fa-2x", label: "Alerts/Notifcations", date: "Dec 10 2015 - Jan 12 2015", num: 125},
+            {icon: "fa fa-lightbulb-o fa-2x", label: "Tips", date: "Dec 10 2015 - Jan 12 2015", num: 135},
+            {icon: "fa fa-question fa-2x", label: "How To's", date: "Dec 10 2015 - Jan 12 2015", num: 145}
+        ];
+
     });
 
 })();

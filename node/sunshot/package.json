@@ -1,4 +1,15 @@
 {
-  "name": "application-name",
-  "version": "0.0.1"
+  "name": "user-data-csv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "terence schumacher",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "~4.3.6",
+    "json2csv": "~3.0.2"
+  }
 }

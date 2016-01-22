@@ -12,11 +12,7 @@
 
         // get message from service
         $scope.message = homeService.getMessage();
-        $scope.userBtns = [
-            {icon: "fa fa-bell fa-2x", label: "Alerts/Notifcations", date: "Dec 10 2015 - Jan 12 2015", num: 125},
-            {icon: "fa fa-lightbulb-o fa-2x", label: "Tips", date: "Dec 10 2015 - Jan 12 2015", num: 135},
-            {icon: "fa fa-question fa-2x", label: "How To's", date: "Dec 10 2015 - Jan 12 2015", num: 145}
-        ];
+
 
         $scope.applicationBtns = [
             {icon: "fa fa-bell fa-2x"},

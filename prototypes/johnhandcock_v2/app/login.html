@@ -34,57 +34,51 @@
   <script src="home/controllers/home-controller.js"></script>
   <script src="home/services/home-service.js"></script>
 
-  <!--<script src="help/help.js"></script>-->
-  <!--<script src="help/controllers/help-controller.js"></script>-->
-  <!--<script src="help/services/help-service.js"></script>-->
+  <script src="help/help.js"></script>
+  <script src="help/controllers/help-controller.js"></script>
+  <script src="help/services/help-service.js"></script>
 
-  <!--<script src="common/common.js"></script>-->
-  <!--<script src="common/controllers/common-controller.js"></script>-->
-  <!--<script src="common/services/common-service.js"></script>-->
+  <script src="common/common.js"></script>
+  <script src="common/controllers/common-controller.js"></script>
+  <script src="common/services/common-service.js"></script>
 
-  <!--<script src="post/post.js"></script>-->
-  <!--<script src="post/controllers/post-controller.js"></script>-->
-  <!--<script src="post/services/post-service.js"></script>-->
+  <script src="post/post.js"></script>
+  <script src="post/controllers/post-controller.js"></script>
+  <script src="post/services/post-service.js"></script>
 
-  <!--<script src="settings/settings.js"></script>-->
-  <!--<script src="settings/controllers/settings-controller.js"></script>-->
-  <!--<script src="settings/services/settings-service.js"></script>-->
+  <script src="settings/settings.js"></script>
+  <script src="settings/controllers/settings-controller.js"></script>
+  <script src="settings/services/settings-service.js"></script>
 
-  <!--<script src="disclosures/disclosures.js"></script>-->
-  <!--<script src="disclosures/controllers/disclosures-controller.js"></script>-->
-  <!--<script src="disclosures/services/disclosures-service.js"></script>-->
-  <!-- Add New Component JS Above -->
+  <script src="disclosures/disclosures.js"></script>
+  <script src="disclosures/controllers/disclosures-controller.js"></script>
+  <script src="disclosures/services/disclosures-service.js"></script>
 
-  <!--<div class="fadeZoom">-->
 
-      <!--<div class="navbar navbar-default navbar-static-top">-->
-          <!--<div class="navbar-header">-->
-              <!--<a class="navbar-brand" id="logo" href="/app"> Signator </a>-->
-          <!--</div>-->
-          <!--<ul class="nav navbar-nav">-->
-              <!--<li><a href="/app/#/home" id="home">Home</a></li>-->
-              <!--<li><a href="/app/#/applications" id="applications">Applications</a></li>-->
-              <!--<li><a href="/app/#/disclosures" id="disclosures">Disclosures</a></li>-->
-              <!--<li><a href="/app/#/settings" id="settings">Settings</a></li>-->
-              <!--<li><a href="/app/#/export" id="export">Export to Excel</a></li>-->
-              <!--<li><button class="btn btn-primary">Home Banner</button></li>-->
-              <!--<li><a href="/app/#/post" id="post">Post</a></li>-->
-              <!--<li><a href="/app/#/help" id="help">Help</a></li>-->
-              <!--<li><a href="/app/#/logout" id="logout"><i class="fa fa-sign-out fa-3x"></i></a></li>-->
-          <!--</ul>-->
-      <!--</div>-->
 
-      <!--<div id="content" class="container" ui-view >-->
-          <!--&lt;!&ndash; Content will goes here &ndash;&gt;-->
-      <!--</div>-->
-
-      <!--<div class="footer navbar-bottom">-->
-          <!--<span class="copyright-msg"><i class="fa fa-copyright"></i> Copyright </span>-->
-      <!--</div>-->
-  <!--</div>-->
 
   <div class="fadeZoom">
-    <p>Hello World</p>
+    <div class="navbar navbar-default navbar-static-top navbar-header">
+      <div class="navbar-login"><img class="login-logo" src="assets/imgs/logo.jpg" alt=""/></div>
+    </div>
+    <div class="container">
+        <div class="panel panel-login">
+          <div class="input-with-icon style-4"><i class="fa fa-user pull-left"></i><input type="text" class=" username-login form-control" placeholder="Username"></div> <br>
+          <div class="input-with-icon style-4"><i class="fa fa-lock pull-left"></i><input type="text" class=" password-login form-control" placeholder="Password"></div> <br>
+          <button data-ng-click="checkLogin()" class="login-btn"><b>LOGN-IN</b></button> <br>
+          <div class="checkbox">
+              <!--<input type="checkbox" class="remeber-me" id="remember" value="Remember Me"><label for="remember">Remember Me</label>-->
+              <input type="checkbox" id="c1" name="cc" />
+              <label for="c1">Remember Me</label>
+              <a href="#" class="forgot-link">Forgot Password</a>
+          </div>
+
+        </div>
+    </div>
+    <div class="footer navbar-bottom">
+      <span class="copyright-msg"><i class="fa fa-copyright"></i>Copyright JohnHancock, 2015. All Rights Reserved.</span>
+    </div>
+
   </div>
 
 
