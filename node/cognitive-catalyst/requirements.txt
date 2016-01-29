@@ -1,0 +1,278 @@
+Application Design Specification
+--------------------------------
+
+build new port for Cognitive Catalyst GitHub community
+
+
+MEAN Stack
+
+Backend REST API 
+
+REST API will expose REST API endpoints to frontend, including:
+-Manage Projects
+-Manage Wishes
+-Manage User data
+-Manage Content data
+-Get Lookup data
+* running as Node.js/Express application
+
+Backend accesses MongoDB via Mongoose
+
+1.2.3 Third Party Components
+-Node.js 0.12.7
+	This application is built on Node.js platform.
+-Express 4.10.7
+	This is used as the web framework.
+-MongoDB 2.6.6
+	This is the database system used in this application.
+-Mongoose.js 3.8.21
+	This is used to simplify the interaction with MongoDB.
+-winston 0.8.3
+	This is used for logging.
+-async 0.9.0
+	This is used to simplify asynchronous programming.
+-underscore 1.7.0
+	This is used as utility for various functional programming capabilities such as iteration, filtering and join.
+-passport 0.2.1
+	This is used to support authentication for the REST APIs.
+-passport-idaas-openidconnect 1.0
+	This is used for BlueMix authentication.
+-mongoose-schema-extend 0.1.7
+	This is used to support mongoose schema inheritance.
+-multer 0.1.7
+	This is used to support file upload.
+-bluemix 1.0.4
+	This is used to automates some common initialization tasks for Node.js applications running on IBM BlueMix.
+-ibmbluemix-javascript
+	This is the Bluemix JavaScript SDK.
+-NodeBB 0.9.0
+	This is the Node.js based forum used for the forums functionality.
+-nodebb-plugin-sso-github 0.1.9
+	This is the NodeBB plugin to enable GitHub based SSO.
+-Pencilblue
+	This is the Node.js based CMS system used to display static content like help.
+
+Assenblies
+IBM - SiBM Cognitive Catalyst Portal Backend Assembly
+	This assembly will implement the backend part of the application.
+IBM - SiBM Cognitive Catalyst Portal User and Project Frontend Assembly
+	This assembly will implement the User and Project frontend part of the application.
+IBM - SiBM Cognitive Catalyst Portal Content and Wishes FrontendAssembly
+	This assembly will implement the rest of the frontend of the application.
+IBM - SiBM Cognitive Catalyst Portal Integrations Assembly
+	This assembly will integrate frontend and backend as well as will integrate forums and CMS for the static content.
+
+Configuration
+The backend configurations will be specified in JavaScript file config.js
+
+1.3.5 Logging
+	The backend JavaScript code will perform logging using winston Node.js module.
+
+Node.js/Express controllers will interpret errors as HTTP status codes
+	400 The request could not be interpreted correctly or some required parameters were missing.
+	404 The entity to update does not exist.
+	401 The request didn't include authentication information.
+	405 The requested method is not supported.
+	403 The request was forbidden because of insufficient permission
+	500 Something is broken at API server-side.
+
+Security
+	The backend REST APIs requires user authentication and authorization. BlueMix SSO service and passport and will be used to implement the SSO based authentication via GitHub.
+
+Forums
+	NodeBB exposes REST API that will be consumed by the frontend controllers. For the authentication, NodeBB will also use GitHub SSO (through the corresponding plugin).
+	GET https://<base_forum_uri>/api/search - to search for forums
+	GET https://<base_forum_uri>/api/notifications - to get the notifications
+	POST https://<base_forum_uri>/api/categories - to create the forum (in the ForumService)
+	POST https://<base_forum_uri>/api/topics - to create the topic (in the ForumService)
+	GET https://<base_forum_uri>/api/user/{username}/posts - to get the user’s posts
+	GET https://<base_forum_uri>/api/recent - to get the recent topics
+	GET https://<base_forum_uri>/api/category/{slug} - to get the forum (including the projects forum and forum recommendations forum).
+
+
+1.3.13 Static content
+	The static content will be managed and exposed using Pencilblue CMS deployed on BlueMix. 
+
+1.3.14 Badges
+	For the Badges Mozilla Open Badges backpack Displayer API will be used. Please see how to use it here.
+
+bluemix Node.js module will be used to automates some common intialization tasks for Node.js applications running on IBM BlueMix.
+REST API will expose REST API endpoints to frontend.
+	It will run as a Node.js/Express application.
+	It will be configured using manifest.yml, e.g.
+
+1.4.1 Technology overview
+JavaScript
+JSON
+REST
+BlueMix
+Backend
+	Node.js 0.12.7
+	Express 4.10.7
+	MongoDB 2.6.6
+	Mongoose.js 3.8.21
+	winston 0.8.3
+	async 0.9.0
+	underscore 1.7.0
+	passport 0.2.1
+	passport-github2 0.1.9
+	mongoose-schema-extend 0.1.7
+	bluemix 1.0.4
+	ibmbluemix-javascript
+	NodeBB 0.9.0
+	nodebb-plugin-sso-github 0.1.9
+	Pencilblue
+	bluemix 1.0.4
+Frontend	
+	HTML5
+	AngularJS 1.2
+	jQuery 1.11. 
+
+4.1 Project
+{
+    "id" : {string},
+    "name" : {string},
+    "gitHubPath" : {string},
+    "category" : {Category},    
+    "developersCount" : {integer},
+    "projectMaintainer" : {User},
+    "createdOn" : {datetime},
+    "description" : {string},
+    "installation" : {string},
+    "projectImagePath" : {string},
+    "services" : [{Service},..,{Service}],
+    "recommendations" : [{Recommendation},..,{Recommendation}],
+    "status" : {string},
+    "viewsCount" : {integer},
+    "forumPath" : {string}
+}
+
+yo api-kit:resource project id:String name:String gitHubPath:String category:Schema.Types.ObjectId developersCount:Number projectMaintainer:Schema.Types.ObjectId createdOn:Date description:String installation:String projectImagePath:String services:Schema.Types.ObjectId recommendations:Schema.Types.ObjectId status:String viewsCount:Number forumPath:String
+
+4.2 Service
+{
+    "id" : {string},
+    "name" : {string}
+    "text" : {string},
+    "iconPath" : {string}
+}
+
+###/// yo api-kit:resource service id:String name:String text:String iconPath:String
+
+4.3 Wish
+{
+    "id" : {string},
+    "title" : {string},
+    "createdOn" : {datetime},
+    "createdBy" : {User},
+    "description" : {string},
+    "likesCount" : {integer},
+    "status" : {string}  
+}
+
+yo api-kit:resource id:String title:String createdOn:Date createdBy:Schema.Types.ObjectId:User description:String likesCount:Number status:String
+
+
+4.4 Content
+{
+    "id" : {string},
+    "title" : {string},
+    "type" : {string},
+    "createdOn" : {datetime},
+    "createdBy" : {User},
+    "text" : {string},
+    "status" : {string},
+    "imagePath" : {string},
+    "organizers" : [{User},..,{User}], 
+    "dateTime" : {datetime},
+    "location" : {string}
+}
+
+####//  yo api-kit:resource content id:String title:String type:String createdOn:Date createdBy:Schema.Types.ObjectId text:String status:String imagePath:String organizers:Schema.Types.ObjectId dateTime:Date location:String
+
+4.5 Message
+{
+    "id" : {string},
+    "projectId" : {string},
+    "text" : {string},
+    "createdOn" : {datetime},
+    "createdBy" : {User},
+    "isRead" : {boolean},
+}
+
+####// yo api-kit:resource message id:String projectId:String createdOn:Date createdBy:Schema.Types.User isRead:Boolean
+
+4.6 User
+{
+    "id" : {string},
+    "username" : {string},
+    "userpicPath" : {string},
+    "email" : {string},
+    "badges" : [{Badge}, ..., {Badge}],
+    "ibmer" : {string},
+    "openSourceDeveloper" : {string},
+    "ibmPartners" : {string}
+}
+
+####// yo api-kit:resource user id:String username:String userpicPath:String email:String badges:Schema.Types.ObjectId ibmer:String openSourceDeveloper:String ibmPartner:String
+
+
+4.7 Badge
+{
+    "id" : {string},
+    "description" : {string},
+    "name" : {string},
+    "imagePath" : {string},
+    "location" : {string}
+}
+
+#####//// yo api-kit:resource badge id:String description:String name:String imagePath:String location:String
+
+
+
+// main routes
+
+GET https://<base_uri>/users/me
+GET https://<base_uri>/users/{id}
+GET https://<base_uri>/users
+PUT https://<base_uri>/users/me
+GET https://<base_uri>/users/me/userBadgesGroup
+PUT https://<base_uri>/users/me/userBadgesData
+PUT https://<base_uri>/users/me/userBadges
+GET https://<base_uri>/wishes/{id}
+POST https://<base_uri>/wishes
+GET https://<base_uri>/wishes
+DELETE https://<base_uri>/wishes/{id}
+PUT https://<base_uri>/wishes/{id}
+PUT https://<base_uri>/wishes/{id}/approve
+PUT https://<base_uri>/wishes/{id}/reject
+PUT https://<base_uri>/wishes/{id}/like
+PUT https://<base_uri>/wishes/{id}/join
+GET https://<base_uri>/wishes/{id}/isLiked
+GET https://<base_uri>/wishes/{id}/isJoined
+GET https://<base_uri>/count/wishes
+GET https://<base_uri>/contents/{id}
+POST https://<base_uri>/contents
+GET https://<base_uri>/contents
+DELETE https://<base_uri>/contents/{id}
+PUT https://<base_uri>/contents/{id}
+PUT https://<base_uri>/contents/{id}/approve
+PUT https://<base_uri>/contents/{id}/reject
+GET https://<base_uri>/count/contents
+GET https://<base_uri>/projects/{id}
+POST https://<base_uri>/projects
+GET https://<base_uri>/projects
+DELETE https://<base_uri>/projects/{id}
+PUT https://<base_uri>/projects/{id}
+PUT https://<base_uri>/projects/{id}/approve
+PUT https://<base_uri>/projects/{id}/reject
+GET https://<base_uri>/count/projects
+GET https://<base_uri>/projects/{id}/messages
+PUT https://<base_uri>/messages/{id}/read
+GET https://<base_uri>/projectCategories
+GET https://<base_uri>/services
+GET https://<base_uri>/login
+GET https://<base_uri>/logout
+GET https://<base_uri>/search
+GET https://<base_uri>/statistics
+
