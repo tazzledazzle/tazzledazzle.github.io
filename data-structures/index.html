@@ -6,6 +6,7 @@
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/underscore/underscore.js"></script>
 <!-- Define inlined PaperScript associate it with myCanvas -->
+<a href="sandbox.html">Sandbox</a><br><br>
 <input type="text" class="nodeLabel">
 <input type="button" value="populate with data" class="populate"> <span> </span>
 <input type="button" value="New Cell" class="addBtn"><br>
@@ -16,7 +17,8 @@
 	var texts = [];
 	var contents = [];
 	var circlePath = new Path.Rectangle(new Point(16, 20), 35);
-
+	var clonedPath2;
+	var destinationX = 0;
 	points.push(circlePath);
 	texts.push(new PointText({
 		point: circlePath.position + new Point(0, -20),
@@ -27,12 +29,22 @@
 	}));
 	circlePath.strokeColor = 'black';
 
-	
-	
+	//animations
+	function onFrame(event) {
+		if (!_.isUndefined(clonedPath2)){
+			if (clonedPath2.position < destinationX){
+				console.log(clonedPath2.position);
+				clonedPath2.position += new Point(4, 0);
+			}	
+		}
+	}
+
 	function add(e) {
-		var clonedPath2 = points[points.length - 1].clone();
-		clonedPath2.position += new Point(35, 0);
-		points.push(clonedPath2);
+		destinationX = clonedPath2.position + new Point(35, 0);
+		clonedPath2 = points[points.length - 1].clone();
+		// clonedPath2.position += new Point(35, 0);
+		destinationX = clonedPath2.position;
+		points.push(destinationX);
 		texts.push(new PointText({
 			point: clonedPath2.position + new Point(0, -20),
 			justification: 'center',
@@ -41,9 +53,7 @@
 			content: points.length - 1
 		}));
 
-		function onFrame(event) {
-			clonedPath2.position += new Point(35, 0);
-		}
+		
 		// console.log(points);		
 		view.update();	//renders the view
 	};
@@ -99,7 +109,7 @@
 		view.update();
 	});
 	// 1,2,3,4,5,6,7,8,9,0
-	// 
+	// mark, steve, janice, phill
 	$('.populate').click(function(e){
 		var nums = $('.nodeLabel').val();
 		nums = nums.split(',');
