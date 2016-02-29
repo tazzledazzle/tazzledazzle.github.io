@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="js/paper-full.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/underscore/underscore.js"></script>
+<!-- Define inlined PaperScript associate it with myCanvas -->
+<input type="text" class="nodeLabel">
+<input type="button" value="populate with data" class="populate"> <span> </span>
+<input type="button" value="New Cell" class="addBtn"><br>
+<input type="text" placeholder="enter the size of the array" class="arrSize"><input type="button" value="Create" class="autoCreate"><input type="button" value="Clear" class="clear">
+<script type="text/paperscript" canvas="myCanvas">
+	// Create a Paper.js Path to draw a line into it:
+	var points = [];
+	var texts = [];
+	var contents = [];
+	var circlePath = new Path.Rectangle(new Point(16, 20), 35);
+
+	points.push(circlePath);
+	texts.push(new PointText({
+		point: circlePath.position + new Point(0, -20),
+		justification: 'center',
+		fontSize: 12,
+		fillColor: 'black',
+		content: points.length - 1
+	}));
+	circlePath.strokeColor = 'black';
+
+	
+	
+	function add(e) {
+		var clonedPath2 = points[points.length - 1].clone();
+		clonedPath2.position += new Point(35, 0);
+		points.push(clonedPath2);
+		texts.push(new PointText({
+			point: clonedPath2.position + new Point(0, -20),
+			justification: 'center',
+			fontSize: 12,
+			fillColor: 'black',
+			content: points.length - 1
+		}));
+
+		function onFrame(event) {
+			clonedPath2.position += new Point(35, 0);
+		}
+		// console.log(points);		
+		view.update();	//renders the view
+	};
+// clone the path and store it in a variable
+	$('.addBtn').click(add);
+
+	$('.autoCreate').click(function(e){
+		//find the text area
+		var num = $('.arrSize').val();
+		//validate if !empty
+		if (num != "" && !_.isNaN(parseInt(num, 10))){
+			//run loop and create num of cells
+			for (var i = 0; i < parseInt(num, 10); i++){
+				var clonedPath2 = points[points.length - 1].clone();
+				clonedPath2.position += new Point(35, 0);
+				points.push(clonedPath2);
+				texts.push(new PointText({
+					point: clonedPath2.position + new Point(0, -20),
+					justification: 'center',
+					fontSize: 12,
+					fillColor: 'black',
+					content: points.length - 1
+				}));
+			}
+			view.update();
+		}
+	});
+
+	//clear button
+	// - clears out the array size and sets the array to zero
+	$('.clear').click(function(e){
+		for(var i = 0; i < points.length; i++){
+			points[i].remove();
+			texts[i].remove();
+			contents[i].remove();
+		}
+		points = [];
+		texts = [];
+		contents = [];
+		var circlePath = new Path.Rectangle(new Point(16, 20), 35);
+
+		points.push(circlePath);
+		texts.push(new PointText({
+			point: circlePath.position + new Point(0, -20),
+			justification: 'center',
+			fontSize: 12,
+			fillColor: 'black',
+			content: points.length - 1
+		}));
+		circlePath.strokeColor = 'black';
+		//clear out input
+		$('.arrSize').val("");
+		view.update();
+	});
+	// 1,2,3,4,5,6,7,8,9,0
+	// 
+	$('.populate').click(function(e){
+		var nums = $('.nodeLabel').val();
+		nums = nums.split(',');
+		console.log(nums);
+		var size = nums.length;
+		if (size > 1){
+			for (var i = 0; i < size; i++){
+				if (i != 0){
+					add();
+				}
+				var content = new PointText({
+					point: points[points.length - 1].position,
+					justification: 'center',
+					fontSize: 12,
+					fillColor: 'black',
+					content: nums[i]
+				});
+				
+				
+				contents.push(content);
+				view.update();
+			}
+		}
+	})
+</script>
+</head>
+<body>
+	<canvas id="myCanvas" height="800px" width="1800px"></canvas>
+</body>
+</html>
