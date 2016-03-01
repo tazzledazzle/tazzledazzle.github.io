@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Toys</title>
+	<script src="node_modules/jquery/dist/jquery.js"></script>  <!-- make min -->
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> <!-- make min -->
+	<script src="node_modules/angular/angular.js"></script>  <!-- make min -->
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.angularjs.org/1.2.0rc1/angular-route.min.js"></script>
+	<script src="js/toysController.js"></script>
+
+</head>
+<body>
+	<div class="container" ng-app="toysApp">
+		<div class="jumbotron">
+			<h1>Selling Toys</h1>
+			<a href="#browse">Browse</a> - <a href="#contact">Contact</a> - <a href="#upload">Upload</a>
+		</div>
+		<div data-ng-view="">
+			
+		</div>
+	</div>
+</body>
+</html>

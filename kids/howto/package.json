@@ -1,10 +1,12 @@
 {
-  "name": "levis-site", 
+  "name": "levis-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -13,5 +15,4 @@
     "grunt-open": "^0.2.3",
     "matchdep": "^1.0.0"
   }
-
 }
