@@ -1,19 +1,18 @@
 {
-  "name": "",   //Change this 
+  "name": "cat-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    //todo: add server file
-  },
+  "scripts": {},
   "dependencies": {
-    //todo: npm install --save
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1"
   },
   "devDependencies": {
-    //todo: npm install --save-dev
     "grunt": "^0.4.5",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express": "^1.4.1",
     "grunt-open": "^0.2.3",
-    "matchdep": "^1.0.0",
+    "matchdep": "^1.0.0"
   }
 }
