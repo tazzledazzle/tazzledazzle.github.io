@@ -8,7 +8,9 @@ This is a list of a couple of my projects:
 * [Angular-JS](/angular/) <br/>
 * [Backbone-JS](/backbone/backbone) <br/>
 * [Instagram Tag Search](/node/instagram/) <br/>
-* test   
+* [it-eBooks Book API page](/angular/book-api/) <br/>
+* [Kids sites](/kids/) <br/>
+* photo manager // todo <br/>
 
 And These are projects from classes I took:  <br/>
 * [CSS 342 - Data Structures, Algorithms and Mathematics](https://github.com/tazzledazzle/UW-CSS/tree/master/342)  <br/>
