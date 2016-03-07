@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Get Audio</title>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/underscore/underscore-min.js"></script>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<input type="text" class="query"><input type="button" value="search" class="search">
+		<div class="results"></div>
+	</div>
+	<script>
+		// $.when(
+		// 	$.get("https://www.googleapis.com/youtube/v3/channels?part=snippet&forUsername=MIT&key=AIzaSyDbpM0CkVgnQQaHhvufkFO_74W_JxH6mBA",
+		// 		function (e){
+		// 			debugger;
+		// 		}),
+		// 	$.get("https://www.googleapis.com/youtube/v3/playlists?part=snippet&key=AIzaSyDbpM0CkVgnQQaHhvufkFO_74W_JxH6mBA&channelId=UCEBb1b_L6zDS3xTUrIALZOw&maxResults=50", function (e){
+		// 		debugger;
+		// 	}),
+		// 	$.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=AIzaSyDbpM0CkVgnQQaHhvufkFO_74W_JxH6mBA&playlistId=PLUl4u3cNGP61V4W6yRm1Am5zI94m33dXk&maxResults=50", function (e){
+		// 		debugger;
+		// 	})
+		// 	).then(function (results){
+		// 		debugger;
+		// 	});
+	</script>
+	<script src="js/main.js"></script>
+</body>
+</html>
