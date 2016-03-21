@@ -29,6 +29,7 @@ Pseudo:
 
 Recursive:
 
+{% highlight java%}
 binarySearch(array, low, high, searchValue)
 
 if  high greater or equal to 1
@@ -42,9 +43,11 @@ if  high greater or equal to 1
      return binarySearch(array, mid+1, high, searchValue)
 
 otherwise return -1; //not found
+{% endhighlight %}
 
 Iterative:
 
+{% highlight java%}
 binarySearch(array, low, high, searchValue)
 
 while (low <= high)
@@ -58,3 +61,4 @@ while (low <= high)
           high = mid - 1
 
 otherwise return -1;   //not found
+{% endhighlight %}
