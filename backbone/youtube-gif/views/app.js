@@ -40,6 +40,7 @@ app.AppView = Backbone.View.extend({
 		  request.execute(function(response) {
 		    var template = _.template($('#video-template').html());
 		    var list = $('#results');
+		    debugger;
 		    list.html('');
 		    for (var i = 0; i < response.items.length; i++) {
 		    	list.append(template({
