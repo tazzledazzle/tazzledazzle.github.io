@@ -18,13 +18,26 @@ myApp.config(function ($routeProvider){
 			controller: 'BaseController',
 			templateUrl: 'partials/upload.html'
 		})
+		.when('/toy/:id', {
+			controller: 'BaseController',
+			templateUrl: 'partials/toy.html'
+		})
 		.otherwise({ redirectTo: '/'});
 });
 
 var controllers = {};
 
 controllers['BaseController'] = function BaseController($scope) {
-
+	$scope.toys = [{id: 1, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 2, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 3, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"},
+		{id: 4, src: "https://placehold.it/250x250", title: "a bear", desc: "something about the cuddly bear"}]
 };
 controllers['BrowseController'] = function BrowseController($scope) {
 

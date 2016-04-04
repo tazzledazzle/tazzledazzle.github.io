@@ -15,7 +15,7 @@ myApp.config(function ($routeProvider){
 			templateUrl: 'partials/facts.html'
 		})
 		.when('/photos', {
-			controller: 'BaseController',
+			controller: 'PhotoController',
 			templateUrl: 'partials/photos.html'
 		})
 		.otherwise({ redirectTo: '/'});
@@ -33,7 +33,7 @@ controllers['FactsController'] = function FactsController($scope) {
 
 }
 controllers['PhotoController'] = function PhotoController($scope) {
-
+	$scope.photoList = ['Photo 1','Photo 2','Photo 3'];
 }
 
 myApp.controller(controllers);

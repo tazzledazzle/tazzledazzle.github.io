@@ -1,3 +1,12 @@
 <div class="container">
 	<h1>Photos Go Here</h1>
+	<ul>
+		<li data-ng-repeat="i in photoList">
+			<div class="container">
+				<div class="img-label">{{i}}</div>
+				<img src="http://placehold.it/350x250" alt=""/>
+				{{i.src}}
+			</div>
+		</li>
+	</ul>
 </div>
