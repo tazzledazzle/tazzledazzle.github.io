@@ -40,8 +40,8 @@ app.AppView = Backbone.View.extend({
 		  request.execute(function(response) {
 		    var template = _.template($('#video-template').html());
 		    var list = $('#results');
-		    debugger;
-		    list.html('');
+
+		  	list.html('');
 		    for (var i = 0; i < response.items.length; i++) {
 		    	list.append(template({
 	    			title: response.items[i].snippet.title,
@@ -131,7 +131,13 @@ app.AppView = Backbone.View.extend({
 					return (stopTime - startTime);
 				}
 			}
+function getUrl(){
 
+	var vidUrl = $('#my-video').attr('src');
+	console.log(vidUrl);
+
+	return vidUrl;
+}
 			$('#generate').click(function () {
 				ytplayer = document.getElementById("my-video");
 				ytplayer.playVideo();
@@ -141,15 +147,50 @@ app.AppView = Backbone.View.extend({
 				$('#totalTime').val(elapsed);
 				//todo actually generate on stop of video
 				//send over to https://giflayer.com/dashboard api
-				
-				if (elapsed !== 0){				
+
+				if (elapsed !== 0){
+					console.log(getUrl());
+					console.log("Start Time=" +parseInt(startTime, 10));
+					console.log("Stop Time=" + parseInt(stopTime, 10));
 			    	var api = 'http://apilayer.net/api/capture',
 			    		key = '?access_key=df2428455970d83566bb7a81bdc330af',
-				    	url = '&url=' + getUrl(ytplayer), 
-				    	start = '&start=' + startTime,
-				    	end = '& end=' + stopTime;
+				    	url = '&url=' + getUrl(),
+				    	//start = '&start=' + parseInt(startTime, 10),
+				    	start = '&start=' + parseInt(4, 10),
+				    	//end = '& end=' + parseInt(stopTime, 10);
+				    	end = '& end=' + parseInt(7, 10);
 			    	// GET gif (ajax call?)
+                    //$.when(
+						$.ajax({
+							type: 'GET',
+							url: api + key + url + start + end,
+							async: false,
+							dataType: 'image/gif',
+							beforeStart: {
+								"Access-Control-Allow-Headers": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
+								'Access-Control-Allow-Origin': 'http://localhost:9000',
+								"Access-Control-Allow-Credentials": true,
+								"Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS"
+							},
+							headers: {
+								"Access-Control-Allow-Headers": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
+								'Access-Control-Allow-Origin': 'http://localhost:9000',
+								"Access-Control-Allow-Credentials": true,
+								"Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS"
+							},
+							success: function(data) {
+
+								debugger;
+								console.log(data);
+								//$('#my-video').append($(data).html());
+							}
+						});
+					//).then(function (sentData) {
+					//	debugger;
+					//	console.log(sentData);
+					//})
 				}
+				//key = 'http://apilayer.net/api/capture?access_key=df2428455970d83566bb7a81bdc330af&url=http://www.youtube.com/v/tntOCGkgt98?enablejsapi=1&version=3&playerapiid=ytplayer&start=0&end=7.654' ;
 			});
 		}
 
