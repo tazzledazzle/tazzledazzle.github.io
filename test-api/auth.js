@@ -9,7 +9,6 @@ var OAUTH2_SCOPES = [
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
 googleApiClientReady = function() {
-  debugger;
   gapi.client.load('youtube','v3');
   gapi.client.setApiKey('AIzaSyDbpM0CkVgnQQaHhvufkFO_74W_JxH6mBA');
 }
