@@ -17,8 +17,39 @@ function search() {
   });
 
   request.execute(function(response) {
+    var g_channelId, g_playlistIds;
+    $.when(
+      $.ajax({
+      type: 'get',
+      url: "https://www.googleapis.com/youtube/v3/channels?part=snippet&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&forUsername=" + q,
+      dataType: 'json',
+      success: function(channel){
+        debugger;
+        // Set Channel Id
+      }
+    }),
+        $.ajax({
+          type: "get",
+          url: "https://www.googleapis.com/youtube/v3/playlists?part=snippet&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&channelId=" + g_channelId,
+          dataType: 'json',
+          success: function (playlists) {
+            // set playlist Ids
+          }
+        }),
+        // this will be nested
+        $.ajax({
+          type: "get",
+          url: "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&playlistId=" + g_channelId,
+          dataType: 'json',
+          success: function (playlists) {
+            // set playlist Ids
+          }
+        })
+    ).then(function (data){
+
+        });
     var str = JSON.stringify(response.result);
-    debugger;
+
     console.log(str);
     $('#search-container').html(str);
   });
