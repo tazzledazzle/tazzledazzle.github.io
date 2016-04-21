@@ -2,7 +2,41 @@
 function handleAPILoaded() {
   $('#search-button').attr('disabled', false);
 }
+function formulatePage(list){
+  var html = "",
+      video_urls = [];
+  html += "<div class='playlists'>";
+  _.each(_.keys(list), function(key){
+    html += key;
+    html += "<br>";
+  }, this);
+  html += "</div><br><br>";
+  _.each(_.keys(list), function(key){
+    html += "<div class='class_item'>";
+    html +=   "<div class='heading'></div>";
+    html +=   "<div class='video_set'>";
+    html +=   "<ul>";
+    _.each(list[key], function (item){
+        html += "<li>";
+        html += "<div class='video_item'>"+item.title+"<br>"+ item.description+ "</div>";
+        html += "</li>";
+        video_urls.push(item.url);
+    }, this);
+      html += "</ul>";
+      html += "</div>";
+    html +=   "<div class='url_list'>";
+    _.each(video_urls, function (item){
+      html += "<li>";
+      html += item;
+      html += "</li>";
+    }, this);
+    video_urls = [];
+    html +=   "</div>";
+    html += "</div>";
+  }, this);
 
+  return html;
+}
 // Search for a specified string.
 function search() {
   var q = $('#query').val();
@@ -15,14 +49,156 @@ function search() {
     id: q,
     part: 'snippet'
   });
-
-  request.execute(function(response) {
-    var str = JSON.stringify(response.result);
+  request.execute(function (result) {
+    var g_channelId, g_playlistIds = [], g_playlistObjs = {};
+    $.ajax({
+      type: 'get',
+      url: "https://www.googleapis.com/youtube/v3/channels?part=snippet&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&forUsername=" + q,
+      dataType: 'json',
+      success: function (channel) {
+        // Set Channel Id
+        g_channelId = channel.items[0].id;
+        //console.log("channel Id="+g_channelId);
+        $.ajax({
+          type: "get",
+          url: "https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&channelId=" + g_channelId,
+          dataType: 'json',
+          success: function (playlists) {
+            // set playlist Ids
+            _.each(playlists.items, function (playlist) {
+              g_playlistIds.push(grabPlaylistId(playlist));
+            }, this);
+            var token = playlists.nextPageToken;
+            while (g_playlistIds.length < playlists.pageInfo.totalResults) {
+              //while(!_.isUndefined(playlist.nextPageToken)){
+              var url = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50" +
+                  "&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&channelId=" + g_channelId + "&pageToken=" + token;
+              $.ajax({
+                type: "get",
+                url: url,
+                dataType: 'json',
+                success: function (a) {
+                  // set playlist Ids
+                  token = a.nextPageToken;
+                  _.each(a.items, function (playlist) {
+                    //console.log("playlistId="+playlist.id);
+                    g_playlistIds.push(grabPlaylistId(playlist));
+                  }, this);
+                },
+                async: false
+              });
+            }
+            g_playlistObjs = convertIdsToPlaylistObj(g_playlistIds);
+          },
+          async: false
+        });
+      },
+      async: false
+    });
     debugger;
+    //var str = JSON.stringify(g_playlistObjs, null, ' \t');
+    var str = formulatePage(g_playlistObjs);
+
     console.log(str);
     $('#search-container').html(str);
   });
+
+  function grabPlaylistId(playlist) {
+    return {playlist_name: playlist.snippet.title, id: playlist.id, snippet: playlist.snippet};
+  }
+
+  function convertIdsToPlaylistObj(playlistIds) {
+    var videos = [], courseList = {};
+
+    _.each(playlistIds, function (playlist) {
+      var name = playlist.playlist_name;
+      videos = [];
+      $.when($.ajax({
+        type: "get",
+        url: "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&playlistId=" + playlist.id,
+        dataType: 'json',
+        success: function (items) {
+          // grab each video
+        },
+        async: false
+      })).then(function (result) {
+        if (result.pageInfo.totalResults !== result.items.length) {
+          //TODO: Get all the videos
+        }
+        _.each(result.items, function (item) {
+          console.log("item=" + item.snippet.title);
+          videos.push({
+            videoId: item.id,
+            url: "https://www.youtube.com/watch?v=" + item.snippet.resourceId.videoId,
+            title: item.snippet.title,
+            description: item.snippet.description
+          });
+        }, this);
+        courseList[name] = _.clone(videos);
+      });
+    }, this);
+    return courseList;
+  }
 }
+//  request.execute(function(response) {
+//    var g_channelId, g_playlistIds = [], g_playlistObjs = {};
+//    $.when(
+//      $.ajax({
+//        type: 'get',
+//        url: "https://www.googleapis.com/youtube/v3/channels?part=snippet&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&forUsername=" + q,
+//        dataType: 'json',
+//        success: function(channel){
+//          // Set Channel Id
+//          g_channelId = channel.items[0].id;
+//          //console.log("channel Id="+g_channelId);
+//        },
+//        async: false
+//      })
+//    ).then(function (data){
+//        $.ajax({
+//          type: "get",
+//          url: "https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&channelId=" + g_channelId,
+//          dataType: 'json',
+//          success: function (playlists) {
+//            // set playlist Ids
+//            //TODO: Refactor
+//            _.each(playlists.items, function (playlist){
+//              g_playlistIds.push(grabPlaylistId(playlist));
+//            }, this);
+//            debugger;
+//            var token = playlists.nextPageToken;
+//            while(g_playlistIds.length < playlists.pageInfo.totalResults) {
+//              //while(!_.isUndefined(playlist.nextPageToken)){
+//              var url =  "https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=50"+
+//                  "&key= AIzaSyBn3atIDSgmLxcxAw9LzvFB9nUnPl_FuXU&channelId=" + g_channelId + "&pageToken="+token;
+//              $.ajax({
+//                type: "get",
+//                url:url,
+//                dataType: 'json',
+//                success: function (a) {
+//                  // set playlist Ids
+//                  token = a.nextPageToken;
+//                  _.each(a.items, function (playlist) {
+//                    //console.log("playlistId="+playlist.id);
+//                    g_playlistIds.push(grabPlaylistId(playlist));
+//                  }, this);
+//                },
+//                async: false
+//              });
+//            }
+//
+//            g_playlistObjs = convertIdsToPlaylistObj(g_playlistIds);
+//          },
+//          async: false
+//        });
+//    });
+//    debugger;
+//    var str = JSON.stringify(g_playlistObjs, null, ' \t');
+//
+//    console.log(str);
+//    $('#search-container').html(str);
+//  });
+//}
 
 
 
