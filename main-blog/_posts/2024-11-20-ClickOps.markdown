@@ -1,0 +1,6 @@
+# ClickOps
+
+What the heck is click ops? 
+I need to investigate [cyclone][Cyclone] for more info
+
+[Cyclone]: https://github.com/cyclops-ui/cyclops
