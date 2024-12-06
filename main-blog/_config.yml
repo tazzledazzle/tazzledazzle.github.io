@@ -35,6 +35,13 @@ minima:
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-github-metadata
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-gist
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -47,6 +54,7 @@ plugins:
 exclude:
   - .sass-cache/
   - .jekyll-cache/
+  - ../errata/
 #   - gemfiles/
 #   - Gemfile
 #   - Gemfile.lock
