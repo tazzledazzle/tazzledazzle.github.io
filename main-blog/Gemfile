@@ -21,7 +21,7 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag", "~> 2.1"
   gem "jekyll-github-metadata", "~> 2.16.1"
   gem "jekyll-coffeescript"
-  gem "jekyll-commonmark-ghpages"
+  gem "jekyll-commonmark-ghpages" # tables vulnerability
   gem "jekyll-gist", "~> 1.5.0"
   gem "jekyll-readme-index"
   gem "jekyll-default-layout"
