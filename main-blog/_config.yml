@@ -21,7 +21,7 @@
 title: Terence Schumacher's Page
 email: terenceschumacher@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  A collection of my thoughts, projects, and resources.
+  A collection of my thoughts, projects, and resources. or something therein
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
 twitter_username: terenceschu
