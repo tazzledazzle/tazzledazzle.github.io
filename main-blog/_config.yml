@@ -11,14 +11,14 @@
 # If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
-#
+#B
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Terence Schumacher's Page
+title: Not Terence Schumacher's Page
 email: terenceschumacher@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A collection of my thoughts, projects, and resources. or something therein
