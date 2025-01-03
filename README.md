@@ -1,3 +1,5 @@
+[![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/tazzledazzle/tazzledazzle.github.io/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/tazzledazzle/tazzledazzle.github.io/actions/workflows/jekyll-gh-pages.yml)
+
 ### Terence's blog
 
 
