@@ -56,9 +56,9 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - ../errata/
+   - Gemfile.old
+   - Gemfile.old.lock
 #   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
 #   - node_modules/
 #   - vendor/bundle/
 #   - vendor/cache/
