@@ -1,4 +1,9 @@
-Design Document for Understanding macOS Security Features
+---
+title: "Design Document for Understanding macOS Security Features"
+layout: "post"
+---
+
+# Design Document for Understanding macOS Security Features
 
 1. Title and Overview
 

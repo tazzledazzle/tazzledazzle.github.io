@@ -1,4 +1,9 @@
-Design Document for Debugging Kernel-Level Interactions
+----
+title: "Document for Debugging Kernel-Level Interactions"
+layout: "post"
+----
+
+# Design Document for Debugging Kernel-Level Interactions
 
 1. Title and Overview
 
