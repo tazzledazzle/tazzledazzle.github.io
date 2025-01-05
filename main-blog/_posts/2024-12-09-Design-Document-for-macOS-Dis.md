@@ -1,4 +1,9 @@
-Design Document for Project 5: macOS Disk Usage Visualizer
+---
+title: "Design Document for Project 5: macOS Disk Usage Visualizer"
+layout: "post"
+---
+
+# Design Document for Project 5: macOS Disk Usage Visualizer
 
 1. Title and Overview
 
