@@ -1,5 +1,7 @@
-Design Document for Project 3: Multithreaded Log Analyzer
-
+----
+title: "Design Document for Project 3: Multithreaded Log Analyzer"
+layout: "post"
+----
 1. Title and Overview
 
 Project Name: Multithreaded Log Analyzer

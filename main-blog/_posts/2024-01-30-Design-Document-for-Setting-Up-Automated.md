@@ -1,5 +1,7 @@
-Design Document for Setting Up Automated Tests for macOS Applications
-
+----
+title: "Design Document for Setting Up Automated Tests for macOS Applications"
+layout: "post"
+----
 1. Title and Overview
 
 Project Name: Automated Testing for macOS Applications
