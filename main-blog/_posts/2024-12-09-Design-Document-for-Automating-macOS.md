@@ -83,6 +83,7 @@ Develop a fully automated pipeline for creating .pkg and .dmg installers for mac
 
 ### 5.2 Interfaces
 * `InstallerBuilder`:
+
 ```python
 def create_pkg(config_file: str) -> str:
     """Generate a .pkg installer based on configuration."""
@@ -92,6 +93,8 @@ def create_dmg(config_file: str) -> str:
 
 * `Validator`:
 ```python
+from typing import List
+
 def validate_installer(installer_path: str, macos_versions: List[str]) -> bool:
     """Validate installer compatibility across macOS versions."""
 ```
