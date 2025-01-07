@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome Back!"
 date:   2024-12-03 12:23:42 -0800
-categories: blogging portfolio
+categories: ["blogging", "portfolio"]
 ---
 
 # Welcome back to the real world
@@ -20,15 +20,8 @@ Here's a [fullstack monitoring tutorial][Monitoring] that deals with observabili
 
 * [Dependency Version Search](https://github.com/tazzledazzle/dependency-version-search)
 * [Badger Badger Notification](https://github.com/tazzledazzle/Badger-badger-notifications)
-* [Repository Monitor]( https://github.com/tazzledazzle/repo-monitor)
-* [Gradle to Bazel Transpiler]( https://github.com/tazzledazzle/g2b-transpiler)
+* [Repository Monitor](https://github.com/tazzledazzle/repo-monitor)
+* [Gradle to Bazel Transpiler](https://github.com/tazzledazzle/g2b-transpiler)
 * [Python Ad System]( https://github.com/tazzledazzle/py-ad-sys)
 * [OSX Notarization (Signing)](https://github.com/tazzledazzle/osx-notarization)
-
-
-
-[notarization]:
-[py-ad-sys]:
-[dep-ver]:
-[badger-badger]:
 
