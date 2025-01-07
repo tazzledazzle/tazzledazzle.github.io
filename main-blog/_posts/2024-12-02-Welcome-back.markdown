@@ -25,10 +25,3 @@ Here's a [fullstack monitoring tutorial][Monitoring] that deals with observabili
 * [Python Ad System]( https://github.com/tazzledazzle/py-ad-sys)
 * [OSX Notarization (Signing)](https://github.com/tazzledazzle/osx-notarization)
 
-
-
-[notarization]:
-[py-ad-sys]:
-[dep-ver]:
-[badger-badger]:
-
