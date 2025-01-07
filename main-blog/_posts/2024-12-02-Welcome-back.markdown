@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome Back!"
 date:   2024-12-03 12:23:42 -0800
-categories: blogging portfolio
+categories: ["blogging", "portfolio"]
 ---
 
 # Welcome back to the real world
