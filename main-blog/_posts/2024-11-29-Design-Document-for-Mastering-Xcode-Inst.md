@@ -1,4 +1,10 @@
-Design Document for Mastering Xcode Instruments for Profiling and Performance Optimization
+---
+title: "Design Document for Mastering Xcode Instruments for Profiling and Performance Optimization"
+layout: "post"
+---
+
+
+# Design Document for Mastering Xcode Instruments for Profiling and Performance Optimization
 
 1. Title and Overview
 
