@@ -1,117 +1,34 @@
 ---
+title: "Terence Schumacher's Page"
 layout: base
 ---
-<div class="personal-info">
-    <h1 class="site-title"><a href="{{ "/" | prepend: site.baseurl }}">{{ site.title }}</a></h1>
-    <p class="site-subtitle">{{ site.description }}</p>
-</div>
-<div class="home">
-  <nav id="menu">
-    <ul class="links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="generic.html">Generic</a></li>
-      <li><a href="elements.html">Elements</a></li>
-    </ul>
-  </nav><!-- Banner -->
-  <section class="banner full">
-    <article><img src="../images/slide01.jpg" alt="" width="1440" height="961">
-      <div class="inner">
-        <header><p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
-          <h2>Hielo</h2>
-        </header>
-      </div>
-    </article>
-    <article><img src="../images/slide02.jpg" alt="" width="1440" height="961">
-      <div class="inner">
-        <header><p>Lorem ipsum dolor sit amet nullam feugiat</p>
-          <h2>Magna</h2>
-        </header>
-      </div>
-    </article>
-    <article><img src="../images/slide03.jpg" alt="" width="1440" height="962">
-      <div class="inner">
-        <header><p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
-          <h2>Tempus</h2>
-        </header>
-      </div>
-    </article>
-    <article><img src="../images/slide04.jpg" alt="" width="1440" height="961">
-      <div class="inner">
-        <header><p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
-          <h2>Etiam</h2>
-        </header>
-      </div>
-    </article>
-    <article><img src="../images/slide05.jpg" alt="" width="1440" height="962">
-      <div class="inner">
-        <header><p>Ipsum dolor sed magna veroeros lorem ipsum</p>
-          <h2>Adipiscing</h2>
-        </header>
-      </div>
-    </article>
-  </section><!-- One -->
-  <section id="one" class="wrapper style2">
-    <div class="inner">
-      <div class="grid-style">
 
-        <div>
-          <div class="box">
-            <div class="image fit">
-              <img src="../images/pic02.jpg" alt="" width="600" height="300"></div>
-            <div class="content">
-              <header class="align-center"><p>maecenas sapien feugiat ex purus</p>
-                <h2>Lorem ipsum dolor</h2>
-              </header>
-              <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet
-                tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus,
-                quis volutpat lacus placerat malesuada.</p>
-              <footer class="align-center"><a href="#" class="button alt">Learn More</a>
-              </footer>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="box">
-            <div class="image fit">
-              <img src="../images/pic03.jpg" alt="" width="600" height="300"></div>
-            <div class="content">
-              <header class="align-center"><p>mattis elementum sapien pretium tellus</p>
-                <h2>Vestibulum sit amet</h2>
-              </header>
-              <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet
-                tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus,
-                quis volutpat lacus placerat malesuada.</p>
-              <footer class="align-center"><a href="#" class="button alt">Learn More</a>
-              </footer>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section><!-- Two -->
-  <section id="two" class="wrapper style3">
-    <div class="inner">
-      <header class="align-center"><p>Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-        <h2>Morbi maximus justo</h2>
-      </header>
-    </div>
-  </section><!-- Three -->
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
+<div class="home body container">
+  <ul class="post-list container">
+{% for post in site.posts %}
+    <li>
+      <div class="card container .card:before .card:after ">
+        <p class="card-title .card:hover .card-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        <p class="small-desc">
+          {{ post.content | strip_html | truncatewords: 13 }}
+        </p>
+        <div class="go-corner">
+          <div class="go-arrow"><a class="post-list" href="{{ post.url | prepend: site.baseurl }}"> → </a></div>
+        </div>
+      </div>
       </li>
-    {% endfor %}
+{% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
 </div>
+
+
+<!-- Scripts -->
+<script src="../html5up-hyperspace/assets/js/jquery.min.js"></script>
+<script src="../html5up-hyperspace/assets/js/jquery.scrollex.min.js"></script>
+<script src="../html5up-hyperspace/assets/js/jquery.scrolly.min.js"></script>
+<script src="../html5up-hyperspace/assets/js/browser.min.js"></script>
+<script src="../html5up-hyperspace/assets/js/breakpoints.min.js"></script>
+<script src="../html5up-hyperspace/assets/js/util.js"></script>
+<script src="../html5up-hyperspace/assets/js/main.js"></script>

@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Not Terence Schumacher's Page
+title: Terence's wacky blog
 email: terenceschumacher@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
+description: > 
   A collection of my thoughts, projects, and resources. or something therein
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
