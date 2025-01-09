@@ -4,16 +4,14 @@ title:  "Competitive Programming Practice"
 date:   2015-11-06 13:19:42 -0800
 categories: algorithms data_structures
 ---
-UVa 00467 - Synching Signals 
-
-
+## UVa 00467 - Synching Signals
 * array of numbers
 * jolly or not jolly flag
 * if all numbers between 1 ... (n-1) contained between abs(n - n + 1) for all n in array
 * boolean array of size n - 1
-* ouput jolly or not jolly depending on boolean array set all true
+* output jolly or not jolly depending on boolean array set all true
 
-{% highlight java %}
+```java
  public static void main(String [] args) {
    Scanner in = new Scanner(System.in);
   
@@ -51,23 +49,23 @@ UVa 00467 - Synching Signals
    		System.out.println("not jolly");
    }
  }
-{% endhighlight %}
+```
 
 
 
 
-UVa 11340 - Newspaper
+## UVa 11340 - Newspaper
 
-print out how much money it will cost to print a newspaper depending on significant case words
+* print out how much money it will cost to print a newspaper depending on significant case words
 
-input format
-# of tests
-# of characters
-char .cents pairs at # of characters
-# of lines of input for article
-lines of article following
+* input format
+	* \# of tests
+  * \# of characters
+  * char .cents pairs at # of characters
+  * \# of lines of input for article
+  * lines of article following
 
-{% highlight java %}
+```java
 public static String evaluateCost(String article, HashMap<Character, Double> prices) {
 	char [] arr = article.toCharArray();
 	Double price = 0.0;
@@ -104,17 +102,17 @@ public static void main(String [] args) {
 
 	System.out.println(evaluateCost(article, prices));
 }
-{% endhighlight %}
+```
 
 
 
- UVa 10855 - Rotated squares 
+ ## UVa 10855 - Rotated squares 
 
  Given a square of N rows and columns of uppercase letters, and another smaller square of n rows and
 columns of uppercase letters, we want to count the number of appearances in the big square of the
 small square in all the rotated forms.
 
-Input
+### Input
 The input will consist of a series of problems, with each problem in a series of lines. In the first line,
 the dimension of the two squares, N and n (with 0 < n ≤ N), is indicated by two integer numbers
 separated by a space. The N lines of the first square appear in the following N lines of the input,
@@ -122,14 +120,15 @@ and then the n lines of the second square appear in the following n lines. The c
 one after another, without spaces. The end of the sequence of problems is indicated with a case where
 N = 0 and n = 0.
 
-Output
+### Output
 The solutions of the different problems appear in successive lines. For each problem the output consists
 of a line with four integers, which are the number of times each rotation of the small square appears in
 the big square. The first number corresponds to the number of appearances of the small square without
 rotations, the second to the appearances of the square rotated 90 degrees (clockwise), the third to the
 square rotated 180 degrees, and the fourth to the square rotated 270 degrees.
 
-Sample Input
+### Sample Input
+```
 4 2
 ABBA
 ABBB
@@ -147,21 +146,26 @@ ABCDBA
 BC
 CD
 0 0
-
-Sample Output
+```
+### Sample Output
+```
 0 1 0 0
 1 0 1 0
+```
+Pseudocode
+```
+// while input != null
+// read in dimension
+// populate first array with read values
+// populate second array with read values
+// for i to 4 
+	// pass through array
+	// if match increment count
+// print out counts
+```
 
-while input != null
-read in dimension
-populate first array with read values
-populate second array with read values
-for i to 4 
-	pass through array
-	if match increment count
-print out counts
 
-{% highlight java%}
+```java
 public static void main(String [] args) {
 	Scanner in = new Scanner(System.in);
 	while (in.hasNext()) {
@@ -172,8 +176,10 @@ public static void main(String [] args) {
 
 		for(int i = 0; i < bigN; i++) {
 			String [] line = in.nextLine().toCharArray();
-			if (line.length == bigN) //todo
+			if (line.length == bigN)  {
+                //todo
+			}
 		}
 	}
 }
-{% endhighlight%}
+```
