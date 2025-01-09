@@ -236,3 +236,51 @@ public class WebCrawl {
     }
 }
 ```
+
+```java
+import java.util.*;
+
+// Web Crawl
+// Given a URL and the number of hops, return the list of URLs that can be visited within the specified number of hops.
+
+public class WebCrawl {
+    public static List<String> webCrawl(String url, int hops) {
+        List<String> result = new ArrayList<>();
+        Set<String> visited = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(url);
+        visited.add(url);
+        int level = 0;
+        while (!queue.isEmpty() && level <= hops) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                String current = queue.poll();
+                result.add(current);
+                List<String> neighbors = getNeighbors(current);
+                for (String neighbor : neighbors) {
+                    if (!visited.contains(neighbor)) {
+                        queue.offer(neighbor);
+                        visited.add(neighbor);
+                    }
+                }
+            }
+            level++;
+        }
+        return result;
+    }
+
+    private static List<String> getNeighbors(String url) {
+        // Dummy method to get neighbors of a URL
+        return new ArrayList<>();
+    }
+
+    public static void main(String[] args) {
+        String url = "https://example.com";
+        int hops = 2;
+        List<String> result = webCrawl(url, hops);
+        for (String link : result) {
+            System.out.println(link);
+        }
+    }
+}
+```
