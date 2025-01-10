@@ -1,6 +1,6 @@
 ---
 title: "Terence Schumacher's Page"
-layout: base
+layout: default
 ---
 
 <div class="home body container">
@@ -9,10 +9,12 @@ layout: base
     <li>
       <div class="card container .card:before .card:after ">
         <p class="card-title .card:hover .card-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <p class="small-desc">
-          {{ post.content | strip_html | truncatewords: 13 }}
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         </p>
+        <div class="post-content">
+          {{ post.content | strip_html | truncatewords: 13 }}
+        </div>
         <div class="go-corner">
           <div class="go-arrow"><a class="post-list" href="{{ post.url | prepend: site.baseurl }}"> → </a></div>
         </div>
