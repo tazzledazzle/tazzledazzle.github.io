@@ -1,9 +1,9 @@
 ---
 title: Debugging
-layout: post
+layout: "page"
 date: 2025-01-13 11:58:21 -0800
 ---
-
+# Debugging issues in software development
 ## 1. Reproduce the Problem
    ### Understand the symptoms: 
    Observe the behavior of the program—errors, crashes, incorrect output, or performance issues.
