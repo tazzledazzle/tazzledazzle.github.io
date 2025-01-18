@@ -95,6 +95,26 @@ val result = square(5) // 25
 val numbers = listOf(1, 2, 3)
 val doubled = numbers.map { it * 2 }
 ```
+
+### Lambda Syntax
+```kotlin
+// Basic lambda syntax
+val sum = { x: Int, y: Int -> x + y }
+val sayHello = { name: String -> println("Hello $name") }
+
+// Lambda with receiver
+val isEven: Int.() -> Boolean = { this % 2 == 0 }
+
+// Lambda with implicit parameter 'it'
+val square: (Int) -> Int = { it * it }
+
+// Multi-line lambda
+val processNumber = { x: Int ->
+    val doubled = x * 2
+    doubled + 1
+}
+```
+
 ---
 # Collections
 ## Creating Collections
@@ -162,6 +182,96 @@ val flatList = listOfLists.flatMap { it }
 val sortedNumbers = numbers.sorted()
 val sortedByLength = words.sortedBy { it.length }
 ```
+
+## Collection Operations
+
+### Transform Operations
+```kotlin
+// Map transformations
+val numbers = listOf(1, 2, 3, 4)
+val doubled = numbers.map { it * 2 }
+val indexed = numbers.mapIndexed { index, value -> "[$index]: $value" }
+val notNull = numbers.mapNotNull { if (it > 2) it else null }
+
+// Flatten operations
+val nested = listOf(listOf(1, 2), listOf(3, 4))
+val flat = nested.flatten()
+val flatMapped = numbers.flatMap { listOf(it, it * 2) }
+```
+
+### Filter Operations
+```kotlin
+// Basic filtering
+val filtered = numbers.filter { it > 2 }
+val negativeFiltered = numbers.filterNot { it > 2 }
+val indexedFilter = numbers.filterIndexed { index, value -> index % 2 == 0 }
+
+// Partitioning
+val (evens, odds) = numbers.partition { it % 2 == 0 }
+```
+
+### Grouping Operations
+```kotlin
+// Basic grouping
+val grouped = numbers.groupBy { it % 2 }
+val groupedWithTransform = numbers.groupBy(
+    keySelector = { it % 2 },
+    valueTransform = { "Value: $it" }
+)
+```
+
+### Aggregation Operations
+```kotlin
+// Reduction operations
+val sum = numbers.reduce { acc, next -> acc + next }
+val sumRight = numbers.reduceRight { next, acc -> next + acc }
+val sumOrNull = emptyList<Int>().reduceOrNull { acc, next -> acc + next }
+
+// Fold operations
+val customSum = numbers.fold(0) { acc, next -> acc + next }
+val customSumRight = numbers.foldRight(0) { next, acc -> next + acc }
+
+// Aggregate operations
+val count = numbers.count { it % 2 == 0 }
+val maxBy = numbers.maxByOrNull { -it }
+val sumBy = numbers.sumOf { it * 2 }
+```
+
+## Sequence Operations
+
+### Creating Sequences
+```kotlin
+// Different ways to create sequences
+val simpleSequence = sequenceOf(1, 2, 3, 4, 5)
+val fromCollection = listOf(1, 2, 3).asSequence()
+val generated = generateSequence(1) { it + 1 }
+val fibonacci = generateSequence(Pair(0, 1)) { Pair(it.second, it.first + it.second) }
+    .map { it.first }
+```
+
+### Sequence Operations
+```kotlin
+// Efficient chain of operations
+val result = numbers.asSequence()
+    .map { it * 2 }
+    .filter { it > 5 }
+    .take(2)
+    .toList()
+
+// Windowed operations
+val windowed = numbers.asSequence()
+    .windowed(size = 2, step = 1)
+    .toList()
+
+// Chunked operations
+val chunked = numbers.asSequence()
+    .chunked(2) { it.sum() }
+    .toList()
+```
+```kotlin
+
+```
+
 ---
 # String Operations
 ## String Templates
@@ -268,6 +378,38 @@ val fullName = with(person) {
     "$firstName $lastName"
 }
 ```
+
+```kotlin
+// let - useful for nullable objects
+nullable?.let { value ->
+    // use value
+}
+
+// with - object configuration
+with(object) {
+    property = value
+    method()
+}
+
+// run - object configuration and computation
+object.run {
+    property = value
+    method()
+    computeSomething()
+}
+
+// apply - object configuration returning the object
+object.apply {
+    property = value
+    method()
+}
+
+// also - additional effects
+object.also { obj ->
+    // do something with obj
+    logger.info("Object processed: $obj")
+}
+```
 ---
 # Sequences
 ## Creating Sequences
@@ -344,7 +486,64 @@ try {
     // Cleanup code
 }
 ```
+
+### Higher-Order Functions
+```kotlin
+// Function that takes a function as parameter
+fun operateOnNumber(x: Int, operation: (Int) -> Int): Int {
+    return operation(x)
+}
+
+// Function that returns a function
+fun createMultiplier(factor: Int): (Int) -> Int {
+    return { number -> number * factor }
+}
+```
+
+## Type-Safe Builders (DSL)
+```kotlin
+// Example of type-safe builder pattern
+class HTML {
+    fun head(init: Head.() -> Unit) = Head().apply(init)
+    fun body(init: Body.() -> Unit) = Body().apply(init)
+}
+
+class Head {
+    fun title(init: () -> String) = Title(init())
+}
+
+class Body {
+    fun div(init: Div.() -> Unit) = Div().apply(init)
+}
+
+// Usage
+html {
+    head {
+        title { "Title" }
+    }
+    body {
+        div {
+            +"Content"
+        }
+    }
+}
+```
 ---
+## Best Practices & Tips
+
+1. Use sequences for large collections when you need multiple operations
+2. Prefer immutable collections (`listOf`, `setOf`, `mapOf`) over mutable ones
+3. Use scope functions appropriately based on context:
+    - `let` for nullable objects
+    - `with` for operating on non-null objects
+    - `run` for object configuration and computing return value
+    - `apply` for object configuration
+    - `also` for side effects
+4. Use extension functions to enhance existing classes
+5. Leverage infix functions for more readable DSLs
+6. Use typealias for complex function types
+
+
 # Tips for Coding Interviews in Kotlin:
 * `Immutability`: Prefer val over var to promote immutability.
 * `Null Safety`: Leverage Kotlin’s null safety features to avoid NullPointerException.
