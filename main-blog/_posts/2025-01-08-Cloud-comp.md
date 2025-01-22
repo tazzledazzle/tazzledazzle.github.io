@@ -87,3 +87,36 @@ Layers
 * Network Layer: IP
 * Data Link Layer: Ethernet Driver
 * Hardware Layer: Ethernet Card
+
+Resources
+* Uniform resource locators (URLs) are used to identify resources on the web.
+
+
+How to Exchange Messages between a web client and a web server
+```http request
+GET /repos/CodeMazeBlog/ConsumeRestfulApisExamples HTTP/1.1
+Host: api.github.com
+Content-Type: application/json
+Authorization: Basic dGhhbmtzIEhhcmFsZCBSb21iYXV0LCBtdWNoIGFwcHJlY2lhdGVk
+Cache-Control: no-cache
+```
+
+```http request 
+POST /repos/CodeMazeBlog/ConsumeRestfulApisExamples/hooks?access_token=5643f4128a9cf974517346b2158d04c8aa7ad45f HTTP/1.1
+Host: api.github.com
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "url": "http://www.example.com/example",
+  "events": [
+    "push"
+  ],
+  "name": "web",
+  "active": true,
+  "config": {
+    "url": "http://www.example.com/example",
+    "content_type": "json"
+  }
+}
+```
