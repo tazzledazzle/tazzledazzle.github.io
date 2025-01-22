@@ -62,3 +62,28 @@ Availability of two components in sequence = Availability of component 1 * Avail
 * Leaderless replication
 * Master-slave replication
 
+### https://code-maze.com/http-series-part-1/
+learn how HTTP communicates to write better applications.
+
+* HTTP Definition
+* Resources
+* How to exchange Messages between a web client and a web server
+* message examples
+* MIME types
+* Request Methodds
+* Headers
+* Status Codes
+
+
+HTTP Def
+HyperText Transfer Protocol
+* in charge of delegation of the internet's media files between client and server
+* HTTP is an application layer protocol
+
+
+Layers
+* Application Layer: HTTP
+* Transport Layer: TCP
+* Network Layer: IP
+* Data Link Layer: Ethernet Driver
+* Hardware Layer: Ethernet Card
