@@ -17,4 +17,4 @@ plugins {
 }
 
 rootProject.name = "terence_schumacher blog"
-include("app", "list", "utilities")
+
