@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform") version "1.9.0"
     id("org.jetbrains.kotlinx.kover") version "0.6.1"
+    id("maven-publish")
     application
 }
 
@@ -68,6 +69,24 @@ kotlin {
     }
 }
 
+
+group = "tazzledazzle.io"
+version = "1.0"
+
 application {
     mainClass.set("tazzledazzle.io.ApplicationKt")
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "tazzledazzle-io-gh-pages"
+            url = uri("https://maven.pkg.github.com/tazzledazzle/tazzledazzle-io")
+            credentials {
+                // TODO: Uncomment and set your credentials
+//                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+//                password = project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
 }
