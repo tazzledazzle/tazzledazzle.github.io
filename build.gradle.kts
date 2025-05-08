@@ -3,6 +3,11 @@ plugins {
     application
 }
 
+repositories {
+    // Use the plugin portal to apply community plugins in convention plugins.
+    gradlePluginPortal()
+    mavenCentral()
+}
 kotlin {
     jvm()
     js(IR) { browser() }
@@ -32,5 +37,5 @@ kotlin {
 }
 
 application {
-    mainClass.set("ApplicationKt")
+    mainClass.set("tazzledazzle.io.ApplicationKt")
 }
