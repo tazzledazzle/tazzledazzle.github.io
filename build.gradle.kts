@@ -1,13 +1,19 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     kotlin("multiplatform") version "1.9.0"
     id("org.jetbrains.kotlinx.kover") version "0.6.1"
-    id("maven-publish")
-    application
+//    id("maven-publish")
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kobweb.application)
+    alias(libs.plugins.kobwebx.markdown)
+//    application
 }
 
 repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     mavenCentral()
 }
 
@@ -20,13 +26,18 @@ kotlin {
             }
         }
     }
-    js(IR) { browser() }
+    js(IR) {
+        browser()
+        binaries.executable()
+    }
+
     sourceSets {
         val commonMain by getting {
             kotlin.srcDir("common/src")
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+                implementation("org.jetbrains.compose:org.jetbrains.compose.gradle.plugin:1.8.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.0")
             }
         }
@@ -45,15 +56,21 @@ kotlin {
         val jsMain by getting {
             dependsOn(commonMain)
             kotlin.srcDir("frontend/src/jsMain/kotlin")
+            kotlin.srcDir("frontend/src")
             dependencies {
                 implementation(npm("markdown-it", "13.0.2"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.7.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-html:0.12.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-js:1.6.0")
+                implementation(libs.compose.html.core)
+                implementation(libs.kobweb.core)
+                implementation(libs.kobwebx.markdown)
+                implementation(libs.compose.runtime)
+                implementation(libs.kobweb.silk)
             }
         }
         // tests
         val commonTest by getting {
-            dependsOn(commonMain)
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-test:1.9.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
@@ -77,16 +94,16 @@ application {
     mainClass.set("tazzledazzle.io.ApplicationKt")
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "tazzledazzle-io-gh-pages"
-            url = uri("https://maven.pkg.github.com/tazzledazzle/tazzledazzle-io")
-            credentials {
-                // TODO: Uncomment and set your credentials
-//                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-//                password = project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN")
-            }
-        }
-    }
-}
+//publishing {
+//    repositories {
+//        maven {
+//            name = "tazzledazzle-io-gh-pages"
+//            url = uri("https://maven.pkg.github.com/tazzledazzle/tazzledazzle-io")
+//            credentials {
+//                // TODO: Uncomment and set your credentials
+////                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+////                password = project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN")
+//            }
+//        }
+//    }
+//}

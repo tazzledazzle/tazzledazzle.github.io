@@ -9,6 +9,9 @@
 pluginManagement {
     // Include 'plugins build' to define convention plugins.
     includeBuild("build-logic")
+    repositories {
+        gradlePluginPortal()
+    }
 }
 
 plugins {
@@ -18,3 +21,9 @@ plugins {
 
 rootProject.name = "tazzledazzle-github-io"
 
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}

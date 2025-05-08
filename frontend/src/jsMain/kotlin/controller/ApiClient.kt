@@ -1,12 +1,13 @@
 // frontend/src/jsMain/kotlin/controller/ApiClient.kt
 package controller
 
+import Post
 import kotlinx.browser.window
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import model.Post
 
 object ApiClient {
     private val scope = MainScope()
