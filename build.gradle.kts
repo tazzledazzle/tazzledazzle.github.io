@@ -9,6 +9,7 @@ repositories {
     gradlePluginPortal()
     mavenCentral()
 }
+
 kotlin {
     jvm {
         compilations.all {
@@ -21,7 +22,7 @@ kotlin {
     js(IR) { browser() }
     sourceSets {
         val commonMain by getting {
-            kotlin.srcDir("common/src/commonMain/kotlin")
+            kotlin.srcDir("common/src")
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
@@ -32,10 +33,11 @@ kotlin {
         val jvmMain by getting {
             dependsOn(commonMain)
             kotlin.srcDir("backend/src/jvmMain/kotlin")
+            kotlin.srcDir("backend/src")
             dependencies {
-                implementation("io.ktor:ktor-server-core-jvm:2.3.4")
+                api("io.ktor:ktor-server-core-jvm:2.3.4")
                 implementation("com.vladsch.flexmark:flexmark-all:0.64.8")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.6.0")
+                api("org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.6.0")
             }
         }
         // frontend
