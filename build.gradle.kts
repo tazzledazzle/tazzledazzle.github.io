@@ -21,27 +21,36 @@ kotlin {
     js(IR) { browser() }
     sourceSets {
         val commonMain by getting {
+            kotlin.srcDir("common/src/commonMain/kotlin")
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.0")
             }
         }
+        // backend
         val jvmMain by getting {
+            dependsOn(commonMain)
+            kotlin.srcDir("backend/src/jvmMain/kotlin")
             dependencies {
                 implementation("io.ktor:ktor-server-core-jvm:2.3.4")
                 implementation("com.vladsch.flexmark:flexmark-all:0.64.8")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.6.0")
             }
         }
+        // frontend
         val jsMain by getting {
+            dependsOn(commonMain)
+            kotlin.srcDir("frontend/src/jsMain/kotlin")
             dependencies {
                 implementation(npm("markdown-it", "13.0.2"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.7.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-js:1.6.0")
             }
         }
+        // tests
         val commonTest by getting {
+            dependsOn(commonMain)
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-test:1.9.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
@@ -49,9 +58,9 @@ kotlin {
             }
         }
         val jvmTest by getting {
+            dependsOn(jvmMain)
             dependencies {
                 implementation("io.ktor:ktor-server-tests-jvm:2.3.4")
-//                implementation("org.jetbrains.kotlin:kotlin-test-junit5:1.9.0")
             }
         }
     }
