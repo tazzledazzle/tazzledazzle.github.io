@@ -1,9 +1,0 @@
-2025-05-08 13:37:05.901 [main] DEBUG io.ktor.server.Application - Java Home: /Users/terenceschumacher/Library/Java/JavaVirtualMachines/openjdk-23.0.2/Contents
-2025-05-08 13:37:05.902 [main] DEBUG io.ktor.server.Application - Class Loader: jdk.internal.loader.ClassLoaders$AppClassLoader@18ff02e4: [file:/Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/out/frontend/site/.kobweb/server/server.jar!/okio]
-2025-05-08 13:37:05.908 [main] INFO  io.ktor.server.Application - Initializing server engine for Kobweb project "Kobweb Chat"
-2025-05-08 13:37:05.910 [main] INFO  io.ktor.server.Application - API jar found and will be loaded: "build/libs/chat-site.jar"
-2025-05-08 13:37:05.966 [main] INFO  io.ktor.server.Application - Loaded and initialized server API jar in 3ms.
-2025-05-08 13:37:05.987 [main] INFO  io.ktor.server.Application - Initializing Kobweb streams.
-2025-05-08 13:37:06.022 [main] INFO  io.ktor.server.Application - CORS: No hosts registered.
-2025-05-08 13:37:06.027 [main] INFO  io.ktor.server.Application - Application started in 0.283 seconds.
-2025-05-08 13:37:06.103 [main] INFO  io.ktor.server.Application - Responding at http://0.0.0.0:8080
