@@ -1,19 +1,53 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
 title: Terence Schumacher's Page
 email: tdizzle@washington.com
 description: > # this means to ignore newlines until "baseurl:"
   A collection of my thoughts, projects, and resources.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
+url: "http://tazzledazzle.github.io"
 twitter_username: terenceschu
 github_username:  tazzledazzle
 
 # Build settings
 markdown: kramdown
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+  - .gitignore
+  - README.md
+  - *.code-workspace
