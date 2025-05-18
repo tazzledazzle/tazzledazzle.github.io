@@ -304,7 +304,7 @@ Bazel Query is a powerful tool for inspecting the build graph and dependencies.
 1.	**Start a Remote Cache Service (e.g., Bazel Remote Cache).**
 2.	**Configure Bazel to Use Remote Cache:**
 
-bazel build //:target --remote_cache=http://cache-server:8080
+bazel build //:target --remote_cache=https://cache-server:8080
 
 
 
