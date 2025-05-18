@@ -1,69 +1,12 @@
 # Site settings
-<<<<<<< HEAD:_config.yml
 title: Terence Schumacher's Page
-email: tdizzle@washington.com
+email: tdizzle@uw.com
 description: > # this means to ignore newlines until baseurl:
-=======
-title: notTerence Schumacher's Page
-email: terenceschumacher@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
->>>>>>> 243fd8b18c086585a887b4cb5cbec38fdba46caa:_config.old.yml
   A collection of my thoughts, projects, and resources.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tazzledazzle.github.io"
+url: "https://tazzledazzle.github.io"
 twitter_username: terenceschu
 github_username:  tazzledazzle
 
 # Build settings
-<<<<<<< HEAD:_config.yml
-markdown: kramdown
-
-# Collections
-collections:
-  projects:
-    output: true
-    permalink: /projects/:path/
-
-# Plugin settings
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-
-# Exclude from processing
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-  - .git/
-  - .gitignore
-  - README.md
-  - "*.code-workspace"
-  - __tests__
-  - cypress
-  - jest.setup.js
-  - babel.config.json
-  - package.json
-  - package-lock.json
-=======
 theme: minima
->>>>>>> 243fd8b18c086585a887b4cb5cbec38fdba46caa:_config.old.yml
