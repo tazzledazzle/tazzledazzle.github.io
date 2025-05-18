@@ -7,7 +7,7 @@
     "test": "jest && npm run test:e2e",
     "test:unit": "jest",
     "test:e2e": "cypress run",
-    "test:links": "bundle exec htmlproofer ./_site --checks --check-links --disable-external",
+    "test:links": "bundle exec htmlproofer ./_site --checks --check-sri --disable-external",
     "cypress:open": "cypress open"
   },
   "devDependencies": {
