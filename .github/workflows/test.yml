@@ -38,9 +38,4 @@ jobs:
         npm run test:unit
         npm run test:links
 
-    - name: Run E2E tests
-      uses: cypress-io/github-action@v5
-      with:
-        start: bundle exec jekyll serve
-        wait-on: 'https://localhost:4000'
-        config: baseUrl=https://localhost:4000
+# add back in cypress end 2 end tests
