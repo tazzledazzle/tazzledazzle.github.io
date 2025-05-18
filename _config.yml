@@ -1,7 +1,7 @@
 # Site settings
 title: Terence Schumacher's Page
 email: tdizzle@washington.com
-description: > # this means to ignore newlines until "baseurl:"
+description: > # this means to ignore newlines until baseurl:
   A collection of my thoughts, projects, and resources.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tazzledazzle.github.io"
@@ -50,4 +50,10 @@ exclude:
   - .git/
   - .gitignore
   - README.md
-  - *.code-workspace
+  - "*.code-workspace"
+  - __tests__
+  - cypress
+  - jest.setup.js
+  - babel.config.json
+  - package.json
+  - package-lock.json
