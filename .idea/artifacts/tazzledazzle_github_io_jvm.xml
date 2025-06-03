@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tazzledazzle-github-io-jvm">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="tazzledazzle-github-io-jvm.jar">
+      <element id="module-output" name="tazzledazzle-github-io.jvmMain" />
+    </root>
+  </artifact>
+</component>
