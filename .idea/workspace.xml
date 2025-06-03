@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b7b0000e-0bc1-44a7-9132-d0dac3e5a167" name="Changes" comment="! F added publishing and cross-compilation" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tazzledazzle-github-io" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tazzledazzle-github-io" type="f1a62948:ProjectNode" />
+                <item name="tazzledazzle-github-io" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tazzledazzle-github-io" type="f1a62948:ProjectNode" />
+                <item name="tazzledazzle-github-io" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tazzledazzle-github-io" type="f1a62948:ProjectNode" />
+                <item name="tazzledazzle-github-io" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="kotlin-mvc-multiplat" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tazzledazzle&quot;
+  }
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOArliOs6GwwqW&quot;,
+        &quot;number&quot;: 28
+      },
+      &quot;lastSeen&quot;: 1736119778117
+    }
+  ]
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:tazzledazzle/tazzledazzle.github.io.git&quot;,
+    &quot;accountId&quot;: &quot;13345e2c-7874-41b0-9eaa-4fae3a077d8f&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;tazzledazzle&quot;,
+    &quot;repository&quot;: &quot;tazzledazzle.github.io&quot;
+  }
+}</component>
+  <component name="GoVcsConfiguration">
+    <option name="GO_FMT" value="false" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2pg2SmxN0yQQdDWaUtvVfsc8OdX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.tazzledazzle.github.io [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.tazzledazzle.github.io [run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kotlin-markdown-flexmark&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kobweb-plugin-state&quot;: &quot;DISABLED&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/.kobweb&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.kobweb" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/main-blog/_layouts" />
+      <recent name="$PROJECT_DIR$/main-blog/_posts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/jvmMain/kotlin" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/.kobweb" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.tazzledazzle.github.io [build]">
+    <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
+      <option name="appName" />
+      <option name="appServicePlanName" />
+      <option name="appServicePlanResourceGroup" />
+      <option name="appSettingsKey" value="bc167686-f6ea-45cd-9172-f8d39c6013ed" />
+      <option name="artifact" />
+      <option name="debugOptions" />
+      <option name="deployment" />
+      <option name="deploymentStagingDirectoryPath" />
+      <option name="funcPath" />
+      <option name="functionHostArguments" />
+      <option name="hostJsonPath" />
+      <option name="insightsName" />
+      <option name="instrumentationKey" />
+      <option name="javaVersion" />
+      <option name="localSettingsJsonPath" />
+      <option name="moduleName" />
+      <option name="os" />
+      <option name="pricingTier" />
+      <option name="providerMap">
+        <map />
+      </option>
+      <option name="region" />
+      <option name="resourceGroup" />
+      <option name="stagingFolder" />
+      <option name="subscription" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tazzledazzle.github.io [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="tazzledazzle.github.io [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="tazzledazzle.github.io" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="tazzledazzle.github.io" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="tazzledazzle.github.io" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.tazzledazzle.github.io [build]" />
+        <item itemvalue="Gradle.tazzledazzle.github.io [run]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7b0000e-0bc1-44a7-9132-d0dac3e5a167" name="Changes" comment="" />
+      <created>1733173399501</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733173399501</updated>
+      <workItem from="1733173400572" duration="13900000" />
+      <workItem from="1733427815790" duration="51000" />
+      <workItem from="1733507250593" duration="4172000" />
+      <workItem from="1733511434763" duration="4045000" />
+      <workItem from="1734028284715" duration="23000" />
+      <workItem from="1734375198752" duration="13902000" />
+      <workItem from="1735242895196" duration="42000" />
+      <workItem from="1735874639386" duration="37763000" />
+      <workItem from="1736311305901" duration="34000" />
+      <workItem from="1736311397908" duration="27000" />
+      <workItem from="1736370510226" duration="7304000" />
+      <workItem from="1736455055643" duration="16307000" />
+      <workItem from="1736730264023" duration="34959000" />
+      <workItem from="1737578860173" duration="40000" />
+      <workItem from="1737578903651" duration="26000" />
+      <workItem from="1737585382561" duration="28000" />
+      <workItem from="1737585422538" duration="1408000" />
+      <workItem from="1737589541385" duration="2064000" />
+      <workItem from="1738024110658" duration="4669000" />
+      <workItem from="1746724297261" duration="686000" />
+      <workItem from="1747080417545" duration="16000" />
+    </task>
+    <task id="LOCAL-00001" summary="Moved and shaked everything out of here">
+      <option name="closed" value="true" />
+      <created>1733251803352</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733251803352</updated>
+    </task>
+    <task id="LOCAL-00002" summary="F** Refactored architecture and updated blog">
+      <option name="closed" value="true" />
+      <created>1733260737531</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733260737532</updated>
+    </task>
+    <task id="LOCAL-00003" summary="B** updated base post and gems in main-blog">
+      <option name="closed" value="true" />
+      <created>1733261350067</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733261350067</updated>
+    </task>
+    <task id="LOCAL-00004" summary="B - Fixed up the CSS and styling for a more bare minimal look">
+      <option name="closed" value="true" />
+      <created>1734385592013</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734385592013</updated>
+    </task>
+    <task id="LOCAL-00005" summary="B - renamed old files; updated html;">
+      <option name="closed" value="true" />
+      <created>1735875237233</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735875237233</updated>
+    </task>
+    <task id="LOCAL-00006" summary="A - added template zip">
+      <option name="closed" value="true" />
+      <created>1735940192383</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1735940192383</updated>
+    </task>
+    <task id="LOCAL-00007" summary="R - mark root gemfile old so that github doesn't get confused">
+      <option name="closed" value="true" />
+      <created>1735940572823</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1735940572823</updated>
+    </task>
+    <task id="LOCAL-00008" summary="E - change setup-ruby version">
+      <option name="closed" value="true" />
+      <created>1735941111326</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735941111326</updated>
+    </task>
+    <task id="LOCAL-00009" summary="e - update header content">
+      <option name="closed" value="true" />
+      <created>1736111430345</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1736111430345</updated>
+    </task>
+    <task id="LOCAL-00010" summary="e - updated posts with better data">
+      <option name="closed" value="true" />
+      <created>1736119684362</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736119684362</updated>
+    </task>
+    <task id="LOCAL-00011" summary="U - first pass on standardizing">
+      <option name="closed" value="true" />
+      <created>1736275027309</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736275027309</updated>
+    </task>
+    <task id="LOCAL-00012" summary="F** - created class diagram, header file, and updated design docs">
+      <option name="closed" value="true" />
+      <created>1736283425563</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1736283425563</updated>
+    </task>
+    <task id="LOCAL-00013" summary="F** - created class diagram, header file, and updated design docs">
+      <option name="closed" value="true" />
+      <created>1736283445219</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1736283445219</updated>
+    </task>
+    <task id="LOCAL-00014" summary="schema validation fix">
+      <option name="closed" value="true" />
+      <created>1736283482517</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1736283482517</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added python interpreter to module">
+      <option name="closed" value="true" />
+      <created>1736283576903</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1736283576903</updated>
+    </task>
+    <task id="LOCAL-00016" summary="e - extracted and edited posts">
+      <option name="closed" value="true" />
+      <created>1736286800140</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736286800140</updated>
+    </task>
+    <task id="LOCAL-00017" summary="F** modified styling of the blog and added a couple posts">
+      <option name="closed" value="true" />
+      <created>1736310938577</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1736310938577</updated>
+    </task>
+    <task id="LOCAL-00018" summary="A - new post about c++ arrays">
+      <option name="closed" value="true" />
+      <created>1736372992975</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1736372992975</updated>
+    </task>
+    <task id="LOCAL-00019" summary="E - Cloud notes on service offerings, http, OSI Model, and protocols">
+      <option name="closed" value="true" />
+      <created>1736394379955</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1736394379955</updated>
+    </task>
+    <task id="LOCAL-00020" summary="A - added cpp data file">
+      <option name="closed" value="true" />
+      <created>1736459396607</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1736459396607</updated>
+    </task>
+    <task id="LOCAL-00021" summary="e - modified post with proper syntax highlighting">
+      <option name="closed" value="true" />
+      <created>1736460213681</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1736460213681</updated>
+    </task>
+    <task id="LOCAL-00022" summary="U-modified styling and attempted to configure CSS">
+      <option name="closed" value="true" />
+      <created>1736538104605</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1736538104605</updated>
+    </task>
+    <task id="LOCAL-00023" summary="F - added cloud notes and financial calcs post">
+      <option name="closed" value="true" />
+      <created>1736986945223</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1736986945223</updated>
+    </task>
+    <task id="LOCAL-00024" summary="U- writing notes">
+      <option name="closed" value="true" />
+      <created>1736987842733</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1736987842733</updated>
+    </task>
+    <task id="LOCAL-00025" summary="U- documenting debugging and research">
+      <option name="closed" value="true" />
+      <created>1736988464147</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1736988464147</updated>
+    </task>
+    <task id="LOCAL-00026" summary="U- documenting disseminating documentation">
+      <option name="closed" value="true" />
+      <created>1736988831803</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1736988831803</updated>
+    </task>
+    <task id="LOCAL-00027" summary="U- documenting conveying technical vs nontechnical information">
+      <option name="closed" value="true" />
+      <created>1736990046754</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1736990046754</updated>
+    </task>
+    <task id="LOCAL-00028" summary="U- added cheatsheet and lib analysis">
+      <option name="closed" value="true" />
+      <created>1737093943847</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1737093943847</updated>
+    </task>
+    <task id="LOCAL-00029" summary="U- added cheatsheet and lib analysis">
+      <option name="closed" value="true" />
+      <created>1737172701237</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1737172701237</updated>
+    </task>
+    <task id="LOCAL-00030" summary="U- more methods in cheatsheet and changed post name">
+      <option name="closed" value="true" />
+      <created>1737243220022</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1737243220022</updated>
+    </task>
+    <task id="LOCAL-00031" summary="U- something is broken here">
+      <option name="closed" value="true" />
+      <created>1737585960720</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1737585960720</updated>
+    </task>
+    <task id="LOCAL-00032" summary="U- add bazel cookbook">
+      <option name="closed" value="true" />
+      <created>1737589695903</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1737589695903</updated>
+    </task>
+    <task id="LOCAL-00033" summary=". u created gradle skeleton">
+      <option name="closed" value="true" />
+      <created>1746726170343</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1746726170343</updated>
+    </task>
+    <task id="LOCAL-00034" summary=". u created kotlin mvc multiplat skeleton">
+      <option name="closed" value="true" />
+      <created>1746727533726</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1746727533726</updated>
+    </task>
+    <task id="LOCAL-00035" summary=". f add data class and service for backend">
+      <option name="closed" value="true" />
+      <created>1746728148468</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1746728148468</updated>
+    </task>
+    <task id="LOCAL-00036" summary=". f added ktor routing and main application">
+      <option name="closed" value="true" />
+      <created>1746728347975</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1746728347976</updated>
+    </task>
+    <task id="LOCAL-00037" summary=". f added apiClient for frontend">
+      <option name="closed" value="true" />
+      <created>1746728447079</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1746728447079</updated>
+    </task>
+    <task id="LOCAL-00038" summary=". f added blogView to front end">
+      <option name="closed" value="true" />
+      <created>1746728473867</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1746728473867</updated>
+    </task>
+    <task id="LOCAL-00039" summary=". f added main landing to front end">
+      <option name="closed" value="true" />
+      <created>1746728521164</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1746728521164</updated>
+    </task>
+    <task id="LOCAL-00040" summary="^ e adjusted dependencies and built successfully">
+      <option name="closed" value="true" />
+      <created>1746729837148</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1746729837148</updated>
+    </task>
+    <task id="LOCAL-00041" summary="! F setup commonTest and successful build">
+      <option name="closed" value="true" />
+      <created>1746731068478</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1746731068478</updated>
+    </task>
+    <task id="LOCAL-00042" summary="! F sourceSet code sharing">
+      <option name="closed" value="true" />
+      <created>1746732905081</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1746732905082</updated>
+    </task>
+    <task id="LOCAL-00043" summary="! F added publishing and cross-compilation">
+      <option name="closed" value="true" />
+      <created>1746733604236</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1746733604236</updated>
+    </task>
+    <task id="LOCAL-00044" summary="! F added publishing and cross-compilation">
+      <option name="closed" value="true" />
+      <created>1746811356288</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1746811356288</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CODE_SMELLS_PROFILE" value="Project Default" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Project Default" />
+    <MESSAGE value="A - new post about c++ arrays" />
+    <MESSAGE value="E - Cloud notes on service offerings, http, OSI Model, and protocols" />
+    <MESSAGE value="A - added cpp data file" />
+    <MESSAGE value="e - modified post with proper syntax highlighting" />
+    <MESSAGE value="U-modified styling and attempted to configure CSS" />
+    <MESSAGE value="F - added cloud notes and financial calcs post" />
+    <MESSAGE value="U- writing notes" />
+    <MESSAGE value="U- documenting debugging and research" />
+    <MESSAGE value="U- documenting disseminating documentation" />
+    <MESSAGE value="U- documenting conveying technical vs nontechnical information" />
+    <MESSAGE value="U- added cheatsheet and lib analysis" />
+    <MESSAGE value="U- more methods in cheatsheet and changed post name" />
+    <MESSAGE value="U- something is broken here" />
+    <MESSAGE value="U- add bazel cookbook" />
+    <MESSAGE value=". u created gradle skeleton" />
+    <MESSAGE value=". u created kotlin mvc multiplat skeleton" />
+    <MESSAGE value=". f add data class and service for backend" />
+    <MESSAGE value=". f added ktor routing and main application" />
+    <MESSAGE value=". f added apiClient for frontend" />
+    <MESSAGE value=". f added blogView to front end" />
+    <MESSAGE value=". f added main landing to front end" />
+    <MESSAGE value="^ e adjusted dependencies and built successfully" />
+    <MESSAGE value="! F setup commonTest and successful build" />
+    <MESSAGE value="! F sourceSet code sharing" />
+    <MESSAGE value="! F added publishing and cross-compilation" />
+    <option name="LAST_COMMIT_MESSAGE" value="! F added publishing and cross-compilation" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
