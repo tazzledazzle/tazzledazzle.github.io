@@ -23,11 +23,11 @@ jobs:
         npm install
 
     - name: Build site
-      run: npm run start
+      run: npm run build
 
     - name: Run tests
       run: |
-        npm run dev
+        npm run build
         npm run test:unit
         npm run test:links
 
