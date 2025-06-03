@@ -11,13 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.2'
-        bundler-cache: true
-
+    
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
@@ -26,15 +20,14 @@ jobs:
 
     - name: Install dependencies
       run: |
-        bundle install
         npm install
 
     - name: Build site
-      run: bundle exec jekyll build
+      run: npm run start
 
     - name: Run tests
       run: |
-        bundle exec rake test
+        npm run dev
         npm run test:unit
         npm run test:links
 
