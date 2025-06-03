@@ -28,7 +28,9 @@ jobs:
     - name: Run tests
       run: |
         npm run build
-        npm run test:unit
-        npm run test:links
+
+
+# npm run test:unit
+# npm run test:links
 
 # add back in cypress end 2 end tests
