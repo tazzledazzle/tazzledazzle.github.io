@@ -108,14 +108,14 @@ Content-Type: application/json
 Cache-Control: no-cache
 
 {
-  "url": "http://www.example.com/example",
+  "url": "https://www.example.com/example",
   "events": [
     "push"
   ],
   "name": "web",
   "active": true,
   "config": {
-    "url": "http://www.example.com/example",
+    "url": "https://www.example.com/example",
     "content_type": "json"
   }
 }

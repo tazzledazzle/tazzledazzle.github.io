@@ -23,7 +23,7 @@ email: terenceschumacher@gmail.com
 description: > 
   A collection of my thoughts, projects, and resources. or something therein
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
+url: "https://tazzledazzle.github.io" # the base hostname & protocol for your site
 twitter_username: terenceschu
 github_username:  tazzledazzle
 minima:
