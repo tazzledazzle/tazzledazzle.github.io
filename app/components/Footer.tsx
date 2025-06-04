@@ -4,18 +4,18 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="flex space-x-6">
-            <a href="https://github.com" className="text-gray-600 hover:text-primary-600">
+            <a href="https://github.com/tazzledazzle" className="text-gray-600 hover:text-primary-600">
               GitHub
             </a>
-            <a href="https://twitter.com" className="text-gray-600 hover:text-primary-600">
+            <a href="https://twitter.com/terenceschu" className="text-gray-600 hover:text-primary-600">
               Twitter
             </a>
-            <a href="https://linkedin.com" className="text-gray-600 hover:text-primary-600">
+            <a href="https://linkedin.com/in/terenceschumacher" className="text-gray-600 hover:text-primary-600">
               LinkedIn
             </a>
           </div>
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} John Doe. All rights reserved.
+            © {new Date().getFullYear()} Terence Schumacher. All rights reserved.
           </p>
         </div>
       </div>
