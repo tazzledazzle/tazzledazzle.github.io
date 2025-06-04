@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "npx serve@latest out",
     "predeploy": "next build",
-    "deploy": "gh-pages -d out",
+    "deploy": "gh-pages -d out -u \"github-actions[bot] <github-actions[bot]@users.noreply.github.com>\"",
     "export": "next export",
     "lint": "next lint",
     "format": "prettier --write ."
