@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
             source: ./out/
-            destination: ./
+            destination: ./_site/
       - name: Install dependencies
         run: |
           npm install
@@ -50,6 +50,9 @@ jobs:
           git config user.email "terenceschumacher@gmail.com"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          source: ./out/
+          destination: ./_site/
 
   # Deployment job
   deploy:
