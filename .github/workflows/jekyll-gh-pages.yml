@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
             source: ./out/
-            destination: ./_site/
+            destination: ./
       - name: Install dependencies
         run: |
           npm install
