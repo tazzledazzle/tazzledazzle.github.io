@@ -5,7 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve@latest out"
+    "start": "npx serve@latest out",
+    "predeploy": "next build",
+    "deploy": "gh-pages -d out",
+    "export": "next export",
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -13,6 +18,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.1.0",
     "clsx": "^2.1.0",
+    "gh-pages": "^6.3.0",
     "gray-matter": "^4.0.3",
     "next": "^15.2.4",
     "next-mdx-remote": "^4.4.1",
