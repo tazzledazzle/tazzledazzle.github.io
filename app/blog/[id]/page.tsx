@@ -6,15 +6,15 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 export function generateStaticParams() {
-  return [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-];
+  const files = fs.readdirSync(path.join(process.cwd(), 'app', '_posts'));
+  return files.map((file) => ({ id: file.replace(/\.md$/, '') }));
 }
 
 async function fetchPost(id: string) {
-  const filePath = path.join(process.cwd(), '_posts', `${id}.md`);
+  // Blog posts are stored under the `app/_posts` directory. The previous path
+  // mistakenly looked for the files at the repository root which resulted in a
+  // runtime error when navigating to a blog post.
+  const filePath = path.join(process.cwd(), 'app', '_posts', `${id}.md`);
   var fileContents = '';
   try {
   fileContents = fs.readFileSync(filePath, 'utf8');
