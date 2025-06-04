@@ -58,10 +58,13 @@ const Navigation = () => {
         </div>
 
         {/* Mobile menu */}
-        <div className={clsx(
-          'md:hidden',
-          isOpen ? 'block' : 'hidden'
-        )}>
+        <div
+          data-testid="mobile-menu"
+          className={clsx(
+            'md:hidden',
+            isOpen ? 'block' : 'hidden'
+          )}
+        >
           <div className="pt-2 pb-3 space-y-1">
             {links.map(({ href, label }) => (
               <Link
