@@ -11,7 +11,8 @@
     "deploy": "gh-pages -d out -u \"github-actions[bot] <github-actions[bot]@users.noreply.github.com>\"",
     "export": "next export",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "jest"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -32,7 +33,13 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.0",
+    "@types/jest": "^29.5.11",
     "autoprefixer": "^10.4.17",
+    "jest": "^29.6.3",
+    "ts-jest": "^29.1.1",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/jest-dom": "^6.3.0",
+    "jest-environment-jsdom": "^29.6.3",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"

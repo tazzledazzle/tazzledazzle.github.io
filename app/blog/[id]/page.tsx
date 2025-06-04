@@ -13,7 +13,7 @@ export function generateStaticParams() {
 ];
 }
 
-async function fetchPost(id: string) {
+export async function fetchPost(id: string) {
   const filePath = path.join(process.cwd(), '_posts', `${id}.md`);
   var fileContents = '';
   try {

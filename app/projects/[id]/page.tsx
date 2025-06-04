@@ -7,7 +7,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-async function getProjectData(id: string) {
+export async function getProjectData(id: string) {
   const filePath = path.join(process.cwd(), 'app', '_projects', `${id}.md`);
   const fileContents = fs.readFileSync(filePath, 'utf8');
 
