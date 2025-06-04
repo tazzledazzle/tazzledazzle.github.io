@@ -4,13 +4,16 @@ import fs from 'fs';
 
 jest.mock('fs');
 const mockedRead = fs.readFileSync as jest.Mock;
+const mockedReaddirSync = fs.readdirSync as jest.Mock;
 
 describe('blog page utilities', () => {
   beforeEach(() => {
     mockedRead.mockReset();
+    mockedReaddirSync.mockReset();
   });
 
   test('generateStaticParams returns ids', () => {
+    mockedReaddirSync.mockReturnValue(['1.md', '2.md', '3.md']);
     expect(generateStaticParams()).toEqual([
       { id: '1' },
       { id: '2' },
