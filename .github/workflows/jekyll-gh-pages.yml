@@ -42,6 +42,12 @@ jobs:
         run: |
           npm run build
           npm run predeploy
+      - name: Set Git user for commits
+        run: |
+          git config user.name "Terence Schumacher"
+          git config user.email "terenceschumacher@gmail.com"
+
+      - name: Make changes
           npm run deploy
           
       - name: Upload artifact
