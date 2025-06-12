@@ -9,11 +9,14 @@ export function generateStaticParams() {
 ];
 }
 
-export default async function PostPage({ params }: { params: { id: string } }) {
+//@ts-ignore
+export default async function PostPage({ params }) {
   let post;
+  const { id } = await params;
   try {
-    post = await fetchPost(params.id);
+    post = await fetchPost(id);
   } catch (e) {
+    console.error(`Error fetching project with id ${id}:`, e);
     notFound();
   }
 
