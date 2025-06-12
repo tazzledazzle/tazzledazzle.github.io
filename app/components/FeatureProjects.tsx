@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-export default function FeaturedProjects() {
+export default async function FeaturedProjects() {
+    const projects = await import('../utils/projects').then(module => module.fetchProjectData);
     return (
         <section>
             <h2 className="text-2xl font-bold mb-6">Featured Projects</h2>

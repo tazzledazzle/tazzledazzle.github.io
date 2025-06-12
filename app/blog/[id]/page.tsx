@@ -1,12 +1,11 @@
 import {notFound} from "next/navigation";
 import {fetchPost} from "../../utils/posts";
+import fs from "fs";
+import path from "path";
 
 export function generateStaticParams() {
-  return [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-];
+  const files = fs.readdirSync(path.join(process.cwd(), 'app', '_posts'));
+  return files.map(file => ({ id: file.replace(/\.md/, '') }));
 }
 
 //@ts-ignore
