@@ -1,9 +1,5 @@
-import { notFound } from "next/navigation";
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import {notFound} from "next/navigation";
+import {fetchPost} from "../../utils/posts";
 
 export function generateStaticParams() {
   return [
@@ -11,26 +7,6 @@ export function generateStaticParams() {
     { id: "2" },
     { id: "3" },
 ];
-}
-
-export async function fetchPost(id: string) {
-  const filePath = path.join(process.cwd(), '_posts', `${id}.md`);
-  var fileContents = '';
-  try {
-  fileContents = fs.readFileSync(filePath, 'utf8');
-  } catch (error) {
-    console.error(`Error reading file ${filePath}:`, error);
-    throw error;
-  }
-  const { data, content } = matter(fileContents != '' ? fileContents : '');
-
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
-
-  return {
-    title: data.title,
-    content: contentHtml,
-  };
 }
 
 export default async function PostPage({ params }: { params: { id: string } }) {

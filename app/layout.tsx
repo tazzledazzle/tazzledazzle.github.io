@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import * as React from "react";
 
 export const metadata: Metadata = {
   title: 'Terence Schumacher - Software Engineer & Writer',

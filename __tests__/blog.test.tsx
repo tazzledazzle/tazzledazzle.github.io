@@ -1,6 +1,7 @@
-import { fetchPost, generateStaticParams, default as PostPage } from '../app/blog/[id]/page';
+import { generateStaticParams, default as PostPage } from '../app/blog/[id]/page';
 import { render, screen } from '@testing-library/react';
 import fs from 'fs';
+import {fetchPost} from "../app/utils/posts";
 
 jest.mock('fs');
 const mockedRead = fs.readFileSync as jest.Mock;

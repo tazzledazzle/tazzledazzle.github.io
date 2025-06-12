@@ -2,7 +2,6 @@
 import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
-import Image from 'next/image';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
