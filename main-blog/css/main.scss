@@ -40,6 +40,115 @@ $on-laptop:        800px;
     }
 }
 
+// HEADER
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 6vw 1.5rem 6vw;
+  font-size: 1rem;
+  font-weight: 500;
+  background: transparent;
+
+  .header-left {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .header-nav {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 400;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+
+// BLOG TITLE
+.blog-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 6vw;
+}
+
+.blog-divider {
+  border: none;
+  border-top: 1px solid #b3c2c6;
+  margin: 0;
+  height: 1px;
+  background: none;
+}
+
+// POST LIST
+main {
+  width: 100%;
+}
+.post-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 2.5rem 6vw;
+  border-bottom: 1px solid #0baad6;
+  background: transparent;
+
+  .post-meta {
+    flex: 1 0 240px;
+    font-weight: bold;
+    font-size: 1.09rem;
+    line-height: 1.4;
+
+    .post-title { font-weight: 700; }
+    .post-author {
+      display: block;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #186b7b;
+      margin-top: 0.6em;
+      text-decoration: underline;
+    }
+  }
+  .post-summary {
+    flex: 3 1 600px;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #30313d;
+
+    .read-on {
+      color: #186b7b;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1em;
+      display: inline-block;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+
+// MOBILE
+@media (max-width: 700px) {
+  .site-header, .post-row {
+    flex-direction: column;
+    gap: 12px;
+    padding: 1.5rem 5vw;
+  }
+  .blog-title {
+    margin-left: 5vw;
+    margin-top: 0.5em;
+  }
+  .post-row {
+    padding: 2rem 5vw;
+    gap: 1rem;
+  }
+}
+
+
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
+// @import "_sass/_base";
+// @import "_sass/_layout";
+@import "_sass/_syntax-highlighting";

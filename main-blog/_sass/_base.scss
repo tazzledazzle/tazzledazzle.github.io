@@ -16,10 +16,34 @@ body {
   font-weight: 500;
   background: transparent;
 
-  .header-left .brand {
-    font-weight: 700;
-    letter-spacing: 0.01em;
+  .blog-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem; // or 12px for spacing
+
+    .gravatar {
+      border-radius: 50%; // makes it circular
+      width: 38px; // or 40px to match your design
+      height: 38px;
+      margin-right: 0.5rem;
+      border: 2px solid #fff; // optional, white border
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06); // optional subtle shadow
+      object-fit: cover;
+      background: #eee;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+  } 
   .header-nav {
     display: flex;
     gap: 2rem;
@@ -110,3 +134,5 @@ main {
     gap: 1rem;
   }
 }
+
+
