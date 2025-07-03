@@ -1,3 +1,8 @@
+---
+title: 
+layout: post
+---
+
 Design Document for Implementing Code Signing and Notarization
 
 1. Title and Overview

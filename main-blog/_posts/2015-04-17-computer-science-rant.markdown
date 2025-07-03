@@ -1,3 +1,8 @@
+---
+title: 
+layout: post
+---
+
 Computer Science. Where do I start? Basics? Algorithms? Languages? Theory? Hardware? Software? API? Design Patterns? The lists go on and on. But I think that the easiest place to start is with either Design Patterns or Algorithms.    
 
 ## Basics of Computer Science

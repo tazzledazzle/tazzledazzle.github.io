@@ -2,6 +2,7 @@
 title: "The Forge"
 layout: "post"
 ---
+
 header file with a class definition for each object
 Ask yourself these questions:
 * How do I interact with this object?

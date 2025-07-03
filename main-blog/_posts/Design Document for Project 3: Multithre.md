@@ -1,3 +1,8 @@
+---
+title: 
+layout: post
+---
+
 Design Document for Project 3: Multithreaded Log Analyzer
 
 1. Title and Overview

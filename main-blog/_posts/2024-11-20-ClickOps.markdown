@@ -1,3 +1,9 @@
+---
+title: 
+layout: post
+---
+
+
 # ClickOps
 
 What the heck is click ops? 

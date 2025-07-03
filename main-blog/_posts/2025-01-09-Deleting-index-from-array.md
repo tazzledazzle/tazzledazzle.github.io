@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Deleting index from array"
 ---
 

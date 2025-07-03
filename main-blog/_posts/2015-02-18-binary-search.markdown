@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "Searching and Sorting - Binary Search"

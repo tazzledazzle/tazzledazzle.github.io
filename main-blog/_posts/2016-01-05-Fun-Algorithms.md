@@ -80,7 +80,7 @@ If a = bt + r, for integers t and r, then gcd(a, b) = gcd(b, r).
 
 <p>Indeed, every common divisor of a and b also divides r. Thus gcd(a, b) divides r. But, of course, gcd(a, b)|b. Therefore, gcd(a, b) is a common divisor of b and r and hence gcd(a, b) ≤ gcd(b, r). The reverse is also true because every divisor of b and r also divides a.   </p>
 
-{% highlight java%}
+```java
 // recursive
 public int gcd(int a, int b) {
 	if (b == 0){
@@ -100,7 +100,8 @@ public int gcd(int a, int b) {
 	}
 	return p;
 }
-{% endhighlight %}   
+```
+
 
 * Gaussian elimination   
 

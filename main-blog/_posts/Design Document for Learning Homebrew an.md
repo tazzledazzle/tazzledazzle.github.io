@@ -1,3 +1,8 @@
+---
+title: 
+layout: post
+---
+
 Design Document for Learning Homebrew and CMake for Dependency Management
 
 1. Title and Overview

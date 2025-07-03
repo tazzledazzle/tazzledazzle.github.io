@@ -1,3 +1,8 @@
+---
+title: 
+layout: post
+---
+
 Design Document for Project 5: macOS Disk Usage Visualizer
 
 1. Title and Overview

@@ -1,3 +1,8 @@
+---
+title: 
+layout: post
+---
+
 # Design Document for Automating macOS Installers (.pkg and .dmg)
 
 ## 1. Title and Overview
