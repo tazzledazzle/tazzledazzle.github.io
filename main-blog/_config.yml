@@ -18,18 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Terence's wacky blog
+title: tazzledazzle blog
 email: terenceschumacher@gmail.com
 description: > 
-  A collection of my thoughts, projects, and resources. or something therein
+  A collection of thoughts, projects, and notes... or something therein
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
 twitter_username: terenceschu
 github_username:  tazzledazzle
 minima:
   social_links:
-    - { platform: github,  user_url: "https://github.com/jekyll/jekyll" }
-    - { platform: twitter, user_url: "https://twitter.com/jekyllrb" }
+    - { platform: github,  user_url: "https://github.com/tazzledazzle" }
+    - { platform: twitter, user_url: "https://twitter.com/terenceschu" }
 
 # Build settings
 theme: minima
