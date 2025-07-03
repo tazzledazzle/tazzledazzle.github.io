@@ -3,34 +3,23 @@ title: "Terence Schumacher's Page"
 layout: default
 ---
 
-<div class="home body container">
-  <ul class="post-list container">
-{% for post in site.posts %}
-    <li>
-      <div class="card container .card:before .card:after ">
-        <p class="card-title .card:hover .card-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+<main>
+    {% for post in site.posts %}
+    <section class="post-row container">
+      <div class="post-meta">
+        <div class="post-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
         <p class="post-meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         </p>
-        <div class="post-content">
+        <div class="post-summary">
           {{ post.content | strip_html | truncatewords: 13 }}
         </div>
         <div class="go-corner">
-          <div class="go-arrow"><a class="post-list" href="{{ post.url | prepend: site.baseurl }}"> → </a></div>
+          <div class="go-arrow">
+            <a class="post-list" href="{{ post.url | prepend: site.baseurl }}"> → </a>
+          </div>
         </div>
       </div>
-      </li>
+    </section>
 {% endfor %}
-  </ul>
-
-</div>
-
-
-<!-- Scripts -->
-<script src="../html5up-hyperspace/assets/js/jquery.min.js"></script>
-<script src="../html5up-hyperspace/assets/js/jquery.scrollex.min.js"></script>
-<script src="../html5up-hyperspace/assets/js/jquery.scrolly.min.js"></script>
-<script src="../html5up-hyperspace/assets/js/browser.min.js"></script>
-<script src="../html5up-hyperspace/assets/js/breakpoints.min.js"></script>
-<script src="../html5up-hyperspace/assets/js/util.js"></script>
-<script src="../html5up-hyperspace/assets/js/main.js"></script>
+</main>

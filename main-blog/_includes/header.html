@@ -1,6 +1,10 @@
 <header class="site-header">
-    <div class="personal-info">
-        <h1 class="site-title"><a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a></h1>
-        <p class="site-subtitle">{{ site.description }}</p>
-    </div>
+  <div class="header-left"><span class="brand">{{ site.title }}</span></div>
+  <nav class="header-nav">
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a href="https://github.com/tazzledazzle">GitHub</a>
+  </nav>
 </header>
+<div class="blog-title">{{ site.title }}</div>
+<hr class="blog-divider">
