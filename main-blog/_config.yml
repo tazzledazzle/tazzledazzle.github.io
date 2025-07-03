@@ -32,7 +32,7 @@ minima:
     - { platform: github,  user_url: "https://github.com/tazzledazzle" }
     - { platform: twitter, user_url: "https://twitter.com/terenceschu" }
 sass:
-  sass_dir: _sass
+  sass_dir: assets/css
 
 # Build settings
 theme: minima
