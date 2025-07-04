@@ -65,5 +65,6 @@ while (low <= high)
           high = mid - 1
 
 otherwise return -1;   //not found
+
 </code></pre>
 

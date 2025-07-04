@@ -1,32 +1,31 @@
 ---
-title: "Documenting evaluating kotlinx-datetime"
+title: Documenting evaluating `kotlinx-datetime`
 layout: "post"
 ---
 
 
 
-# kotlinx-datetime evaluation
-
+## kotlinx-datetime evaluation
 
 ## Common Usages
 
 ### Getting the current date and time
 
 ```kotlin
+
     val clock = Clock.System
     val now: LocalDateTime = clock.now()
 
 ```
 
-
 ### Convert to LocalDateTime and time components
 
 ```kotlin
+
     val currentMoment: Instant = Clock.System.now()
     val datetimeInUtc: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.UTC)
     val datetimeInSystemZone: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
 ```
-
 
 ### LocalDateTime instance
 
@@ -34,18 +33,18 @@ layout: "post"
     val localDateTime = LocalDateTime(2025, 1, 16, 12, 0, 0, 0)
 ```
 
-# Kotlin DateTime and Numbers Cheatsheet
+## Kotlin DateTime and Numbers Cheatsheet
 
-## DateTime Operations
+### DateTime Operations
 
-### Importing Required Libraries
+ **Importing Required Libraries**
 ```kotlin
 //import java.time.*
 //import java.time.format.DateTimeFormatter
 //import kotlin.time.*
 ```
 
-### Creating Dates
+**Creating Dates**
 ```kotlin
 // Current date and time
 val now = LocalDateTime.now()
@@ -69,6 +68,7 @@ val customParsedDate = LocalDate.parse("17/01/2024", customFormat)
 
 ### Date Manipulation
 ```kotlin
+
 // Adding/subtracting time
 val tomorrow = today.plusDays(1)
 val lastWeek = today.minusWeeks(1)
@@ -96,6 +96,7 @@ dateRange.asSequence()
 
 ### Floating Point Types
 ```kotlin
+
 // Declarations
 val d: Double = 3.14 // 64-bit
 val f: Float = 3.14f // 32-bit
@@ -115,11 +116,13 @@ val floor = floor(3.14)
 val absolute = abs(-3.14)
 val power = 2.0.pow(3.0)
 val squareRoot = sqrt(16.0)
+
 ```
 
 ### Number Collections and Conversions
 
 ```kotlin
+
 // Arrays
 val doubleArray = doubleArrayOf(1.0, 2.0, 3.0)
 val floatArray = floatArrayOf(1.0f, 2.0f, 3.0f)
@@ -143,11 +146,13 @@ val doubleToString = 3.14.toString()
 // Nullable numbers
 val nullableDouble: Double? = null
 val safeValue = nullableDouble ?: 0.0
+
 ```
 
-### Functional Operations with Numbers
+ **Functional Operations with Numbers**
 
 ```kotlin
+
 // List operations
 val numbers = listOf(1.1, 2.2, 3.3, 4.4, 5.5)
 
@@ -187,7 +192,9 @@ println(formatter.format(1234.5678)) // Prints: 1,234.57
 ### Common Pitfalls and Best Practices
 
 1. Float/Double Comparison
+
 ```kotlin
+
 // Don't use direct equality
 // Bad:
 val a = 0.1 + 0.2
@@ -200,7 +207,9 @@ println(abs(a - b) < EPSILON)
 ```
 
 2. BigDecimal for Financial Calculations
-```kotlin
+
+<pre><code class="language-python">
+
 // Use BigDecimal for precise calculations
 val amount = BigDecimal("100.50")
 val taxRate = BigDecimal("0.21")
@@ -209,9 +218,12 @@ val total = amount.add(tax)
 ```
 
 3. Null Safety with Numbers
-```kotlin
+
+<pre><code class="language-python">
+
 // Safe calls with nullable numbers
 val nullableValue: Double? = null
 val result = nullableValue?.times(2)
 val defaultValue = nullableValue ?: 0.0
+
 ```
