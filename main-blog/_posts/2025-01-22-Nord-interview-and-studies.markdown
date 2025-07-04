@@ -16,8 +16,8 @@ Bazel is a powerful build and test tool from Google that supports projects in mu
 1. **Create a Workspace Directory**
 
 ```bash
-    mkdir my_project
-    cd my_project
+mkdir my_project
+cd my_project
 ```
 
 1. **Add a** `WORKSPACE` **File:**
@@ -25,8 +25,7 @@ Bazel is a powerful build and test tool from Google that supports projects in mu
 Create an empty WORKSPACE file in the root directory.
 
 ```bash
-
-    touch WORKSPACE
+touch WORKSPACE
 ```
 
 1. **Add a** `BUILD` **File:**
@@ -34,7 +33,7 @@ Create an empty WORKSPACE file in the root directory.
 Create a `BUILD` file where you’ll define build rules.
 
 ```bash
-    touch BUILD
+touch BUILD
 ```
 
 **Discussion:**
@@ -49,32 +48,33 @@ The `WORKSPACE` file tells Bazel that this directory is the root of a Bazel work
 
 1. **Project Structure:**
 
-```bash
+<pre class="tree-diagram">
 my_project/
 ├── WORKSPACE
 ├── BUILD
 └── main.cpp
-```
+</pre>
 
 2. **Write** `main.cpp`**:**
 
-```c
-*// main.cpp*
+```cpp
+// main.cpp
 
 # include <iostream>
 
 int main() {
-std::cout << "Hello, Bazel!" << std::endl;
-return 0;
+    std::cout << "Hello, Bazel!" << std::endl;
+    return 0;
 }
+
 ```
 
 3. **Define a Build Rule in** `BUILD`**:**
 
 ```python
 cc_binary(
-name = "hello_world",
-srcs = ["main.cpp"],
+    name = "hello_world",
+    srcs = ["main.cpp"],
 )
 ```
 
@@ -96,34 +96,42 @@ The cc_binary rule tells Bazel to build a C++ binary from the source file.
 
 1. **Project Structure:**
 
+<pre class="tree-diagram">
 my_project/
 ├── WORKSPACE
 ├── BUILD
 └── Main.java
+</pre>
 
- 2. **Write** Main.java**:**
+ 2. **Write** `Main.java`**:**
 
+```java
 public class Main {
-public static void main(String[] args) {
-System.out.println("Hello, Bazel!");
+    public static void main(String[] args) {
+        System.out.println("Hello, Bazel!");
+    }
 }
-}
+```
 
  3. **Define a Build Rule in** BUILD**:**
 
+```python
 java_binary(
-name = "hello_java",
-srcs = ["Main.java"],
-main_class = "Main",
+    name = "hello_java",
+    srcs = ["Main.java"],
+    main_class = "Main",
 )
+```
 
  4. **Build and Run:**
 
+```bash
 bazel run //:hello_java
+```
 
 **Discussion:**
 
-The java_binary rule compiles Java source files and specifies the main class.
+The `java_binary` rule compiles Java source files and specifies the main class.
 
 ### 4. Using External Dependencies
 
@@ -131,28 +139,33 @@ The java_binary rule compiles Java source files and specifies the main class.
 
 **Solution:**
 
-1. **Update** WORKSPACE **to Include the Dependency:**
+1. **Update** `WORKSPACE` **to Include the Dependency:**
 
+
+```python
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
 http_archive(
-name = "com_google_guava_guava",
-urls = ["https://github.com/google/guava/archive/v31.0.1.tar.gz"],
-strip_prefix = "guava-31.0.1",
+    name = "com_google_guava_guava",
+    urls = ["https://github.com/google/guava/archive/v31.0.1.tar.gz"],
+    strip_prefix = "guava-31.0.1",
 )
+```
 
- 2. **Add** BUILD **Rule:**
 
+2. **Add** `BUILD` **Rule:**
+
+```python
 java_binary(
-name = "app_with_guava",
-srcs = ["App.java"],
-main_class = "App",
-deps = ["@com_google_guava_guava//:guava"],
+    name = "app_with_guava",
+    srcs = ["App.java"],
+    main_class = "App",
+    deps = ["@com_google_guava_guava//:guava"],
 )
+```
 
 **Discussion:**
 
-Using http_archive, you can fetch external dependencies. The deps attribute in the build rule includes them in your build.
+Using `http_archive`, you can fetch external dependencies. The deps attribute in the build rule includes them in your build.
 
 ### 5. Writing a Custom Build Rule
 
@@ -160,18 +173,20 @@ Using http_archive, you can fetch external dependencies. The deps attribute in t
 
 **Solution:**
 
-1. **Define a Skylark Rule in** build_rules.bzl**:**
+1. **Define a Skylark Rule in** `build_rules.bzl` **:**
 
+<pre><code class="language-python">
 def _custom_rule_impl(ctx):
-*# Implementation logic*
-pass
+    # Implementation logic
+    pass
 
-custom_rule = rule(
-implementation =_custom_rule_impl,
-attrs = {
-"srcs": attr.label_list(allow_files = True),
-},
-)
+    custom_rule = rule(
+        implementation =_custom_rule_impl,
+        attrs = {
+        "srcs": attr.label_list(allow_files = True),
+        },
+    )
+</code></pre>
 
  2. **Load and Use the Rule in** BUILD**:**
 

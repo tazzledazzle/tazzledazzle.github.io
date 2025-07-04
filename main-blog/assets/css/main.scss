@@ -163,13 +163,6 @@ main {
     border-radius: 12px;
     box-shadow: 0 4px 32px rgba(70,50,140,0.09);
   }
-  code {
-    background: #f1f3f6;
-    color: #56297b;
-    padding: 0.12em 0.37em;
-    border-radius: 0.25em;
-    font-size: 0.97em;
-  }
 }
 .post-nav {
   position: sticky;
@@ -194,4 +187,45 @@ main {
       color: #24113c;
     }
   }
+}
+/* Code block styles */
+/* Block code (with syntax highlight) */
+pre, pre code, .highlight, .highlight code {
+  background: #2e2e2e;
+  color: #8ff08f;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.05rem;
+  border-radius: 0.7em;
+  padding: 0.5em 1.0em;
+  margin-bottom: 2em;
+  overflow-x: auto;
+}
+
+/* Comment syntax in code block (Rouge default is .c or .comment) */
+.highlight .c, .highlight .comment {
+  color: #d60000 !important;        /* Red text for comments */
+  background: #fff !important;
+  border-radius: 0.3em;
+  padding: 0 .3em;
+  font-style: italic;
+}
+
+/* Inline code default */
+code {
+  background: #fff;
+  color: #238a4e;
+  border-radius: 0.3em;
+  padding: 0.14em 0.4em;
+  font-family: inherit;
+  font-size: 1.01em;
+//   border: 1px solid #dde;
+}
+
+/* Inline comment (outside code blocks) */
+code.comment, .inline-comment {
+  color: #e83e3e;
+  background: #fff;
+  border-radius: 0.3em;
+  font-style: normal;
+  border: 1px solid #ffd6d6;
 }
