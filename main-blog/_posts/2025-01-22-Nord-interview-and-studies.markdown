@@ -141,7 +141,6 @@ The `java_binary` rule compiles Java source files and specifies the main class.
 
 1. **Update** `WORKSPACE` **to Include the Dependency:**
 
-
 ```python
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 http_archive(
@@ -150,7 +149,6 @@ http_archive(
     strip_prefix = "guava-31.0.1",
 )
 ```
-
 
 2. **Add** `BUILD` **Rule:**
 
@@ -209,6 +207,7 @@ Custom rules allow you to extend Bazel’s functionality using Skylark, Bazel’
 
 1. **Define Multiple Targets in** BUILD**:**
 
+<pre><code class="language-python">
 cc_library(
 name = "util",
 srcs = ["util.cpp"],
@@ -225,10 +224,13 @@ name = "app2",
 srcs = ["app2.cpp"],
 deps = [":util"],
 )
+</code></pre>
 
  2. **Build Specific Target:**
 
+```bash
 bazel build //:app1
+```
 
 **Discussion:**
 
@@ -240,22 +242,28 @@ By defining multiple targets, you can build and manage several binaries or libra
 
 **Solution:**
 
-1. **Use** genrule **to Run Documentation Tool:**
+1. **Use** `genrule` **to Run Documentation Tool:**
+
+<pre><code class="language-python">
 
 genrule(
-name = "generate_docs",
-srcs = glob(["*.java"]),
-outs = ["docs.zip"],
-cmd = "javadoc $(SRCS) -d $(GENDIR)/docs && zip -r $@ $(GENDIR)/docs",
+    name = "generate_docs",
+    srcs = glob(["*.java"]),
+    outs = ["docs.zip"],
+    cmd = "javadoc $(SRCS) -d $(GENDIR)/docs && zip -r $@ $(GENDIR)/docs",
 )
+
+</code></pre>
 
  2. **Build the Documentation:**
 
-bazel build //:generate_docs
+```bash
+    bazel build //:generate_docs
+```
 
 **Discussion:**
 
-The genrule allows you to run custom shell commands as part of the build process.
+The `genrule` allows you to run custom shell commands as part of the build process.
 
 ### 8. Running Tests with Bazel
 
@@ -263,29 +271,37 @@ The genrule allows you to run custom shell commands as part of the build process
 
 **Solution:**
 
-1. **Write Test Files (e.g.,** MainTest.java**):**
+1. **Write Test Files (e.g.,** `MainTest.java`**):**
+
+<pre><code class="language-java">
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MainTest {
-@Test
-public void testMain() {
-assertEquals(1, 1);
+    @Test
+    public void testMain() {
+        assertEquals(1, 1);
+    }
 }
-}
+</code></pre>
 
- 2. **Define a Test Rule in** BUILD**:**
+ 2. **Define a Test Rule in** `BUILD`**:**
+
+<pre><code class="language-python">
 
 java_test(
-name = "main_test",
-srcs = ["MainTest.java"],
-deps = ["@junit//jar"],
+    name = "main_test",
+    srcs = ["MainTest.java"],
+    deps = ["@junit//jar"],
 )
+</code></pre>
 
  3. **Run the Tests:**
 
-bazel test //:main_test
+```bash
+    bazel test //:main_test
+```
 
 **Discussion:**
 
@@ -299,12 +315,16 @@ Bazel’s test rules allow you to run tests and integrate them into your build p
 
 1. **Run a Query to Find All Dependencies:**
 
-bazel query 'deps(//:app)'
+```bash
+    bazel query 'deps(//:app)'
+```
 
  2. **Visualize the Build Graph:**
 
-bazel query 'deps(//:app)' --output graph > graph.in
-dot -Tpng graph.in -o graph.png
+```bash
+    bazel query 'deps(//:app)' --output graph > graph.in
+    dot -Tpng graph.in -o graph.png
+```
 
 **Discussion:**
 
@@ -319,7 +339,9 @@ Bazel Query is a powerful tool for inspecting the build graph and dependencies.
 1. **Start a Remote Cache Service (e.g., Bazel Remote Cache).**
 2. **Configure Bazel to Use Remote Cache:**
 
-bazel build //:target --remote_cache=<http://cache-server:8080>
+```bash
+    bazel build //:target --remote_cache=<http://cache-server:8080>
+```
 
 **Discussion:**
 
@@ -333,15 +355,19 @@ Remote caching allows build artifacts to be shared across different machines, sp
 
 1. **Define a Toolchain:**
 
+<pre><code class="language-python">
 toolchain(
-name = "linux_arm_toolchain",
-toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
-target_cpu = "arm",
+    name = "linux_arm_toolchain",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+    target_cpu = "arm",
 )
+</code></pre>
 
  2. **Select the Toolchain When Building:**
 
-bazel build //:app --cpu=arm
+```bash
+    bazel build //:app --cpu=arm
+```
 
 **Discussion:**
 
@@ -355,25 +381,34 @@ By specifying the target CPU or platform, Bazel can cross-compile code.
 
 1. **Project Structure:**
 
+<pre><code class="tree-diagram">
+
 my_project/
 ├── WORKSPACE
 ├── BUILD
 └── app.py
+</code></pre>
 
- 2. **Write** app.py**:**
+ 2. **Write** `app.py`**:**
 
+<pre><code class="language-python">
 print("Hello, Bazel with Python!")
+</code></pre>
 
- 3. **Define a Build Rule in** BUILD**:**
+ 3. **Define a Build Rule in** `BUILD`**:**
 
+<pre><code class="language-python">
 py_binary(
-name = "app",
-srcs = ["app.py"],
+    name = "app",
+    srcs = ["app.py"],
 )
+</code></pre>
 
  4. **Run the Application:**
 
-bazel run //:app
+```bash
+    bazel run //:app
+```
 
 **Discussion:**
 
@@ -387,22 +422,26 @@ Bazel supports Python through the py_binary and py_library rules.
 
 1. **Define a Docker Image Rule:**
 
+<pre><code class="language-python">
 load("@io_bazel_rules_docker//container:container.bzl", "container_image")
 
 container_image(
-name = "app_image",
-base = "@//base_image",
-files = ["app.py"],
-cmd = ["python", "app.py"],
+    name = "app_image",
+    base = "@//base_image",
+    files = ["app.py"],
+    cmd = ["python", "app.py"],
 )
+</code></pre>
 
  2. **Build the Docker Image:**
 
-bazel build //:app_image
+```bash
+    bazel build //:app_image
+```
 
 **Discussion:**
 
-Using rules_docker, Bazel can build and manage Docker images as part of your build process.
+Using `rules_docker`, Bazel can build and manage Docker images as part of your build process.
 
 ### 14. Integrating Bazel with IDEs
 
@@ -431,15 +470,19 @@ IDE integration allows for features like code completion and debugging while usi
 
 1. **Define a Custom Toolchain:**
 
+<pre><code class="language-python">
 toolchain(
 name = "my_toolchain",
 toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 toolchain = "//tools:my_compiler",
 )
+</code></pre>
 
- 2. **Register the Toolchain in** WORKSPACE**:**
+ 2. **Register the Toolchain in** `WORKSPACE`**:**
 
+<pre><code class="language-python">
 register_toolchains("//tools:my_toolchain")
+</code></pre>
 
 **Discussion:**
 
@@ -451,25 +494,29 @@ Toolchains allow you to specify different compilers or build tools for your proj
 
 **Solution:**
 
-1. **Set Up Go Rules in** WORKSPACE**:**
+1. **Set Up Go Rules in** `WORKSPACE`**:**
 
+<pre><code class="language-python">
 load("@bazel_gazelle//:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
 
 go_rules_dependencies()
 go_register_toolchains()
+</code></pre>
 
  2. **Write** BUILD **File:**
 
+<pre><code class="language-python">
 load("@io_bazel_rules_go//go:def.bzl", "go_binary")
 
 go_binary(
 name = "hello_go",
 srcs = ["main.go"],
 )
+</code></pre>
 
- 3. **Write** main.go**:**
+3. **Write** `main.go`**:**
 
-```
+<pre><code class="language-go">
 package main
 
 import "fmt"
@@ -477,12 +524,12 @@ import "fmt"
 func main() {
     fmt.Println("Hello, Bazel with Go!")
 }
-```
+</code></pre>
 
  4. **Build and Run:**
 
-```
-bazel run //:hello_go
+```bash
+    bazel run //:hello_go
 ```
 
 **Discussion:**
@@ -493,18 +540,18 @@ Bazel’s Go rules enable seamless building and testing of Go applications.
 **Problem:** Build the project with different configurations (e.g., debug, release).
 **Solution:**
 
-1. **Define Configurations in** BUILD**:**
+1. **Define Configurations in** `BUILD`**:**
 
-```
+<pre><code class="language-python">
 config_setting(
     name = "debug_mode",
     values = {"compilation_mode": "dbg"},
 )
-```
+</code></pre>
 
- 2. **Use Select Statements:**
+2. **Use Select Statements:**
 
-```
+<pre><code class="language-python">
 cc_binary(
     name = "app",
     srcs = ["app.cpp"],
@@ -513,11 +560,11 @@ cc_binary(
         "//conditions:default": ["-O2"],
     }),
 )
-```
+</code></pre>
 
  3. **Build with Configuration:**
 
-```
+```bash
 bazel build //:app -c dbg
 ```
 
@@ -531,15 +578,16 @@ Configurations allow for flexible build options based on specified conditions.
 
 1. **Enable Build Caching:**
 
-```
+```bash
 bazel build //:target --disk_cache=~/.bazel-cache
 ```
 
- 2. **Use Remote Execution Services.**
- 3. **Avoid Unnecessary Rebuilds:**
+2. **Use Remote Execution Services.**
+3. **Avoid Unnecessary Rebuilds:**
 
 * Ensure that only changed files trigger rebuilds.
 * Use finer-grained targets.
+
 **Discussion:**
 Optimizing build performance can save time and resources, especially in large projects.
 
@@ -548,9 +596,9 @@ Optimizing build performance can save time and resources, especially in large pr
 **Problem:** Compile Protocol Buffer definitions in your build.
 **Solution:**
 
-1. **Set Up Protobuf Dependencies in** WORKSPACE**:**
+1. **Set Up Protobuf Dependencies in** `WORKSPACE`**:**
 
-```
+<pre><code class="language-python">
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
@@ -558,11 +606,11 @@ git_repository(
     remote = "https://github.com/protocolbuffers/protobuf.git",
     tag = "v3.17.3",
 )
-```
+</code></pre>
 
- 2. **Define Build Rules in** BUILD**:**
+ 2. **Define Build Rules in** `BUILD`**:**
 
-```
+<pre><code class="language-python">
 proto_library(
     name = "my_proto",
     srcs = ["my.proto"],
@@ -572,39 +620,39 @@ cc_proto_library(
     name = "my_proto_cc",
     deps = [":my_proto"],
 )
-```
+</code></pre>
 
 **Discussion:**
-Bazel’s proto rules automate the compilation of .proto files into source code.
+Bazel’s proto rules automate the compilation of `.proto` files into source code.
 
 ### 20. Building Android Apps
 
 **Problem:** Build an Android application using Bazel.
 **Solution:**
 
-1. **Set Up Android SDK in** WORKSPACE**:**
+1. **Set Up Android SDK in** `WORKSPACE`**:**
 
-```
+<pre><code class="language-python">
 android_sdk_repository(
     name = "androidsdk",
     path = "/path/to/android/sdk",
 )
-```
+</code></pre>
 
- 2. **Define Android Binary in** BUILD**:**
+2. **Define Android Binary in** `BUILD`**:**
 
-```
+<pre><code class="language-python">
 android_binary(
     name = "my_app",
     srcs = glob(["*.java"]),
     manifest = "AndroidManifest.xml",
 )
-```
+</code></pre>
 
  3. **Build the APK:**
 
-```
-bazel build //:my_app
+```bash
+    bazel build //:my_app
 ```
 
 **Discussion:**
@@ -615,16 +663,16 @@ Bazel provides robust support for Android development, including resource proces
 **Problem:** Control where Bazel places its build outputs.
 **Solution:**
 
-1. **Use** --output_base**:**
+1. **Use** `--output_base`**:**
 
-```
-bazel build //:target --output_base=/path/to/output_base
+```bash
+    bazel build //:target --output_base=/path/to/output_base
 ```
 
  2. **Use** --symlink_prefix**:**
 
-```
-bazel build //:target --symlink_prefix=/path/to/symlinks/
+```bash
+    bazel build //:target --symlink_prefix=/path/to/symlinks/
 ```
 
 **Discussion:**
@@ -635,20 +683,20 @@ Adjusting output locations can help with build management and integration with o
 **Problem:** Extend Bazel’s functionality with custom Skylark extensions.
 **Solution:**
 
-1. **Create a** .bzl **File with Extension Functions:**
+1. **Create a** `.bzl` **File with Extension Functions:**
 
-```
+<pre><code class="language-python">
 def greet(name):
     print("Hello, {}!".format(name))
-```
+</code></pre>
 
- 2. **Load and Use in** BUILD**:**
+2. **Load and Use in** `BUILD`**:**
 
-```
+<pre><code class="language-python">
 load("//:extensions.bzl", "greet")
 
 greet("Bazel User")
-```
+</code></pre>
 
 **Discussion:**
 Skylark extensions allow you to write custom build logic in a Python-like language.
@@ -679,7 +727,7 @@ Integrating Bazel with CI/CD ensures consistent builds and tests across environm
 
 1. **Use Multiple External Repositories:**
 
-```
+<pre><code class="language-python">
 http_archive(
     name = "lib_v1",
     urls = ["https://example.com/lib-1.0.tar.gz"],
@@ -689,10 +737,11 @@ http_archive(
     name = "lib_v2",
     urls = ["https://example.com/lib-2.0.tar.gz"],
 )
-
+</code></pre>
 
  2. **Specify Versions in Dependencies:**
 
+<pre><code class="language-python">
 cc_binary(
     name = "app_v1",
     srcs = ["app.cpp"],
@@ -704,7 +753,7 @@ cc_binary(
     srcs = ["app.cpp"],
     deps = ["@lib_v2//:lib"],
 )
-```
+</code></pre>
 
 **Discussion:**
 Bazel’s external dependencies can point to different versions, allowing side-by-side usage.
@@ -720,7 +769,7 @@ Bazel’s external dependencies can point to different versions, allowing side-b
 
 2. **Test Suites:**
 
-```
+<pre><code class="language-python">
 test_suite(
     name = "all_tests",
     tests = [
@@ -728,12 +777,12 @@ test_suite(
         ":test2",
     ],
 )
-```
+</code></pre>
 
  3. **Shard Tests for Parallel Execution:**
 
-```
-bazel test //:all_tests --test_sharding_strategy=experimental_heuristic
+```bash
+    bazel test //:all_tests --test_sharding_strategy=experimental_heuristic
 ```
 
 **Discussion:**
@@ -765,13 +814,13 @@ Proper structuring and resource utilization are key for scaling Bazel in large p
 
 1. **Use Verbose Output:**
 
-```
+```bash
 bazel build //:target -s
 ```
 
  2. **Inspect Build Graph:**
 
-```
+```bash
 bazel query 'allpaths(//:target, //:dependency)'
 ```
 
@@ -798,6 +847,7 @@ Debugging tools and commands help identify and resolve build problems.
 3. **Incrementally Migrate:**
 
 * Gradually replace existing build tools with Bazel.
+
 **Discussion:**
 A phased approach reduces risk and eases the transition to Bazel.
 
@@ -806,24 +856,25 @@ A phased approach reduces risk and eases the transition to Bazel.
 **Problem:** Include generated code in your build process.
 **Solution:**
 
-1. **Use** genrule **to Generate Sources:**
+1. **Use** `genrule` **to Generate Sources:**
 
-```
+<pre><code class="language-python">
 genrule(
     name = "generate_source",
     outs = ["generated.cpp"],
     cmd = "python generate.py > $@",
 )
-```
+</code></pre>
 
  2. **Depend on Generated Sources:**
 
-```
+<pre><code class="language-python">
+
 cc_binary(
     name = "app",
     srcs = ["main.cpp", ":generate_source"],
 )
-```
+</code></pre>
 
 **Discussion:**
 
