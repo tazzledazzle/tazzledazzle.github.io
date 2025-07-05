@@ -59,3 +59,55 @@ Feel free to share, fork, and adapt – with attribution.
 See [LICENSE](LICENSE) for details.
 
 ---
+
+## Future Improvements
+
+### Project Structure and Organization
+
+Move the main-blog directory to the root level for better organization
+Remove unused template files (`html5up-hyperspace.zip`, `templated-hielo.zip`)
+Consider separating the blog content from the project showcase
+
+### Build System and Dependencies
+
+Remove duplicate Gemfile versions (`.old` files)
+Consider consolidating build tools (Jekyll + Node.js)
+Add proper version control for dependencies
+
+### Testing and Quality Assurance
+
+Add more comprehensive unit tests
+Implement CI/CD pipeline
+Add code linting and formatting
+
+### Performance and SEO
+
+Add proper meta tags and SEO optimization
+Implement lazy loading for images
+Add service worker for offline capabilities
+Implement proper caching strategies
+
+### Security
+
+Add proper security headers
+Implement HTTPS enforcement
+Add proper CORS configuration
+
+### Documentation
+
+Add more detailed documentation
+Create a contributing guide
+Add setup instructions for local development
+
+### Accessibility
+
+Add ARIA labels and roles
+Implement proper keyboard navigation
+Add screen reader support
+
+### Performance
+
+Implement proper image optimization
+Add proper loading states
+Implement proper error handling
+
