@@ -7,7 +7,8 @@ import html from 'remark-html';
 
 export function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), 'app', '_posts'));
-  return files.map((file) => ({ id: file.replace(/\.md$/, '') }));
+  const markdownFiles = files.filter((file) => file.endsWith('.md'));
+  return markdownFiles.map((file) => ({ id: file.replace(/\.md$/, '') }));
 }
 
 async function fetchPost(id: string) {
