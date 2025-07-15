@@ -2,61 +2,23 @@
 import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
-import Image from 'next/image';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { fetchProjectData } from '../../utils/projects';
 
-async function getProjectData(id: string) {
-  const filePath = path.join(process.cwd(), 'app', '_projects', `${id}.md`);
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-
-  const { data, content } = matter(fileContents);
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
-
-  return {
-    title: data.title,
-    description: data.description,
-    image: data.image,
-    github: data.github,
-    live: data.live,
-    content: contentHtml,
-  };
-}
 // Next.js (TypeScript)
 export function generateStaticParams() {
     const files = fs.readdirSync(path.join(process.cwd(), 'app', '_projects'));
 
   return files.map(file => ({ id: file.replace(/\.md/, '') }));
 }
-// this is still placeholder data, replace with real data fetching logic
-// or a database query in a real application.
-const projects: Record<'1' | '2', { title: string; description: string; image: string; content: string; github: string; live: string }> = {
-  '1': {
-    title: 'TazzleBlog',
-    description: 'A blazing fast personal blog built with Next.js and Tailwind CSS.',
-    image: '/images/tazzleblog.png',
-    content: `<p>This is a sample blog post content. You can write about anything you like here.</p>`,
-    github: '',
-    live: 'https://tazzleblog.vercel.app',
-  },
-  '2': {
-    title: 'BuildBuddy Tracker',
-    description: 'A tool to monitor Gradle builds and CI/CD pipelines.',
-    image: '/images/tazzleblog.png',
-    content: `<p>This is a sample blog post content. You can write about anything you like here.</p>`,
-    github: '',
-    live: 'https://tazzleblog.vercel.app',
-  },
-};
 
-export default async function ProjectPage({ params }: { params: { id: string } }) {
+// @ts-ignore
+export default async function ProjectPage({ params }) {
   let project;
+  const { id } = await params;
   try {
-    project = await getProjectData(params.id);
+    project = await fetchProjectData(id);
   } catch (e) {
-    console.error(`Error fetching project with id ${params.id}:`, e);
+    console.error(`Error fetching project with id ${id}:`, e);
     notFound();
   }
 

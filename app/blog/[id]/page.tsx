@@ -1,9 +1,7 @@
-import { notFound } from "next/navigation";
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import {notFound} from "next/navigation";
+import {fetchPost} from "../../utils/posts";
+import fs from "fs";
+import path from "path";
 
 export function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), 'app', '_posts'));
@@ -36,9 +34,11 @@ async function fetchPost(id: string) {
 
 export default async function PostPage({ params }: { params: { id: string } }) {
   let post;
+  const { id } = await params;
   try {
-    post = await fetchPost(params.id);
+    post = await fetchPost(id);
   } catch (e) {
+    console.error(`Error fetching project with id ${id}:`, e);
     notFound();
   }
 
