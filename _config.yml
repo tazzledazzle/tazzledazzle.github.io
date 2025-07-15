@@ -21,7 +21,7 @@
 title: tazzledazzle blog
 email: terenceschumacher@gmail.com
 gravatar_hash: 10056dfd9bd277610a657d2aee28089b
-description: > 
+description: >
   A collection of thoughts, projects, and notes... or something therein
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
@@ -55,12 +55,14 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
+source: main-blog
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
   - ../errata/
-   - Gemfile.old
-   - Gemfile.old.lock
+    - Gemfile.old
+    - Gemfile.old.lock
 #   - gemfiles/
 #   - node_modules/
 #   - vendor/bundle/
