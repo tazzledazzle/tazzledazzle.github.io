@@ -1,0 +1,30 @@
+---
+layout: base
+title: {{page.title}}
+---
+<article class="post">
+
+    <header class="post-header post-nav">
+        <div>
+            <h1 class="post-title" >{{ page.title }}</h1>
+            <p class="post-meta ">
+                <time datetime="{{ page.date | date_to_xmlschema }}" >
+                    {{ page.date | date: "%b %-d,%Y" }}
+                </time>
+                {% if page.author %}
+                • <span class="post-author">
+                        <span class="author-name">{{ page.author }}</span>
+                    </span>
+                {% endif %}
+            </p>
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+
+    </div>
+
+</article>
+<!-- <link rel="stylesheet" href="../../../html5up-hyperspace/assets/css/main.css"/> -->
+<link rel="stylesheet" href='{{ "../../../../../assets/css/main.css" | prepend: site.baseurl }}'>

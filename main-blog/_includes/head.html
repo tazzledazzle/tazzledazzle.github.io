@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta basics -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Title (dynamic, falls back to site.title) -->
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description"
+    content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Favicon -->
+  <!-- <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon"> -->
+  <!-- <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}"> -->
+
+  <!-- Open Graph (Facebook/LinkedIn/social sharing) -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description"
+    content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image"
+    content="{% if page.og_image %}{{ page.og_image | relative_url }}{% else %}{{ site.og_image | relative_url }}{% endif %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description"
+    content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+  <meta name="twitter:image"
+    content="{% if page.twitter_image %}{{ page.twitter_image | relative_url }}{% else %}{{ site.twitter_image | relative_url }}{% endif %}">
+
+  <!-- Styles (compiled CSS, add more as needed) -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Fonts (Example: Inter from Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+
+  <!-- RSS Feed (if you use one) -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+  <!-- Optional: analytics, extra head content from config -->
+  {% if site.google_analytics %}
+  <!-- Google Analytics Script Here -->
+  {% endif %}
+  {{ site.head_extra }}
+</head>

@@ -24,48 +24,28 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: setup Node.js
-        uses: actions/setup-node@v3
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-            source: ./out/
-            destination: ./_site/
-      - name: Install dependencies
-        run: |
-          npm install
-          npm ci
-
-      - name: Build site
-        run: |
-          npm run build && npm run predeploy
-
-      - name: Set Git user for commits
-        run: |
-          git config user.name "Terence Schumacher"
-          git config user.email "terenceschumacher@gmail.com"
-      - name: setup out dir
-        run: mkdir -p _site && cp -r ./out/* _site
-      
+          source: ./main-blog
+          destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-
 
   # Deployment job
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
         id: deployment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          run: npm run deploy
+        uses: actions/deploy-pages@v4

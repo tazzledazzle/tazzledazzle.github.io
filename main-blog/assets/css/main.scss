@@ -1,0 +1,232 @@
+---
+---
+
+body {
+  background: #eafafc;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: #202124;
+  margin: 50px;
+  padding: 3px;
+}
+
+// HEADER
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 6vw 1.5rem 6vw;
+  font-size: 1rem;
+  font-weight: 500;
+  background: transparent;
+
+  .header-left .brand {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .header-nav {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 400;
+      font-size: 2.4rem;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+
+// BLOG TITLE
+.blog-title {
+  font-size: 3.4rem;
+  font-weight: bold;
+  margin-left: 6vw;
+}
+
+.blog-divider {
+  border: none;
+  border-top: 1px solid #b3c2c6;
+  margin: 0;
+  height: 1px;
+  background: none;
+}
+
+// POST LIST
+main {
+  width: 100%;
+}
+.post-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 2.8rem 6vw;
+  border-bottom: 1px solid #b3c2c6;
+  background: transparent;
+
+  .post-meta {
+    flex: 1 0 240px;
+    font-weight: bold;
+    font-size: 1.09rem;
+    line-height: 1.4;
+
+    .post-title { font-weight: 700; }
+    .post-author {
+      display: block;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #186b7b;
+      margin-top: 0.6em;
+      text-decoration: underline;
+    }
+  }
+  .post-summary {
+    flex: 3 1 600px;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #30313d;
+
+    .read-on {
+      color: #186b7b;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1em;
+      display: inline-block;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+
+// MOBILE
+@media (max-width: 700px) {
+  .site-header, .post-row {
+    flex-direction: column;
+    gap: 12px;
+    padding: 1.5rem 5vw;
+  }
+  .blog-title {
+    margin-left: 5vw;
+    margin-top: 0.5em;
+  }
+  .post-row {
+    padding: 2rem 5vw;
+    gap: 1rem;
+  }
+}
+
+.post-header {
+  background: #f5f7fa;
+  padding: 2rem 1.5rem 1.2rem 1.5rem;
+  border-radius: 1.1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(100, 130, 160, 0.05);
+
+  .post-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 0.4em;
+    color: #27324b;
+  }
+  .post-meta {
+    font-size: 1.04rem;
+    color: #6c7a8a;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    svg {
+      width: 1em;
+      height: 1em;
+      opacity: 0.8;
+    }
+  }
+}
+.post-content {
+  font-size: 1.2rem;
+  line-height: 1.85;
+  max-width: 730px;
+  margin: 0 auto 2.5rem auto;
+  color: #24292e;
+  word-break: break-word;
+
+  p:first-of-type {
+    font-size: 1.23rem;
+    font-weight: 500;
+    color: #5b2e80;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.1em;
+  }
+  img {
+    display: block;
+    margin: 2em auto;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 32px rgba(70,50,140,0.09);
+  }
+}
+.post-nav {
+  position: sticky;
+  top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2.2rem;
+  z-index: 10;
+
+  a {
+    background: #e2d9f7;
+    color: #46247e;
+    padding: 0.5em 1.2em;
+    border-radius: 2em;
+    font-weight: 600;
+    font-size: 1.03rem;
+    text-decoration: none;
+    box-shadow: 0 1px 5px rgba(80,40,140,0.06);
+    transition: background 0.2s, color 0.2s;
+    &:hover, &:focus {
+      background: #d1c2f5;
+      color: #24113c;
+    }
+  }
+}
+/* Code block styles */
+/* Block code (with syntax highlight) */
+pre, pre code, .highlight, .highlight code {
+  background: #2e2e2e;
+  color: #8ff08f;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.05rem;
+  border-radius: 0.7em;
+  padding: 0.5em 1.0em;
+  margin-bottom: 2em;
+  overflow-x: auto;
+}
+
+/* Comment syntax in code block (Rouge default is .c or .comment) */
+.highlight .c, .highlight .comment {
+  color: #d60000 !important;        /* Red text for comments */
+  background: #fff !important;
+  border-radius: 0.3em;
+  padding: 0 .3em;
+  font-style: italic;
+}
+
+/* Inline code default */
+code {
+  background: #fff;
+  color: #238a4e;
+  border-radius: 0.3em;
+  padding: 0.14em 0.4em;
+  font-family: inherit;
+  font-size: 1.01em;
+//   border: 1px solid #dde;
+}
+
+/* Inline comment (outside code blocks) */
+code.comment, .inline-comment {
+  color: #e83e3e;
+  background: #fff;
+  border-radius: 0.3em;
+  font-style: normal;
+  border: 1px solid #ffd6d6;
+}
