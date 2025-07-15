@@ -3,10 +3,10 @@
 
 body {
   background: #eafafc;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   color: #202124;
-  margin: 0;
-  padding: 0;
+  margin: 50px;
+  padding: 3px;
 }
 
 // HEADER
@@ -31,6 +31,7 @@ body {
       text-decoration: none;
       color: #222;
       font-weight: 400;
+      font-size: 2.4rem;
       &:hover { text-decoration: underline; }
     }
   }
@@ -38,7 +39,7 @@ body {
 
 // BLOG TITLE
 .blog-title {
-  font-size: 1.4rem;
+  font-size: 3.4rem;
   font-weight: bold;
   margin-left: 6vw;
 }
@@ -60,7 +61,7 @@ main {
   flex-direction: row;
   justify-content: flex-start;
   gap: 3rem;
-  padding: 2.5rem 6vw;
+  padding: 2.8rem 6vw;
   border-bottom: 1px solid #b3c2c6;
   background: transparent;
 

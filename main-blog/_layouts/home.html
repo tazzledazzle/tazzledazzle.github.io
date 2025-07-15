@@ -1,20 +1,20 @@
 ---
 title: "Terence Schumacher's Page"
-layout: default
+layout: base
 ---
 
 <main>
     {% for post in site.posts %}
-    <section class="post-row container">
+    <section class="post-row">
       <div class="post-meta">
         <div class="post-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
         <p class="post-meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         </p>
         <div class="post-summary">
-          {{ post.content | strip_html | truncatewords: 13 }}
+          {{ post.content | strip_html | truncatewords: 30, '...' }}
         </div>
-        <div class="go-corner">
+        <div class="read-on">
           <div class="go-arrow">
             <a class="post-list" href="{{ post.url | prepend: site.baseurl }}"> → </a>
           </div>
