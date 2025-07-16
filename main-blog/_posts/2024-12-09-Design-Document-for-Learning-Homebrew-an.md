@@ -1,6 +1,8 @@
 ---
 title: "Design Document for Learning Homebrew and CMake for Dependency Management"
-layout: "post"
+layout: page
+date: "2024-12-09 10:00:00"
+hide: true
 ---
 
 

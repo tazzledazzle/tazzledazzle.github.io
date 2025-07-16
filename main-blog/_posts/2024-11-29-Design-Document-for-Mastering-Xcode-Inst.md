@@ -1,6 +1,7 @@
 ---
 title: "Design Document for Mastering Xcode Instruments for Profiling and Performance Optimization"
-layout: "post"
+layout: page
+hide: true
 ---
 
 

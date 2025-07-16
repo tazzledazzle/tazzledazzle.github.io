@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Welcome Back!"
+hide: true
 date:   2024-12-03 12:23:42 -0800
 categories: ["blogging", "portfolio"]
 ---

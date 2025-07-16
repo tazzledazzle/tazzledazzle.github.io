@@ -1,6 +1,7 @@
 ----
 title: "Document for Debugging Kernel-Level Interactions"
-layout: "post"
+layout: page
+hide: true
 ----
 
 # Design Document for Debugging Kernel-Level Interactions

@@ -1,6 +1,7 @@
 ----
 title: "Design Document for Project 3: Multithreaded Log Analyzer"
-layout: "post"
+layout: page
+hide: true
 ----
 1. Title and Overview
 

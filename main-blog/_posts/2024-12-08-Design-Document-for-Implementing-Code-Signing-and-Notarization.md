@@ -1,6 +1,7 @@
 ----
 title: "Design Document for Implementing Code Signing and Notarization"
-layout: "post"
+layout: page
+hide: true
 ----
 
 # Design Document for Implementing Code Signing and Notarization

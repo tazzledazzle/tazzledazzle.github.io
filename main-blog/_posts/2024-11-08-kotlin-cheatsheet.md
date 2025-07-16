@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Cheatsheet"
 date: 2024-11-08 11:58:21 -0800
-layout: "page"
+layout: page
 ---
 
 

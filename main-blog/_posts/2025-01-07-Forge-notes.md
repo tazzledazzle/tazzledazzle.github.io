@@ -1,6 +1,6 @@
 ---
 title: "Forge notes"
-layout: "post"
+layout: page
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: "The Forge"
-layout: "post"
+layout: page
+hide: true
 ---
 
 header file with a class definition for each object

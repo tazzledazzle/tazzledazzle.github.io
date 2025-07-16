@@ -1,6 +1,7 @@
 ---
 title: "Forge and Prep"
-layout: "post"
+layout: page
+hide: true
 ---
 
 

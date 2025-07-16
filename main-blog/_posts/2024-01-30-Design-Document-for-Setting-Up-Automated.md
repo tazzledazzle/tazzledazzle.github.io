@@ -1,6 +1,7 @@
 ----
 title: "Design Document for Setting Up Automated Tests for macOS Applications"
-layout: "post"
+layout: page
+hide: true
 ----
 1. Title and Overview
 

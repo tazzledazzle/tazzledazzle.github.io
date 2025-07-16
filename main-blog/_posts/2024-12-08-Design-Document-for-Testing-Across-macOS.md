@@ -1,6 +1,7 @@
 ----
 title: "Design Document for Testing Across macOS Versions"
-layout: "post" 
+layout: page
+hide: true
 ----
 
 # Design Document for Testing Across macOS Versions

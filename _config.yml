@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: tazzledazzle blog
+title: Tazzledazzle blog
 email: terenceschumacher@gmail.com
 gravatar_hash: 10056dfd9bd277610a657d2aee28089b
 description: >

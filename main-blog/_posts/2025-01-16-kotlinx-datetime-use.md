@@ -1,6 +1,6 @@
 ---
 title: Documenting evaluating `kotlinx-datetime`
-layout: "post"
+layout: page
 ---
 
 

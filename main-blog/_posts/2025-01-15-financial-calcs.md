@@ -1,5 +1,5 @@
 ---
-layout: "post"
+layout: page
 title: "Financial Calculations for Fun and Profit"
 ---
 

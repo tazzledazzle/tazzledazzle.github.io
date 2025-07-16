@@ -1,6 +1,8 @@
 ---
-title: 
-layout: post
+title: ClickOps
+layout: page
+hide: true
+
 ---
 
 

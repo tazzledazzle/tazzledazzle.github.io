@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Algorithms That Interest Me"
 date:   2016-01-05 08:35:25 -0800
 categories: algorithms computer_science

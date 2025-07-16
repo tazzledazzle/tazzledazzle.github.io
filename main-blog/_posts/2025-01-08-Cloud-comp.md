@@ -1,6 +1,6 @@
 ---
 title: "Cloud Computing Notes"
-layout: "post"
+layout: page
 date: 2025-01-08 11:58:21 -0800
 ---
 

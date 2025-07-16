@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Interview Prep"
 date:   2015-11-06 13:19:42 -0800
 categories: blogging posts interview code

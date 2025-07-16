@@ -1,6 +1,6 @@
 ---
 title: Debugging
-layout: "page"
+layout: page
 date: 2025-01-13 11:58:21 -0800
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Design Document for Understanding macOS Security Features"
-layout: "post"
+layout: page
+hide: true
 ---
 
 # Design Document for Understanding macOS Security Features

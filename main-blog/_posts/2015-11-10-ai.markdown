@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "AI"
 date:   2015-11-10 09:30:42 -0800
 categories: artificial_intelligence

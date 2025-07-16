@@ -1,6 +1,6 @@
 ---
 title: Nord Interview and Studies
-layout: post
+layout: page
 ---
 
 ## **Introduction**

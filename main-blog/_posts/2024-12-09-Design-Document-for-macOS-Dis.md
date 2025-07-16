@@ -1,6 +1,7 @@
 ---
 title: "Design Document for Project 5: macOS Disk Usage Visualizer"
-layout: "post"
+layout: page
+hide: true
 ---
 
 # Design Document for Project 5: macOS Disk Usage Visualizer

@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: page
+hide: true
 title:  "Design Document for Automating macOS Installers"
 ---
 

@@ -1,6 +1,7 @@
 ---
-title: 
-layout: post
+title: Behavioral Questions
+hide: true
+layout: page
 ---
 
 ## My Star Results
