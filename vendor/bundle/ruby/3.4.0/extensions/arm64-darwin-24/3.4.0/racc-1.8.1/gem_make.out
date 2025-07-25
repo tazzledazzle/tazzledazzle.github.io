@@ -1,0 +1,18 @@
+current directory: /Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250724-52820-5clodc sitelibdir\=./.gem.20250724-52820-5clodc clean
+
+current directory: /Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250724-52820-5clodc sitelibdir\=./.gem.20250724-52820-5clodc
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250724-52820-5clodc sitelibdir\=./.gem.20250724-52820-5clodc install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20250724-52820-5clodc/racc
+
+current directory: /Users/terenceschumacher/IdeaProjects/tazzledazzle.github.io/vendor/bundle/ruby/3.4.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250724-52820-5clodc sitelibdir\=./.gem.20250724-52820-5clodc clean

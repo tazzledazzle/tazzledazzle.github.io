@@ -1,43 +1,44 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#B
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: Tazzledazzle blog
+# Site Configuration
+title: Terence Schumacher
 email: terenceschumacher@gmail.com
-gravatar_hash: 10056dfd9bd277610a657d2aee28089b
-description: >
-  A collection of thoughts, projects, and notes... or something therein
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tazzledazzle.github.io" # the base hostname & protocol for your site
+description: >-
+  Software Engineer & Technical Writer. Sharing insights on development,
+  algorithms, system design, and the craft of building great software.
+baseurl: ""
+url: "https://tazzledazzle.github.io"
+
+# Author Information
+author:
+  name: Terence Schumacher
+  email: terenceschumacher@gmail.com
+  github: tazzledazzle
+  twitter: terenceschu
+  linkedin: terenceschumacher
+
+# Social Links
+github_username: tazzledazzle
 twitter_username: terenceschu
-github_username:  tazzledazzle
+
+gravatar_hash: 10056dfd9bd277610a657d2aee28089b
+
+# Theme Configuration
 minima:
+  skin: dark
   social_links:
-    - { platform: github,  user_url: "https://github.com/tazzledazzle" }
+    - { platform: github, user_url: "https://github.com/tazzledazzle" }
     - { platform: twitter, user_url: "https://twitter.com/terenceschu" }
+    - { platform: linkedin, user_url: "https://linkedin.com/in/terenceschumacher" }
+
+# Styling
 sass:
-  sass_dir: assets/css
+  sass_dir: _sass
+  style: compressed
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
   - jekyll-github-metadata
   - jekyll-coffeescript
   - jekyll-commonmark-ghpages
@@ -45,7 +46,7 @@ plugins:
   - jekyll-readme-index
   - jekyll-default-layout
   - jekyll-titles-from-headings
-  - jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-remote-theme
 # remote_theme: pages-themes/time-machine@v0.2.0
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -55,20 +56,29 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-source: main-blog
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
 
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# SEO and Performance
+timezone: America/Los_Angeles
+
+# Exclude from processing
 exclude:
   - .sass-cache/
   - .jekyll-cache/
-  - ../errata/
-    - Gemfile.old
-    - Gemfile.old.lock
-#   - gemfiles/
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-#
-## Build settings
-#markdown: kramdown
+  - gemfiles/
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
