@@ -1,6 +1,6 @@
 ---
 title: Behavioral Questions
-hide: true
+published: false
 layout: page
 ---
 

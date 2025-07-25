@@ -1,17 +1,141 @@
-<header class="site-header">
-  <div class="header-left">
-    <img src="https://gravatar.com/avatar/10056dfd9bd277610a657d2aee28089b?s=200" alt="tazzledazzle logo" class="gravatar blog-avatar">
-    <span class="blog-title">{{ site.title }}</span>
+<header class="site-header" role="banner">
+  <div class="header-container">
+    <!-- Logo/Brand Section -->
+    <div class="header-brand">
+      <a class="site-title" href="{{ "/" | relative_url }}">
+        <img src="https://gravatar.com/avatar/10056dfd9bd277610a657d2aee28089b?s=40" 
+             alt="{{ site.title }} logo" 
+             class="site-logo">
+        <span class="site-name">{{ site.title }}</span>
+      </a>
     </div>
-    <div class="header-right">
-  <nav class="header-nav">
-    <a href="/about">About</a>
-    <a href="/projects">Projects</a>
-    <a href="/career">Career</a>
-    <a href="https://github.com/tazzledazzle">GitHub</a>
-  </nav>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" role="navigation">
+      <ul class="nav-list">
+        {% for item in site.navigation %}
+          {% assign current_page = false %}
+          {% if page.url == item.url or (item.url != '/' and page.url contains item.url) %}
+            {% assign current_page = true %}
+          {% endif %}
+          
+          <li class="nav-item">
+            <a href="{{ item.url | relative_url }}" 
+               class="nav-link{% if current_page %} active{% endif %}">
+              {{ item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- External Links -->
+    <div class="header-actions">
+      {% for link in site.external_links %}
+        <a href="{{ link.url }}" 
+           class="action-link"
+           target="{{ link.target | default: '_blank' }}"
+           rel="noopener noreferrer">
+          {{ link.title }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </div>
-  <div class="blog-divider"></div>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" role="navigation">
+    <ul class="mobile-nav-list">
+      {% for item in site.navigation %}
+        <li class="mobile-nav-item">
+          <a href="{{ item.url | relative_url }}" class="mobile-nav-link">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for link in site.external_links %}
+        <li class="mobile-nav-item">
+          <a href="{{ link.url }}" 
+             class="mobile-nav-link external"
+             target="{{ link.target | default: '_blank' }}"
+             rel="noopener noreferrer">
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
 </header>
-<div class="brand">{{ site.description }}</div>
-<hr class="blog-divider">
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay"></div>
+
+<script>
+// Professional Navigation JavaScript
+(function() {
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const body = document.body;
+
+  function toggleMobileMenu() {
+    const isOpen = mobileNav.classList.contains('mobile-open');
+    
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    mobileNav.classList.add('mobile-open');
+    overlay.classList.add('active');
+    mobileToggle.classList.add('active');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileNav.classList.remove('mobile-open');
+    overlay.classList.remove('active');
+    mobileToggle.classList.remove('active');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  }
+
+  // Event listeners
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', toggleMobileMenu);
+  }
+  
+  if (overlay) {
+    overlay.addEventListener('click', closeMobileMenu);
+  }
+
+  // Close menu when clicking nav links
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      closeMobileMenu();
+    }
+  });
+})();
+</script>

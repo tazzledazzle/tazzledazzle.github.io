@@ -1,0 +1,36 @@
+---
+layout: base
+title: blog
+---
+
+
+{% if site.posts.size > 0 %}
+<section class="posts-section">
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}" class="post-link">
+          <h3 class="latest-post-title">{{ post.title | escape }}</h3>
+          <div class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%B %d, %Y" }}
+            </time>
+            {% if post.categories.size > 0 %}
+              <span class="post-categories">
+                {% for category in post.categories %}
+                  <span class="badge">{{ category }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+          {% if post.excerpt %}
+            <div class="post-excerpt">
+              {{ post.excerpt | strip_html | truncatewords: 25 }}
+            </div>
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

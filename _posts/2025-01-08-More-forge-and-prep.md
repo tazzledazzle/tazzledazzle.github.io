@@ -1,7 +1,7 @@
 ---
 title: "Forge and Prep"
 layout: page
-hide: true
+published: false
 ---
 
 

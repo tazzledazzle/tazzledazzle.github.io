@@ -21,6 +21,12 @@ twitter_username: terenceschu
 
 gravatar_hash: 10056dfd9bd277610a657d2aee28089b
 
+navigation:
+  - { title: About, url: '/About'}
+  - { title: Projects, url: '/Projects' }
+  - { title: Career, url: '/Career' }
+  - { title: Blog, url '/Blog' }
+
 # Theme Configuration
 minima:
   skin: dark

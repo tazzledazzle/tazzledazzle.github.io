@@ -1,25 +1,45 @@
 ---
-title: "Terence Schumacher's Page"
 layout: base
 ---
 
-<main>
-    {% for post in site.posts %}
-    <section class="post-row">
-      <div class="post-meta">
-        <div class="post-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
-        <p class="post-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-        </p>
-        <div class="post-summary">
-          {{ post.content | strip_html | truncatewords: 30, '...' }}
+<div class="home-content">
+  {{ content }}
+  
+  {% if site.posts.size > 0 %}
+    <section class="posts-section">
+      <h2 class="posts-heading">Latest Posts</h2>
+      <ul class="post-list">
+        {% for post in site.posts limit: 10 %}
+          <li>
+            <a href="{{ post.url | relative_url }}" class="post-link">
+              <h3 class="latest-post-title">{{ post.title | escape }}</h3>
+              <div class="post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: "%B %d, %Y" }}
+                </time>
+                {% if post.categories.size > 0 %}
+                  <span class="post-categories">
+                    {% for category in post.categories %}
+                      <span class="badge">{{ category }}</span>
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </div>
+              {% if post.excerpt %}
+                <div class="post-excerpt">
+                  {{ post.excerpt | strip_html | truncatewords: 25 }}
+                </div>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      
+      {% if site.posts.size > 10 %}
+        <div class="view-all-posts">
+          <a href="/blog" class="btn">View All Posts</a>
         </div>
-        <div class="read-on">
-          <div class="go-arrow">
-            <a class="post-list" href="{{ post.url | prepend: site.baseurl }}"> → </a>
-          </div>
-        </div>
-      </div>
+      {% endif %}
     </section>
-{% endfor %}
-</main>
+  {% endif %}
+</div>
