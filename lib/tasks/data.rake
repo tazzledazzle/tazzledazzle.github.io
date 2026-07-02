@@ -5,7 +5,7 @@ namespace :data do
     abort 'data:validate failed' unless ok
   end
 
-  desc 'Regenerate _data/blog-inventory.yml from _posts/ scan'
+  desc 'Regenerate src/data/blog-inventory.yml from content scan'
   task :inventory do
     load File.expand_path('../../scripts/generate-blog-inventory.rb', __dir__)
     BlogInventoryGenerator.run!

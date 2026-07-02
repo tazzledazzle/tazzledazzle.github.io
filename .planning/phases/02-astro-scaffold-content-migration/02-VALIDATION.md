@@ -34,7 +34,7 @@ Run all commands from repo root:
 3. `node scripts/verify-phase2-routes.mjs --check rss-sitemap`
 4. `node scripts/verify-phase2-routes.mjs --check redirects`
 5. `node scripts/verify-phase2-routes.mjs --check routes51`
-6. `bundle exec rake data:validate`
+6. `rake data:validate`
 7. `node scripts/verify-phase2-routes.mjs --check jekyll-retired` (after Jekyll cleanup)
 
 ## Pass Criteria
