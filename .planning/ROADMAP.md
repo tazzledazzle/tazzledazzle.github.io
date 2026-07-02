@@ -11,7 +11,7 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 - Decimal phases (e.g., 2.1): Urgent insertions via `/gsd-phase --insert`
 
 - [x] **Phase 1: Foundation & Data Extraction** - Structured hiring data, fixed navigation, and blog curation inventory (completed 2026-07-02)
-- [ ] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation
+- [x] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation (completed 2026-07-02)
 - [ ] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links
 - [ ] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience
 - [ ] **Phase 5: Design System & Layout Polish** - Cohesive dark theme, responsive layout, and readable post typography
@@ -52,11 +52,11 @@ Plans:
 **Research flag**: Permalink parity and GitHub Pages redirect strategy (`/gsd-plan-phase --research-phase 2`)
 
 Plans:
-- [ ] 02-01-PLAN.md — Astro scaffold and single-path CI cutover baseline
-- [ ] 02-02-PLAN.md — Data migration to `src/data` and validator continuity
-- [ ] 02-03-PLAN.md — Blog/content migration with canonical hiring/blog pages
-- [ ] 02-04-PLAN.md — RSS/sitemap archive filters and legacy redirect generation
-- [ ] 02-05-PLAN.md — D-23 validation matrix, smoke enforcement, and Jekyll retirement
+- [x] 02-01-PLAN.md — Astro scaffold and single-path CI cutover baseline
+- [x] 02-02-PLAN.md — Data migration to `src/data` and validator continuity
+- [x] 02-03-PLAN.md — Blog/content migration with canonical hiring/blog pages
+- [x] 02-04-PLAN.md — RSS/sitemap archive filters and legacy redirect generation
+- [x] 02-05-PLAN.md — D-23 validation matrix, smoke enforcement, and Jekyll retirement
 
 ### Phase 3: Hiring Pages
 **Goal**: A recruiter can understand who Terence is, what he's built, and why he's worth interviewing within 60 seconds
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Data Extraction | 4/4 | Complete   | 2026-07-02 |
-| 2. Astro Scaffold & Content Migration | 0/TBD | Not started | - |
+| 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
 | 3. Hiring Pages | 0/TBD | Not started | - |
 | 4. Blog Curation & Discovery | 0/TBD | Not started | - |
 | 5. Design System & Layout Polish | 0/TBD | Not started | - |

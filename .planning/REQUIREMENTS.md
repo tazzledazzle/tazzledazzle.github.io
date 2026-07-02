@@ -14,11 +14,11 @@
 
 ### Platform & Migration
 
-- [ ] **PLAT-01**: Site builds and deploys to GitHub Pages via GitHub Actions (Astro static output)
-- [ ] **PLAT-02**: All existing blog posts are migrated with preserved permalink structure (`/:year/:month/:day/:title/`)
-- [ ] **PLAT-03**: RSS feed is generated and excludes archived posts
-- [ ] **PLAT-04**: XML sitemap is generated and excludes archived posts
-- [ ] **PLAT-05**: Redirects exist for any changed or consolidated URLs from the legacy Jekyll site
+- [x] **PLAT-01**: Site builds and deploys to GitHub Pages via GitHub Actions (Astro static output)
+- [x] **PLAT-02**: All existing blog posts are migrated with preserved permalink structure (`/:year/:month/:day/:title/`)
+- [x] **PLAT-03**: RSS feed is generated and excludes archived posts
+- [x] **PLAT-04**: XML sitemap is generated and excludes archived posts
+- [x] **PLAT-05**: Redirects exist for any changed or consolidated URLs from the legacy Jekyll site
 
 ### Hiring / Portfolio
 
@@ -101,11 +101,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | DATA-02 | Phase 1 | Complete |
 | DATA-03 | Phase 1 | Complete |
 | DATA-04 | Phase 1 | Complete |
-| PLAT-01 | Phase 2 | Pending |
-| PLAT-02 | Phase 2 | Pending |
-| PLAT-03 | Phase 2 | Pending |
-| PLAT-04 | Phase 2 | Pending |
-| PLAT-05 | Phase 2 | Pending |
+| PLAT-01 | Phase 2 | Complete |
+| PLAT-02 | Phase 2 | Complete |
+| PLAT-03 | Phase 2 | Complete |
+| PLAT-04 | Phase 2 | Complete |
+| PLAT-05 | Phase 2 | Complete |
 | HIRE-01 | Phase 3 | Pending |
 | HIRE-02 | Phase 3 | Pending |
 | HIRE-03 | Phase 3 | Pending |
