@@ -2,10 +2,12 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import fs from "node:fs";
-import * as yaml from "js-yaml";
+import {
+  buildAstroRedirects,
+  loadInventory
+} from "./scripts/legacy-redirect-map.mjs";
 
-const inventory = yaml.load(fs.readFileSync("src/data/blog-inventory.yml", "utf8"));
+const inventory = loadInventory();
 const archivedPermalinks = new Set(
   (inventory?.posts ?? [])
     .filter((post) => post.tier === "archived")
@@ -15,6 +17,7 @@ const archivedPermalinks = new Set(
 export default defineConfig({
   site: "https://tazzledazzle.github.io",
   output: "static",
+  redirects: buildAstroRedirects(),
   integrations: [
     mdx(),
     sitemap({
