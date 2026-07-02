@@ -9,12 +9,12 @@ Recruiter-facing hiring pages (HIRE-01 through HIRE-07) with locked decisions D-
 | Req | Decision(s) | Automated check | Manual check |
 |-----|-------------|-----------------|--------------|
 | HIRE-01 | D-41, D-42, D-43 | `dist/index.html` contains role label, specialty keywords (infra/observability + platform tooling/DX), value-prop tone | Desktop ~900px: role + specialty + impact visible without scroll |
-| HIRE-02 | D-44, D-46 | `dist/index.html` contains `Download Resume` and `/resume.pdf` | 60-second test: recruiter grasps pitch + sees resume CTA above fold |
+| HIRE-02 | D-44, D-46 | `dist/index.html` contains `Download Resume`, `/resume.pdf`, and >= 2 featured tease titles (grep -o count) | 60-second test: recruiter grasps pitch + sees resume CTA above fold |
 | HIRE-03 | D-49, D-50 | `dist/work/index.html` has 5 featured titles, grid layout, GitHub links | Scan /work/: cards show summary, tech pills, GitHub |
 | HIRE-04 | D-51 | No demo links when `demo_url` null; GitHub always present | Confirm code_only projects show GitHub only (no badge) |
 | HIRE-05 | D-53–D-56 | `dist/career/index.html` has 3 employers, formatted dates, bullets, education | Read timeline: all bullets visible, dates human-readable |
 | HIRE-06 | D-45–D-47 | `dist/resume.pdf` exists; header + hero link `/resume.pdf` | Click Download Resume from header and hero — PDF opens |
-| HIRE-07 | D-57, D-58 | Social URLs on dist/index, work, career, about; site-footer grep on each | Every page: GitHub, LinkedIn, email reachable from chrome |
+| HIRE-07 | D-57, D-58 | Social URLs on dist/index, work, career, about; `site-footer` region grep on each page | Every page: GitHub, LinkedIn, email reachable from chrome |
 
 ## D-51 Note (HIRE-04)
 
@@ -48,7 +48,7 @@ Run from repo root after Phase 3 implementation:
 ## Pass Criteria
 
 - All HIRE-01 through HIRE-07 automated markers pass in `verify-phase3-hiring.mjs`.
-- `public/resume.pdf` is non-empty maintainer resume (checkpoint in 03-01).
+- `public/resume.pdf` is non-empty (placeholder acceptable until maintainer replaces with real resume — see 03-01 checkpoint).
 - Header/footer social parity on every built page.
 - Mobile hamburger functional at 375px (manual).
 - 60-second recruiter comprehension walkthrough passes (manual).
