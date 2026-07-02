@@ -1,11 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { getEntry } from "astro:content";
-
-const social = await getEntry("social", "default");
+import Hero from "../components/Hero.astro";
+import ProjectTease from "../components/ProjectTease.astro";
 ---
 
 <MainLayout title="Terence Schumacher" description="Software Engineer and technical writer portfolio.">
-  <h1>{social?.data.name ?? "Terence Schumacher"}</h1>
-  <p>Software Engineer building reliable platforms, tooling, and technical content.</p>
+  <Hero />
+  <ProjectTease />
 </MainLayout>
