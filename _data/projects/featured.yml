@@ -1,0 +1,74 @@
+- id: native-macos-log-analyzer
+  title: Native macOS Log Analyzer
+  summary: >-
+    Native macOS application for analyzing system logs with real-time monitoring,
+    custom filters, and export—demonstrates platform tooling and performance-aware UI work.
+  tech_stack:
+    - Swift
+    - AppKit
+    - Core Data
+  github_url: https://github.com/tazzledazzle/native-macos-log-analyzer
+  demo_url: null
+  demo_status: code_only
+  featured: true
+  source: projects.md
+
+- id: imgannotator
+  title: ImgAnnotator
+  summary: >-
+    Web-based image annotation tool with collaborative editing and export workflows,
+    showing full-stack JavaScript delivery and canvas-driven UX.
+  tech_stack:
+    - JavaScript
+    - HTML5 Canvas
+    - Node.js
+  github_url: https://github.com/tazzledazzle/imgannotator
+  demo_url: null
+  demo_status: code_only
+  featured: true
+  source: projects.md
+
+- id: ws-chat-fast
+  title: WebSocket Chat (FastAPI)
+  summary: >-
+    Low-latency chat demo with auto-reconnection and metrics instrumentation—
+    highlights async Python, WebSockets, and Redis-backed real-time patterns.
+  tech_stack:
+    - Python
+    - FastAPI
+    - Redis
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ws-chat-fast
+  demo_url: null
+  demo_status: code_only
+  featured: true
+  source: portfolio-projects
+
+- id: online-bookstore
+  title: Online Bookstore
+  summary: >-
+    E-commerce REST API demo with OAuth2 and WebSockets, illustrating production-style
+    API design, auth flows, and PostgreSQL persistence.
+  tech_stack:
+    - Python
+    - FastAPI
+    - PostgreSQL
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/online-bookstore
+  demo_url: null
+  demo_status: code_only
+  featured: true
+  source: portfolio-projects
+
+- id: otel-demo-stack
+  title: OpenTelemetry Demo Stack
+  summary: >-
+    End-to-end distributed tracing stack with OTel Collector and trace propagation—
+    demonstrates observability engineering across containerized services.
+  tech_stack:
+    - Python
+    - OpenTelemetry
+    - Docker
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/otel-demo-stack
+  demo_url: null
+  demo_status: code_only
+  featured: true
+  source: portfolio-projects
