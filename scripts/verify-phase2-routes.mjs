@@ -134,4 +134,23 @@ if (check === "smoke10") {
   }
 }
 
+if (check === "jekyll-retired") {
+  const retiredPaths = [
+    "Gemfile",
+    "Gemfile.lock",
+    "_config.yml",
+    "_layouts",
+    "_posts",
+    "_data"
+  ];
+  for (const rel of retiredPaths) {
+    try {
+      await fs.access(path.join(root, rel));
+      fail(`Jekyll runtime artifact still present: ${rel}`);
+    } catch {
+      // expected — artifact removed
+    }
+  }
+}
+
 console.log(`check '${check}' passed`);
