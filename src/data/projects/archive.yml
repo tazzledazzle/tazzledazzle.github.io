@@ -1,0 +1,129 @@
+- id: projgen
+  title: Project Generator
+  summary: CLI tool to scaffold new projects with Jinja2 templates and Typer UX for fast, consistent repo bootstrapping.
+  tech_stack:
+    - Python
+    - Jinja2
+    - Typer
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/projgen
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: rabbit-mq
+  title: RabbitMQ Demo
+  summary: Message queue patterns demo with pub/sub and work queues in Kotlin for reliable async processing.
+  tech_stack:
+    - Kotlin
+    - RabbitMQ
+    - Gradle
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/rabbit-mq
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: bazel-multibuild
+  title: Bazel Multi-Build
+  summary: Polyglot Bazel build system spanning Java and TypeScript with cross-language build optimization.
+  tech_stack:
+    - Bazel
+    - Java
+    - TypeScript
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/bazel-multibuild
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: modular-jvm-build
+  title: Modular JVM Build
+  summary: Gradle multi-module Spring Boot layout with layered modules and health API for production-style JVM services.
+  tech_stack:
+    - Kotlin
+    - Spring Boot
+    - Gradle
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/modular-jvm-build
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: rest-api-test-demo
+  title: REST API Test Demo
+  summary: Production-style FastAPI service with pytest coverage and Docker-based CI for API quality gates.
+  tech_stack:
+    - Python
+    - FastAPI
+    - Docker
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/rest-api-test-demo
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: workflow-api-demo
+  title: Workflow API Demo
+  summary: API-to-Redis-queue-to-worker pattern with async jobs orchestrated via Docker Compose.
+  tech_stack:
+    - Python
+    - FastAPI
+    - Redis
+    - PostgreSQL
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/workflow-api-demo
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: observability
+  title: Observability Stack
+  summary: Local Prometheus and Grafana stack for metrics collection and dashboard-driven SRE workflows.
+  tech_stack:
+    - Docker
+    - Prometheus
+    - Grafana
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/observability
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: platform-audit-template
+  title: Platform Audit Template
+  summary: SRE audit scripts and runbooks for GCP billing analysis and platform health assessments.
+  tech_stack:
+    - Python
+    - Bash
+    - GCP
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/platform-audit-template
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: canary-deployment-controller
+  title: Canary Deployment Controller
+  summary: Progressive traffic shifting with Prometheus SLO gates and automatic rollback on Kubernetes.
+  tech_stack:
+    - Python
+    - Kubernetes
+    - Prometheus
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/canary-deployment-controller
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: release-lead-time-calculator
+  title: Release Lead Time Calculator
+  summary: DORA lead-time metrics API integrating with GitHub for cycle-time visibility across teams.
+  tech_stack:
+    - Python
+    - GitHub API
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/release-lead-time-calculator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects

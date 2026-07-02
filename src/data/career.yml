@@ -1,0 +1,32 @@
+education:
+  - institution: University of Washington
+    degree: Bachelor of Science in Computer Science & Software Engineering
+
+roles:
+  - employer: Invisible Technologies
+    title: Senior Site Reliability Engineer, FDE Data Platform
+    start_date: "2025-01"
+    end_date: "Present"
+    bullets:
+      - "Designed a platform-wide maturity audit across 28 microservices using GitHub Actions and DORA-style scoring, surfacing 14 critical reliability and release gaps."
+      - "Built a Temporal-orchestrated observability platform in Kotlin with OpenTelemetry, Prometheus, and Grafana, instrumenting 100% of critical AI workflow paths for distributed tracing."
+      - "Delivered a configurable AI pipeline scaffold in Kotlin with 6 plug-and-play components, taking end-to-end ownership across 3 concurrent infrastructure initiatives."
+
+  - employer: Tableau Software (Salesforce)
+    title: Senior Software Engineer, Platform & Infrastructure
+    start_date: "2021-01"
+    end_date: "2024-07"
+    bullets:
+      - "Reduced release lead time by 79% by redesigning CI/CD pipelines in TeamCity and GitLab CI with automated branching, deployment gates, and telemetry-gated canary rollouts."
+      - "Automated macOS code-signing and notarization end-to-end, eliminating ~720 hours of annual manual effort (360x improvement) via custom Python and Kotlin tooling."
+      - "Led migration of the legacy CMake/Ninja desktop build to Bazel for Apple Silicon, improving production defect detection by 25% with ASAN, TSAN, and UBSAN in CI."
+      - "Mentored 4+ engineers on CI/CD and release engineering; ran monthly onboarding sessions for 20+ new hires on internal pipeline architecture."
+
+  - employer: Tableau Software (Salesforce)
+    title: Software Engineer, Server Build & Platform Infrastructure
+    start_date: "2017-04"
+    end_date: "2021-01"
+    bullets:
+      - "Built release branching automation in Kotlin/Gradle integrated with GitLab API, reducing release engineering cycle time by 35% and eliminating manual multi-environment coordination errors."
+      - "Transitioned developer tooling to a multi-project Bazel environment, reducing incremental build times by up to 75% across a monolith serving hundreds of engineers."
+      - "Shipped custom Gradle plugins and Artifactory integration used by 200+ engineers; served as primary SME for Kotlin/Gradle build-system incident response."
