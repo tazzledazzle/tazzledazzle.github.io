@@ -10,7 +10,7 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 - Integer phases (1–6): Planned milestone work
 - Decimal phases (e.g., 2.1): Urgent insertions via `/gsd-phase --insert`
 
-- [ ] **Phase 1: Foundation & Data Extraction** - Structured hiring data, fixed navigation, and blog curation inventory
+- [x] **Phase 1: Foundation & Data Extraction** - Structured hiring data, fixed navigation, and blog curation inventory (completed 2026-07-02)
 - [ ] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation
 - [ ] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links
 - [ ] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience
@@ -34,8 +34,8 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 Plans:
 - [x] 01-01-PLAN.md — Validation scaffold (scripts/validate-data.rb + Rake tasks)
 - [x] 01-02-PLAN.md — Navigation, social, and curated projects YAML (DATA-01, DATA-03)
-- [ ] 01-03-PLAN.md — Career data with LinkedIn input checkpoint (DATA-02)
-- [ ] 01-04-PLAN.md — Blog inventory, Astro mapping doc, and full validation gate (DATA-04)
+- [x] 01-03-PLAN.md — Career data with LinkedIn input checkpoint (DATA-02)
+- [x] 01-04-PLAN.md — Blog inventory, Astro mapping doc, and full validation gate (DATA-04)
 
 ### Phase 2: Astro Scaffold & Content Migration
 **Goal**: Site builds on Astro 7 and deploys to GitHub Pages with migrated blog content and preserved permalinks
@@ -118,7 +118,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Data Extraction | 2/4 | In Progress|  |
+| 1. Foundation & Data Extraction | 4/4 | Complete   | 2026-07-02 |
 | 2. Astro Scaffold & Content Migration | 0/TBD | Not started | - |
 | 3. Hiring Pages | 0/TBD | Not started | - |
 | 4. Blog Curation & Discovery | 0/TBD | Not started | - |
