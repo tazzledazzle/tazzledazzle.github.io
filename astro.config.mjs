@@ -17,7 +17,7 @@ const archivedPermalinks = new Set(
 export default defineConfig({
   site: "https://tazzledazzle.github.io",
   output: "static",
-  redirects: buildAstroRedirects(),
+  redirects: buildAstroRedirects(process.cwd()),
   integrations: [
     mdx(),
     sitemap({

@@ -41,8 +41,35 @@ export function buildDuplicateRedirects(inventory) {
   return map;
 }
 
-export function buildAstroRedirects() {
-  return { ...ASTRO_NAV_REDIRECTS };
+/** Mixed-case nav aliases that collide with lowercase routes on case-insensitive filesystems. */
+const CASE_VARIANT_REDIRECTS = ["/About/", "/Career/", "/Blog/", "/Projects/"];
+
+export function isCaseInsensitiveFilesystem(root = process.cwd()) {
+  const probeDir = path.join(root, ".gsd-case-probe");
+  const lowerFile = path.join(probeDir, "lower");
+  const upperFile = path.join(probeDir, "LOWER");
+
+  try {
+    fs.mkdirSync(probeDir, { recursive: true });
+    fs.writeFileSync(lowerFile, "probe");
+    const collides = fs.existsSync(upperFile);
+    fs.rmSync(probeDir, { recursive: true, force: true });
+    return collides;
+  } catch {
+    return process.platform === "darwin";
+  }
+}
+
+export function buildAstroRedirects(root = process.cwd()) {
+  const redirects = { ...ASTRO_NAV_REDIRECTS };
+
+  if (isCaseInsensitiveFilesystem(root) && process.env.FORCE_CASE_REDIRECTS !== "1") {
+    for (const from of CASE_VARIANT_REDIRECTS) {
+      delete redirects[from];
+    }
+  }
+
+  return redirects;
 }
 
 /** Duplicate 2015 design-doc URLs only — safe under public/ without nav path collisions. */
