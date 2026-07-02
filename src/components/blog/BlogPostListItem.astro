@@ -1,0 +1,25 @@
+---
+import { formatLongDate } from "../../lib/blog/dates.ts";
+
+interface Props {
+  title: string;
+  permalink: string;
+  pubDate: Date;
+  readTimeMinutes: number;
+  description?: string;
+}
+
+const { title, permalink, pubDate, readTimeMinutes, description } = Astro.props;
+---
+
+<li class="blog-post-item">
+  <a href={permalink}>
+    <h2>{title}</h2>
+  </a>
+  <p class="blog-post-meta">
+    <time datetime={pubDate.toISOString()}>{formatLongDate(pubDate)}</time>
+    <span aria-hidden="true"> · </span>
+    <span>{readTimeMinutes} min read</span>
+  </p>
+  {description && <p class="blog-post-description">{description}</p>}
+</li>
