@@ -1,5 +1,5 @@
 namespace :data do
-  desc 'Validate structured hiring YAML in _data/'
+  desc 'Validate structured hiring YAML in src/data/ (fallback _data/)'
   task :validate do
     ok = system('ruby', 'scripts/validate-data.rb', '--check', 'all')
     abort 'data:validate failed' unless ok

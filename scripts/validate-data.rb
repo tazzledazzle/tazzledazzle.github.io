@@ -15,14 +15,8 @@ class DataValidator
     'inventory' => %i[inventory]
   }.freeze
 
-  DATA_FILES = {
-    navigation: File.join('_data', 'navigation.yml'),
-    social: File.join('_data', 'social.yml'),
-    projects_featured: File.join('_data', 'projects', 'featured.yml'),
-    projects_archive: File.join('_data', 'projects', 'archive.yml'),
-    career: File.join('_data', 'career.yml'),
-    inventory: File.join('_data', 'blog-inventory.yml')
-  }.freeze
+  DATA_ROOTS = ['src/data', '_data'].freeze
+  POSTS_ROOTS = ['src/content/blog', '_posts'].freeze
 
   QUANTIFIED_METRIC_PATTERN = /(\d|%)/.freeze
   DEMO_STATUS = %w[live code_only broken].freeze
@@ -46,6 +40,22 @@ class DataValidator
       return false
     end
     true
+  end
+
+  def resolve_data_path(relative_path)
+    DATA_ROOTS.each do |root|
+      candidate = File.join(root, relative_path)
+      return candidate if File.file?(candidate)
+    end
+    File.join(DATA_ROOTS.first, relative_path)
+  end
+
+  def post_file_count
+    POSTS_ROOTS.each do |root|
+      count = Dir.glob(File.join(root, '*.{md,markdown,mdx}')).length
+      return count if count.positive?
+    end
+    0
   end
 
   def safe_load_yaml(path:, label:)
@@ -309,7 +319,7 @@ class DataValidator
       @errors << "blog-inventory.yml: meta.total_posts (#{total_posts_int}) must equal posts.length (#{posts.length})"
     end
 
-    expected_count = Dir.glob('_posts/*.{md,markdown}').length
+    expected_count = post_file_count
     if total_posts_int != expected_count
       @errors << "blog-inventory.yml: meta.total_posts (#{total_posts_int}) must equal _posts markdown count (#{expected_count})"
     end
@@ -374,32 +384,32 @@ class DataValidator
     checks.each do |check|
       case check
       when :navigation
-        path = DATA_FILES[:navigation]
+        path = resolve_data_path('navigation.yml')
         next unless validate_file_exists(path, label: 'navigation.yml')
         data = safe_load_yaml(path: path, label: 'navigation.yml')
         validate_navigation(data) if data
       when :social
-        path = DATA_FILES[:social]
+        path = resolve_data_path('social.yml')
         next unless validate_file_exists(path, label: 'social.yml')
         data = safe_load_yaml(path: path, label: 'social.yml')
         validate_social(data) if data
       when :projects_featured
-        path = DATA_FILES[:projects_featured]
+        path = resolve_data_path(File.join('projects', 'featured.yml'))
         next unless validate_file_exists(path, label: 'projects/featured.yml')
         data = safe_load_yaml(path: path, label: 'projects/featured.yml')
         validate_projects_featured(data) if data
       when :projects_archive
-        path = DATA_FILES[:projects_archive]
+        path = resolve_data_path(File.join('projects', 'archive.yml'))
         next unless validate_file_exists(path, label: 'projects/archive.yml')
         data = safe_load_yaml(path: path, label: 'projects/archive.yml')
         validate_projects_archive(data) if data
       when :career
-        path = DATA_FILES[:career]
+        path = resolve_data_path('career.yml')
         next unless validate_file_exists(path, label: 'career.yml')
         data = safe_load_yaml(path: path, label: 'career.yml')
         validate_career(data) if data
       when :inventory
-        path = DATA_FILES[:inventory]
+        path = resolve_data_path('blog-inventory.yml')
         next unless validate_file_exists(path, label: 'blog-inventory.yml')
         data = safe_load_yaml(path: path, label: 'blog-inventory.yml')
         validate_blog_inventory(data) if data
