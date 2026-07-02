@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import astroExpressiveCode from "astro-expressive-code";
 import {
   buildAstroRedirects,
   loadInventory
@@ -19,6 +20,12 @@ export default defineConfig({
   output: "static",
   redirects: buildAstroRedirects(process.cwd()),
   integrations: [
+    astroExpressiveCode({
+      themes: ["github-dark"],
+      frames: {
+        showCopyToClipboardButton: false
+      }
+    }),
     mdx(),
     sitemap({
       filter: (page) => !archivedPermalinks.has(page.pathname)

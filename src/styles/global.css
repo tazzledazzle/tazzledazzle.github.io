@@ -198,3 +198,17 @@ p {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Expressive Code language label (D-70) */
+.expressive-code [data-language]::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0.35rem;
+  right: 0.75rem;
+  z-index: 2;
+  font-size: 0.7rem;
+  text-transform: lowercase;
+  color: var(--muted);
+  opacity: 0.85;
+  pointer-events: none;
+}
