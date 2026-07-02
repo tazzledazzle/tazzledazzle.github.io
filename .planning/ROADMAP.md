@@ -70,8 +70,15 @@ Plans:
   4. Recruiter clicking a project demo link reaches a live demo or sees a clear "code only" state when no demo exists
   5. Recruiter reading the Career page sees real employer names, dates, and quantified achievement bullets
   6. Recruiter can reach GitHub, LinkedIn, and email from the site header or footer on every page
-**Plans**: TBD
+**Plans**: 5 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 03-01-PLAN.md — Site chrome, resume PDF, shared ProjectCard (HIRE-06, HIRE-07)
+- [ ] 03-02-PLAN.md — Homepage hero and featured project tease (HIRE-01, HIRE-02)
+- [ ] 03-03-PLAN.md — Work page card grid and archive section (HIRE-03, HIRE-04)
+- [ ] 03-04-PLAN.md — Career timeline and About bio (HIRE-05)
+- [ ] 03-05-PLAN.md — Phase 3 verification gate and validation matrix (HIRE-01–07)
 
 ### Phase 4: Blog Curation & Discovery
 **Goal**: Engineering peers can discover and read curated technical writing without legacy noise diluting signal
@@ -127,7 +134,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Foundation & Data Extraction | 4/4 | Complete   | 2026-07-02 |
 | 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
-| 3. Hiring Pages | 0/TBD | Not started | - |
+| 3. Hiring Pages | 0/5 | Not started | - |
 | 4. Blog Curation & Discovery | 0/TBD | Not started | - |
 | 5. Design System & Layout Polish | 0/TBD | Not started | - |
 | 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
