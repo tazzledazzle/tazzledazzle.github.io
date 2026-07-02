@@ -1,0 +1,484 @@
+- id: projgen
+  title: Project Generator
+  summary: >-
+    CLI tool to scaffold new projects with Jinja2 templates and Typer UX—
+    demonstrates developer productivity automation and repeatable project setup.
+  tech_stack:
+    - Python
+    - Jinja2
+    - Typer
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/projgen
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: rabbit-mq
+  title: RabbitMQ Demo
+  summary: >-
+    Message queue patterns demo with pub/sub and work queues in Kotlin—
+    shows async messaging fundamentals and Gradle-based service layout.
+  tech_stack:
+    - Kotlin
+    - RabbitMQ
+    - Gradle
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/rabbit-mq
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: bazel-multibuild
+  title: Bazel Multi-Build
+  summary: >-
+    Polyglot build system spanning Java and TypeScript with cross-language
+    optimization—highlights Bazel expertise and monorepo build orchestration.
+  tech_stack:
+    - Bazel
+    - Java
+    - TypeScript
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/bazel-multibuild
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: modular-jvm-build
+  title: Modular JVM Build
+  summary: >-
+    Gradle multi-module Spring Boot application with layered modules and health API—
+    demonstrates JVM service architecture and modular deployment boundaries.
+  tech_stack:
+    - Kotlin
+    - Spring Boot
+    - Gradle
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/modular-jvm-build
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: rest-api-test-demo
+  title: REST API Test Demo
+  summary: >-
+    Production-style FastAPI service with pytest coverage and Docker CI—
+    shows API testing discipline and containerized delivery pipelines.
+  tech_stack:
+    - Python
+    - FastAPI
+    - Docker
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/rest-api-test-demo
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: workflow-api-demo
+  title: Workflow API Demo
+  summary: >-
+    API-to-Redis-queue-to-worker async job pipeline with Docker Compose—
+    illustrates background processing and workflow orchestration patterns.
+  tech_stack:
+    - Python
+    - FastAPI
+    - Redis
+    - PostgreSQL
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/workflow-api-demo
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: observability
+  title: Observability Stack
+  summary: >-
+    Local Prometheus and Grafana stack for metrics collection and dashboards—
+    demonstrates SRE-style monitoring setup without cloud dependencies.
+  tech_stack:
+    - Docker
+    - Prometheus
+    - Grafana
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/observability
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: platform-audit-template
+  title: Platform Audit Template
+  summary: >-
+    SRE audit scripts and runbooks for GCP billing analysis—
+    shows platform engineering rigor and operational documentation habits.
+  tech_stack:
+    - Python
+    - Bash
+    - GCP
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/platform-audit-template
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: ai-code-assistant
+  title: AI Code Assistant
+  summary: >-
+    LLM-assisted test generation CLI with unit, integration, and e2e coverage—
+    highlights applied AI for developer workflow acceleration.
+  tech_stack:
+    - Python
+    - FastAPI
+    - OpenAI
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ai-best-practices-examples/ai-code-assistant
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: knowledge-qa-system
+  title: Knowledge QA System
+  summary: >-
+    RAG pipeline over documents with LangChain ingestion and ChromaDB vector search—
+    demonstrates retrieval-augmented generation for internal knowledge bases.
+  tech_stack:
+    - Python
+    - LangChain
+    - ChromaDB
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ai-best-practices-examples/knowledge-qa-system
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: chat-ai
+  title: Chat AI
+  summary: >-
+    Conversational agent with tool calling and memory via LangChain—
+    shows agentic AI patterns on a FastAPI service backbone.
+  tech_stack:
+    - Python
+    - FastAPI
+    - LangChain
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ai-best-practices-examples/chat-ai
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: domain-expert-ai
+  title: Domain Expert AI
+  summary: >-
+    Fine-tuning and evaluation pipeline with Transformers and PEFT guardrails—
+    demonstrates domain-specific model adaptation beyond prompt-only workflows.
+  tech_stack:
+    - Python
+    - Transformers
+    - PEFT
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ai-best-practices-examples/domain-expert-ai
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: ai-image-video-generator
+  title: AI Image/Video Generator
+  summary: >-
+    ComfyUI-backed media generation with Gradio UI and live smoke tests—
+    shows generative AI integration with practical test gates.
+  tech_stack:
+    - Python
+    - Gradio
+    - ComfyUI
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ai-best-practices-examples/ai-image-video-generator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: canary-deployment-controller
+  title: Canary Deployment Controller
+  summary: >-
+    Progressive traffic shifting with Prometheus SLO gates and auto-rollback—
+    demonstrates safe release engineering on Kubernetes workloads.
+  tech_stack:
+    - Python
+    - Kubernetes
+    - Prometheus
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/canary-deployment-controller
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: flaky-pipeline-gate
+  title: Flaky Pipeline Gate
+  summary: >-
+    Flakiness-aware merge blocking with rolling windows and flake scoring—
+    shows CI reliability engineering and data-driven merge policy.
+  tech_stack:
+    - Python
+    - CI analytics
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/flaky-pipeline-gate
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: release-lead-time-calculator
+  title: Release Lead Time Calculator
+  summary: >-
+    DORA lead-time metrics API backed by GitHub data—
+    demonstrates engineering metrics instrumentation and cycle-time analysis.
+  tech_stack:
+    - Python
+    - GitHub API
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/release-lead-time-calculator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: pipeline-telemetry-exporter
+  title: Pipeline Telemetry Exporter
+  summary: >-
+    Exports CI job spans as OpenTelemetry traces with step-duration detail—
+    bridges CI systems to observability backends for pipeline debugging.
+  tech_stack:
+    - Python
+    - OpenTelemetry
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/pipeline-telemetry-exporter
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: pipeline-template-engine
+  title: Pipeline Template Engine
+  summary: >-
+    Generates CI YAML from manifests with Jinja2 and Backstage scaffolding—
+    shows platform self-service and convention-driven pipeline creation.
+  tech_stack:
+    - Python
+    - Jinja2
+    - Backstage
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/self-service-pipeline-template-engine
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: pipeline-cost-analyzer
+  title: Pipeline Cost Analyzer
+  summary: >-
+    Attributes GitHub Actions runner spend to teams for cost optimization—
+    demonstrates FinOps thinking applied to CI infrastructure.
+  tech_stack:
+    - Python
+    - GitHub Actions
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/pipeline-cost-analyzer
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: kotlin-custom-detekt-rules
+  title: Kotlin Custom Detekt Rules
+  summary: >-
+    Team-specific static analysis rules packaged as a Detekt RuleSetProvider—
+    shows code quality platform extension and Gradle plugin development.
+  tech_stack:
+    - Kotlin
+    - Detekt
+    - Gradle
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/c0de-quality-and-analysis/kotlin-custom-detekt-rules-library
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: license-compliance-scanner
+  title: License Compliance Scanner
+  summary: >-
+    SPDX license policy enforcement with SBOM generation—
+    demonstrates supply-chain compliance automation for polyglot builds.
+  tech_stack:
+    - Python
+    - Gradle
+    - SPDX
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/c0de-quality-and-analysis/license-compliance-scanner
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: dead-code-surface-reporter
+  title: Dead Code Surface Reporter
+  summary: >-
+    Prioritizes unreachable stale code using blame recency and call-graph scoring—
+    helps teams focus deletion effort on high-impact dead code.
+  tech_stack:
+    - Python
+    - Git
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/c0de-quality-and-analysis/dead-code-surface-reporter
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: api-breaking-change-detector
+  title: API Breaking Change Detector
+  summary: >-
+    OpenAPI compatibility diff as a merge gate—
+    prevents accidental breaking API changes before they reach production consumers.
+  tech_stack:
+    - Python
+    - OpenAPI
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/c0de-quality-and-analysis/api-breaking-change-detector
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: security-hotspot-annotator
+  title: Security Hotspot Annotator
+  summary: >-
+    Maps Semgrep findings to CWE categories on pull request comments—
+    surfaces security review context directly in the developer workflow.
+  tech_stack:
+    - Python
+    - Semgrep
+    - GitHub
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/c0de-quality-and-analysis/security-hotspot-annotator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: devcontainer-feature-library
+  title: Devcontainer Feature Library
+  summary: >-
+    Composable local dev stack features for Kafka, Keycloak, and Postgres—
+    standardizes onboarding environments via Dev Containers.
+  tech_stack:
+    - Shell
+    - Dev Containers
+    - Docker
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-env/devcontainer-feature-library
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: environment-drift-detector
+  title: Environment Drift Detector
+  summary: >-
+    Detects local toolchain drift against YAML baselines with fix scripts—
+    reduces "works on my machine" friction across team environments.
+  tech_stack:
+    - Python
+    - YAML
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-env/environment-drift-detector
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: local-service-mesh
+  title: Local Service Mesh
+  summary: >-
+    Kubernetes-like routing on Docker Compose with Caddy gateway—
+    brings service-mesh concepts to local multi-service development.
+  tech_stack:
+    - Docker
+    - Caddy
+    - Docker Compose
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-env/local-service-mesh
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: onboarding-automation-cli
+  title: Onboarding Automation CLI
+  summary: >-
+    Automates new-hire environment setup with repo cloning and health checks—
+    demonstrates developer experience investment in repeatable onboarding.
+  tech_stack:
+    - Kotlin
+    - Gradle
+    - CLI
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-env/onboarding-automation-cli
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: remote-dev-environment-orchestrator
+  title: Remote Dev Environment Orchestrator
+  summary: >-
+    Provisions ephemeral cloud dev environments with Temporal TTL teardown—
+    shows infrastructure automation for remote development workflows.
+  tech_stack:
+    - Python
+    - Temporal
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-env/remote-dev-environment-orchestrator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: developer-satisfaction-pulse
+  title: Developer Satisfaction Pulse
+  summary: >-
+    SPACE/NPS developer survey system with trend tracking via FastAPI—
+    quantifies developer experience signals for platform teams.
+  tech_stack:
+    - Python
+    - FastAPI
+    - PostgreSQL
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-ex/developer-satisfaction-pulse-system
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: tooling-adoption-tracker
+  title: Tooling Adoption Tracker
+  summary: >-
+    Measures internal tool rollout adoption with funnel metrics and telemetry—
+    helps platform teams validate enablement investments with data.
+  tech_stack:
+    - TypeScript
+    - Node.js
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-ex/tooling-adoption-tracker
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: inner-loop-friction-scorer
+  title: Inner Loop Friction Scorer
+  summary: >-
+    Composite developer friction score from CI telemetry and taxonomy—
+    surfaces where daily development workflows lose the most time.
+  tech_stack:
+    - Python
+    - CI telemetry
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-ex/inner-loop-friction-scorer
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: platform-changelog-migration-generator
+  title: Platform Changelog Generator
+  summary: >-
+    Generates API diff changelogs and migration guides from AST analysis—
+    automates breaking-change communication for platform API evolution.
+  tech_stack:
+    - Python
+    - AST
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/dev-ex/platform-changelog-migration-generator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
