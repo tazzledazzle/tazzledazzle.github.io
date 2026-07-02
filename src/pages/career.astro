@@ -1,19 +1,10 @@
 ---
-// @ts-nocheck
 import MainLayout from "../layouts/MainLayout.astro";
-import { getEntry } from "astro:content";
-
-const career = await getEntry("career", "default");
+import CareerTimeline from "../components/CareerTimeline.astro";
 ---
 
-<MainLayout title="Career | Terence Schumacher">
+<MainLayout title="Career | Terence Schumacher" description="Career history, roles, and education.">
   <h1>Career</h1>
-  <ul>
-    {career?.data.roles.map((role) => (
-      <li>
-        <h2>{role.title}</h2>
-        <p>{role.employer} · {role.start_date} - {role.end_date}</p>
-      </li>
-    ))}
-  </ul>
+  <p>Recent roles building platform infrastructure, observability, and release engineering at scale.</p>
+  <CareerTimeline />
 </MainLayout>
