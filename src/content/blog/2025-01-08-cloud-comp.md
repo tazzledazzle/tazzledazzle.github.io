@@ -100,12 +100,12 @@ How to Exchange Messages between a web client and a web server
 GET /repos/CodeMazeBlog/ConsumeRestfulApisExamples HTTP/1.1
 Host: api.github.com
 Content-Type: application/json
-Authorization: Basic dGhhbmtzIEhhcmFsZCBSb21iYXV0LCBtdWNoIGFwcHJlY2lhdGVk
+Authorization: Basic {token}
 Cache-Control: no-cache
 ```
 
 ```http request 
-POST /repos/CodeMazeBlog/ConsumeRestfulApisExamples/hooks?access_token=5643f4128a9cf974517346b2158d04c8aa7ad45f HTTP/1.1
+POST /repos/CodeMazeBlog/ConsumeRestfulApisExamples/hooks?access_token={token} HTTP/1.1
 Host: api.github.com
 Content-Type: application/json
 Cache-Control: no-cache
