@@ -15,3 +15,8 @@ task :test do
 end
 
 task :default => :test
+
+# Load custom task files (new tasks live under lib/tasks/).
+Dir.glob('lib/tasks/*.rake').sort.each do |task_file|
+  load task_file
+end
