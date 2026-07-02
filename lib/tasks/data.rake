@@ -5,9 +5,9 @@ namespace :data do
     abort 'data:validate failed' unless ok
   end
 
-  desc 'Stub inventory generator (implemented in Plan 04)'
+  desc 'Regenerate _data/blog-inventory.yml from _posts/ scan'
   task :inventory do
-    puts 'Run Plan 04 to implement inventory generator'
+    load File.expand_path('../../scripts/generate-blog-inventory.rb', __dir__)
+    BlogInventoryGenerator.run!
   end
 end
-

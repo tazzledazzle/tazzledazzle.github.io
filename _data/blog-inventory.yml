@@ -1,0 +1,520 @@
+---
+meta:
+  generated_at: '2026-07-02T06:23:07Z'
+  total_posts: 51
+  tier_counts:
+    featured: 12
+    standard: 13
+    archived: 26
+posts:
+- id: 2015-02-18-binary-search
+  filename: 2015-02-18-binary-search.markdown
+  title: Searching and Sorting - Binary Search
+  pub_date: '2015-02-18'
+  permalink: "/2015/02/18/searching-and-sorting-binary-search/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2015-04-17-computer-science-rant
+  filename: 2015-04-17-computer-science-rant.markdown
+  title: Computer Science Rant
+  pub_date: '2015-04-17'
+  permalink: "/2015/04/17/computer-science-rant/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2015-08-08-design-document-for-automating-macos-i
+  filename: 2015-08-08-Design Document for Automating macOS I.md
+  title: Design Document for Automating macOS Installers (.pkg and .dmg)
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-automating-macos-installers-pkg-and-dmg/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-09-design-document-for-automating-macos
+  duplicate_group: automating-macos
+- id: 2015-08-08-design-document-for-debugging-kernel-lev
+  filename: 2015-08-08-Design Document for Debugging Kernel-Lev.md
+  title: Design Document For Debugging Kernel Lev
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-debugging-kernel-lev/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-08-design-document-for-debugging-kernel-lev
+  duplicate_group: debugging-kernel-level
+- id: 2015-08-08-design-document-for-implementing-code-si
+  filename: 2015-08-08-Design Document for Implementing Code Si.md
+  title: Design Document For Implementing Code Si
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-implementing-code-si/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-08-design-document-for-implementing-code-signing-and-notarization
+  duplicate_group: code-signing-notarization
+- id: 2015-08-08-design-document-for-learning-homebrew-an
+  filename: 2015-08-08-Design Document for Learning Homebrew an.md
+  title: Design Document For Learning Homebrew An
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-learning-homebrew-an/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-09-design-document-for-learning-homebrew-an
+  duplicate_group: learning-homebrew
+- id: 2015-08-08-design-document-for-mastering-xcode-inst
+  filename: 2015-08-08-Design Document for Mastering Xcode Inst.md
+  title: Design Document For Mastering Xcode Inst
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-mastering-xcode-inst/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-11-29-design-document-for-mastering-xcode-inst
+  duplicate_group: mastering-xcode-installers
+- id: 2015-08-08-design-document-for-project-3-multithre
+  filename: '2015-08-08-Design Document for Project 3: Multithre.md'
+  title: 'Design Document For Project 3: Multithre'
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-project-3-multithre/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-07-25-design-document-for-multithre
+  duplicate_group: macos-multithreading
+- id: 2015-08-08-design-document-for-project-5-macos-dis
+  filename: '2015-08-08-Design Document for Project 5: macOS Dis.md'
+  title: 'Design Document For Project 5: Macos Dis'
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-project-5-macos-dis/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-09-design-document-for-macos-dis
+  duplicate_group: macos-distribution
+- id: 2015-08-08-design-document-for-setting-up-automated
+  filename: 2015-08-08-Design Document for Setting Up Automated.md
+  title: Design Document For Setting Up Automated
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-setting-up-automated/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-01-30-design-document-for-setting-up-automated
+  duplicate_group: macos-automated-testing
+- id: 2015-08-08-design-document-for-testing-across-macos
+  filename: 2015-08-08-Design Document for Testing Across macOS.md
+  title: Design Document For Testing Across Macos
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-testing-across-macos/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-08-design-document-for-testing-across-macos
+  duplicate_group: testing-across-macos
+- id: 2015-08-08-design-document-for-understanding-macos
+  filename: 2015-08-08-Design Document for Understanding macOS .md
+  title: Design Document For Understanding Macos
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/design-document-for-understanding-macos/"
+  tier: archived
+  auto_rule: design_doc_2015_duplicate
+  hide_frontmatter: false
+  canonical_slug: 2024-12-09-design-document-for-understanding-macos
+  duplicate_group: understanding-macos
+- id: 2015-08-08-ea-forge-stuff
+  filename: 2015-08-08-ea-forge-stuff.md
+  title: The Forge
+  pub_date: '2015-08-08'
+  permalink: "/2015/08/08/the-forge/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2015-11-06-greetings
+  filename: 2015-11-06-greetings.markdown
+  title: Interview Prep
+  pub_date: '2015-11-06'
+  permalink: "/2015/11/06/interview-prep/"
+  tier: archived
+  auto_rule: meta_post
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2016-01-07-competitve-programming
+  filename: 2016-01-07-Competitve-Programming.markdown
+  title: Competitive Programming Practice
+  pub_date: '2015-11-06'
+  permalink: "/2016/01/07/competitive-programming-practice/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2015-11-09-status-update
+  filename: 2015-11-09-status-update.markdown
+  title: Status update for Distributed Project
+  pub_date: '2015-11-09'
+  permalink: "/2015/11/09/status-update-for-distributed-project/"
+  tier: archived
+  auto_rule: meta_post
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2015-11-10-ai
+  filename: 2015-11-10-ai.markdown
+  title: AI
+  pub_date: '2015-11-10'
+  permalink: "/2015/11/10/ai/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2015-12-20-guide-to-data-mining
+  filename: 2015-12-20-guide-to-data-mining.md
+  title: Guide To Data Mining
+  pub_date: '2015-12-20'
+  permalink: "/2015/12/20/guide-to-data-mining/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2016-01-05-fun-algorithms
+  filename: 2016-01-05-Fun-Algorithms.md
+  title: Algorithms That Interest Me
+  pub_date: '2016-01-05'
+  permalink: "/2016/01/05/algorithms-that-interest-me/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2016-03-01-basics
+  filename: 2016-03-01-basics.md
+  title: Algorithms in a Nutshell
+  pub_date: '2016-03-01'
+  permalink: "/2016/03/01/algorithms-in-a-nutshell/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2024-01-30-design-document-for-setting-up-automated
+  filename: 2024-01-30-Design-Document-for-Setting-Up-Automated.md
+  title: Design Document for Setting Up Automated Tests for macOS Applications
+  pub_date: '2024-01-30'
+  permalink: "/2024/01/30/design-document-for-setting-up-automated-tests-for-macos-applications/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-07-25-design-document-for-multithre
+  filename: 2024-07-25-Design-Document-for-Multithre.md
+  title: 'Design Document for Project 3: Multithreaded Log Analyzer'
+  pub_date: '2024-07-25'
+  permalink: "/2024/07/25/design-document-for-project-3-multithreaded-log-analyzer/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-11-08-kotlin-cheatsheet
+  filename: 2024-11-08-kotlin-cheatsheet.md
+  title: Kotlin Cheatsheet
+  pub_date: '2024-11-08'
+  permalink: "/2024/11/08/kotlin-cheatsheet/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2024-11-20-clickops
+  filename: 2024-11-20-ClickOps.markdown
+  title: ClickOps
+  pub_date: '2024-11-20'
+  permalink: "/2024/11/20/clickops/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-11-29-design-document-for-mastering-xcode-inst
+  filename: 2024-11-29-Design-Document-for-Mastering-Xcode-Inst.md
+  title: Design Document for Mastering Xcode Instruments for Profiling and Performance
+    Optimization
+  pub_date: '2024-11-29'
+  permalink: "/2024/11/29/design-document-for-mastering-xcode-instruments-for-profiling-and-performance-optimization/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2015-12-03-welcome-to-jekyll
+  filename: 2015-12-03-welcome-to-jekyll.markdown
+  title: Welcome to Jekyll!
+  pub_date: '2024-12-03'
+  permalink: "/2015/12/03/welcome-to-jekyll/"
+  tier: archived
+  auto_rule: meta_post
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-02-welcome-back
+  filename: 2024-12-02-Welcome-back.markdown
+  title: Welcome Back!
+  pub_date: '2024-12-03'
+  permalink: "/2024/12/02/welcome-back/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-08-design-document-for-debugging-kernel-lev
+  filename: 2024-12-08-Design-Document-for-Debugging-Kernel-Lev.md
+  title: Document for Debugging Kernel-Level Interactions
+  pub_date: '2024-12-08'
+  permalink: "/2024/12/08/document-for-debugging-kernel-level-interactions/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-08-design-document-for-implementing-code-signing-and-notarization
+  filename: 2024-12-08-Design-Document-for-Implementing-Code-Signing-and-Notarization.md
+  title: Design Document for Implementing Code Signing and Notarization
+  pub_date: '2024-12-08'
+  permalink: "/2024/12/08/design-document-for-implementing-code-signing-and-notarization/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-08-design-document-for-testing-across-macos
+  filename: 2024-12-08-Design-Document-for-Testing-Across-macOS.md
+  title: Design Document for Testing Across macOS Versions
+  pub_date: '2024-12-08'
+  permalink: "/2024/12/08/design-document-for-testing-across-macos-versions/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-09-design-document-for-automating-macos
+  filename: 2024-12-09-Design-Document-for-Automating-macOS.md
+  title: Design Document for Automating macOS Installers
+  pub_date: '2024-12-09'
+  permalink: "/2024/12/09/design-document-for-automating-macos-installers/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-09-design-document-for-learning-homebrew-an
+  filename: 2024-12-09-Design-Document-for-Learning-Homebrew-an.md
+  title: Design Document for Learning Homebrew and CMake for Dependency Management
+  pub_date: '2024-12-09'
+  permalink: "/2024/12/09/design-document-for-learning-homebrew-and-cmake-for-dependency-management/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-09-design-document-for-macos-dis
+  filename: 2024-12-09-Design-Document-for-macOS-Dis.md
+  title: 'Design Document for Project 5: macOS Disk Usage Visualizer'
+  pub_date: '2024-12-09'
+  permalink: "/2024/12/09/design-document-for-project-5-macos-disk-usage-visualizer/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-09-design-document-for-understanding-macos
+  filename: 2024-12-09-Design-Document-for-Understanding-macOS.md
+  title: Design Document for Understanding macOS Security Features
+  pub_date: '2024-12-09'
+  permalink: "/2024/12/09/design-document-for-understanding-macos-security-features/"
+  tier: archived
+  auto_rule: hide_frontmatter
+  hide_frontmatter: true
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-10-behavioral-questions
+  filename: 2024-12-10-behavioral-questions.md
+  title: Behavioral Questions
+  pub_date: '2024-12-10'
+  permalink: "/2024/12/10/behavioral-questions/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2024-12-16-aditl
+  filename: 2024-12-16-ADITL.md
+  title: A Day in the Life
+  pub_date: '2024-12-16'
+  permalink: "/2024/12/16/a-day-in-the-life/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-02-practice-makes-perfect
+  filename: 2025-01-02-practice-makes-perfect.md
+  title: Practice Makes Perfect
+  pub_date: '2024-12-16'
+  permalink: "/2025/01/02/practice-makes-perfect/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-03-diagrams
+  filename: 2025-01-03-diagrams.md
+  title: Web application architectures and components
+  pub_date: '2025-01-03'
+  permalink: "/2025/01/03/web-application-architectures-and-components/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-07-forge-notes
+  filename: 2025-01-07-Forge-notes.md
+  title: Forge notes
+  pub_date: '2025-01-07'
+  permalink: "/2025/01/07/forge-notes/"
+  tier: standard
+  auto_rule: recent_technical_remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-08-cloud-comp
+  filename: 2025-01-08-Cloud-comp.md
+  title: Cloud Computing Notes
+  pub_date: '2025-01-08'
+  permalink: "/2025/01/08/cloud-computing-notes/"
+  tier: standard
+  auto_rule: recent_technical_remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-08-more-forge-and-prep
+  filename: 2025-01-08-More-forge-and-prep.md
+  title: Forge and Prep
+  pub_date: '2025-01-08'
+  permalink: "/2025/01/08/forge-and-prep/"
+  tier: standard
+  auto_rule: recent_technical_remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-09-deleting-index-from-array
+  filename: 2025-01-09-Deleting-index-from-array.md
+  title: Deleting index from array
+  pub_date: '2025-01-09'
+  permalink: "/2025/01/09/deleting-index-from-array/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-13-debugging
+  filename: 2025-01-13-Debugging.md
+  title: Debugging
+  pub_date: '2025-01-13'
+  permalink: "/2025/01/13/debugging/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-14-job-stuff
+  filename: 2025-01-14-Job-Stuff.md
+  title: Job Stuff
+  pub_date: '2025-01-14'
+  permalink: "/2025/01/14/job-stuff/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-15-financial-calcs
+  filename: 2025-01-15-financial-calcs.md
+  title: Financial Calculations for Fun and Profit
+  pub_date: '2025-01-15'
+  permalink: "/2025/01/15/financial-calculations-for-fun-and-profit/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-16-kotlinx-datetime-use
+  filename: 2025-01-16-kotlinx-datetime-use.md
+  title: Documenting evaluating `kotlinx-datetime`
+  pub_date: '2025-01-16'
+  permalink: "/2025/01/16/documenting-evaluating-kotlinx-datetime/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-01-22-nord-interview-and-studies
+  filename: 2025-01-22-Nord-interview-and-studies.markdown
+  title: Nord Interview and Studies
+  pub_date: '2025-01-22'
+  permalink: "/2025/01/22/nord-interview-and-studies/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-07-03-monorepo-tooling-strategy
+  filename: 2025-07-03-Monorepo-tooling-strategy.md
+  title: Monorepo Tooling Strategies
+  pub_date: '2025-07-03'
+  permalink: "/2025/07/03/monorepo-tooling-strategies/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-07-24-practice-problems-buy-and-sell-stock
+  filename: 2025-07-24-practice-problems-buy-and-sell-stock.md
+  title: Practice Problems - Best Time to Buy and Sell Stock
+  pub_date: '2025-07-24'
+  permalink: "/2025/07/24/practice-problems-best-time-to-buy-and-sell-stock/"
+  tier: standard
+  auto_rule: recent_technical_remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-07-24-practice-problems-twosum
+  filename: 2025-07-24-practice-problems-twosum.md
+  title: Practice Problems - Two Sum
+  pub_date: '2025-07-24'
+  permalink: "/2025/07/24/practice-problems-two-sum/"
+  tier: standard
+  auto_rule: recent_technical_remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2025-08-01-dev-ops-helper-tool
+  filename: 2025-08-01-dev-ops-helper-tool.md
+  title: DevOps Helper Tool
+  pub_date: '2025-08-01'
+  permalink: "/2025/08/01/devops-helper-tool/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:

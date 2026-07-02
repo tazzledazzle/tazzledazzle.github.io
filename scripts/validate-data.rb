@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'psych'
+require 'set'
 require 'uri'
 
 class DataValidator
@@ -307,6 +308,64 @@ class DataValidator
     if total_posts_int != posts.length
       @errors << "blog-inventory.yml: meta.total_posts (#{total_posts_int}) must equal posts.length (#{posts.length})"
     end
+
+    expected_count = Dir.glob('_posts/*.{md,markdown}').length
+    if total_posts_int != expected_count
+      @errors << "blog-inventory.yml: meta.total_posts (#{total_posts_int}) must equal _posts markdown count (#{expected_count})"
+    end
+
+    tier_counts = posts.group_by { |p| p['tier'] }.transform_values(&:size)
+    featured_count = tier_counts['featured'].to_i
+    unless (10..15).cover?(featured_count)
+      @errors << "blog-inventory.yml: featured count must be 10–15, got #{featured_count}"
+    end
+
+    post_ids = posts.map { |p| p['id'] }.compact
+    inventory_filenames = posts.map { |p| p['filename'] }.compact.to_set
+
+    Dir.glob('_posts/*.{md,markdown}').each do |path|
+      filename = File.basename(path)
+      unless inventory_filenames.include?(filename)
+        @errors << "blog-inventory.yml: missing inventory entry for #{filename}"
+      end
+    end
+
+    hide_archived = posts.select { |p| p['hide_frontmatter'] }
+    hide_archived.each do |post|
+      unless post['tier'] == 'archived'
+        @errors << "blog-inventory.yml: hide_frontmatter post #{post['id']} must be tier archived, got #{post['tier'].inspect}"
+      end
+    end
+
+    hide_count = posts.count { |p| p['hide_frontmatter'] }
+    if hide_count < 13
+      @errors << "blog-inventory.yml: expected at least 13 hide_frontmatter posts, got #{hide_count}"
+    end
+
+    posts.each do |post|
+      canonical = post['canonical_slug']
+      next if canonical.nil? || (canonical.is_a?(String) && canonical.strip.empty?)
+
+      unless post_ids.include?(canonical)
+        @errors << "blog-inventory.yml: canonical_slug #{canonical.inspect} on #{post['id']} does not reference a valid post id"
+      end
+    end
+
+    meta_counts = meta['tier_counts']
+    if meta_counts.is_a?(Hash)
+      %w[featured standard archived].each do |tier|
+        expected = tier_counts[tier] || 0
+        actual = meta_counts[tier]
+        actual_int = actual.is_a?(Integer) ? actual : actual.to_i
+        if actual_int != expected
+          @errors << "blog-inventory.yml: meta.tier_counts.#{tier} (#{actual_int}) must match posts (#{expected})"
+        end
+      end
+    else
+      @errors << 'blog-inventory.yml: meta.tier_counts must be a hash'
+    end
+
+    @inventory_tier_counts = tier_counts
   end
 
   def run!(checks)
@@ -353,6 +412,9 @@ class DataValidator
       @stderr.puts
       @stderr.puts 'Validation failed:'
       @stderr.puts @errors.map { |e| "- #{e}" }
+    elsif @inventory_tier_counts
+      @stderr.puts
+      @stderr.puts "blog-inventory tier_counts: #{@inventory_tier_counts.inspect}"
     end
 
     valid? ? 0 : 1
