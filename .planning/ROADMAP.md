@@ -12,7 +12,7 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 
 - [x] **Phase 1: Foundation & Data Extraction** - Structured hiring data, fixed navigation, and blog curation inventory (completed 2026-07-02)
 - [x] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation (completed 2026-07-02)
-- [ ] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links
+- [x] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links (completed 2026-07-02)
 - [ ] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience
 - [ ] **Phase 5: Design System & Layout Polish** - Cohesive dark theme, responsive layout, and readable post typography
 - [ ] **Phase 6: Performance, SEO & Accessibility** - Lighthouse 90+, WCAG AA, structured data, and CI quality gates
@@ -74,11 +74,11 @@ Plans:
 **UI hint**: yes
 
 Plans:
-- [ ] 03-01-PLAN.md — Site chrome, resume PDF, shared ProjectCard (HIRE-06, HIRE-07)
-- [ ] 03-02-PLAN.md — Homepage hero and featured project tease (HIRE-01, HIRE-02)
-- [ ] 03-03-PLAN.md — Work page card grid and archive section (HIRE-03, HIRE-04)
-- [ ] 03-04-PLAN.md — Career timeline and About bio (HIRE-05)
-- [ ] 03-05-PLAN.md — Phase 3 verification gate and validation matrix (HIRE-01–07)
+- [x] 03-01-PLAN.md — Site chrome, resume PDF, shared ProjectCard (HIRE-06, HIRE-07)
+- [x] 03-02-PLAN.md — Homepage hero and featured project tease (HIRE-01, HIRE-02)
+- [x] 03-03-PLAN.md — Work page card grid and archive section (HIRE-03, HIRE-04)
+- [x] 03-04-PLAN.md — Career timeline and About bio (HIRE-05)
+- [x] 03-05-PLAN.md — Phase 3 verification gate and validation matrix (HIRE-01–07)
 
 ### Phase 4: Blog Curation & Discovery
 **Goal**: Engineering peers can discover and read curated technical writing without legacy noise diluting signal
@@ -93,7 +93,16 @@ Plans:
   5. Reader can browse posts grouped by year from an archive page
   6. Reader can navigate to the previous and next post by publication date from any blog post
   7. Reader (or feed aggregator) can discover the RSS feed via `<link rel="alternate">` in the page head on all pages
-**Plans**: TBD
+**Plans**: 6 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Blog utilities, tag backfill, and prev/next helpers
+- [ ] 04-02-PLAN.md — Expressive Code (GitHub Dark) and RSS autodiscovery
+- [ ] 04-03-PLAN.md — PostLayout with metadata, tags, prev/next, archived handling
+- [ ] 04-04-PLAN.md — Tiered featured + standard blog index
+- [ ] 04-05-PLAN.md — Tag index routes and year archive page
+- [ ] 04-06-PLAN.md — Phase 4 verification gate (BLOG-01–07)
+
 **Research flag**: Per-post SEO/backlink audit methodology if analytics access is limited
 **UI hint**: yes
 
@@ -134,8 +143,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Foundation & Data Extraction | 4/4 | Complete   | 2026-07-02 |
 | 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
-| 3. Hiring Pages | 0/5 | Not started | - |
-| 4. Blog Curation & Discovery | 0/TBD | Not started | - |
+| 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
+| 4. Blog Curation & Discovery | 0/6 | Not started | - |
 | 5. Design System & Layout Polish | 0/TBD | Not started | - |
 | 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
 
