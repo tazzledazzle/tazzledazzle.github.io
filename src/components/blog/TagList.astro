@@ -1,0 +1,21 @@
+---
+import { tagToSlug } from "../../lib/blog/tags.ts";
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{tags.length > 0 && (
+  <nav class="post-tags" aria-label="Post tags">
+    <ul>
+      {tags.map((tag) => (
+        <li>
+          <a href={`/blog/tags/${tagToSlug(tag)}/`}>{tag}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
