@@ -1,20 +1,37 @@
 ---
-// @ts-nocheck
 import MainLayout from "../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
+import ProjectCard from "../components/ProjectCard.astro";
+import ArchiveProjects from "../components/ArchiveProjects.astro";
 
 const featured = await getCollection("featuredProjects");
+const sorted = featured.sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<MainLayout title="Work | Terence Schumacher">
+<MainLayout title="Work | Terence Schumacher" description="Featured software projects and portfolio work.">
   <h1>Work</h1>
-  <ul>
-    {featured.map((project) => (
-      <li>
-        <h2>{project.data.title}</h2>
-        <p>{project.data.summary}</p>
-        <p><a href={project.data.github_url}>GitHub</a></p>
-      </li>
+  <p>Selected projects spanning observability, platform tooling, and full-stack delivery.</p>
+
+  <div class="work-grid">
+    {sorted.map((project) => (
+      <ProjectCard project={project} />
     ))}
-  </ul>
+  </div>
+
+  <ArchiveProjects />
 </MainLayout>
+
+<style>
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .work-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
