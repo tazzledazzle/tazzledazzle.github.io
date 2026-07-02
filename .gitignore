@@ -17,3 +17,6 @@ Thumbs.db
 *.code-workspace
 .idea/
 .vscode/
+node_modules/
+dist/
+.astro/
