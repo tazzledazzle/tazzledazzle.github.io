@@ -29,7 +29,13 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
   2. Maintainer can render project cards from structured data with title, summary, tech stack, GitHub URL, and optional demo URL for each featured project
   3. Maintainer can render a career timeline from structured data with employer, role, dates, and quantified achievement bullets
   4. Every legacy blog post has a documented curation tier (featured / standard / archived) before migration begins
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Validation scaffold (scripts/validate-data.rb + Rake tasks)
+- [ ] 01-02-PLAN.md — Navigation, social, and curated projects YAML (DATA-01, DATA-03)
+- [ ] 01-03-PLAN.md — Career data with LinkedIn input checkpoint (DATA-02)
+- [ ] 01-04-PLAN.md — Blog inventory, Astro mapping doc, and full validation gate (DATA-04)
 
 ### Phase 2: Astro Scaffold & Content Migration
 **Goal**: Site builds on Astro 7 and deploys to GitHub Pages with migrated blog content and preserved permalinks
@@ -112,7 +118,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Data Extraction | 0/TBD | Not started | - |
+| 1. Foundation & Data Extraction | 0/4 | Not started | - |
 | 2. Astro Scaffold & Content Migration | 0/TBD | Not started | - |
 | 3. Hiring Pages | 0/TBD | Not started | - |
 | 4. Blog Curation & Discovery | 0/TBD | Not started | - |
