@@ -7,10 +7,10 @@
 
 ### Foundation & Data
 
-- [ ] **DATA-01**: Projects are defined in structured data (YAML/JSON) with title, summary, tech stack, GitHub URL, and optional demo URL
-- [ ] **DATA-02**: Career experience is defined in structured data with employer, role, dates, and achievement bullets
-- [ ] **DATA-03**: Site navigation and social links are defined in a single config source used by all layouts
-- [ ] **DATA-04**: A content inventory exists documenting all blog posts with curation tier (featured / standard / archived)
+- [x] **DATA-01**: Projects are defined in structured data (YAML/JSON) with title, summary, tech stack, GitHub URL, and optional demo URL
+- [x] **DATA-02**: Career experience is defined in structured data with employer, role, dates, and achievement bullets
+- [x] **DATA-03**: Site navigation and social links are defined in a single config source used by all layouts
+- [x] **DATA-04**: A content inventory exists documenting all blog posts with curation tier (featured / standard / archived)
 
 ### Platform & Migration
 
@@ -97,10 +97,10 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| DATA-04 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
+| DATA-02 | Phase 1 | Complete |
+| DATA-03 | Phase 1 | Complete |
+| DATA-04 | Phase 1 | Complete |
 | PLAT-01 | Phase 2 | Pending |
 | PLAT-02 | Phase 2 | Pending |
 | PLAT-03 | Phase 2 | Pending |

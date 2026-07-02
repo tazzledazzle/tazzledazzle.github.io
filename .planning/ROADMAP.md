@@ -32,7 +32,7 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Validation scaffold (scripts/validate-data.rb + Rake tasks)
+- [x] 01-01-PLAN.md — Validation scaffold (scripts/validate-data.rb + Rake tasks)
 - [ ] 01-02-PLAN.md — Navigation, social, and curated projects YAML (DATA-01, DATA-03)
 - [ ] 01-03-PLAN.md — Career data with LinkedIn input checkpoint (DATA-02)
 - [ ] 01-04-PLAN.md — Blog inventory, Astro mapping doc, and full validation gate (DATA-04)
@@ -118,7 +118,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Data Extraction | 0/4 | Not started | - |
+| 1. Foundation & Data Extraction | 1/4 | In Progress|  |
 | 2. Astro Scaffold & Content Migration | 0/TBD | Not started | - |
 | 3. Hiring Pages | 0/TBD | Not started | - |
 | 4. Blog Curation & Discovery | 0/TBD | Not started | - |
