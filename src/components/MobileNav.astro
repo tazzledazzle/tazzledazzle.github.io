@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  navItems: CollectionEntry<"navigation">[];
+}
+
+const { navItems } = Astro.props;
+---
+
+<details class="mobile-nav">
+  <summary aria-label="Menu">Menu</summary>
+  <nav class="mobile-nav__panel" aria-label="Mobile">
+    {navItems.map((item) => (
+      <a href={item.data.url}>{item.data.title}</a>
+    ))}
+    <a href="/resume.pdf">Download Resume</a>
+  </nav>
+</details>
