@@ -6,9 +6,10 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description?: string;
+  robots?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, robots } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +25,7 @@ const { title, description } = Astro.props;
     />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {robots && <meta name="robots" content={robots} />}
   </head>
   <body>
     <Header />
