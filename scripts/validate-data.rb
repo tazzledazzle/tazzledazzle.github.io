@@ -408,7 +408,7 @@ class DataValidator
       end
     end
 
-    unless valid?
+    if !valid?
       @stderr.puts
       @stderr.puts 'Validation failed:'
       @stderr.puts @errors.map { |e| "- #{e}" }
