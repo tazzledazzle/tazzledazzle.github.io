@@ -133,10 +133,21 @@ Deferred to future release. Tracked but not in current roadmap.
 | QUAL-06 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 33 total
-- Mapped to phases: 33
+- v1 requirements: 34 total
+- Mapped to phases: 34
 - Unmapped: 0 ✓
+
+### Phase Coverage Summary
+
+| Phase | Requirements | Count |
+|-------|--------------|-------|
+| 1 — Foundation & Data Extraction | DATA-01, DATA-02, DATA-03, DATA-04 | 4 |
+| 2 — Astro Scaffold & Content Migration | PLAT-01, PLAT-02, PLAT-03, PLAT-04, PLAT-05 | 5 |
+| 3 — Hiring Pages | HIRE-01, HIRE-02, HIRE-03, HIRE-04, HIRE-05, HIRE-06, HIRE-07 | 7 |
+| 4 — Blog Curation & Discovery | BLOG-01, BLOG-02, BLOG-03, BLOG-04, BLOG-05, BLOG-06, BLOG-07 | 7 |
+| 5 — Design System & Layout Polish | DESN-01, DESN-02, DESN-03, DESN-04, DESN-05 | 5 |
+| 6 — Performance, SEO & Accessibility | QUAL-01, QUAL-02, QUAL-03, QUAL-04, QUAL-05, QUAL-06 | 6 |
 
 ---
 *Requirements defined: 2026-07-01*
-*Last updated: 2026-07-01 after initial definition*
+*Last updated: 2026-07-01 after roadmap creation*
