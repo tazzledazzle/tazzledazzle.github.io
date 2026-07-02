@@ -1,0 +1,20 @@
+---
+// @ts-nocheck
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const featured = await getCollection("featuredProjects");
+---
+
+<MainLayout title="Work | Terence Schumacher">
+  <h1>Work</h1>
+  <ul>
+    {featured.map((project) => (
+      <li>
+        <h2>{project.data.title}</h2>
+        <p>{project.data.summary}</p>
+        <p><a href={project.data.github_url}>GitHub</a></p>
+      </li>
+    ))}
+  </ul>
+</MainLayout>

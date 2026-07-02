@@ -1,0 +1,30 @@
+---
+// @ts-nocheck
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection, getEntry, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const inventory = await getEntry("blogInventory", "default");
+  const posts = await getCollection("blog");
+  const postById = new Map(posts.map((post) => [post.id, post]));
+  const items = inventory?.data.posts ?? [];
+  return items
+    .filter((item) => postById.has(item.id))
+    .map((item) => ({
+      params: { slug: item.permalink.replace(/^\//, "").replace(/\/$/, "") },
+      props: { id: item.id }
+    }));
+}
+
+const post = await getEntry("blog", Astro.props.id);
+if (!post) throw new Error("Post not found");
+const { Content } = await render(post);
+---
+
+<MainLayout title={`${post.data.title} | Blog`}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p>{post.data.pubDate.toISOString().slice(0, 10)}</p>
+    <Content />
+  </article>
+</MainLayout>

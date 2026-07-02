@@ -1,0 +1,12 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getEntry } from "astro:content";
+
+const social = await getEntry("social", "default");
+---
+
+<MainLayout title="About | Terence Schumacher">
+  <h1>About</h1>
+  <p>{social?.data.name} is a platform-focused engineer and technical writer.</p>
+  <p>Contact: <a href={`mailto:${social?.data.email}`}>{social?.data.email}</a></p>
+</MainLayout>

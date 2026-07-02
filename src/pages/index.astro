@@ -1,18 +1,15 @@
 ---
-import "../styles/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import { getEntry } from "astro:content";
+
+const social = await getEntry("social", "default");
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Terence Schumacher</title>
-  </head>
-  <body>
-    <main>
-      <h1>Terence Schumacher</h1>
-      <p>Astro migration scaffold in progress.</p>
-    </main>
-  </body>
-</html>
+<MainLayout title="Terence Schumacher" description="Software Engineer and technical writer portfolio.">
+  <h1>{social?.data.name ?? "Terence Schumacher"}</h1>
+  <p>Software Engineer building reliable platforms, tooling, and technical content.</p>
+  <p>
+    <a href="/work/">Work</a> · <a href="/career/">Career</a> · <a href="/blog/">Blog</a> ·
+    <a href="/about/">About</a>
+  </p>
+</MainLayout>

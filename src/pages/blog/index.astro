@@ -1,0 +1,20 @@
+---
+// @ts-nocheck
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.tier !== "archived")
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<MainLayout title="Blog | Terence Schumacher">
+  <h1>Blog</h1>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={post.data.permalink}>{post.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</MainLayout>
