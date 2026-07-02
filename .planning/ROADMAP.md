@@ -13,7 +13,7 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 - [x] **Phase 1: Foundation & Data Extraction** - Structured hiring data, fixed navigation, and blog curation inventory (completed 2026-07-02)
 - [x] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation (completed 2026-07-02)
 - [x] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links (completed 2026-07-02)
-- [ ] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience
+- [x] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience (completed 2026-07-02)
 - [ ] **Phase 5: Design System & Layout Polish** - Cohesive dark theme, responsive layout, and readable post typography
 - [ ] **Phase 6: Performance, SEO & Accessibility** - Lighthouse 90+, WCAG AA, structured data, and CI quality gates
 
@@ -96,12 +96,12 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Blog utilities, tag backfill, and prev/next helpers
-- [ ] 04-02-PLAN.md — Expressive Code (GitHub Dark) and RSS autodiscovery
-- [ ] 04-03-PLAN.md — PostLayout with metadata, tags, prev/next, archived handling
-- [ ] 04-04-PLAN.md — Tiered featured + standard blog index
-- [ ] 04-05-PLAN.md — Tag index routes and year archive page
-- [ ] 04-06-PLAN.md — Phase 4 verification gate (BLOG-01–07)
+- [x] 04-01-PLAN.md — Blog utilities, tag backfill, and prev/next helpers
+- [x] 04-02-PLAN.md — Expressive Code (GitHub Dark) and RSS autodiscovery
+- [x] 04-03-PLAN.md — PostLayout with metadata, tags, prev/next, archived handling
+- [x] 04-04-PLAN.md — Tiered featured + standard blog index
+- [x] 04-05-PLAN.md — Tag index routes and year archive page
+- [x] 04-06-PLAN.md — Phase 4 verification gate (BLOG-01–07)
 
 **Research flag**: Per-post SEO/backlink audit methodology if analytics access is limited
 **UI hint**: yes
@@ -144,7 +144,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Foundation & Data Extraction | 4/4 | Complete   | 2026-07-02 |
 | 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
 | 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
-| 4. Blog Curation & Discovery | 0/6 | Not started | - |
+| 4. Blog Curation & Discovery | 6/6 | Complete   | 2026-07-02 |
 | 5. Design System & Layout Polish | 0/TBD | Not started | - |
 | 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
 
