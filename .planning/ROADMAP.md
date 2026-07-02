@@ -25,7 +25,7 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 **Depends on**: Nothing (first phase)
 **Requirements**: DATA-01, DATA-02, DATA-03, DATA-04
 **Success Criteria** (what must be TRUE):
-  1. Visitor can navigate to About, Projects, Career, and Blog without broken links or URL casing errors
+  1. Maintainer can read canonical nav paths from `_data/navigation.yml` (lowercase `/about/`, `/work/`, `/career/`, `/blog/`) — live header wiring deferred to Phase 2/3 per D-20
   2. Maintainer can render project cards from structured data with title, summary, tech stack, GitHub URL, and optional demo URL for each featured project
   3. Maintainer can render a career timeline from structured data with employer, role, dates, and quantified achievement bullets
   4. Every legacy blog post has a documented curation tier (featured / standard / archived) before migration begins

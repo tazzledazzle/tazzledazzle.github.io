@@ -591,3 +591,12 @@ No `.cursor/rules/` directory exists in this repository. No additional Cursor ru
 
 **Research date:** 2026-07-01
 **Valid until:** 2026-07-31 (stable Jekyll data patterns; inventory counts may shift if posts added)
+
+## Open Questions (RESOLVED)
+
+1. **Which 3 portfolio-projects repos join featured?** — **RESOLVED:** Plan 01-02 defaults to `ws-chat-fast`, `online-bookstore`, `otel-demo-stack` alongside `native-macos-log-analyzer` and `imgannotator` (5 featured total). User may override at execution if README shows broken status.
+
+2. **LinkedIn career paste timing?** — **RESOLVED:** Plan 01-03 Task 2 uses a blocking `checkpoint:human-action` during execution. Schema ships with placeholders until user pastes LinkedIn data.
+
+3. **Whether `blog.md` needs explicit `permalink: /blog/`?** — **RESOLVED:** Defer to Phase 2 Astro migration. Phase 1 `_data/navigation.yml` canonical path is `/blog/` per D-19; Jekyll `blog.md` permalink alignment happens when layouts wire to data in Phase 2/3.
+
