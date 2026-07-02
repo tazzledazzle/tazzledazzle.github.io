@@ -48,8 +48,15 @@ Plans:
   3. Visitor can subscribe via RSS feed that includes only non-archived posts
   4. Search engines can crawl an XML sitemap that excludes archived posts
   5. Visitor following a changed or consolidated legacy URL is redirected to the correct new location
-**Plans**: TBD
+**Plans**: 5 plans
 **Research flag**: Permalink parity and GitHub Pages redirect strategy (`/gsd-plan-phase --research-phase 2`)
+
+Plans:
+- [ ] 02-01-PLAN.md — Astro scaffold and single-path CI cutover baseline
+- [ ] 02-02-PLAN.md — Data migration to `src/data` and validator continuity
+- [ ] 02-03-PLAN.md — Blog/content migration with canonical hiring/blog pages
+- [ ] 02-04-PLAN.md — RSS/sitemap archive filters and legacy redirect generation
+- [ ] 02-05-PLAN.md — D-23 validation matrix, smoke enforcement, and Jekyll retirement
 
 ### Phase 3: Hiring Pages
 **Goal**: A recruiter can understand who Terence is, what he's built, and why he's worth interviewing within 60 seconds
