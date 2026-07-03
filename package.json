@@ -10,7 +10,8 @@
     "check": "astro check",
     "test:unit": "node --test src/lib/*.test.ts src/lib/blog/*.test.ts",
     "verify:phase3": "npm run build && node scripts/verify-phase3-hiring.mjs",
-    "verify:phase4": "npm run build && node scripts/verify-phase4-blog.mjs"
+    "verify:phase4": "npm run build && node scripts/verify-phase4-blog.mjs",
+    "verify:phase5": "npm run build && node scripts/verify-phase5-design.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.1",
