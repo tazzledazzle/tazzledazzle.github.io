@@ -2,10 +2,14 @@
 
 :root {
   color-scheme: dark;
-  --bg: #0b1020;
-  --fg: #d6deeb;
-  --muted: #9aa7bd;
-  --accent: #7dd3fc;
+  /* Spacing uses Tailwind default scale (4/8/12/16/24px utilities) — no custom spacing tokens */
+  --bg: #0d1117;
+  --fg: #e6edf3;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --border: #30363d;
+  --surface: #161b22;
+  --radius: 0.25rem;
 }
 
 * {
@@ -33,13 +37,45 @@ a {
   color: var(--accent);
 }
 
+/* Shared component primitives (D-97, D-98) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.1rem;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--fg);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: var(--radius);
+}
+
+.btn-primary {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--fg);
+}
+
 p {
   color: var(--muted);
 }
 
 /* Site chrome */
 .site-header {
-  border-bottom: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  border-bottom: 1px solid var(--border);
 }
 
 .site-header__inner {
@@ -113,7 +149,7 @@ p {
 }
 
 .site-footer {
-  border-top: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  border-top: 1px solid var(--border);
   margin-top: 3rem;
 }
 
@@ -142,15 +178,15 @@ p {
   text-decoration: none;
 }
 
-/* Project cards */
+/* Project cards — Plan 03 migrates markup to .card */
 .project-card {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding: 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
-  border-radius: 0.5rem;
-  background: color-mix(in srgb, var(--bg) 92%, var(--fg));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
 }
 
 .project-card__title {
@@ -261,7 +297,7 @@ p {
   gap: 1rem;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  border-top: 1px solid var(--border);
 }
 
 .post-nav a {
