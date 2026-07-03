@@ -3,14 +3,15 @@ import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 
 const featured = await getCollection("featuredProjects");
-const teaseIds = new Set([
-  "otel-demo-stack",
-  "native-macos-log-analyzer",
-  "ws-chat-fast"
-]);
-const teaseProjects = featured
-  .filter((project) => teaseIds.has(project.id))
-  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+const teaseOrder = [
+  "bazel-multibuild",
+  "canary-deployment-controller",
+  "release-lead-time-calculator"
+];
+const byId = new Map(featured.map((project) => [project.id, project]));
+const teaseProjects = teaseOrder
+  .map((id) => byId.get(id))
+  .filter((project): project is NonNullable<typeof project> => project !== undefined);
 ---
 
 <section class="project-tease" aria-labelledby="project-tease-heading">

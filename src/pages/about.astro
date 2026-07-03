@@ -5,32 +5,39 @@ import { getEntry } from "astro:content";
 const social = await getEntry("social", "default");
 ---
 
-<MainLayout title="About | Terence Schumacher" description="About Terence Schumacher — platform engineer and technical writer.">
+<MainLayout title="About | Terence Schumacher" description="About Terence Schumacher — senior platform and reliability engineer.">
   <h1>About</h1>
 
   <p>
-    Hi, I'm <strong>{social?.data.name ?? "Terence Schumacher"}</strong> — a software engineer passionate
-    about building robust, scalable systems and sharing knowledge through technical writing. I work across
-    backend development, system design, DevOps, and infrastructure automation, with a focus on making
-    complex platforms understandable and operable for the teams that depend on them.
+    Hi, I'm <strong>{social?.data.name ?? "Terence Schumacher"}</strong>. I fix the part of
+    software engineering nobody puts on a roadmap: the gap between "the build passed" and
+    "we're confident shipping this Friday."
   </p>
 
   <p>
-    My path in software engineering has taken me through algorithm optimization, kernel-level debugging,
-    CI/CD pipeline design, and large-scale release engineering. I believe in continuous learning and in
-    documenting solutions so other engineers can move faster — whether that's a maturity audit across
-    dozens of microservices or a Gradle plugin used by hundreds of developers.
+    At <strong>Tableau</strong>, I spent seven years inside that gap — migrating a desktop
+    monolith from CMake to Bazel on Apple Silicon, automating macOS code-signing that had
+    been eating 720 hours a year, and redesigning CI/CD until release lead time dropped
+    79%. I was the person teams called when Gradle broke at 2 a.m. or a canary needed
+    a human to decide whether to roll back.
   </p>
 
   <p>
-    When I'm not coding, you'll find me writing technical articles, contributing to open-source projects,
-    exploring new frameworks and tooling, and mentoring fellow developers on platform and infrastructure
-    challenges.
+    At <strong>Invisible Technologies</strong>, the problem got harder: 28 microservices
+    running AI workflows where a silent failure means bad data, not just a 500 error. I
+    built the maturity audit that scored every service on DORA metrics, then the
+    Temporal-orchestrated observability layer that traces 100% of critical workflow paths.
+    Same throughline — make the platform legible before it breaks in production.
+  </p>
+
+  <p>
+    I write about what I build because documentation is part of the deliverable. If another
+    engineer can't operate your system from your runbook, you didn't finish the job.
   </p>
 
   <section aria-labelledby="connect-heading">
     <h2 id="connect-heading">Let's Connect</h2>
-    <p>I'm always interested in connecting with fellow developers, discussing technical challenges, or collaborating on interesting projects.</p>
+    <p>Platform engineering, release automation, observability — happy to talk through any of it.</p>
     {social && (
       <ul>
         <li><a href={social.data.github.url} rel="noopener noreferrer">GitHub</a></li>
