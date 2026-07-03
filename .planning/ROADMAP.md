@@ -139,7 +139,14 @@ Plans:
   4. Blog posts expose JSON-LD Article schema and the About page exposes Person schema to search engines
   5. Broken links and accessibility regressions are caught automatically in CI before deploy
   6. Images load in modern formats with lazy loading and do not cause layout shift from oversized dimensions
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — SEO head, self-hosted Inter, og-default.png, page descriptions (QUAL-03, QUAL-01)
+- [ ] 06-02-PLAN.md — Article and Person JSON-LD structured data (QUAL-04)
+- [ ] 06-03-PLAN.md — WCAG contrast audit and token fixes (QUAL-02)
+- [ ] 06-04-PLAN.md — CI lychee, axe, Lighthouse gates on 6 key pages (QUAL-01, QUAL-02, QUAL-05)
+- [ ] 06-05-PLAN.md — Image policy, verify-phase6 gate, validation matrix (QUAL-01–06)
 
 ## Progress
 
@@ -153,7 +160,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
 | 4. Blog Curation & Discovery | 6/6 | Complete   | 2026-07-02 |
 | 5. Design System & Layout Polish | 5/5 | Complete   | 2026-07-03 |
-| 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
+| 6. Performance, SEO & Accessibility | 0/5 | Not started | - |
 
 ---
 *Roadmap created: 2026-07-01*
