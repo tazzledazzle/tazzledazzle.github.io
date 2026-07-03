@@ -25,37 +25,3 @@ const teaseProjects = teaseOrder
     ))}
   </div>
 </section>
-
-<style>
-  .project-tease {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
-  }
-
-  .project-tease__header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .project-tease__header h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: var(--fg);
-  }
-
-  .project-tease__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .project-tease__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-</style>

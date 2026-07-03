@@ -4,17 +4,15 @@ import path from "node:path";
 const root = process.cwd();
 
 const FEATURED_TITLES = [
-  "Native macOS Log Analyzer",
-  "ImgAnnotator",
-  "WebSocket Chat (FastAPI)",
-  "Online Bookstore",
-  "OpenTelemetry Demo Stack"
+  "Bazel Multi-Build",
+  "Canary Deployment Controller",
+  "Release Lead Time Calculator"
 ];
 
 const TEASE_TITLES = [
-  "Native macOS Log Analyzer",
-  "OpenTelemetry Demo Stack",
-  "WebSocket Chat"
+  "Bazel Multi-Build",
+  "Canary Deployment Controller",
+  "Release Lead Time Calculator"
 ];
 
 const HIRING_PAGES = [
@@ -64,14 +62,16 @@ const home = await readText("dist/index.html");
 if (!home) fail("dist/index.html missing");
 
 // HIRE-01
-assertIncludes(home, "Platform-focused Software Engineer", "HIRE-01 role label");
+if (!/Senior Platform (&amp;|&) Reliability Engineer/.test(home)) {
+  fail('HIRE-01 role label: missing "Senior Platform & Reliability Engineer"');
+}
 if (!/observability|infrastructure/i.test(home)) {
   fail("HIRE-01: missing infrastructure/observability specialty keywords");
 }
-if (!/platform|tooling|DX/i.test(home)) {
-  fail("HIRE-01: missing platform/tooling/DX specialty keywords");
+if (!/platform|CI\/CD|release automation/i.test(home)) {
+  fail("HIRE-01: missing platform/release automation specialty keywords");
 }
-if (!/reliable platforms teams ship on/i.test(home)) {
+if (!/measurable, automatable|safe to ship/i.test(home)) {
   fail("HIRE-01: missing value-proposition framing");
 }
 
@@ -92,12 +92,12 @@ if (!work) fail("dist/work/index.html missing");
 for (const title of FEATURED_TITLES) {
   assertIncludes(work, title, `HIRE-03 featured project "${title}"`);
 }
-if (!/grid/i.test(work)) {
+if (!/work-grid|grid/i.test(work)) {
   fail("HIRE-03: missing grid layout marker");
 }
 const githubCount = countMatches(work, /github\.com\/tazzledazzle/g);
-if (githubCount < 5) {
-  fail(`HIRE-03: expected >= 5 GitHub links on /work/, found ${githubCount}`);
+if (githubCount < 3) {
+  fail(`HIRE-03: expected >= 3 GitHub links on /work/, found ${githubCount}`);
 }
 
 // HIRE-04

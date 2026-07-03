@@ -12,7 +12,7 @@ const { project, compact = false } = Astro.props;
 const { title, summary, tech_stack, github_url, demo_url } = project.data;
 ---
 
-<article class:list={["project-card", compact && "project-card--compact"]}>
+<article class:list={["card", "project-card", compact && "project-card--compact"]}>
   <h3 class="project-card__title">{title}</h3>
   <p class="project-card__summary">{summary}</p>
   {tech_stack.length > 0 && (
@@ -23,9 +23,9 @@ const { title, summary, tech_stack, github_url, demo_url } = project.data;
     </ul>
   )}
   <div class="project-card__actions">
-    <a href={github_url} rel="noopener noreferrer">GitHub</a>
+    <a class="btn" href={github_url} rel="noopener noreferrer">GitHub</a>
     {demo_url && (
-      <a href={demo_url} rel="noopener noreferrer">Live demo</a>
+      <a class="btn btn-primary" href={demo_url} rel="noopener noreferrer">Live demo</a>
     )}
   </div>
 </article>
