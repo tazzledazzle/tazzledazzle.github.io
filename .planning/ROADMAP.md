@@ -117,8 +117,15 @@ Plans:
   3. Visitor sees a dark theme as the default visual mode on first load
   4. Reader reading a blog post sees comfortable line length and clear heading hierarchy
   5. Visitor can reach About, Projects, Career, and Blog via primary navigation with working links on every page
-**Plans**: TBD
+**Plans**: 5 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 05-01-PLAN.md — GitHub Dark tokens, .btn/.card primitives, focus rings (DESN-01, DESN-03)
+- [ ] 05-02-PLAN.md — Hiring vs prose layouts, typography, hand-rolled blog prose (DESN-01, DESN-04)
+- [ ] 05-03-PLAN.md — Hero/card component migration to design system (DESN-01)
+- [ ] 05-04-PLAN.md — Sticky header, active nav, mobile polish, footer (DESN-02, DESN-05)
+- [ ] 05-05-PLAN.md — Phase 5 verification gate and validation matrix (DESN-01–05)
 
 ### Phase 6: Performance, SEO & Accessibility
 **Goal**: Site meets production quality bars for speed, discoverability, and inclusive access
@@ -145,7 +152,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
 | 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
 | 4. Blog Curation & Discovery | 6/6 | Complete   | 2026-07-02 |
-| 5. Design System & Layout Polish | 0/TBD | Not started | - |
+| 5. Design System & Layout Polish | 0/5 | Not started | - |
 | 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
 
 ---
