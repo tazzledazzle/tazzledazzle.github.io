@@ -1,0 +1,106 @@
+---
+import { getEntry } from "astro:content";
+import { formatCareerRange } from "../lib/formatCareerDate";
+
+const career = await getEntry("career", "default");
+const roles = career?.data.roles ?? [];
+const education = career?.data.education ?? [];
+---
+
+<section class="career-timeline" aria-label="Career history">
+  <ol class="career-timeline__list">
+    {roles.map((role) => (
+      <li class="career-timeline__item">
+        <div class="career-timeline__dates">
+          <time datetime={role.start_date}>{formatCareerRange(role.start_date, role.end_date)}</time>
+        </div>
+        <div class="career-timeline__content">
+          <h2>{role.title}</h2>
+          <p class="career-timeline__employer">{role.employer}</p>
+          <ul>
+            {role.bullets.map((bullet: string) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  {education.length > 0 && (
+    <section class="career-timeline__education" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <ul>
+        {education.map((entry) => (
+          <li>
+            <strong>{entry.institution}</strong> — {entry.degree}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</section>
+
+<style>
+  .career-timeline__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .career-timeline__item {
+    display: grid;
+    grid-template-columns: minmax(8rem, 11rem) 1fr;
+    gap: 1rem 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--fg) 10%, transparent);
+  }
+
+  .career-timeline__dates {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .career-timeline__content h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1.125rem;
+    color: var(--fg);
+  }
+
+  .career-timeline__employer {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .career-timeline__content ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .career-timeline__content li {
+    margin-bottom: 0.5rem;
+    color: var(--muted);
+  }
+
+  .career-timeline__education {
+    margin-top: 2rem;
+  }
+
+  .career-timeline__education h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    color: var(--fg);
+  }
+
+  .career-timeline__education ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .career-timeline__item {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+// @ts-nocheck
+import MainLayout from "../../../layouts/MainLayout.astro";
+import BlogPostListItem from "../../../components/blog/BlogPostListItem.astro";
+import { getCollection } from "astro:content";
+import {
+  getAllTags,
+  getDiscoverablePosts
+} from "../../../lib/blog/posts.ts";
+import { tagToSlug } from "../../../lib/blog/tags.ts";
+import { calculateReadTime } from "../../../lib/blog/readTime.ts";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const discoverable = getDiscoverablePosts(posts);
+  const tagSlugs = new Map<string, string>();
+
+  for (const tag of getAllTags(discoverable)) {
+    tagSlugs.set(tagToSlug(tag), tag);
+  }
+
+  return [...tagSlugs.entries()].map(([slug, displayName]) => {
+    const taggedPosts = discoverable
+      .filter((post) =>
+        post.data.tags.some((tag) => tagToSlug(tag) === slug)
+      )
+      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+    return {
+      params: { tag: slug },
+      props: { displayName, posts: taggedPosts }
+    };
+  });
+}
+
+const { displayName, posts } = Astro.props;
+---
+
+<MainLayout title={`Posts tagged ${displayName} | Blog`}>
+  <h1>Posts tagged {displayName}</h1>
+  {posts.length === 0 ? (
+    <p>No posts found for this tag.</p>
+  ) : (
+    <ul class="blog-post-list">
+      {posts.map((post) => (
+        <BlogPostListItem
+          title={post.data.title}
+          permalink={post.data.permalink ?? `/${post.id}/`}
+          pubDate={post.data.pubDate}
+          readTimeMinutes={calculateReadTime(post.body ?? "")}
+          description={post.data.description}
+        />
+      ))}
+    </ul>
+  )}
+  <p class="blog-archive-link">
+    <a href="/blog/">← Back to blog</a>
+  </p>
+</MainLayout>

@@ -14,31 +14,31 @@
 
 ### Platform & Migration
 
-- [ ] **PLAT-01**: Site builds and deploys to GitHub Pages via GitHub Actions (Astro static output)
-- [ ] **PLAT-02**: All existing blog posts are migrated with preserved permalink structure (`/:year/:month/:day/:title/`)
-- [ ] **PLAT-03**: RSS feed is generated and excludes archived posts
-- [ ] **PLAT-04**: XML sitemap is generated and excludes archived posts
-- [ ] **PLAT-05**: Redirects exist for any changed or consolidated URLs from the legacy Jekyll site
+- [x] **PLAT-01**: Site builds and deploys to GitHub Pages via GitHub Actions (Astro static output)
+- [x] **PLAT-02**: All existing blog posts are migrated with preserved permalink structure (`/:year/:month/:day/:title/`)
+- [x] **PLAT-03**: RSS feed is generated and excludes archived posts
+- [x] **PLAT-04**: XML sitemap is generated and excludes archived posts
+- [x] **PLAT-05**: Redirects exist for any changed or consolidated URLs from the legacy Jekyll site
 
 ### Hiring / Portfolio
 
-- [ ] **HIRE-01**: Homepage hero displays role, specialty, and impact framing above the fold
-- [ ] **HIRE-02**: Homepage includes a prominent contact/resume CTA visible without scrolling on desktop
-- [ ] **HIRE-03**: Projects page displays 3–5 featured project cards with impact summary, tech tags, and GitHub links
-- [ ] **HIRE-04**: Project cards link to live demos when available; broken links are removed or marked "code only"
-- [ ] **HIRE-05**: Career page displays real employer names, dates, and quantified achievement bullets
-- [ ] **HIRE-06**: User can download resume PDF in one click from header or hero
-- [ ] **HIRE-07**: GitHub, LinkedIn, and email are visible in site header or footer on every page
+- [x] **HIRE-01**: Homepage hero displays role, specialty, and impact framing above the fold
+- [x] **HIRE-02**: Homepage includes a prominent contact/resume CTA visible without scrolling on desktop
+- [x] **HIRE-03**: Projects page displays 3–5 featured project cards with impact summary, tech tags, and GitHub links
+- [x] **HIRE-04**: Project cards link to live demos when available; broken links are removed or marked "code only"
+- [x] **HIRE-05**: Career page displays real employer names, dates, and quantified achievement bullets
+- [x] **HIRE-06**: User can download resume PDF in one click from header or hero
+- [x] **HIRE-07**: GitHub, LinkedIn, and email are visible in site header or footer on every page
 
 ### Blog
 
-- [ ] **BLOG-01**: Blog index shows featured posts prominently; archived posts are excluded from index
-- [ ] **BLOG-02**: Each post displays publication date and estimated read time
-- [ ] **BLOG-03**: Code blocks render with syntax highlighting and language tags
-- [ ] **BLOG-04**: User can browse posts by tag via a tag index page
-- [ ] **BLOG-05**: User can browse posts by year via an archive page
-- [ ] **BLOG-06**: Blog posts support prev/next navigation by date
-- [ ] **BLOG-07**: RSS feed link is discoverable in page `<head>` on all pages
+- [x] **BLOG-01**: Blog index shows featured posts prominently; archived posts are excluded from index
+- [x] **BLOG-02**: Each post displays publication date and estimated read time
+- [x] **BLOG-03**: Code blocks render with syntax highlighting and language tags
+- [x] **BLOG-04**: User can browse posts by tag via a tag index page
+- [x] **BLOG-05**: User can browse posts by year via an archive page
+- [x] **BLOG-06**: Blog posts support prev/next navigation by date
+- [x] **BLOG-07**: RSS feed link is discoverable in page `<head>` on all pages
 
 ### Design & UX
 
@@ -101,25 +101,25 @@ Deferred to future release. Tracked but not in current roadmap.
 | DATA-02 | Phase 1 | Complete |
 | DATA-03 | Phase 1 | Complete |
 | DATA-04 | Phase 1 | Complete |
-| PLAT-01 | Phase 2 | Pending |
-| PLAT-02 | Phase 2 | Pending |
-| PLAT-03 | Phase 2 | Pending |
-| PLAT-04 | Phase 2 | Pending |
-| PLAT-05 | Phase 2 | Pending |
-| HIRE-01 | Phase 3 | Pending |
-| HIRE-02 | Phase 3 | Pending |
-| HIRE-03 | Phase 3 | Pending |
-| HIRE-04 | Phase 3 | Pending |
-| HIRE-05 | Phase 3 | Pending |
-| HIRE-06 | Phase 3 | Pending |
-| HIRE-07 | Phase 3 | Pending |
-| BLOG-01 | Phase 4 | Pending |
-| BLOG-02 | Phase 4 | Pending |
-| BLOG-03 | Phase 4 | Pending |
-| BLOG-04 | Phase 4 | Pending |
-| BLOG-05 | Phase 4 | Pending |
-| BLOG-06 | Phase 4 | Pending |
-| BLOG-07 | Phase 4 | Pending |
+| PLAT-01 | Phase 2 | Complete |
+| PLAT-02 | Phase 2 | Complete |
+| PLAT-03 | Phase 2 | Complete |
+| PLAT-04 | Phase 2 | Complete |
+| PLAT-05 | Phase 2 | Complete |
+| HIRE-01 | Phase 3 | Complete |
+| HIRE-02 | Phase 3 | Complete |
+| HIRE-03 | Phase 3 | Complete |
+| HIRE-04 | Phase 3 | Complete |
+| HIRE-05 | Phase 3 | Complete |
+| HIRE-06 | Phase 3 | Complete |
+| HIRE-07 | Phase 3 | Complete |
+| BLOG-01 | Phase 4 | Complete |
+| BLOG-02 | Phase 4 | Complete |
+| BLOG-03 | Phase 4 | Complete |
+| BLOG-04 | Phase 4 | Complete |
+| BLOG-05 | Phase 4 | Complete |
+| BLOG-06 | Phase 4 | Complete |
+| BLOG-07 | Phase 4 | Complete |
 | DESN-01 | Phase 5 | Pending |
 | DESN-02 | Phase 5 | Pending |
 | DESN-03 | Phase 5 | Pending |

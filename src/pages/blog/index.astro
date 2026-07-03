@@ -1,0 +1,50 @@
+---
+// @ts-nocheck
+import MainLayout from "../../layouts/MainLayout.astro";
+import BlogPostListItem from "../../components/blog/BlogPostListItem.astro";
+import { getCollection } from "astro:content";
+import { getFeaturedPosts, getStandardPosts } from "../../lib/blog/posts.ts";
+import { calculateReadTime } from "../../lib/blog/readTime.ts";
+
+const posts = await getCollection("blog");
+const featuredPosts = getFeaturedPosts(posts);
+const standardPosts = getStandardPosts(posts);
+---
+
+<MainLayout title="Blog | Terence Schumacher">
+  <h1>Blog</h1>
+
+  <section class="blog-section">
+    <h2>Featured</h2>
+    <ul class="blog-post-list">
+      {featuredPosts.map((post) => (
+        <BlogPostListItem
+          title={post.data.title}
+          permalink={post.data.permalink ?? `/${post.id}/`}
+          pubDate={post.data.pubDate}
+          readTimeMinutes={calculateReadTime(post.body ?? "")}
+          description={post.data.description}
+        />
+      ))}
+    </ul>
+  </section>
+
+  <section class="blog-section">
+    <h2>Recent</h2>
+    <ul class="blog-post-list">
+      {standardPosts.map((post) => (
+        <BlogPostListItem
+          title={post.data.title}
+          permalink={post.data.permalink ?? `/${post.id}/`}
+          pubDate={post.data.pubDate}
+          readTimeMinutes={calculateReadTime(post.body ?? "")}
+          description={post.data.description}
+        />
+      ))}
+    </ul>
+  </section>
+
+  <p class="blog-archive-link">
+    <a href="/blog/archive/">Browse archive →</a>
+  </p>
+</MainLayout>

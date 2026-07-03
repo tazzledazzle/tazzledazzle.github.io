@@ -1,0 +1,54 @@
+---
+import MainLayout from "./MainLayout.astro";
+import TagList from "../components/blog/TagList.astro";
+import PostNav from "../components/blog/PostNav.astro";
+import { formatLongDate } from "../lib/blog/dates.ts";
+import type { PostNavEntry } from "../lib/blog/posts.ts";
+
+interface Props {
+  title: string;
+  description?: string;
+  pubDate: Date;
+  readTimeMinutes: number;
+  tags: string[];
+  isArchived: boolean;
+  robots?: string;
+  prev: PostNavEntry | null;
+  next: PostNavEntry | null;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  readTimeMinutes,
+  tags,
+  isArchived,
+  robots,
+  prev,
+  next
+} = Astro.props;
+---
+
+<MainLayout title={`${title} | Blog`} description={description} robots={robots}>
+  <article class="post-article">
+    {isArchived && (
+      <p class="post-archived-banner" role="note">Archived post</p>
+    )}
+    <header class="post-header">
+      <h1>{title}</h1>
+      <p class="post-meta">
+        <time datetime={pubDate.toISOString()}>{formatLongDate(pubDate)}</time>
+        <span class="post-meta__sep" aria-hidden="true">·</span>
+        <span>{readTimeMinutes} min read</span>
+      </p>
+    </header>
+    <div class="post-body">
+      <slot />
+    </div>
+    <footer class="post-footer">
+      <TagList tags={tags} />
+      <PostNav prev={prev} next={next} />
+    </footer>
+  </article>
+</MainLayout>

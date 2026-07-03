@@ -11,9 +11,9 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 - Decimal phases (e.g., 2.1): Urgent insertions via `/gsd-phase --insert`
 
 - [x] **Phase 1: Foundation & Data Extraction** - Structured hiring data, fixed navigation, and blog curation inventory (completed 2026-07-02)
-- [ ] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation
-- [ ] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links
-- [ ] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience
+- [x] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation (completed 2026-07-02)
+- [x] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links (completed 2026-07-02)
+- [x] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience (completed 2026-07-02)
 - [ ] **Phase 5: Design System & Layout Polish** - Cohesive dark theme, responsive layout, and readable post typography
 - [ ] **Phase 6: Performance, SEO & Accessibility** - Lighthouse 90+, WCAG AA, structured data, and CI quality gates
 
@@ -48,8 +48,15 @@ Plans:
   3. Visitor can subscribe via RSS feed that includes only non-archived posts
   4. Search engines can crawl an XML sitemap that excludes archived posts
   5. Visitor following a changed or consolidated legacy URL is redirected to the correct new location
-**Plans**: TBD
+**Plans**: 5 plans
 **Research flag**: Permalink parity and GitHub Pages redirect strategy (`/gsd-plan-phase --research-phase 2`)
+
+Plans:
+- [x] 02-01-PLAN.md — Astro scaffold and single-path CI cutover baseline
+- [x] 02-02-PLAN.md — Data migration to `src/data` and validator continuity
+- [x] 02-03-PLAN.md — Blog/content migration with canonical hiring/blog pages
+- [x] 02-04-PLAN.md — RSS/sitemap archive filters and legacy redirect generation
+- [x] 02-05-PLAN.md — D-23 validation matrix, smoke enforcement, and Jekyll retirement
 
 ### Phase 3: Hiring Pages
 **Goal**: A recruiter can understand who Terence is, what he's built, and why he's worth interviewing within 60 seconds
@@ -63,8 +70,15 @@ Plans:
   4. Recruiter clicking a project demo link reaches a live demo or sees a clear "code only" state when no demo exists
   5. Recruiter reading the Career page sees real employer names, dates, and quantified achievement bullets
   6. Recruiter can reach GitHub, LinkedIn, and email from the site header or footer on every page
-**Plans**: TBD
+**Plans**: 5 plans
 **UI hint**: yes
+
+Plans:
+- [x] 03-01-PLAN.md — Site chrome, resume PDF, shared ProjectCard (HIRE-06, HIRE-07)
+- [x] 03-02-PLAN.md — Homepage hero and featured project tease (HIRE-01, HIRE-02)
+- [x] 03-03-PLAN.md — Work page card grid and archive section (HIRE-03, HIRE-04)
+- [x] 03-04-PLAN.md — Career timeline and About bio (HIRE-05)
+- [x] 03-05-PLAN.md — Phase 3 verification gate and validation matrix (HIRE-01–07)
 
 ### Phase 4: Blog Curation & Discovery
 **Goal**: Engineering peers can discover and read curated technical writing without legacy noise diluting signal
@@ -79,7 +93,16 @@ Plans:
   5. Reader can browse posts grouped by year from an archive page
   6. Reader can navigate to the previous and next post by publication date from any blog post
   7. Reader (or feed aggregator) can discover the RSS feed via `<link rel="alternate">` in the page head on all pages
-**Plans**: TBD
+**Plans**: 6 plans
+
+Plans:
+- [x] 04-01-PLAN.md — Blog utilities, tag backfill, and prev/next helpers
+- [x] 04-02-PLAN.md — Expressive Code (GitHub Dark) and RSS autodiscovery
+- [x] 04-03-PLAN.md — PostLayout with metadata, tags, prev/next, archived handling
+- [x] 04-04-PLAN.md — Tiered featured + standard blog index
+- [x] 04-05-PLAN.md — Tag index routes and year archive page
+- [x] 04-06-PLAN.md — Phase 4 verification gate (BLOG-01–07)
+
 **Research flag**: Per-post SEO/backlink audit methodology if analytics access is limited
 **UI hint**: yes
 
@@ -119,9 +142,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Data Extraction | 4/4 | Complete   | 2026-07-02 |
-| 2. Astro Scaffold & Content Migration | 0/TBD | Not started | - |
-| 3. Hiring Pages | 0/TBD | Not started | - |
-| 4. Blog Curation & Discovery | 0/TBD | Not started | - |
+| 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
+| 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
+| 4. Blog Curation & Discovery | 6/6 | Complete   | 2026-07-02 |
 | 5. Design System & Layout Polish | 0/TBD | Not started | - |
 | 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
 

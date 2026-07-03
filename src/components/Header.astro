@@ -1,0 +1,35 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import MobileNav from "./MobileNav.astro";
+
+const navItems = (await getCollection("navigation")).sort(
+  (a: CollectionEntry<"navigation">, b: CollectionEntry<"navigation">) =>
+    a.data.order - b.data.order
+);
+const social = await getEntry("social", "default");
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand">{social?.data.name ?? "Terence Schumacher"}</a>
+
+    <nav class="site-header__nav" aria-label="Primary">
+      {navItems.map((item: CollectionEntry<"navigation">) => (
+        <a href={item.data.url}>{item.data.title}</a>
+      ))}
+      <a href="/resume.pdf" class="site-header__resume">Download Resume</a>
+    </nav>
+
+    <div class="site-header__social">
+      {social && (
+        <>
+          <a href={social.data.github.url} rel="noopener noreferrer">GitHub</a>
+          <a href={social.data.linkedin.url} rel="noopener noreferrer">LinkedIn</a>
+          <a href={`mailto:${social.data.email}`}>Email</a>
+        </>
+      )}
+    </div>
+
+    <MobileNav navItems={navItems} />
+  </div>
+</header>

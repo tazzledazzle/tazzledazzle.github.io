@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+const featured = await getCollection("featuredProjects");
+const teaseIds = new Set([
+  "otel-demo-stack",
+  "native-macos-log-analyzer",
+  "ws-chat-fast"
+]);
+const teaseProjects = featured
+  .filter((project) => teaseIds.has(project.id))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<section class="project-tease" aria-labelledby="project-tease-heading">
+  <div class="project-tease__header">
+    <h2 id="project-tease-heading">Featured work</h2>
+    <a href="/work/">View all work</a>
+  </div>
+  <div class="project-tease__grid">
+    {teaseProjects.map((project) => (
+      <ProjectCard project={project} compact />
+    ))}
+  </div>
+</section>
+
+<style>
+  .project-tease {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  }
+
+  .project-tease__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tease__header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--fg);
+  }
+
+  .project-tease__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .project-tease__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

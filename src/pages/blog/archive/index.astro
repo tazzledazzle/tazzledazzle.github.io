@@ -1,0 +1,49 @@
+---
+// @ts-nocheck
+import MainLayout from "../../../layouts/MainLayout.astro";
+import BlogPostListItem from "../../../components/blog/BlogPostListItem.astro";
+import { getCollection } from "astro:content";
+import { getDiscoverablePosts } from "../../../lib/blog/posts.ts";
+import { calculateReadTime } from "../../../lib/blog/readTime.ts";
+
+const posts = getDiscoverablePosts(await getCollection("blog"));
+const postsByYear = new Map<number, typeof posts>();
+
+for (const post of posts) {
+  const year = post.data.pubDate.getUTCFullYear();
+  const yearPosts = postsByYear.get(year) ?? [];
+  yearPosts.push(post);
+  postsByYear.set(year, yearPosts);
+}
+
+const years = [...postsByYear.keys()].sort((a, b) => b - a);
+---
+
+<MainLayout title="Archive | Blog">
+  <h1>Archive</h1>
+  <p class="blog-archive-link">
+    <a href="/blog/">← Back to blog</a>
+  </p>
+
+  {years.map((year) => {
+    const yearPosts = (postsByYear.get(year) ?? []).sort(
+      (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+    );
+    return (
+      <section class="blog-section">
+        <h2>{year}</h2>
+        <ul class="blog-post-list">
+          {yearPosts.map((post) => (
+            <BlogPostListItem
+              title={post.data.title}
+              permalink={post.data.permalink ?? `/${post.id}/`}
+              pubDate={post.data.pubDate}
+              readTimeMinutes={calculateReadTime(post.body ?? "")}
+              description={post.data.description}
+            />
+          ))}
+        </ul>
+      </section>
+    );
+  })}
+</MainLayout>

@@ -366,17 +366,15 @@ export async function GET(context) {
 | A2 | No additional secrets are needed for this phase’s static deploy path | Runtime State Inventory | CI deployment interruption if secret appears later |
 | A3 | Redirect loop risk should be validated with generated-link tests | Common Pitfalls | Production redirect regressions |
 
-## Open Questions
+## Resolved Questions
 
 1. **Exact 10-link smoke test set for D-23**
-   - What we know: Must include featured, standard, archived, and duplicate/canonical pairs. [VERIFIED: project files]
-   - What's unclear: Final deterministic URL list to lock in PLAN tasks.
-   - Recommendation: Select 10 URLs directly from `blog-inventory.yml` before planning.
+   - Resolution: Fixed smoke matrix is now required in `02-VALIDATION.md` with ten deterministic categories spanning featured, standard, archived, duplicate/canonical, and legacy nav alias coverage.
+   - Execution rule: Concrete URLs must be sourced from `src/data/blog-inventory.yml` and locked in `scripts/verify-phase2-routes.mjs --check smoke10`.
 
 2. **Phase 2 handling of archived `noindex`**
-   - What we know: D-33 allows stub behavior now, full enforcement in Phase 4. [VERIFIED: project files]
-   - What's unclear: Whether to add minimal Phase 2 conditional now or defer entirely.
-   - Recommendation: Include a lightweight Phase 2 placeholder if low effort.
+   - Resolution: Phase 2 enforces archived exclusion in RSS and sitemap (D-32, D-33) while keeping archived URLs routable; explicit noindex meta enforcement remains Phase 4 implementation scope.
+   - Execution rule: Validation checks must assert exclusion from discovery artifacts, not route deletion.
 
 ## Environment Availability
 

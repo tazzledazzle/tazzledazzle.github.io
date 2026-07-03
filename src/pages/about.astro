@@ -1,0 +1,42 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getEntry } from "astro:content";
+
+const social = await getEntry("social", "default");
+---
+
+<MainLayout title="About | Terence Schumacher" description="About Terence Schumacher — platform engineer and technical writer.">
+  <h1>About</h1>
+
+  <p>
+    Hi, I'm <strong>{social?.data.name ?? "Terence Schumacher"}</strong> — a software engineer passionate
+    about building robust, scalable systems and sharing knowledge through technical writing. I work across
+    backend development, system design, DevOps, and infrastructure automation, with a focus on making
+    complex platforms understandable and operable for the teams that depend on them.
+  </p>
+
+  <p>
+    My path in software engineering has taken me through algorithm optimization, kernel-level debugging,
+    CI/CD pipeline design, and large-scale release engineering. I believe in continuous learning and in
+    documenting solutions so other engineers can move faster — whether that's a maturity audit across
+    dozens of microservices or a Gradle plugin used by hundreds of developers.
+  </p>
+
+  <p>
+    When I'm not coding, you'll find me writing technical articles, contributing to open-source projects,
+    exploring new frameworks and tooling, and mentoring fellow developers on platform and infrastructure
+    challenges.
+  </p>
+
+  <section aria-labelledby="connect-heading">
+    <h2 id="connect-heading">Let's Connect</h2>
+    <p>I'm always interested in connecting with fellow developers, discussing technical challenges, or collaborating on interesting projects.</p>
+    {social && (
+      <ul>
+        <li><a href={social.data.github.url} rel="noopener noreferrer">GitHub</a></li>
+        <li><a href={social.data.linkedin.url} rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href={`mailto:${social.data.email}`}>{social.data.email}</a></li>
+      </ul>
+    )}
+  </section>
+</MainLayout>

@@ -1,0 +1,46 @@
+---
+// @ts-nocheck
+import PostLayout from "../layouts/PostLayout.astro";
+import { getCollection, getEntry, render } from "astro:content";
+import { calculateReadTime } from "../lib/blog/readTime.ts";
+import { resolvePostTags } from "../lib/blog/tags.ts";
+import { getPrevNextPosts, toPostNavEntry } from "../lib/blog/posts.ts";
+
+export async function getStaticPaths() {
+  const inventory = await getEntry("blogInventory", "default");
+  const posts = await getCollection("blog");
+  const postById = new Map(posts.map((post) => [post.id, post]));
+  const items = inventory?.data.posts ?? [];
+  return items
+    .filter((item) => postById.has(item.id))
+    .map((item) => ({
+      params: { slug: item.permalink.replace(/^\//, "").replace(/\/$/, "") },
+      props: { id: item.id }
+    }));
+}
+
+const allPosts = await getCollection("blog");
+const post = await getEntry("blog", Astro.props.id);
+if (!post) throw new Error("Post not found");
+const { Content } = await render(post);
+
+const permalink = post.data.permalink ?? `/${post.id}/`;
+const isArchived = post.data.tier === "archived";
+const readTimeMinutes = calculateReadTime(post.body ?? "");
+const tags = resolvePostTags(post.data.tags);
+const { prev, next } = getPrevNextPosts(allPosts, permalink);
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  readTimeMinutes={readTimeMinutes}
+  tags={tags}
+  isArchived={isArchived}
+  robots={isArchived ? "noindex" : undefined}
+  prev={prev ? toPostNavEntry(prev) : null}
+  next={next ? toPostNavEntry(next) : null}
+>
+  <Content />
+</PostLayout>

@@ -1,0 +1,29 @@
+---
+import type { PostNavEntry } from "../../lib/blog/posts.ts";
+
+interface Props {
+  prev: PostNavEntry | null;
+  next: PostNavEntry | null;
+}
+
+const { prev, next } = Astro.props;
+---
+
+{(prev || next) && (
+  <nav class="post-nav" aria-label="Post navigation">
+    {prev ? (
+      <a class="post-nav__prev" href={prev.permalink}>
+        ← Previous: {prev.title}
+      </a>
+    ) : (
+      <span />
+    )}
+    {next ? (
+      <a class="post-nav__next" href={next.permalink}>
+        {next.title} → Next
+      </a>
+    ) : (
+      <span />
+    )}
+  </nav>
+)}

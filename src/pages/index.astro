@@ -1,18 +1,10 @@
 ---
-import "../styles/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import ProjectTease from "../components/ProjectTease.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Terence Schumacher</title>
-  </head>
-  <body>
-    <main>
-      <h1>Terence Schumacher</h1>
-      <p>Astro migration scaffold in progress.</p>
-    </main>
-  </body>
-</html>
+<MainLayout title="Terence Schumacher" description="Software Engineer and technical writer portfolio.">
+  <Hero />
+  <ProjectTease />
+</MainLayout>
