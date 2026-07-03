@@ -42,11 +42,11 @@
 
 ### Design & UX
 
-- [ ] **DESN-01**: Site uses a cohesive design system with consistent typography, spacing, and color tokens
-- [ ] **DESN-02**: All pages are mobile-responsive with usable navigation on small screens
-- [ ] **DESN-03**: Site uses a dark theme as the default visual mode
-- [ ] **DESN-04**: Post layout uses comfortable reading width with clear heading hierarchy
-- [ ] **DESN-05**: Navigation includes About, Projects, Career, and Blog with working links
+- [x] **DESN-01**: Site uses a cohesive design system with consistent typography, spacing, and color tokens
+- [x] **DESN-02**: All pages are mobile-responsive with usable navigation on small screens
+- [x] **DESN-03**: Site uses a dark theme as the default visual mode
+- [x] **DESN-04**: Post layout uses comfortable reading width with clear heading hierarchy
+- [x] **DESN-05**: Navigation includes About, Projects, Career, and Blog with working links
 
 ### Performance, SEO & Accessibility
 
@@ -120,11 +120,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | BLOG-05 | Phase 4 | Complete |
 | BLOG-06 | Phase 4 | Complete |
 | BLOG-07 | Phase 4 | Complete |
-| DESN-01 | Phase 5 | Pending |
-| DESN-02 | Phase 5 | Pending |
-| DESN-03 | Phase 5 | Pending |
-| DESN-04 | Phase 5 | Pending |
-| DESN-05 | Phase 5 | Pending |
+| DESN-01 | Phase 5 | Complete |
+| DESN-02 | Phase 5 | Complete |
+| DESN-03 | Phase 5 | Complete |
+| DESN-04 | Phase 5 | Complete |
+| DESN-05 | Phase 5 | Complete |
 | QUAL-01 | Phase 6 | Pending |
 | QUAL-02 | Phase 6 | Pending |
 | QUAL-03 | Phase 6 | Pending |
