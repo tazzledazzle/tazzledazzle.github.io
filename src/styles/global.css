@@ -29,8 +29,24 @@ body {
 
 main {
   margin: 0 auto;
-  max-width: 72ch;
   padding: 2.5rem 1.25rem;
+}
+
+/* D-93: hiring pages use wide 72rem container */
+main.layout-hiring {
+  max-width: 72rem;
+}
+
+/* D-94: blog posts use narrow ~65ch reading column */
+main.layout-prose {
+  max-width: 65ch;
+}
+
+/* D-96: consistent vertical rhythm between major sections */
+.section-gap,
+.blog-section,
+.project-tease {
+  margin-bottom: 2.5rem;
 }
 
 a {
@@ -70,6 +86,37 @@ a {
 }
 
 p {
+  color: var(--fg);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.layout-hiring h1 {
+  margin-bottom: 1rem;
+}
+
+.hero__greeting,
+.post-meta,
+.career-timeline__dates,
+.blog-post-meta,
+.site-footer__copy {
   color: var(--muted);
 }
 
@@ -284,6 +331,118 @@ summary:focus-visible,
 
 .post-body {
   margin-bottom: 2rem;
+  max-width: 65ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--fg);
+}
+
+.post-body h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.post-body li {
+  margin-bottom: 0.5rem;
+}
+
+.post-body blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+
+.post-body a {
+  color: var(--accent);
+}
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-body pre,
+.post-body table,
+.post-body .expressive-code {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Career timeline (D-99) — styles migrated from component scoped block */
+.career-timeline__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.career-timeline__item {
+  display: grid;
+  grid-template-columns: minmax(8rem, 11rem) 1fr;
+  gap: 1rem 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.career-timeline__content {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+}
+
+.career-timeline__dates {
+  font-size: 0.9rem;
+}
+
+.career-timeline__content h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.125rem;
+}
+
+.career-timeline__employer {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.career-timeline__content ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.career-timeline__content li {
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+}
+
+.career-timeline__education {
+  margin-top: 2rem;
+}
+
+.career-timeline__education h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.career-timeline__education ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .career-timeline__item {
+    grid-template-columns: 1fr;
+  }
 }
 
 .post-tags ul {

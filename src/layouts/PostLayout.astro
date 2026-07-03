@@ -30,7 +30,7 @@ const {
 } = Astro.props;
 ---
 
-<MainLayout title={`${title} | Blog`} description={description} robots={robots}>
+<MainLayout title={`${title} | Blog`} description={description} robots={robots} layout="prose">
   <article class="post-article">
     {isArchived && (
       <p class="post-archived-banner" role="note">Archived post</p>
