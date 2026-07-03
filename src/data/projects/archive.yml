@@ -1,3 +1,68 @@
+- id: native-macos-log-analyzer
+  title: Native macOS Log Analyzer
+  summary: Native macOS application for analyzing system logs with real-time monitoring, custom filters, and export.
+  tech_stack:
+    - Swift
+    - AppKit
+    - Core Data
+  github_url: https://github.com/tazzledazzle/native-macos-log-analyzer
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: projects.md
+
+- id: ws-chat-fast
+  title: WebSocket Chat (FastAPI)
+  summary: Low-latency chat demo with auto-reconnection and metrics instrumentation over Redis-backed WebSockets.
+  tech_stack:
+    - Python
+    - FastAPI
+    - Redis
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ws-chat-fast
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: imgannotator
+  title: ImgAnnotator
+  summary: Web-based image annotation tool with collaborative editing and export workflows.
+  tech_stack:
+    - JavaScript
+    - HTML5 Canvas
+    - Node.js
+  github_url: https://github.com/tazzledazzle/imgannotator
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: projects.md
+
+- id: online-bookstore
+  title: Online Bookstore
+  summary: E-commerce REST API demo with OAuth2 and WebSockets for production-style API design and auth flows.
+  tech_stack:
+    - Python
+    - FastAPI
+    - PostgreSQL
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/online-bookstore
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
+- id: otel-demo-stack
+  title: OpenTelemetry Demo Stack
+  summary: End-to-end distributed tracing stack with OTel Collector and trace propagation across containerized services.
+  tech_stack:
+    - Python
+    - OpenTelemetry
+    - Docker
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/otel-demo-stack
+  demo_url: null
+  demo_status: code_only
+  featured: false
+  source: portfolio-projects
+
 - id: projgen
   title: Project Generator
   summary: CLI tool to scaffold new projects with Jinja2 templates and Typer UX for fast, consistent repo bootstrapping.
@@ -19,19 +84,6 @@
     - RabbitMQ
     - Gradle
   github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/rabbit-mq
-  demo_url: null
-  demo_status: code_only
-  featured: false
-  source: portfolio-projects
-
-- id: bazel-multibuild
-  title: Bazel Multi-Build
-  summary: Polyglot Bazel build system spanning Java and TypeScript with cross-language build optimization.
-  tech_stack:
-    - Bazel
-    - Java
-    - TypeScript
-  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/bazel-multibuild
   demo_url: null
   demo_status: code_only
   featured: false
@@ -98,31 +150,6 @@
     - Bash
     - GCP
   github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/platform-audit-template
-  demo_url: null
-  demo_status: code_only
-  featured: false
-  source: portfolio-projects
-
-- id: canary-deployment-controller
-  title: Canary Deployment Controller
-  summary: Progressive traffic shifting with Prometheus SLO gates and automatic rollback on Kubernetes.
-  tech_stack:
-    - Python
-    - Kubernetes
-    - Prometheus
-  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/canary-deployment-controller
-  demo_url: null
-  demo_status: code_only
-  featured: false
-  source: portfolio-projects
-
-- id: release-lead-time-calculator
-  title: Release Lead Time Calculator
-  summary: DORA lead-time metrics API integrating with GitHub for cycle-time visibility across teams.
-  tech_stack:
-    - Python
-    - GitHub API
-  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/release-lead-time-calculator
   demo_url: null
   demo_status: code_only
   featured: false

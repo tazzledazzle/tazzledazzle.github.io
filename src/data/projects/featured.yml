@@ -1,73 +1,45 @@
-- id: native-macos-log-analyzer
-  title: Native macOS Log Analyzer
+- id: bazel-multibuild
+  title: Bazel Multi-Build
   summary: >-
-    Native macOS application for analyzing system logs with real-time monitoring,
-    custom filters, and export—demonstrates platform tooling and performance-aware UI work.
+    Polyglot Bazel monorepo spanning Java and TypeScript with shared build graphs and
+    remote-cache patterns. Mirrors the Tableau desktop migration that cut incremental build
+    times by up to 75% for hundreds of engineers.
   tech_stack:
-    - Swift
-    - AppKit
-    - Core Data
-  github_url: https://github.com/tazzledazzle/native-macos-log-analyzer
-  demo_url: null
-  demo_status: code_only
-  featured: true
-  source: projects.md
-
-- id: imgannotator
-  title: ImgAnnotator
-  summary: >-
-    Web-based image annotation tool with collaborative editing and export workflows,
-    showing full-stack JavaScript delivery and canvas-driven UX.
-  tech_stack:
-    - JavaScript
-    - HTML5 Canvas
-    - Node.js
-  github_url: https://github.com/tazzledazzle/imgannotator
-  demo_url: null
-  demo_status: code_only
-  featured: true
-  source: projects.md
-
-- id: ws-chat-fast
-  title: WebSocket Chat (FastAPI)
-  summary: >-
-    Low-latency chat demo with auto-reconnection and metrics instrumentation—
-    highlights async Python, WebSockets, and Redis-backed real-time patterns.
-  tech_stack:
-    - Python
-    - FastAPI
-    - Redis
-  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ws-chat-fast
+    - Bazel
+    - Java
+    - TypeScript
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/bazel-multibuild
   demo_url: null
   demo_status: code_only
   featured: true
   source: portfolio-projects
 
-- id: online-bookstore
-  title: Online Bookstore
+- id: canary-deployment-controller
+  title: Canary Deployment Controller
   summary: >-
-    E-commerce REST API demo with OAuth2 and WebSockets, illustrating production-style
-    API design, auth flows, and PostgreSQL persistence.
+    Progressive traffic shifting with Prometheus SLO gates and automatic rollback on
+    Kubernetes. Models the telemetry-gated canary rollouts that helped reduce release lead
+    time by 79% on enterprise CI/CD pipelines.
   tech_stack:
     - Python
-    - FastAPI
-    - PostgreSQL
-  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/online-bookstore
+    - Kubernetes
+    - Prometheus
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/canary-deployment-controller
   demo_url: null
   demo_status: code_only
   featured: true
   source: portfolio-projects
 
-- id: otel-demo-stack
-  title: OpenTelemetry Demo Stack
+- id: release-lead-time-calculator
+  title: Release Lead Time Calculator
   summary: >-
-    End-to-end distributed tracing stack with OTel Collector and trace propagation—
-    demonstrates observability engineering across containerized services.
+    DORA lead-time metrics API integrating with GitHub for cycle-time visibility across
+    teams. Implements the scoring model used in platform maturity audits across 28
+    microservices.
   tech_stack:
     - Python
-    - OpenTelemetry
-    - Docker
-  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/otel-demo-stack
+    - GitHub API
+  github_url: https://github.com/tazzledazzle/portfolio-projects/tree/main/ci-cd-pipelines/release-lead-time-calculator
   demo_url: null
   demo_status: code_only
   featured: true

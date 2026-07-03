@@ -6,14 +6,18 @@ const social = await getEntry("social", "default");
 
 <section class="hero">
   <p class="hero__greeting">Hi, I'm {social?.data.name ?? "Terence Schumacher"}</p>
-  <h1 class="hero__role">Platform-focused Software Engineer</h1>
+  <p class="hero__exploring">
+    Currently exploring AI workflow reliability and DORA-driven release automation at scale.
+  </p>
+  <h1 class="hero__role">Senior Platform &amp; Reliability Engineer</h1>
   <p class="hero__specialty">
-    I specialize in infrastructure and observability, building platform tooling and developer
-    experience that helps teams ship with confidence.
+    I take messy build and release systems — monorepos, CI/CD pipelines, observability stacks —
+    and make them measurable, automatable, and safe to ship on.
   </p>
   <p class="hero__impact">
-    I build reliable platforms teams ship on — combining SRE discipline with pragmatic tooling
-    and clear technical writing.
+    Seven years from Tableau's desktop release engineering to Invisible's AI data platform:
+    Bazel migrations, canary rollouts, maturity audits, and the tooling that turns "it works
+    on my machine" into "we know before production does."
   </p>
   <div class="hero__ctas">
     <a class="hero__cta hero__cta--primary" href="/resume.pdf">Download Resume</a>
@@ -35,6 +39,13 @@ const social = await getEntry("social", "default");
     margin: 0;
     font-size: 0.95rem;
     color: var(--muted);
+  }
+
+  .hero__exploring {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-style: italic;
   }
 
   .hero__role {
