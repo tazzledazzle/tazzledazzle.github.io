@@ -15,6 +15,7 @@ interface Props {
   robots?: string;
   prev: PostNavEntry | null;
   next: PostNavEntry | null;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -26,7 +27,8 @@ const {
   isArchived,
   robots,
   prev,
-  next
+  next,
+  jsonLd
 } = Astro.props;
 
 const layoutTitle = `${title} | Blog`;
@@ -39,6 +41,7 @@ const layoutTitle = `${title} | Blog`;
   layout="prose"
   ogType="article"
   skipSocial={isArchived}
+  jsonLd={jsonLd}
 >
   <article class="post-article">
     {isArchived && (

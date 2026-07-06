@@ -6,6 +6,10 @@ import { calculateReadTime } from "../lib/blog/readTime.ts";
 import { resolvePostTags } from "../lib/blog/tags.ts";
 import { getPrevNextPosts, toPostNavEntry } from "../lib/blog/posts.ts";
 import { deriveDescription } from "../lib/seo/description.ts";
+import {
+  buildArticleSchema,
+  countWords
+} from "../lib/seo/jsonLd.ts";
 
 export async function getStaticPaths() {
   const inventory = await getEntry("blogInventory", "default");
@@ -21,6 +25,7 @@ export async function getStaticPaths() {
 }
 
 const allPosts = await getCollection("blog");
+const social = await getEntry("social", "default");
 const post = await getEntry("blog", Astro.props.id);
 if (!post) throw new Error("Post not found");
 const { Content } = await render(post);
@@ -33,11 +38,29 @@ const { prev, next } = getPrevNextPosts(allPosts, permalink);
 const postDescription = isArchived
   ? undefined
   : deriveDescription(post.body ?? "", post.data.description);
+
+const site = Astro.site ?? new URL("https://tazzledazzle.github.io");
+const canonicalUrl = new URL(permalink, site).href;
+const authorName = social?.data.name ?? "Terence Schumacher";
+
+const articleJsonLd = isArchived
+  ? undefined
+  : buildArticleSchema({
+      title: post.data.title,
+      description: postDescription,
+      pubDate: post.data.pubDate.toISOString(),
+      authorName,
+      url: canonicalUrl,
+      wordCount: countWords(post.body ?? ""),
+      tags,
+      image: new URL("/og-default.png", site).href
+    });
 ---
 
 <PostLayout
   title={post.data.title}
   description={postDescription}
+  jsonLd={articleJsonLd}
   pubDate={post.data.pubDate}
   readTimeMinutes={readTimeMinutes}
   tags={tags}
