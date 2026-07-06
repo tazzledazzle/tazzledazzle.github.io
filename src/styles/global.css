@@ -504,10 +504,20 @@ summary:focus-visible,
 }
 
 .post-body pre,
-.post-body table,
-.post-body .expressive-code {
+.post-body table {
   overflow-x: auto;
   max-width: 100%;
+}
+
+.post-body .expressive-code {
+  max-width: 100%;
+}
+
+/* Avoid horizontal scroll regions without keyboard focus (axe scrollable-region-focusable) */
+.post-body .expressive-code pre {
+  overflow-x: visible;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* Career timeline (D-99) — styles migrated from component scoped block */

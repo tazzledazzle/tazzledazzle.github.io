@@ -10,11 +10,12 @@ interface Props {
 }
 
 const { title, permalink, pubDate, readTimeMinutes, description } = Astro.props;
+const displayTitle = title.trim() || description?.trim() || "Untitled post";
 ---
 
 <li class="blog-post-item">
-  <a href={permalink}>
-    <h2>{title}</h2>
+  <a href={permalink} aria-label={displayTitle}>
+    <h2>{displayTitle}</h2>
   </a>
   <p class="blog-post-meta">
     <time datetime={pubDate.toISOString()}>{formatLongDate(pubDate)}</time>
