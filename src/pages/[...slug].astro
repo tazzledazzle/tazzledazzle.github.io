@@ -5,6 +5,7 @@ import { getCollection, getEntry, render } from "astro:content";
 import { calculateReadTime } from "../lib/blog/readTime.ts";
 import { resolvePostTags } from "../lib/blog/tags.ts";
 import { getPrevNextPosts, toPostNavEntry } from "../lib/blog/posts.ts";
+import { deriveDescription } from "../lib/seo/description.ts";
 
 export async function getStaticPaths() {
   const inventory = await getEntry("blogInventory", "default");
@@ -29,11 +30,14 @@ const isArchived = post.data.tier === "archived";
 const readTimeMinutes = calculateReadTime(post.body ?? "");
 const tags = resolvePostTags(post.data.tags);
 const { prev, next } = getPrevNextPosts(allPosts, permalink);
+const postDescription = isArchived
+  ? undefined
+  : deriveDescription(post.body ?? "", post.data.description);
 ---
 
 <PostLayout
   title={post.data.title}
-  description={post.data.description}
+  description={postDescription}
   pubDate={post.data.pubDate}
   readTimeMinutes={readTimeMinutes}
   tags={tags}
