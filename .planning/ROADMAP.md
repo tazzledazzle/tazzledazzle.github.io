@@ -145,7 +145,7 @@ Plans:
 - [x] 06-01-PLAN.md — SEO head, self-hosted Inter, og-default.png, page descriptions (QUAL-03, QUAL-01)
 - [x] 06-02-PLAN.md — Article and Person JSON-LD structured data (QUAL-04)
 - [x] 06-03-PLAN.md — WCAG contrast audit and token fixes (QUAL-02)
-- [ ] 06-04-PLAN.md — CI lychee, axe, Lighthouse gates on 6 key pages (QUAL-01, QUAL-02, QUAL-05)
+- [x] 06-04-PLAN.md — CI lychee, axe, Lighthouse gates on 6 key pages (QUAL-01, QUAL-02, QUAL-05)
 - [x] 06-05-PLAN.md — Image policy, verify-phase6 gate, validation matrix (QUAL-01–06)
 
 ## Progress
@@ -160,7 +160,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
 | 4. Blog Curation & Discovery | 6/6 | Complete   | 2026-07-02 |
 | 5. Design System & Layout Polish | 5/5 | Complete   | 2026-07-03 |
-| 6. Performance, SEO & Accessibility | 4/5 | Complete    | 2026-07-06 |
+| 6. Performance, SEO & Accessibility | 5/5 | Complete   | 2026-07-06 |
 
 ---
 *Roadmap created: 2026-07-01*
