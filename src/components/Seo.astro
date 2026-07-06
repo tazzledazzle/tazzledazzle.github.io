@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  skipSocial?: boolean;
+  ogType?: "website" | "article";
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  ogImage = "/og-default.png",
+  canonicalUrl,
+  skipSocial = false,
+  ogType = "website",
+  jsonLd
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://tazzledazzle.github.io");
+const canonical = canonicalUrl ? new URL(canonicalUrl, site) : Astro.url;
+const absoluteImage = new URL(ogImage, site).href;
+const absoluteCanonical = new URL(canonical.pathname + canonical.search, site).href;
+const siteName = "Terence Schumacher";
+---
+
+{
+  !skipSocial && description && (
+    <>
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={absoluteCanonical} />
+      <meta property="og:image" content={absoluteImage} />
+      <meta property="og:site_name" content={siteName} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={absoluteImage} />
+    </>
+  )
+}
+
+{
+  jsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )
+}

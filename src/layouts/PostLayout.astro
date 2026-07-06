@@ -28,9 +28,18 @@ const {
   prev,
   next
 } = Astro.props;
+
+const layoutTitle = `${title} | Blog`;
 ---
 
-<MainLayout title={`${title} | Blog`} description={description} robots={robots} layout="prose">
+<MainLayout
+  title={layoutTitle}
+  description={isArchived ? undefined : description}
+  robots={robots}
+  layout="prose"
+  ogType="article"
+  skipSocial={isArchived}
+>
   <article class="post-article">
     {isArchived && (
       <p class="post-archived-banner" role="note">Archived post</p>
