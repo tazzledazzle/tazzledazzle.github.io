@@ -50,12 +50,12 @@
 
 ### Performance, SEO & Accessibility
 
-- [ ] **QUAL-01**: All pages pass Lighthouse performance score ≥ 90 on mobile
-- [ ] **QUAL-02**: All pages meet WCAG 2.1 AA baseline (contrast, keyboard nav, focus states, alt text)
-- [ ] **QUAL-03**: Each page has intentional title, meta description, and Open Graph tags
-- [ ] **QUAL-04**: Blog posts include JSON-LD Article schema; About page includes Person schema
-- [ ] **QUAL-05**: CI runs link checking and accessibility validation on every deploy
-- [ ] **QUAL-06**: Images use modern formats, lazy loading, and appropriate dimensions
+- [x] **QUAL-01**: All pages pass Lighthouse performance score ≥ 90 on mobile
+- [x] **QUAL-02**: All pages meet WCAG 2.1 AA baseline (contrast, keyboard nav, focus states, alt text)
+- [x] **QUAL-03**: Each page has intentional title, meta description, and Open Graph tags
+- [x] **QUAL-04**: Blog posts include JSON-LD Article schema; About page includes Person schema
+- [x] **QUAL-05**: CI runs link checking and accessibility validation on every deploy
+- [x] **QUAL-06**: Images use modern formats, lazy loading, and appropriate dimensions
 
 ## v2 Requirements
 
@@ -125,12 +125,12 @@ Deferred to future release. Tracked but not in current roadmap.
 | DESN-03 | Phase 5 | Complete |
 | DESN-04 | Phase 5 | Complete |
 | DESN-05 | Phase 5 | Complete |
-| QUAL-01 | Phase 6 | Pending |
-| QUAL-02 | Phase 6 | Pending |
-| QUAL-03 | Phase 6 | Pending |
-| QUAL-04 | Phase 6 | Pending |
-| QUAL-05 | Phase 6 | Pending |
-| QUAL-06 | Phase 6 | Pending |
+| QUAL-01 | Phase 6 | Complete |
+| QUAL-02 | Phase 6 | Complete |
+| QUAL-03 | Phase 6 | Complete |
+| QUAL-04 | Phase 6 | Complete |
+| QUAL-05 | Phase 6 | Complete |
+| QUAL-06 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total
