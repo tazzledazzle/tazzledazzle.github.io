@@ -17,7 +17,8 @@
     "check:lighthouse": "node scripts/run-lighthouse-ci.mjs",
     "verify:phase3": "npm run build && node scripts/verify-phase3-hiring.mjs",
     "verify:phase4": "npm run build && node scripts/verify-phase4-blog.mjs",
-    "verify:phase5": "npm run build && node scripts/verify-phase5-design.mjs"
+    "verify:phase5": "npm run build && node scripts/verify-phase5-design.mjs",
+    "verify:phase6": "npm run build && npm run audit:contrast && npm run test:a11y && node scripts/verify-phase6-quality.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.1",
