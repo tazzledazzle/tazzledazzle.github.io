@@ -10,6 +10,7 @@
     "check": "astro check",
     "test:unit": "node --test src/lib/**/*.test.ts src/lib/blog/*.test.ts src/lib/seo/*.test.ts",
     "generate:og-default": "node scripts/generate-og-default.mjs",
+    "audit:contrast": "node scripts/audit-contrast.mjs",
     "verify:phase3": "npm run build && node scripts/verify-phase3-hiring.mjs",
     "verify:phase4": "npm run build && node scripts/verify-phase4-blog.mjs",
     "verify:phase5": "npm run build && node scripts/verify-phase5-design.mjs"
