@@ -11,6 +11,10 @@
     "test:unit": "node --test src/lib/**/*.test.ts src/lib/blog/*.test.ts src/lib/seo/*.test.ts",
     "generate:og-default": "node scripts/generate-og-default.mjs",
     "audit:contrast": "node scripts/audit-contrast.mjs",
+    "check:alt": "node scripts/check-dist-alt.mjs",
+    "check:links": "lychee --config lychee.toml dist",
+    "test:a11y": "playwright test tests/a11y",
+    "check:lighthouse": "node scripts/run-lighthouse-ci.mjs",
     "verify:phase3": "npm run build && node scripts/verify-phase3-hiring.mjs",
     "verify:phase4": "npm run build && node scripts/verify-phase4-blog.mjs",
     "verify:phase5": "npm run build && node scripts/verify-phase5-design.mjs"
@@ -28,6 +32,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@axe-core/playwright": "^4.12.1",
+    "@lhci/cli": "^0.14.0",
+    "@playwright/test": "^1.61.1",
     "sharp": "^0.34.5",
     "typescript": "^5.9.0"
   }

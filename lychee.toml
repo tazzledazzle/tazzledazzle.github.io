@@ -1,0 +1,37 @@
+# Lychee link checker config for built GitHub Pages HTML (D-120)
+# CI runs via lycheeverse/lychee-action; local: install lychee CLI or rely on CI.
+
+base = "https://tazzledazzle.github.io"
+
+# Scan built static HTML
+include_path = ["dist/**/*.html"]
+
+# Archived duplicate posts — noindex, excluded from sitemap and link checks
+exclude_path = [
+  "dist/2015/08/08/design-document-for-automating-macos-installers-pkg-and-dmg/**",
+  "dist/2015/08/08/design-document-for-debugging-kernel-lev/**",
+  "dist/2015/08/08/design-document-for-implementing-code-si/**",
+  "dist/2015/08/08/design-document-for-learning-homebrew-an/**",
+  "dist/2015/08/08/design-document-for-mastering-xcode-inst/**",
+  "dist/2015/08/08/design-document-for-project-3-multithre/**",
+  "dist/2015/08/08/design-document-for-project-5-macos-dis/**",
+  "dist/2015/08/08/design-document-for-setting-up-automated/**",
+  "dist/2015/08/08/design-document-for-testing-across-macos/**",
+  "dist/2015/08/08/design-document-for-understanding-macos/**"
+]
+
+# Flaky or auth-gated external profiles
+exclude = [
+  "^mailto:",
+  "^tel:",
+  "https://(www\\.)?linkedin\\.com/",
+  "https://(www\\.)?twitter\\.com/",
+  "https://(www\\.)?x\\.com/"
+]
+
+max_redirects = 5
+accept = ["200", "403", "429"]
+
+# Retry transient rate limits
+retry_wait_time = 2
+max_retries = 2
