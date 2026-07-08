@@ -25,12 +25,19 @@ const MIME = {
 function resolvePath(urlPath) {
   const decoded = decodeURIComponent(urlPath.split("?")[0]);
   const normalized = decoded.endsWith("/") ? `${decoded}index.html` : decoded;
-  const filePath = join(DIST_DIR, normalized);
+  const relative = normalized.replace(/^\/+/, "");
+  const filePath = join(DIST_DIR, relative);
+
+  if (
+    !filePath.startsWith(`${DIST_DIR}/`) &&
+    !filePath.startsWith(`${DIST_DIR}\\`)
+  ) {
+    return null;
+  }
 
   if (existsSync(filePath) && statSync(filePath).isFile()) {
     return filePath;
   }
-
   const htmlFallback = `${filePath.replace(/\/$/, "")}/index.html`;
   if (existsSync(htmlFallback) && statSync(htmlFallback).isFile()) {
     return htmlFallback;
