@@ -12,7 +12,7 @@ module.exports = {
       ],
       numberOfRuns: 1,
       settings: {
-        preset: "desktop",
+        preset: "mobile",
         formFactor: "mobile",
         throttlingMethod: "simulate",
         throttling: {
