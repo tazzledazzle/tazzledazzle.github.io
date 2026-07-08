@@ -3,7 +3,7 @@ title: "Cloud Native Architecture Patterns - 2026 Reference"
 pubDate: "2026-07-02"
 tags: []
 tier: "featured"
-permalink: "2026/07/02/cloud-native-architecture-patterns-"
+permalink: "/2026/07/02/cloud-native-architecture-patterns/"
 hide_frontmatter: false
 ---
 

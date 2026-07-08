@@ -518,3 +518,23 @@ posts:
   hide_frontmatter: false
   canonical_slug:
   duplicate_group:
+- id: 2026-07-02-cloud-native-patterns
+  filename: 2026-07-02-cloud-native-patterns.md
+  title: Cloud Native Architecture Patterns - 2026 Reference
+  pub_date: '2026-07-02'
+  permalink: "/2026/07/02/cloud-native-architecture-patterns/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-08-custom-otel-interceptors-temporal-1252
+  filename: 2026-07-08-custom-otel-interceptors-temporal-1.25.2.md
+  title: Custom OpenTelemetry Interceptors for Temporal SDK
+  pub_date: '2026-07-08'
+  permalink: "/2026/07/08/custom-opentelemetry-interceptors/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
