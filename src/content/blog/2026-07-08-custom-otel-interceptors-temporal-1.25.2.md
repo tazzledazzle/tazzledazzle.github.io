@@ -1,5 +1,5 @@
 ---
-title: " Custom OpenTelemetry Interceptors for Temporal SDK "
+title: "Custom OpenTelemetry Interceptors for Temporal SDK"
 pubDate: "2026-07-08"
 tags: []
 tier: "featured"
