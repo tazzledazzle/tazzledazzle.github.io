@@ -23,7 +23,11 @@ exclude = [
   "^tel:",
   "https://(www\\.)?linkedin\\.com/",
   "https://(www\\.)?twitter\\.com/",
-  "https://(www\\.)?x\\.com/"
+  "https://(www\\.)?x\\.com/",
+  # Content-hashed build artifacts — hash changes every build so live site lags by one deploy
+  "https://tazzledazzle\\.github\\.io/_astro/",
+  # Self-hosted fonts copied from public/ — present in dist and valid on live after deploy
+  "https://tazzledazzle\\.github\\.io/fonts/"
 ]
 
 max_redirects = 5

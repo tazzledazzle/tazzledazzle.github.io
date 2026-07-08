@@ -59,7 +59,7 @@ const layoutTitle = `${title} | Blog`;
       <slot />
     </div>
     <footer class="post-footer">
-      <TagList tags={tags} />
+      {!isArchived && <TagList tags={tags} />}
       <PostNav prev={prev} next={next} />
     </footer>
   </article>

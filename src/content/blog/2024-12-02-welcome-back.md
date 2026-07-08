@@ -20,10 +20,10 @@ Here's a [fullstack monitoring tutorial][Monitoring] that deals with observabili
 
 [Monitoring]: https://dev.to/gideonisbuilding/deploying-a-fullstack-application-with-monitoring-a-comprehensive-guide-38f4?context=digest
 
-* [Dependency Version Search](https://github.com/tazzledazzle/dependency-version-search)
+* Dependency Version Search
 * [Badger Badger Notification](https://github.com/tazzledazzle/Badger-badger-notifications)
-* [Repository Monitor](https://github.com/tazzledazzle/repo-monitor)
+* Repository Monitor
 * [Gradle to Bazel Transpiler](https://github.com/tazzledazzle/g2b-transpiler)
-* [Python Ad System]( https://github.com/tazzledazzle/py-ad-sys)
+* Python Ad System
 * [OSX Notarization (Signing)](https://github.com/tazzledazzle/osx-notarization)
 

@@ -35,7 +35,7 @@ A monorepo (monolithic repository) is a single version-controlled repository tha
 - **Remote Caching and Distributed Builds**: Leveraging remote build cache, buildfarm, and remote execution (Google RBE, BuildBarn, EngFlow) to overcome local resource bottlenecks.
 - **First-Class DevX Tooling**: Companies are investing heavily in:
   - **Monorepo-aware code search** ([Sourcegraph](https://sourcegraph.com/), [OpenGrok](https://opengrok.github.io/)),
-  - **Incremental/test selection** ([Test Selection Service](https://testing.googleblog.com/2019/12/testing-at-scale-selection.html)),
+  - **Incremental/test selection** (e.g. Google's Test Selection Service, Bazel query, Nx affected),
   - **Code review at scale** ([Critique](https://abseil.io/about/philosophy)),
   - **Code ownership enforcement** (CODEOWNERS, custom tools).
 - **Semantic and Logical Monorepos**: Not all code must live in one physical repo; some orgs use “logical monorepos” with tooling to provide cross-repo refactoring, search, and release flows.
@@ -208,11 +208,10 @@ monorepo/
 ## **Further Reading & References**
 
 - [Google’s monorepo philosophy](https://abseil.io/resources/swe-book/html/ch04.html)
-- [Shopify Engineering: Why and How we moved to a Monorepo](https://shopify.engineering/monorepos-why-how)
 - [Meta/Buck2](https://buck2.build/)
 - [Bazel Build](https://bazel.build/)
 - [Pantsbuild](https://www.pantsbuild.org/)
-- [Sourcegraph Monorepo Features](https://about.sourcegraph.com/blog/monorepo-code-intelligence)
+- [Sourcegraph Code Search](https://sourcegraph.com/)
 
 ---
 

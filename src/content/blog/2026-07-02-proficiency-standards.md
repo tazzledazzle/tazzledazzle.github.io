@@ -2,7 +2,7 @@
 title: ""
 pubDate: "2026-07-02"
 tags: []
-tier: "featured"
+tier: "archived"
 permalink: "/2026/07/02/"
 hide_frontmatter: false
 ---
