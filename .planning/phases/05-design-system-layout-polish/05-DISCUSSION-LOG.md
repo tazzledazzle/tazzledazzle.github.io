@@ -10,21 +10,21 @@
 
 ## Design tokens
 
-| Choice | Selected |
-|--------|----------|
-| GitHub Dark-inspired palette | ✓ |
-| Accent for links, tags, highlights | ✓ |
-| Tailwind default spacing | ✓ |
-| Subtle 4px radius | ✓ |
+| Choice                             | Selected |
+|------------------------------------|----------|
+| GitHub Dark-inspired palette       | ✓        |
+| Accent for links, tags, highlights | ✓        |
+| Tailwind default spacing           | ✓        |
+| Subtle 4px radius                  | ✓        |
 
 ## Typography
 
-| Choice | Selected |
-|--------|----------|
-| Keep Inter | ✓ |
-| Size scale heading emphasis | ✓ |
-| Narrow 65ch prose, larger body | ✓ |
-| Body text full --fg | ✓ |
+| Choice                         | Selected |
+|--------------------------------|----------|
+| Keep Inter                     | ✓        |
+| Size scale heading emphasis    | ✓        |
+| Narrow 65ch prose, larger body | ✓        |
+| Body text full --fg            | ✓        |
 
 ## Layout
 
@@ -46,20 +46,20 @@
 
 ## Mobile
 
-| Choice | Selected |
-|--------|----------|
-| Polish hamburger | ✓ |
-| overflow-x on code/tables only | ✓ |
-| Sticky header | ✓ |
-| Visible focus rings | ✓ |
+| Choice                         | Selected |
+|--------------------------------|----------|
+| Polish hamburger               | ✓        |
+| overflow-x on code/tables only | ✓        |
+| Sticky header                  | ✓        |
+| Visible focus rings            | ✓        |
 
 ## Chrome
 
-| Choice | Selected |
-|--------|----------|
-| Active nav underline/bold | ✓ |
-| Keep "Work" label (D-05) | ✓ |
-| Minimal footer | ✓ |
+| Choice                    | Selected |
+|---------------------------|----------|
+| Active nav underline/bold | ✓        |
+| Keep "Work" label (D-05)  | ✓        |
+| Minimal footer            | ✓        |
 
 ## Deferred
 
