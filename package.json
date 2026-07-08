@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test:unit": "node --test src/lib/**/*.test.ts src/lib/blog/*.test.ts src/lib/seo/*.test.ts",
+    "test:unit": "node --test src/lib/**/*.test.ts",
     "generate:og-default": "node scripts/generate-og-default.mjs",
     "audit:contrast": "node scripts/audit-contrast.mjs",
     "check:alt": "node scripts/check-dist-alt.mjs",
