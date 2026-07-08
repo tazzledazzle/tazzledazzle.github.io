@@ -1,10 +1,7 @@
 # Lychee link checker config for built GitHub Pages HTML (D-120)
 # CI runs via lycheeverse/lychee-action; local: install lychee CLI or rely on CI.
 
-base = "https://tazzledazzle.github.io"
-
-# Scan built static HTML
-include_path = ["dist/**/*.html"]
+base_url = "https://tazzledazzle.github.io"
 
 # Archived duplicate posts — noindex, excluded from sitemap and link checks
 exclude_path = [
