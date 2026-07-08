@@ -1,23 +1,34 @@
 ---
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 import MobileNav from "./MobileNav.astro";
+import { isActiveNavPath } from "../lib/nav.ts";
 
 const navItems = (await getCollection("navigation")).sort(
   (a: CollectionEntry<"navigation">, b: CollectionEntry<"navigation">) =>
     a.data.order - b.data.order
 );
 const social = await getEntry("social", "default");
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="site-header">
+<header class="site-header site-header--sticky">
   <div class="site-header__inner">
     <a href="/" class="site-header__brand">{social?.data.name ?? "Terence Schumacher"}</a>
 
     <nav class="site-header__nav" aria-label="Primary">
-      {navItems.map((item: CollectionEntry<"navigation">) => (
-        <a href={item.data.url}>{item.data.title}</a>
-      ))}
-      <a href="/resume.pdf" class="site-header__resume">Download Resume</a>
+      {navItems.map((item: CollectionEntry<"navigation">) => {
+        const active = isActiveNavPath(currentPath, item.data.url);
+        return (
+          <a
+            href={item.data.url}
+            class:list={[active && "is-active"]}
+            aria-current={active ? "page" : undefined}
+          >
+            {item.data.title}
+          </a>
+        );
+      })}
+      <a href="/resume.pdf" class="btn btn-primary site-header__resume">Download Resume</a>
     </nav>
 
     <div class="site-header__social">
@@ -30,6 +41,6 @@ const social = await getEntry("social", "default");
       )}
     </div>
 
-    <MobileNav navItems={navItems} />
+    <MobileNav navItems={navItems} currentPath={currentPath} />
   </div>
 </header>

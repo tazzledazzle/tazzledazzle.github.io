@@ -19,7 +19,10 @@ for (const post of posts) {
 const years = [...postsByYear.keys()].sort((a, b) => b - a);
 ---
 
-<MainLayout title="Archive | Blog">
+<MainLayout
+  title="Archive | Blog"
+  description="Browse the full blog archive by year — technical essays on platform engineering, release automation, build systems, and software craftsmanship."
+>
   <h1>Archive</h1>
   <p class="blog-archive-link">
     <a href="/blog/">← Back to blog</a>

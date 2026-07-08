@@ -14,8 +14,8 @@ Modernize the brownfield Jekyll portfolio and technical blog into an Astro stati
 - [x] **Phase 2: Astro Scaffold & Content Migration** - Astro 7 build, post migration, RSS, sitemap, and URL preservation (completed 2026-07-02)
 - [x] **Phase 3: Hiring Pages** - Homepage hero, project cards, career timeline, resume CTA, and contact links (completed 2026-07-02)
 - [x] **Phase 4: Blog Curation & Discovery** - Tiered blog visibility, tags, archives, and reading experience (completed 2026-07-02)
-- [ ] **Phase 5: Design System & Layout Polish** - Cohesive dark theme, responsive layout, and readable post typography
-- [ ] **Phase 6: Performance, SEO & Accessibility** - Lighthouse 90+, WCAG AA, structured data, and CI quality gates
+- [x] **Phase 5: Design System & Layout Polish** - Cohesive dark theme, responsive layout, and readable post typography (completed 2026-07-03)
+- [x] **Phase 6: Performance, SEO & Accessibility** - Lighthouse 90+, WCAG AA, structured data, and CI quality gates (completed 2026-07-06)
 
 ## Phase Details
 
@@ -117,8 +117,15 @@ Plans:
   3. Visitor sees a dark theme as the default visual mode on first load
   4. Reader reading a blog post sees comfortable line length and clear heading hierarchy
   5. Visitor can reach About, Projects, Career, and Blog via primary navigation with working links on every page
-**Plans**: TBD
+**Plans**: 5 plans
 **UI hint**: yes
+
+Plans:
+- [x] 05-01-PLAN.md — GitHub Dark tokens, .btn/.card primitives, focus rings (DESN-01, DESN-03)
+- [x] 05-02-PLAN.md — Hiring vs prose layouts, typography, hand-rolled blog prose (DESN-01, DESN-04)
+- [x] 05-03-PLAN.md — Hero/card component migration to design system (DESN-01)
+- [x] 05-04-PLAN.md — Sticky header, active nav, mobile polish, footer (DESN-02, DESN-05)
+- [x] 05-05-PLAN.md — Phase 5 verification gate and validation matrix (DESN-01–05)
 
 ### Phase 6: Performance, SEO & Accessibility
 **Goal**: Site meets production quality bars for speed, discoverability, and inclusive access
@@ -132,7 +139,14 @@ Plans:
   4. Blog posts expose JSON-LD Article schema and the About page exposes Person schema to search engines
   5. Broken links and accessibility regressions are caught automatically in CI before deploy
   6. Images load in modern formats with lazy loading and do not cause layout shift from oversized dimensions
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [x] 06-01-PLAN.md — SEO head, self-hosted Inter, og-default.png, page descriptions (QUAL-03, QUAL-01)
+- [x] 06-02-PLAN.md — Article and Person JSON-LD structured data (QUAL-04)
+- [x] 06-03-PLAN.md — WCAG contrast audit and token fixes (QUAL-02)
+- [x] 06-04-PLAN.md — CI lychee, axe, Lighthouse gates on 6 key pages (QUAL-01, QUAL-02, QUAL-05)
+- [x] 06-05-PLAN.md — Image policy, verify-phase6 gate, validation matrix (QUAL-01–06)
 
 ## Progress
 
@@ -145,8 +159,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Astro Scaffold & Content Migration | 5/5 | Complete   | 2026-07-02 |
 | 3. Hiring Pages | 5/5 | Complete   | 2026-07-02 |
 | 4. Blog Curation & Discovery | 6/6 | Complete   | 2026-07-02 |
-| 5. Design System & Layout Polish | 0/TBD | Not started | - |
-| 6. Performance, SEO & Accessibility | 0/TBD | Not started | - |
+| 5. Design System & Layout Polish | 5/5 | Complete   | 2026-07-03 |
+| 6. Performance, SEO & Accessibility | 5/5 | Complete   | 2026-07-06 |
 
 ---
 *Roadmap created: 2026-07-01*

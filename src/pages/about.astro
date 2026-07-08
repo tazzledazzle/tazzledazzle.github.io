@@ -1,11 +1,27 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { getEntry } from "astro:content";
+import { buildPersonSchema } from "../lib/seo/jsonLd.ts";
 
 const social = await getEntry("social", "default");
+const personJsonLd = social
+  ? buildPersonSchema({
+      name: social.data.name,
+      email: social.data.email,
+      sameAs: [
+        social.data.github.url,
+        social.data.linkedin.url,
+        social.data.twitter.url
+      ]
+    })
+  : undefined;
 ---
 
-<MainLayout title="About | Terence Schumacher" description="About Terence Schumacher — senior platform and reliability engineer.">
+<MainLayout
+  title="About | Terence Schumacher"
+  description="Senior platform and reliability engineer — seven years at Tableau, observability at Invisible. Release automation, build systems, and DORA metrics."
+  jsonLd={personJsonLd}
+>
   <h1>About</h1>
 
   <p>

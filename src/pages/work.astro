@@ -8,7 +8,10 @@ const featured = await getCollection("featuredProjects");
 const sorted = featured.sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<MainLayout title="Work | Terence Schumacher" description="Featured software projects and portfolio work.">
+<MainLayout
+  title="Work | Terence Schumacher"
+  description="Featured platform engineering projects: Bazel migrations, macOS signing automation, CI/CD redesign, and DORA maturity audits with GitHub demos."
+>
   <h1>Work</h1>
   <p>Platform engineering demos tied to release automation, build systems, and DORA metrics — the work I ship in production.</p>
 

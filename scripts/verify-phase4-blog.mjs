@@ -9,7 +9,7 @@ const FEATURED_TITLE = "Kotlin Cheatsheet";
 const ARCHIVED_TITLE = "Welcome to Jekyll";
 const FEATURED_POST_PATH = "dist/2024/11/08/kotlin-cheatsheet/index.html";
 const POST_WITH_TAGS_PATH = "dist/2015/02/18/searching-and-sorting-binary-search/index.html";
-const SAMPLE_POST_WITH_CODE = "dist/2025/01/08/cloud-computing-notes/index.html";
+const SAMPLE_POST_WITH_CODE = "dist/2025/01/22/nord-interview-and-studies/index.html";
 
 const fail = (msg) => {
   console.error(`verify:phase4 FAILED — ${msg}`);

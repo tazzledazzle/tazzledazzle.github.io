@@ -15,6 +15,7 @@ interface Props {
   robots?: string;
   prev: PostNavEntry | null;
   next: PostNavEntry | null;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -26,11 +27,22 @@ const {
   isArchived,
   robots,
   prev,
-  next
+  next,
+  jsonLd
 } = Astro.props;
+
+const layoutTitle = `${title} | Blog`;
 ---
 
-<MainLayout title={`${title} | Blog`} description={description} robots={robots}>
+<MainLayout
+  title={layoutTitle}
+  description={isArchived ? undefined : description}
+  robots={robots}
+  layout="prose"
+  ogType="article"
+  skipSocial={isArchived}
+  jsonLd={jsonLd}
+>
   <article class="post-article">
     {isArchived && (
       <p class="post-archived-banner" role="note">Archived post</p>
