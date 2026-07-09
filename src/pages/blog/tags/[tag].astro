@@ -9,6 +9,7 @@ import {
 } from "../../../lib/blog/posts.ts";
 import { tagToSlug } from "../../../lib/blog/tags.ts";
 import { calculateReadTime } from "../../../lib/blog/readTime.ts";
+import { deriveDescription } from "../../../lib/seo/description.ts";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -49,7 +50,7 @@ const tagDescription = `Posts tagged ${displayName} — engineering essays on pl
           permalink={post.data.permalink ?? `/${post.id}/`}
           pubDate={post.data.pubDate}
           readTimeMinutes={calculateReadTime(post.body ?? "")}
-          description={post.data.description}
+          description={deriveDescription(post.body ?? "", post.data.description)}
         />
       ))}
     </ul>
