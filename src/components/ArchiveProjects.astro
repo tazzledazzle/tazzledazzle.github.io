@@ -1,14 +1,14 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 const archive = await getCollection("archiveProjects");
-const sorted = archive.sort((a, b) => a.data.title.localeCompare(b.data.title));
+const sorted = archive.sort((a: CollectionEntry<"archiveProjects">, b: CollectionEntry<"archiveProjects">) => a.data.title.localeCompare(b.data.title));
 ---
 
 <details class="archive-projects">
   <summary>More projects</summary>
   <div class="archive-projects__list">
-    {sorted.map((project) => (
+    {sorted.map((project: CollectionEntry<"archiveProjects">) => (
       <article class="archive-projects__item">
         <h3>{project.data.title}</h3>
         <p>{project.data.summary}</p>

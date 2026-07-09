@@ -1,5 +1,5 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, type CollectionEntry } from "astro:content";
 import { formatCareerRange } from "../lib/formatCareerDate";
 
 const career = await getEntry("career", "default");
@@ -9,7 +9,7 @@ const education = career?.data.education ?? [];
 
 <section class="career-timeline" aria-label="Career history">
   <ol class="career-timeline__list">
-    {roles.map((role) => (
+    {roles.map((role: CollectionEntry<"career">["data"]["roles"][number]) => (
       <li class="career-timeline__item reveal">
         <div class="career-timeline__dates">
           <time datetime={role.start_date}>{formatCareerRange(role.start_date, role.end_date)}</time>
@@ -31,7 +31,7 @@ const education = career?.data.education ?? [];
     <section class="career-timeline__education" aria-labelledby="education-heading">
       <h2 id="education-heading">Education</h2>
       <ul>
-        {education.map((entry) => (
+        {education.map((entry: CollectionEntry<"career">["data"]["education"][number]) => (
           <li>
             <strong>{entry.institution}</strong> — {entry.degree}
           </li>

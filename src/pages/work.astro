@@ -1,11 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
 import ArchiveProjects from "../components/ArchiveProjects.astro";
 
 const featured = await getCollection("featuredProjects");
-const sorted = featured.sort((a, b) => a.data.title.localeCompare(b.data.title));
+const sorted = featured.sort((a: CollectionEntry<"featuredProjects">, b: CollectionEntry<"featuredProjects">) => a.data.title.localeCompare(b.data.title));
 ---
 
 <MainLayout
@@ -16,7 +16,7 @@ const sorted = featured.sort((a, b) => a.data.title.localeCompare(b.data.title))
   <p>Platform engineering demos tied to release automation, build systems, and DORA metrics — the work I ship in production.</p>
 
   <div class="work-grid">
-    {sorted.map((project) => (
+    {sorted.map((project: CollectionEntry<"featuredProjects">) => (
       <ProjectCard project={project} />
     ))}
   </div>
