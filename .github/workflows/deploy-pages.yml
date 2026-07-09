@@ -42,7 +42,7 @@ jobs:
       - name: Link check (lychee)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config lychee.toml dist
+          args: --config lychee.toml --remap "https://tazzledazzle.github.io file://${{ github.workspace }}/dist" dist
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
