@@ -10,7 +10,7 @@ const education = career?.data.education ?? [];
 <section class="career-timeline" aria-label="Career history">
   <ol class="career-timeline__list">
     {roles.map((role) => (
-      <li class="career-timeline__item">
+      <li class="career-timeline__item reveal">
         <div class="career-timeline__dates">
           <time datetime={role.start_date}>{formatCareerRange(role.start_date, role.end_date)}</time>
         </div>

@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header site-header--sticky">
   <div class="site-header__inner">
-    <a href="/" class="site-header__brand">{social?.data.name ?? "Terence Schumacher"}</a>
+    <a href="/" class="site-header__brand" transition:name="site-brand">{social?.data.name ?? "Terence Schumacher"}</a>
 
     <nav class="site-header__nav" aria-label="Primary">
       {navItems.map((item: CollectionEntry<"navigation">) => {
