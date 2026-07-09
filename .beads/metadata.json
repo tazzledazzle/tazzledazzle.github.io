@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "tazzledazzle_github_io",
+  "project_id": "81fe4aa0-68cb-474a-ab9b-8a6d71ba3a02"
+}
