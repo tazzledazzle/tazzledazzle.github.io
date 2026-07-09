@@ -27,7 +27,10 @@ exclude = [
   # Content-hashed build artifacts — hash changes every build so live site lags by one deploy
   "https://tazzledazzle\\.github\\.io/_astro/",
   # Self-hosted fonts copied from public/ — present in dist and valid on live after deploy
-  "https://tazzledazzle\\.github\\.io/fonts/"
+  "https://tazzledazzle\\.github\\.io/fonts/",
+  # Favicon files — present in dist, checked against live domain which lags one deploy
+  "https://tazzledazzle\\.github\\.io/favicon\\.ico",
+  "https://tazzledazzle\\.github\\.io/favicon\\.svg"
 ]
 
 max_redirects = 5
