@@ -1,3 +1,12 @@
+---
+title: "gRPC Services in Kotlin"
+pubDate: "2026-07-09"
+tags: []
+tier: "featured"
+permalink: "/2026/07/09/grpc-in-kotlin/"
+hide_frontmatter: false
+---
+
 # gRPC Services in Kotlin: Schema-First Design, Streaming, and Kubernetes Load Balancing
 
 gRPC is a high-performance *remote procedure call framework* built on HTTP/2 and Protocol Buffers. In a microservices 
