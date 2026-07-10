@@ -538,3 +538,13 @@ posts:
   hide_frontmatter: false
   canonical_slug:
   duplicate_group:
+- id: 2026-07-09-c2c-marketplace
+  filename: 2026-07-09-c2c-marketplace.md
+  title: "Project Shadow: C2C Marketplace Mock"
+  pub_date: '2026-07-09'
+  permalink: "/2026/07/09/c2c-marketplace/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
