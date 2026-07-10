@@ -3,7 +3,10 @@
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-
+.beads/
+.lighthouseci/
+.claude
+test-results
 # OS generated files
 .DS_Store
 .DS_Store?
@@ -20,6 +23,7 @@ Thumbs.db
 node_modules/
 dist/
 .astro/
+vendor
 
 # Beads / Dolt files (added by bd init)
 .dolt/
