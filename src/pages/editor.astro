@@ -495,20 +495,36 @@ const OAUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_I
           };
 
         } else if (code) {
-          // OAuth callback — code in URL, need server-side exchange
           showState("state-authenticating");
-          /**
-           * TODO: Exchange `code` for access token via a Cloudflare Worker.
-           *
-           * The worker must POST to https://github.com/login/oauth/access_token
-           * with { client_id, client_secret, code } — the client_secret cannot
-           * live in browser JS. Once the Worker is deployed, replace this block:
-           *
-           *   const res = await fetch('/api/oauth/callback?code=' + code);
-           *   const { access_token } = await res.json();
-           *   localStorage.setItem(TOKEN_KEY, access_token);
-           *   window.location.replace('/editor');
-           */
+          try {
+            // @ts-ignore -- add PUBLIC_OAUTH_WORKER_URL to src/env.d.ts when created
+            const workerUrl = import.meta.env.PUBLIC_OAUTH_WORKER_URL ?? "";
+            if (!workerUrl) {
+              throw new Error("OAuth worker not configured. Set PUBLIC_OAUTH_WORKER_URL.");
+            }
+            const res = await fetch(`${workerUrl}/exchange`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ code }),
+            });
+            const data = await res.json() as { access_token?: string; error?: string };
+            if (!data.access_token) {
+              throw new Error(data.error ?? "Token exchange failed");
+            }
+            localStorage.setItem(TOKEN_KEY, data.access_token);
+            // Clean code from URL and reload into authenticated state
+            const url = new URL(window.location.href);
+            url.searchParams.delete("code");
+            url.searchParams.delete("state");
+            window.location.replace(url.toString());
+          } catch (err) {
+            // Show error in the authenticating state instead of hanging
+            const msgEl = document.querySelector("#state-authenticating p.text-zinc-600");
+            if (msgEl) {
+              msgEl.textContent = `Authentication failed: ${err instanceof Error ? err.message : String(err)}`;
+              (msgEl as HTMLElement).classList.replace("text-zinc-600", "text-red-400");
+            }
+          }
         } else {
           // Not authenticated, no code
           showState("state-no-token");
