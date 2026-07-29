@@ -15,7 +15,10 @@ hide_frontmatter: false
 
 ## The wall
 
-I was wiring up distributed tracing for a Temporal-based workflow system, expecting the usual five-minute integration: drop in `io.temporal:temporal-opentelemetry`, register the interceptor, done. Instead I got a dependency resolution failure. That artifact simply isn't published for Temporal Java SDK `1.25.2`. Older versions have it. Some newer snapshots have it. The version I was pinned to did not.
+I was wiring up distributed tracing for a Temporal-based workflow system, expecting the usual five-minute integration: 
+drop in `io.temporal:temporal-opentelemetry`, then register the interceptor, done! 
+Instead, I got a weird dependency resolution failure. That artifact simply isn't published for Temporal Java SDK 
+`1.25.2`. Older versions have it. Some newer snapshots have it. The version I was pinned to did not.
 
 If you've hit this, you already know the two bad options: downgrade/upgrade the SDK to chase an artifact that may drag in other breaking changes, or build the interceptor chain yourself. I went with the second option, and this post is the writeup I wish existed before I started — the interfaces, the gotchas, and the one detail that cost me an afternoon: **`ActivityExecutionContext` has to be captured inside `init()`, not lazily grabbed from whatever thread ends up running your wrapped call.**
 
