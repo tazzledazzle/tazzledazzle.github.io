@@ -17,6 +17,7 @@ export class SubmitFlow {
    */
   showConfirmModal(metadata: PostMetadata & { slug: string; branchName: string }, mode: Mode): void {
     this.removeOverlay();
+    this.confirmCallbacks = [];
 
     const filename = `src/content/blog/${metadata.pubDate}-${metadata.slug}.md`;
     const prTitle = `post: ${metadata.title}`;
