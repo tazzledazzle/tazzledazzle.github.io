@@ -1,0 +1,541 @@
+diff --git a/src/pages/editor.astro b/src/pages/editor.astro
+new file mode 100644
+index 00000000..84312ba5
+--- /dev/null
++++ b/src/pages/editor.astro
+@@ -0,0 +1,535 @@
++---
++/**
++ * /editor — Protected WYSIWYG Blog Post Editor
++ *
++ * Auth flow:
++ *   1. No token in localStorage → show "Connect GitHub" button
++ *   2. ?code=xxx in URL         → "Authenticating…" state
++ *      NOTE: The actual OAuth token exchange requires a server-side component.
++ *      GitHub's OAuth flow requires the client_secret to exchange a `code` for
++ *      an access token, and the client_secret MUST NOT be embedded in browser JS.
++ *      A Cloudflare Worker (or similar edge function) is needed to perform the
++ *      POST to https://github.com/login/oauth/access_token with both
++ *      client_id + client_secret. The UI states below are fully implemented;
++ *      the token exchange step is left as a TODO pending that Worker deployment.
++ *   3. Token present             → render editor root + mount island
++ *
++ * This page ships zero JS to any other page on the site.
++ */
++
++const CLIENT_ID = import.meta.env.PUBLIC_GITHUB_APP_CLIENT_ID ?? "";
++const REDIRECT_URI = "https://tazzledazzle.github.io/editor";
++const OAUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=repo`;
++---
++
++<!doctype html>
++<html lang="en" class="h-full bg-zinc-950 text-zinc-100">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <meta name="robots" content="noindex, nofollow" />
++    <title>Blog Post Editor — tazzledazzle</title>
++    <link rel="icon" href="/favicon.ico" />
++  </head>
++  <body class="h-full">
++    <!-- Auth states rendered by client script below -->
++    <!-- No-token state -->
++    <div
++      id="state-no-token"
++      class="hidden h-full flex items-center justify-center"
++    >
++      <div class="text-center space-y-4">
++        <h1 class="text-2xl font-bold text-zinc-100">Blog Post Editor</h1>
++        <p class="text-zinc-400">Connect your GitHub account to get started.</p>
++        <a
++          href={OAUTH_URL}
++          class="inline-flex items-center gap-2 rounded-lg bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-white transition-colors"
++        >
++          <svg
++            class="h-5 w-5"
++            fill="currentColor"
++            viewBox="0 0 24 24"
++            aria-hidden="true"
++          >
++            <path
++              fill-rule="evenodd"
++              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
++              clip-rule="evenodd"></path>
++          </svg>
++          Connect GitHub
++        </a>
++      </div>
++    </div>
++
++    <!-- Authenticating state (code in URL, pending server exchange) -->
++    <div
++      id="state-authenticating"
++      class="hidden h-full flex items-center justify-center"
++    >
++      <div class="text-center space-y-4">
++        <div
++          class="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-zinc-700 border-t-zinc-100"
++        ></div>
++        <p class="text-zinc-400 text-sm">Authenticating with GitHub…</p>
++        <p class="text-zinc-600 text-xs max-w-xs">
++          <!-- TODO: Implement Cloudflare Worker at /api/oauth/callback to exchange
++               the ?code param for an access token. The Worker must keep the
++               GitHub App client_secret server-side. See spec Section 1. -->
++          Token exchange requires a server-side component — deployment pending.
++        </p>
++      </div>
++    </div>
++
++    <!-- Session expired banner (hidden by default, shown on 401) -->
++    <div
++      id="state-session-expired"
++      class="hidden fixed inset-0 z-50 flex items-start justify-center pt-16 pointer-events-none"
++    >
++      <div
++        class="pointer-events-auto flex items-center gap-4 rounded-xl bg-red-950 border border-red-800 px-6 py-4 shadow-xl"
++      >
++        <p class="text-sm text-red-200">
++          Session expired. Reconnect to resume editing.
++        </p>
++        <a
++          href={OAUTH_URL}
++          class="rounded-lg bg-red-700 px-4 py-2 text-xs font-semibold text-white hover:bg-red-600 transition-colors"
++        >
++          Reconnect
++        </a>
++      </div>
++    </div>
++
++    <!-- Editor root (shown when authenticated) -->
++    <div id="state-editor" class="hidden h-full flex flex-col">
++      <!-- Header -->
++      <header
++        class="flex items-center justify-between border-b border-zinc-800 bg-zinc-900 px-4 py-2"
++      >
++        <a
++          href="/"
++          class="text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
++        >
++          ← tazzledazzle.github.io
++        </a>
++        <span
++          id="editor-mode-label"
++          class="text-xs font-medium text-zinc-500 uppercase tracking-wider"
++        >
++          New Post
++        </span>
++        <div class="flex gap-2">
++          <button
++            id="btn-save-draft"
++            class="rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-1.5 text-sm font-medium text-zinc-300 hover:bg-zinc-700 transition-colors"
++          >
++            Save Draft
++          </button>
++          <button
++            id="btn-publish-pr"
++            class="rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold text-white hover:bg-indigo-500 transition-colors"
++          >
++            Publish PR ▶
++          </button>
++          <button
++            id="btn-disconnect"
++            class="rounded-lg border border-zinc-700 px-3 py-1.5 text-xs text-zinc-500 hover:text-zinc-300 hover:border-zinc-500 transition-colors"
++            title="Disconnect GitHub"
++          >
++            Disconnect
++          </button>
++        </div>
++      </header>
++
++      <!-- Editor body: metadata sidebar + editor canvas -->
++      <div class="flex flex-1 overflow-hidden">
++        <!-- Metadata panel -->
++        <aside
++          id="metadata-panel-root"
++          class="w-72 shrink-0 overflow-y-auto border-r border-zinc-800 bg-zinc-900 p-4"
++        >
++          <!-- MetadataPanel.ts mounts here -->
++          <div class="flex items-center justify-center h-32 text-zinc-600 text-sm">
++            Loading metadata panel…
++          </div>
++        </aside>
++
++        <!-- Editor canvas -->
++        <main class="flex-1 overflow-y-auto bg-zinc-950">
++          <div id="editor-root" class="mx-auto max-w-[720px] px-8 py-12 min-h-full">
++            <!-- Loading spinner until EditorIsland mounts -->
++            <div
++              id="editor-loading"
++              class="flex items-center justify-center h-64"
++            >
++              <div
++                class="h-8 w-8 animate-spin rounded-full border-4 border-zinc-700 border-t-indigo-500"
++              ></div>
++            </div>
++          </div>
++        </main>
++      </div>
++    </div>
++
++    <script>
++      // ---- Auth state machine ----
++      // Runs entirely in the browser. No Astro server-side logic involved.
++
++      const TOKEN_KEY = "gh_editor_token";
++      const REPO = "tazzledazzle/tazzledazzle.github.io";
++
++      function showState(id: string) {
++        for (const el of document.querySelectorAll<HTMLElement>(
++          "[id^='state-']"
++        )) {
++          el.classList.add("hidden");
++        }
++        const target = document.getElementById(id);
++        if (target) target.classList.remove("hidden");
++      }
++
++      function getToken(): string | null {
++        return localStorage.getItem(TOKEN_KEY);
++      }
++
++      function clearToken(): void {
++        localStorage.removeItem(TOKEN_KEY);
++      }
++
++      function parseCode(search: string): string | null {
++        const params = new URLSearchParams(
++          search.startsWith("?") ? search.slice(1) : search
++        );
++        return params.get("code");
++      }
++
++      async function init() {
++        const code = parseCode(window.location.search);
++        const token = getToken();
++
++        if (token) {
++          // Authenticated — show editor
++          showState("state-editor");
++          // Remove ?code from URL if present (clean up after OAuth redirect)
++          if (code) {
++            const url = new URL(window.location.href);
++            url.searchParams.delete("code");
++            url.searchParams.delete("state");
++            history.replaceState({}, "", url.toString());
++          }
++
++          // Mutable state for current editing mode
++          let currentMode: "new" | "edit" = "new";
++          let currentFileSHA: string | undefined = undefined;
++
++          // ---- 1. Mount MetadataPanel ----
++          const { MetadataPanel } = await import("/src/components/editor/MetadataPanel.ts");
++          const panelRoot = document.getElementById("metadata-panel-root")!;
++          const metadataPanel = new MetadataPanel(panelRoot, {
++            mode: "new",
++            onImport: handleImport,
++          });
++
++          // ---- 2. Mount EditorIsland ----
++          const { EditorIsland } = await import("/src/components/editor/EditorIsland.ts");
++          const editorRoot = document.getElementById("editor-root")!;
++          const editorIsland = new EditorIsland(editorRoot, metadataPanel);
++
++          // ---- 3. Mount SubmitFlow ----
++          const { SubmitFlow } = await import("/src/components/editor/SubmitFlow.ts");
++          const submitFlow = new SubmitFlow();
++
++          // ---- 4. handleImport (file import → preprocessors → editor) ----
++          async function handleImport(content: string, filename: string) {
++            const { extractFrontmatter, stripBearSyntax, stripObsidianSyntax, inferTitle }
++              = await import("/src/lib/editor/preprocessors.ts");
++
++            // Clean Bear/Obsidian-specific syntax
++            let cleaned = stripBearSyntax(content);
++            cleaned = stripObsidianSyntax(cleaned);
++
++            // Extract and apply frontmatter if present
++            const { frontmatter, body } = extractFrontmatter(cleaned);
++            const fm = frontmatter as Record<string, unknown>;
++
++            metadataPanel.setValues({
++              title: (fm.title as string) || inferTitle(body, filename),
++              pubDate: (fm.pubDate as string) || (fm.date as string) || "",
++              description: fm.description as string | undefined,
++              tags: Array.isArray(fm.tags) ? fm.tags as string[] : undefined,
++              tier: fm.tier as "featured" | "standard" | "archived" | undefined,
++            });
++
++            editorIsland.setMarkdown(body);
++          }
++
++          // ---- 5. Restore draft from localStorage ----
++          const savedDraft = localStorage.getItem("editor_draft");
++          if (savedDraft) {
++            try {
++              const draft = JSON.parse(savedDraft) as { metadata: Record<string, unknown>; markdown: string };
++              metadataPanel.setValues(draft.metadata as Parameters<typeof metadataPanel.setValues>[0]);
++              editorIsland.setMarkdown(draft.markdown);
++            } catch {
++              // malformed draft — ignore
++            }
++          }
++
++          // ---- 5. Save Draft button → localStorage ----
++          document.getElementById("btn-save-draft")?.addEventListener("click", () => {
++            const draft = {
++              metadata: metadataPanel.getValues(),
++              markdown: editorIsland.getMarkdown(),
++              savedAt: new Date().toISOString(),
++            };
++            localStorage.setItem("editor_draft", JSON.stringify(draft));
++            // Brief visual feedback: button text flips to "Saved ✓" for 1.5s
++            const btn = document.getElementById("btn-save-draft") as HTMLButtonElement;
++            const original = btn.textContent;
++            btn.textContent = "Saved ✓";
++            setTimeout(() => { btn.textContent = original; }, 1500);
++          });
++
++          // ---- 6. Publish PR button → SubmitFlow → GitHub API sequence ----
++          document.getElementById("btn-publish-pr")?.addEventListener("click", () => {
++            const values = metadataPanel.getValues();
++            const mode = currentMode; // "new" | "edit" — tracked in outer scope
++            submitFlow.showConfirmModal(values, mode);
++            submitFlow.onConfirm(async () => {
++              const { getMainSHA, createBranch, createOrUpdateFile, createPR }
++                = await import("/src/lib/editor/github-api.ts");
++              const { serializePost } = await import("/src/lib/editor/serializer.ts");
++              const { generateFilename } = await import("/src/lib/editor/slug.ts");
++
++              const tok = getToken(); // already defined in auth section
++              const repo = REPO;
++              const meta = metadataPanel.getValues();
++              const filename = generateFilename(meta.pubDate, meta.slug);
++              const filePath = `src/content/blog/${filename}`;
++              const markdownBody = editorIsland.getMarkdown();
++              const fileContent = serializePost(meta, markdownBody);
++
++              // Read the final branch name from the modal input (user may have edited it)
++              const branchEl = document.getElementById("submit-branch-input") as HTMLInputElement | null;
++              const branchName = branchEl?.value || meta.branchName;
++              const prTitle = `post: ${meta.title}`;
++
++              try {
++                submitFlow.showProgress("Getting main branch SHA…");
++                const sha = await getMainSHA(tok!, repo);
++
++                submitFlow.showProgress("Creating branch…");
++                await createBranch(tok!, repo, branchName, sha);
++
++                submitFlow.showProgress("Uploading file…");
++                // currentFileSHA is set when loading an existing post (undefined for new)
++                await createOrUpdateFile(tok!, repo, filePath, fileContent, prTitle, currentFileSHA);
++
++                submitFlow.showProgress("Opening pull request…");
++                const prUrl = await createPR(tok!, repo, prTitle, branchName, "main");
++
++                // Clear draft from localStorage on success
++                localStorage.removeItem("editor_draft");
++                submitFlow.showSuccess(prUrl);
++              } catch (err) {
++                const message = err instanceof Error ? err.message : String(err);
++                // Determine which step failed from the last showProgress call
++                submitFlow.showError("GitHub API", message);
++                // Check for auth expiry
++                if (message.includes("401")) {
++                  (window as Window & { handleAuthExpiry?: () => void }).handleAuthExpiry?.();
++                }
++              }
++            });
++          });
++
++          // ---- 7. Load existing post ----
++          async function loadExistingPost(filePath: string) {
++            const { fetchFileContent, fetchFileTree } = await import("/src/lib/editor/github-api.ts");
++            const { extractFrontmatter } = await import("/src/lib/editor/preprocessors.ts");
++
++            const tok = getToken();
++            if (!tok) return;
++
++            const { content, sha } = await fetchFileContent(tok, REPO, filePath);
++            const { frontmatter, body } = extractFrontmatter(content);
++            const fm = frontmatter as Record<string, unknown>;
++
++            metadataPanel.setValues({
++              title: fm.title as string | undefined,
++              pubDate: (fm.pubDate as string) || (fm.date as string) || "",
++              description: fm.description as string | undefined,
++              tags: Array.isArray(fm.tags) ? fm.tags as string[] : undefined,
++              tier: fm.tier as "featured" | "standard" | "archived" | undefined,
++            });
++            editorIsland.setMarkdown(body);
++
++            currentFileSHA = sha;
++            currentMode = "edit";
++
++            // Update header mode label
++            const modeLabel = document.getElementById("editor-mode-label");
++            if (modeLabel) {
++              const basename = filePath.split("/").pop() ?? filePath;
++              modeLabel.textContent = `Editing: ${basename}`;
++            }
++          }
++
++          // Add "Load existing post" button to the metadata panel footer
++          const loadBtn = document.createElement("button");
++          loadBtn.id = "btn-load-existing";
++          loadBtn.textContent = "Load existing post";
++          loadBtn.className =
++            "mt-3 w-full rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-xs font-medium text-zinc-300 hover:bg-zinc-700 transition-colors";
++          panelRoot.appendChild(loadBtn);
++
++          loadBtn.addEventListener("click", async () => {
++            const { fetchFileTree } = await import("/src/lib/editor/github-api.ts");
++            const tok = getToken();
++            if (!tok) return;
++
++            // Build modal
++            const modal = document.createElement("div");
++            modal.id = "load-existing-modal";
++            modal.className =
++              "fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm";
++            modal.innerHTML = `
++              <div class="bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6 space-y-4">
++                <h2 class="text-lg font-bold text-zinc-100">Load existing post</h2>
++                <input
++                  id="load-existing-search"
++                  type="text"
++                  placeholder="Filter posts…"
++                  class="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 placeholder-zinc-500 focus:border-indigo-500 focus:outline-none text-sm"
++                />
++                <ul
++                  id="load-existing-list"
++                  class="max-h-64 overflow-y-auto space-y-1 text-sm"
++                >
++                  <li class="text-zinc-500 text-xs">Loading…</li>
++                </ul>
++                <div class="flex justify-end">
++                  <button
++                    id="load-existing-cancel"
++                    class="rounded-lg border border-zinc-700 px-4 py-2 text-sm text-zinc-400 hover:text-zinc-200 hover:border-zinc-500 transition-colors"
++                  >
++                    Cancel
++                  </button>
++                </div>
++              </div>
++            `;
++            document.body.appendChild(modal);
++
++            modal.querySelector("#load-existing-cancel")?.addEventListener("click", () => {
++              modal.remove();
++            });
++            modal.addEventListener("click", (e) => {
++              if (e.target === modal) modal.remove();
++            });
++
++            let allFiles: string[] = [];
++            try {
++              allFiles = await fetchFileTree(tok, REPO);
++            } catch (err) {
++              const listEl = modal.querySelector<HTMLElement>("#load-existing-list")!;
++              listEl.innerHTML = `<li class="text-red-400 text-xs">Failed to load file list: ${err instanceof Error ? err.message : String(err)}</li>`;
++              return;
++            }
++
++            function renderList(filter: string) {
++              const listEl = modal.querySelector<HTMLElement>("#load-existing-list")!;
++              const filtered = filter
++                ? allFiles.filter((f) => f.toLowerCase().includes(filter.toLowerCase()))
++                : allFiles;
++
++              if (filtered.length === 0) {
++                listEl.innerHTML = `<li class="text-zinc-500 text-xs">No matching posts.</li>`;
++                return;
++              }
++
++              listEl.innerHTML = filtered
++                .map(
++                  (f) =>
++                    `<li>
++                      <button
++                        data-path="${f}"
++                        class="w-full text-left rounded-lg px-3 py-2 text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100 transition-colors font-mono text-xs break-all"
++                      >
++                        ${f.split("/").pop()}
++                      </button>
++                    </li>`
++                )
++                .join("");
++
++              listEl.querySelectorAll<HTMLButtonElement>("button[data-path]").forEach((btn) => {
++                btn.addEventListener("click", async () => {
++                  modal.remove();
++                  await loadExistingPost(btn.dataset.path!);
++                });
++              });
++            }
++
++            renderList("");
++
++            modal.querySelector<HTMLInputElement>("#load-existing-search")?.addEventListener("input", (e) => {
++              renderList((e.target as HTMLInputElement).value);
++            });
++          });
++
++          // ---- 8. Handle ?file= URL param on page load ----
++          const fileParam = new URL(window.location.href).searchParams.get("file");
++          if (fileParam) {
++            await loadExistingPost(fileParam);
++          }
++
++          // ---- 9. Auth expiry → save editor state ----
++          (window as Window & { handleAuthExpiry?: () => void }).handleAuthExpiry = () => {
++            // Save current state before auth expires
++            const draft = {
++              metadata: metadataPanel.getValues(),
++              markdown: editorIsland.getMarkdown(),
++              savedAt: new Date().toISOString(),
++            };
++            localStorage.setItem("editor_draft", JSON.stringify(draft));
++            document.getElementById("state-session-expired")?.classList.remove("hidden");
++          };
++
++        } else if (code) {
++          // OAuth callback — code in URL, need server-side exchange
++          showState("state-authenticating");
++          /**
++           * TODO: Exchange `code` for access token via a Cloudflare Worker.
++           *
++           * The worker must POST to https://github.com/login/oauth/access_token
++           * with { client_id, client_secret, code } — the client_secret cannot
++           * live in browser JS. Once the Worker is deployed, replace this block:
++           *
++           *   const res = await fetch('/api/oauth/callback?code=' + code);
++           *   const { access_token } = await res.json();
++           *   localStorage.setItem(TOKEN_KEY, access_token);
++           *   window.location.replace('/editor');
++           */
++        } else {
++          // Not authenticated, no code
++          showState("state-no-token");
++        }
++
++        // ---- 10. Disconnect button → clear draft too ----
++        document.getElementById("btn-disconnect")?.addEventListener("click", () => {
++          clearToken();
++          localStorage.removeItem("editor_draft");
++          showState("state-no-token");
++        });
++
++        // Fallback 401 handler (before auth mount, in case it fires early)
++        if (!(window as Window & { handleAuthExpiry?: () => void }).handleAuthExpiry) {
++          (window as Window & { handleAuthExpiry?: () => void }).handleAuthExpiry = () => {
++            document.getElementById("state-session-expired")?.classList.remove("hidden");
++          };
++        }
++      }
++
++      init().catch(console.error);
++    </script>
++  </body>
++</html>
