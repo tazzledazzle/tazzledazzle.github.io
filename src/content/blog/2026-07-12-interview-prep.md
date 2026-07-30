@@ -118,7 +118,70 @@ func Find(e *Element) *Element {
 
 ```
 - Trie (Prefix Tree)
-  - tree where path from root spells a prefix 
+  - tree where path from root spells a prefix
+  - As seen in:
+    - word search II
+    - implement autocomplete
+    - longest common prefix
+    - design add-and-search-word data structure
+  - Tell:
+    - anything involving a dictionary of words + prefix
+    - wildcard queries
+```go
+// Trie node
+type Trie struct {
+	letter rune
+	children []*Trie
+	meta map[string]interface{}
+	isLeaf  bool
+}
+
+func (trie *Trie) hasChild(a rune)(bool, *Trie) {
+	for _, child := range trie.children {
+		if child.letter == a {
+			return true, child
+        }
+    }
+}
+
+func (trie *Trie) addChild(a rune) *Trie {
+	newChild := NewTrie()
+	newChild.letter = a
+	trie.children = append(trie.children, newChild)
+	return newChild
+}
+
+// add words to a trie
+func (trie *Trie) Add(word string) *Trie {
+	letters, node, i := []rune(word), trie, 0
+	n := len(letters)
+	
+	for i < n {
+		if exists, value := node.hasChild(letters[i]); exists {
+			node = value
+        } else {
+            node = node.addChild(letters[i])
+		}
+		i++
+		if i == n {
+            node.isLeaf = true
+		}
+	}
+	return node
+}
+
+func (trie *Trie) FindNode(word string) *Trie {
+	letters, node, i := []rune(word), trie, 0
+	n := len(letters)
+	for i < n {
+	    if exists, value := node.hasChild(letters[i]); exists {
+            node = value
+		} else {
+		    return nil	
+		}
+	}
+}
+```
 - Monotonic Stack
 - Binary Search (on answer space, not just sorted arrays)
 - Backtracking (with pruning)
