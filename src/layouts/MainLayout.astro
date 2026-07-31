@@ -3,7 +3,11 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Seo from "../components/Seo.astro";
+import WebVitals from "../components/WebVitals.astro";
 import { ClientRouter } from "astro:transitions";
+
+const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;
+const umamiSiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 
 interface Props {
   title: string;
@@ -57,6 +61,13 @@ const {
       skipSocial={skipSocial}
       jsonLd={jsonLd}
     />
+      {umamiUrl && umamiSiteId && (
+          <script
+              defer
+              src={`${umamiUrl}/script.js`}
+              data-website-id={umamiSiteId}
+              />
+      )}
   </head>
   <body>
     <Header />
@@ -64,5 +75,7 @@ const {
       <slot />
     </main>
     <Footer />
+    {umamiUrl && umamiSiteId &&
+            <WebVitals/>}
   </body>
 </html>

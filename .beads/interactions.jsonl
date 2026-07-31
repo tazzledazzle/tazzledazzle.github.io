@@ -68,3 +68,68 @@
     "reason": "Closed"
   }
 }
+{
+  "id": "int-5a823cab3e46ee4979be77dcb748e3d0",
+  "kind": "field_change",
+  "created_at": "2026-07-31T21:19:51.340166Z",
+  "actor": "Terence Schumacher",
+  "issue_id": "tazzledazzle_github_io-1io",
+  "extra": {
+    "field": "status",
+    "new_value": "closed",
+    "old_value": "in_progress",
+    "reason": "Closed"
+  }
+}
+{
+  "id": "int-dbd845c1fdea244ce7c7b056be051852",
+  "kind": "field_change",
+  "created_at": "2026-07-31T21:21:26.904656Z",
+  "actor": "Terence Schumacher",
+  "issue_id": "tazzledazzle_github_io-9ej",
+  "extra": {
+    "field": "status",
+    "new_value": "closed",
+    "old_value": "in_progress",
+    "reason": "Closed"
+  }
+}
+{
+  "id": "int-bee51e5a4ac3f706ce62c5c1b835555f",
+  "kind": "field_change",
+  "created_at": "2026-07-31T21:21:27.063816Z",
+  "actor": "Terence Schumacher",
+  "issue_id": "tazzledazzle_github_io-e0k",
+  "extra": {
+    "field": "status",
+    "new_value": "closed",
+    "old_value": "open",
+    "reason": "Closed"
+  }
+}
+{
+  "id": "int-b07686414cd80ce3bbcd4bf1e245c226",
+  "kind": "field_change",
+  "created_at": "2026-07-31T21:21:27.214645Z",
+  "actor": "Terence Schumacher",
+  "issue_id": "tazzledazzle_github_io-5ic",
+  "extra": {
+    "field": "status",
+    "new_value": "closed",
+    "old_value": "open",
+    "reason": "Closed"
+  }
+}
+{
+  "id": "int-94e40e4944cf81dee18ffd6d28c39522",
+  "kind": "field_change",
+  "created_at": "2026-07-31T21:21:27.365703Z",
+  "actor": "Terence Schumacher",
+  "issue_id": "tazzledazzle_github_io-yp0",
+  "extra": {
+    "field": "status",
+    "new_value": "closed",
+    "old_value": "open",
+    "reason": "Closed"
+  }
+}
