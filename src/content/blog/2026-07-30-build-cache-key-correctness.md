@@ -2,9 +2,9 @@
 title: "Getting Build Cache Keys Right: Why Cache Invalidation is (mostly) a Hashing Problem"
 pubDate: "7/31/26"
 tags: []
-tier: 
-permalink: ""
-hide_formatter: false
+tier: "featured"
+permalink: "/2026/07/30/build-cache-key-correctness/"
+hide_frontmatter: false
 ---
 
 # Getting Build Cache Keys Right: Why Cache Invalidation Is (Mostly) a Hashing Problem

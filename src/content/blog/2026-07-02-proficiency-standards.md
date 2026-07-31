@@ -1,9 +1,9 @@
 ---
-title: ""
+title: "Proficiency Standards"
 pubDate: "2026-07-02"
 tags: []
 tier: "archived"
-permalink: "/2026/07/02/"
+permalink: "/2026/07/02/proficiency-standards/"
 hide_frontmatter: false
 ---
 

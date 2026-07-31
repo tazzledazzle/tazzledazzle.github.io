@@ -1,11 +1,11 @@
 ---
 meta:
-  generated_at: '2026-07-02T06:23:07Z'
-  total_posts: 51
+  generated_at: '2026-07-31T00:00:00Z'
+  total_posts: 57
   tier_counts:
-    featured: 12
-    standard: 13
-    archived: 26
+    featured: 15
+    standard: 14
+    archived: 28
 posts:
 - id: 2015-02-18-binary-search
   filename: 2015-02-18-binary-search.markdown
@@ -543,6 +543,66 @@ posts:
   title: "Project Shadow: C2C Marketplace Mock"
   pub_date: '2026-07-09'
   permalink: "/2026/07/09/c2c-marketplace/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-02-proficiency-standards
+  filename: 2026-07-02-proficiency-standards.md
+  title: Proficiency Standards
+  pub_date: '2026-07-02'
+  permalink: "/2026/07/02/proficiency-standards/"
+  tier: archived
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-09-grpc-in-kotlin
+  filename: 2026-07-09-grpc-in-kotlin.md
+  title: gRPC Services in Kotlin
+  pub_date: '2026-07-09'
+  permalink: "/2026/07/09/grpc-in-kotlin/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-11--grpc-protobuf
+  filename: 2026-07-11--grpc-protobuf.md
+  title: gRPC and Protocol Buffers
+  pub_date: '2026-07-11'
+  permalink: "/2026/07/11/grpc-and-protocol-buffers/"
+  tier: archived
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-12-interview-prep
+  filename: 2026-07-12-interview-prep.md
+  title: Interview Prep
+  pub_date: '2026-07-12'
+  permalink: "/2026/07/12/interview-prep/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-30-build-cache-key-correctness
+  filename: 2026-07-30-build-cache-key-correctness.md
+  title: "Getting Build Cache Keys Right: Why Cache Invalidation is (mostly) a Hashing Problem"
+  pub_date: '2026-07-30'
+  permalink: "/2026/07/30/build-cache-key-correctness/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-30-kruskals-algorithm
+  filename: 2026-07-30-kruskals-algorithm.md
+  title: "How Kruskal's Algorithm Works"
+  pub_date: '2026-07-30'
+  permalink: "/2026/07/30/kruskals-algorithm/"
   tier: featured
   auto_rule: manual_featured
   hide_frontmatter: false

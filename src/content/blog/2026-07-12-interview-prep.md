@@ -2,9 +2,9 @@
 title: "Interview Prep"
 pubDate: "7/29/26"
 tags: []
-tier: 
-permalink: ""
-hide_formatter: false
+tier: "standard"
+permalink: "/2026/07/12/interview-prep/"
+hide_frontmatter: false
 ---
 
 # Interview Prep in 2026

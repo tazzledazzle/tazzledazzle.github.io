@@ -1,10 +1,10 @@
 ---
 title: "How Kruskal's Algorithm Works"
-pubDate: 7/30/26
-tags: [ ]
-tier:
-permalink: ""
-hide_formatter: false
+pubDate: "7/30/26"
+tags: []
+tier: "featured"
+permalink: "/2026/07/30/kruskals-algorithm/"
+hide_frontmatter: false
 ---
 
 Kruskal's is a greedy minimum spanning tree algorithm: sort all edges by weight -> repeatedly add the cheapest
