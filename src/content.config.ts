@@ -1,5 +1,5 @@
-import { defineCollection, z } from "astro:content";
-import { file, glob } from "astro/loaders";
+import {defineCollection, z} from "astro:content";
+import {file, glob} from "astro/loaders";
 import * as yaml from "js-yaml";
 
 const parseObject = (text: string): Record<string, unknown> => {
@@ -126,10 +126,10 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     description: z.string().optional(),
     tags: z.array(z.string()).default([]),
-    tier: z.enum(["featured", "standard", "archived"]).optional(),
-    permalink: z.string().optional(),
+    tier: z.enum(["featured", "standard", "archived"]).optional().nullable(),
+    permalink: z.string().optional().nullable(),
     canonical_slug: z.string().optional().nullable(),
-    hide_frontmatter: z.boolean().optional()
+    hide_frontmatter: z.boolean().optional().nullable()
   })
 });
 

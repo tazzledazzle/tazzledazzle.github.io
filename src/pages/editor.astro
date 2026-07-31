@@ -547,5 +547,158 @@ const OAUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_I
 
       init().catch(console.error);
     </script>
+
+    <style is:global>
+      /* ── TipTap editor canvas ── */
+      .tiptap-editor {
+        flex: 1;
+        min-height: 60vh;
+      }
+
+      .tiptap-canvas {
+        outline: none;
+        color: #e4e4e7; /* zinc-200 */
+        font-size: 1rem;
+        line-height: 1.75;
+        font-family: inherit;
+      }
+
+      /* Headings */
+      .tiptap-canvas h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 1.5rem 0 0.5rem;
+        color: #f4f4f5;
+      }
+
+      .tiptap-canvas h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 1.25rem 0 0.4rem;
+        color: #f4f4f5;
+      }
+
+      .tiptap-canvas h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1rem 0 0.35rem;
+        color: #f4f4f5;
+      }
+
+      /* Paragraph */
+      .tiptap-canvas p {
+        margin: 0.5rem 0;
+      }
+
+      .tiptap-canvas p:first-child {
+        margin-top: 0;
+      }
+
+      /* Inline */
+      .tiptap-canvas strong {
+        font-weight: 700;
+        color: #f4f4f5;
+      }
+
+      .tiptap-canvas em {
+        font-style: italic;
+      }
+
+      .tiptap-canvas code {
+        background: #27272a;
+        color: #a78bfa;
+        border-radius: 4px;
+        padding: 0.1em 0.35em;
+        font-size: 0.875em;
+        font-family: ui-monospace, "Cascadia Code", monospace;
+      }
+
+      /* Code block */
+      .tiptap-canvas pre {
+        background: #09090b;
+        border: 1px solid #27272a;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        overflow-x: auto;
+      }
+
+      .tiptap-canvas pre code {
+        background: none;
+        color: #d4d4d8;
+        padding: 0;
+        font-size: 0.875rem;
+      }
+
+      /* Blockquote */
+      .tiptap-canvas blockquote {
+        border-left: 3px solid #6366f1;
+        margin: 1rem 0;
+        padding-left: 1rem;
+        color: #a1a1aa;
+        font-style: italic;
+      }
+
+      /* Lists */
+      .tiptap-canvas ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin: 0.5rem 0;
+      }
+
+      .tiptap-canvas ol {
+        list-style: decimal;
+        padding-left: 1.5rem;
+        margin: 0.5rem 0;
+      }
+
+      .tiptap-canvas li {
+        margin: 0.25rem 0;
+      }
+
+      /* Horizontal rule */
+      .tiptap-canvas hr {
+        border: none;
+        border-top: 1px solid #3f3f46;
+        margin: 1.5rem 0;
+      }
+
+      /* Links */
+      .tiptap-canvas a {
+        color: #818cf8;
+        text-decoration: underline;
+      }
+
+      .tiptap-canvas a:hover {
+        color: #a5b4fc;
+      }
+
+      /* Images */
+      .tiptap-canvas img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+
+      /* Placeholder */
+      .tiptap-canvas .is-editor-empty:first-child::before,
+      .tiptap-canvas .is-empty::before {
+        content: attr(data-placeholder);
+        color: #52525b;
+        pointer-events: none;
+        float: left;
+        height: 0;
+      }
+
+      /* Selection */
+      .tiptap-canvas ::selection {
+        background: rgba(99, 102, 241, 0.3);
+      }
+
+      /* Focus ring on the editor element itself */
+      .tiptap-canvas:focus {
+        outline: none;
+      }
+    </style>
   </body>
 </html>
