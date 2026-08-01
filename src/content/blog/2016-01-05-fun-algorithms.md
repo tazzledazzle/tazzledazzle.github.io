@@ -73,14 +73,14 @@ Miscellaneous:
 ### Numerical:   
 * <b>Euclid's algorithms   </b>   
    
-The algorithm is based on the following two observations:
+The algorithm rests on two observations:
 
 If b|a then gcd(a, b) = b.
-This is indeed so because no number (b, in particular) may have a divisor greater than the number itself (I am talking here of non-negative integers.)
+No number (b, in particular) can have a divisor greater than itself (considering non-negative integers).
    
 If a = bt + r, for integers t and r, then gcd(a, b) = gcd(b, r).   
 
-<p>Indeed, every common divisor of a and b also divides r. Thus gcd(a, b) divides r. But, of course, gcd(a, b)|b. Therefore, gcd(a, b) is a common divisor of b and r and hence gcd(a, b) ≤ gcd(b, r). The reverse is also true because every divisor of b and r also divides a.   </p>
+<p>Every common divisor of a and b also divides r, so gcd(a, b) divides r. And since gcd(a, b)|b, it is a common divisor of b and r, giving gcd(a, b) ≤ gcd(b, r). The reverse holds as well, because every divisor of b and r also divides a.   </p>
 
 ```java
 // recursive
@@ -107,12 +107,12 @@ public int gcd(int a, int b) {
 
 * Gaussian elimination   
 
-Gaussian elimination is one of the oldest and most widely used algorithms for solving linear systems of equations. 
-The algorithm was explicitly described by Liu Hui in 263 while presenting solutions to the famous Chinese text Jiuzhang suanshu (The Nine Chapters on the Mathematical Art), but was probably discovered much earlier. 
-The name Gaussian elimination arose after Gauss used it to predict the location of celestial objects using his newly discovered method of least squares. 
-Apply row operations to transform original system of equations into an upper triangular system. Then use back-substitution.
-One common pivot strategy is to select the row that has the largest (in absolute value) pivot element, and do this interchange before each pivot, regardless of whether we encounter a potential zero pivot.
-It is widely used because, in addition to fixing the zero pivot problem, it dramatiaclly improves the numerical stability of the algorithm.
+Gaussian elimination is one of the oldest and most widely used algorithms for solving linear systems of equations.
+Liu Hui described it explicitly in 263 CE while presenting solutions in the famous Chinese text Jiuzhang suanshu (The Nine Chapters on the Mathematical Art), though mathematicians likely discovered it much earlier.
+The name "Gaussian elimination" arose after Gauss used it to predict celestial object locations with his newly discovered method of least squares.
+The approach: apply row operations to transform the original system into an upper triangular system, then back-substitute.
+One common pivot strategy selects the row with the largest absolute-value pivot element and swaps it before each pivot step, regardless of whether a zero pivot appears.
+This partial pivoting strategy fixes the zero-pivot problem and dramatically improves numerical stability.
 
 {% highlight java %}
 public double[] gaussianElimination(double[][] A, double [] b) {

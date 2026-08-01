@@ -110,24 +110,13 @@ public static void main(String [] args) {
 
  ## UVa 10855 - Rotated squares 
 
- Given a square of N rows and columns of uppercase letters, and another smaller square of n rows and
-columns of uppercase letters, we want to count the number of appearances in the big square of the
-small square in all the rotated forms.
+Given a large square of N×N uppercase letters and a smaller square of n×n uppercase letters, count how many times the small square appears in the large square across all four rotations.
 
 ### Input
-The input will consist of a series of problems, with each problem in a series of lines. In the first line,
-the dimension of the two squares, N and n (with 0 < n ≤ N), is indicated by two integer numbers
-separated by a space. The N lines of the first square appear in the following N lines of the input,
-and then the n lines of the second square appear in the following n lines. The characters in a line are
-one after another, without spaces. The end of the sequence of problems is indicated with a case where
-N = 0 and n = 0.
+The input is a series of problems, each on successive lines. The first line gives N and n (with 0 < n ≤ N) as two space-separated integers. The next N lines contain the large square, followed by n lines for the small square. Characters appear without spaces. A case where N = 0 and n = 0 signals the end of input.
 
 ### Output
-The solutions of the different problems appear in successive lines. For each problem the output consists
-of a line with four integers, which are the number of times each rotation of the small square appears in
-the big square. The first number corresponds to the number of appearances of the small square without
-rotations, the second to the appearances of the square rotated 90 degrees (clockwise), the third to the
-square rotated 180 degrees, and the fourth to the square rotated 270 degrees.
+Print one line per problem containing four integers: the appearance count for the small square at 0°, 90° (clockwise), 180°, and 270° rotations, respectively.
 
 ### Sample Input
 ```

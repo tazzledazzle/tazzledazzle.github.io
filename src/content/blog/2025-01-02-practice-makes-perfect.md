@@ -1,6 +1,6 @@
 ---
 title: "Practice Makes Perfect"
-pubDate: "2024-12-16"
+pubDate: "2025-01-02"
 tags: []
 tier: "standard"
 permalink: "/2025/01/02/practice-makes-perfect/"

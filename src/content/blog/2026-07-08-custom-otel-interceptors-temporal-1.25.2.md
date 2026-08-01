@@ -1,7 +1,7 @@
 ---
 title: "Custom OpenTelemetry Interceptors for Temporal SDK"
 pubDate: "2026-07-08"
-tags: []
+tags: ["observability", "opentelemetry", "temporal", "kotlin"]
 tier: "featured"
 permalink: "/2026/07/08/custom-opentelemetry-interceptors/"
 hide_frontmatter: false
@@ -15,12 +15,9 @@ hide_frontmatter: false
 
 ## The wall
 
-I was wiring up distributed tracing for a Temporal-based workflow system, expecting the usual five-minute integration: 
-drop in `io.temporal:temporal-opentelemetry`, then register the interceptor, done! 
-Instead, I got a weird dependency resolution failure. That artifact simply isn't published for Temporal Java SDK 
-`1.25.2`. Older versions have it. Some newer snapshots have it. The version I was pinned to did not.
+I was wiring up distributed tracing for a Temporal-based workflow system, expecting the usual five-minute integration: drop in `io.temporal:temporal-opentelemetry`, register the interceptor, done! Instead, I got a weird dependency resolution failure. That artifact simply isn't published for Temporal Java SDK `1.25.2`. Older versions have it. Some newer snapshots have it. The version I was pinned to did not.
 
-If you've hit this, you already know the two bad options: downgrade/upgrade the SDK to chase an artifact that may drag in other breaking changes, or build the interceptor chain yourself. I went with the second option, and this post is the writeup I wish existed before I started — the interfaces, the gotchas, and the one detail that cost me an afternoon: **`ActivityExecutionContext` has to be captured inside `init()`, not lazily grabbed from whatever thread ends up running your wrapped call.**
+If you've hit this, you already know the two bad options: downgrade or upgrade the SDK and risk dragging in other breaking changes, or build the interceptor chain yourself. I went with the second option, and this post is the writeup I wish existed before I started — the interfaces, the gotchas, and the one detail that cost me an afternoon: **`ActivityExecutionContext` has to be captured inside `init()`, not lazily grabbed from whatever thread ends up running your wrapped call.**
 
 ## Why the official module matters (and what it actually does)
 
@@ -30,9 +27,9 @@ The Temporal Java SDK exposes an interceptor layer for exactly this purpose — 
 - `WorkflowInboundCallsInterceptor` — wraps workflow execution: `execute()`, signal handlers, query handlers, update handlers.
 - `ActivityInboundCallsInterceptor` — wraps activity execution: `execute()`.
 
-The official OTel module implements all three, propagating span context through workflow history (so a span survives replay correctly) and through activity task queues. Reimplementing full context propagation across workflow replay boundaries is genuinely hard — that's the part I'd still reach for the official module for the moment it publishes for your SDK version. But for **activity-level tracing**, which is where most of my latency and error signal actually lives, a custom interceptor is entirely tractable and safe to hand-roll.
+The official OTel module implements all three, propagating span context through workflow history (so a span survives replay correctly) and through activity task queues. Reimplementing full context propagation across workflow replay boundaries is genuinely hard — that's the part I'd still reach for the official module the moment it publishes for your SDK version. But for **activity-level tracing**, where most of my latency and error signal actually lives, a custom interceptor is entirely tractable and safe to hand-roll.
 
-So that's the scope I settled on: full custom activity tracing, plus a lighter workflow-level span for top-level workflow execution (not signals/queries/updates — I didn't need that granularity yet).
+So that's the scope I settled on: full custom activity tracing, plus a lighter workflow-level span for top-level workflow execution (not signals, queries, or updates — I didn't need that granularity yet).
 
 ## The architecture
 
@@ -90,13 +87,13 @@ class NaiveOtelActivityInterceptor(
 }
 ```
 
-This compiles, runs, and produces spans that look plausible in your tracing backend — right up until you try to do anything with `ActivityExecutionContext` inside the activity itself, like heartbeating with span-linked metadata, or you try to add span attributes based on activity execution state (attempt number, task token, etc.) from a helper that isn't literally inline in `execute()`.
+This compiles, runs, and produces spans that look plausible in your tracing backend — right up until you try to do anything with `ActivityExecutionContext` inside the activity itself, like heartbeating with span-linked metadata, or adding span attributes based on activity execution state (attempt number, task token, etc.) from a helper that isn't literally inline in `execute()`.
 
 ### 2b. The detail that actually bit me: `init()` vs. wrapper-thread capture
 
-The `ActivityInboundCallsInterceptor` interface has a separate lifecycle method, `init(ActivityExecutionContext context)`, called once per interceptor instance before `execute()` is ever invoked. I initially ignored it and tried to pull the execution context off the current thread inside my wrapping logic, on the assumption that "current thread at wrap time" and "current thread at activity execution time" were the same thing.
+The `ActivityInboundCallsInterceptor` interface has a separate lifecycle method, `init(ActivityExecutionContext context)`, called once per interceptor instance before `execute()` is ever invoked. I initially ignored it and tried to pull the execution context off the current thread inside my wrapping logic, assuming "current thread at wrap time" and "current thread at activity execution time" were the same thing.
 
-They are not, reliably. Temporal's activity worker can hand off execution across its own thread pool machinery depending on how the activity is dispatched (sync vs. the various async/heartbeat-aware paths), and `Activity.getExecutionContext()` is a `ThreadLocal`-backed lookup tied to *the thread actually running the activity body*, not the thread your interceptor happened to be constructed or invoked on. If you grab the context in the wrong place, you either get a stale/wrong context or an `IllegalStateException` because there's no activity context bound to that thread at all.
+They are not, reliably. Temporal's activity worker can hand off execution across its own thread pool machinery depending on how the activity is dispatched (sync vs. the various async/heartbeat-aware paths), and `Activity.getExecutionContext()` is a `ThreadLocal`-backed lookup tied to *the thread actually running the activity body*, not the thread your interceptor happened to be constructed or invoked on. Grab the context in the wrong place, and you either get a stale/wrong context or an `IllegalStateException` because no activity context is bound to that thread at all.
 
 The fix is to store it in `init()`, which the SDK guarantees is called on the correct thread with the correct context already bound, and stash it as instance state on the interceptor (each activity invocation gets its own interceptor instance, so this is safe — it is not shared mutable state across concurrent activities):
 
@@ -150,10 +147,10 @@ class OtelActivityInboundCallsInterceptor(
 }
 ```
 
-A couple of things worth calling out in that snippet:
+A few things worth calling out in that snippet:
 
 - `info.attempt` matters a lot for retried activities — without it, retries look like unrelated single-shot spans in your tracing UI instead of a coherent retry sequence. Setting it as a numeric attribute lets you build a "attempts per activity type" dashboard almost for free.
-- I catch `Throwable`, not `Exception`. Temporal activities can throw `Error` subtypes on cancellation paths, and I want those visible in tracing too, not silently swallowed by a narrower catch.
+- I catch `Throwable`, not `Exception`. Temporal activities can throw `Error` subtypes on cancellation paths, and I want those visible in tracing, not silently swallowed by a narrower catch.
 - `span.makeCurrent()` inside a `.use { }` block is the idiomatic Kotlin equivalent of try-with-resources; `Scope` implements `AutoCloseable`.
 
 ### 2c. Context propagation across the activity boundary
@@ -181,7 +178,7 @@ private object MapTextMapGetter : TextMapGetter<Map<String, String>> {
 
 ## Step 3: the workflow interceptor
 
-For workflow-level spans I kept scope deliberately narrow — just wrap top-level `execute()`, and inject the current OTel context into the header for every outgoing activity. I did **not** try to make this replay-safe for arbitrary signal/query/update tracing; that's exactly the part where I'd defer to the official module once it's available for this SDK line. A workflow-level span that's regenerated identically on every replay (because it derives only from deterministic workflow state, not wall-clock time) is fine; anything fancier risks non-determinism errors.
+For workflow-level spans I kept scope deliberately narrow — just wrap top-level `execute()`, and inject the current OTel context into the header for every outgoing activity. I did **not** try to make this replay-safe for arbitrary signal/query/update tracing; that's exactly the part where I'd defer to the official module once it's available for this SDK line. A workflow-level span regenerated identically on every replay (because it derives only from deterministic workflow state, not wall-clock time) is fine; anything fancier risks non-determinism errors.
 
 ```kotlin
 class OtelWorkflowInboundCallsInterceptor(
@@ -214,7 +211,7 @@ class OtelWorkflowInboundCallsInterceptor(
 }
 ```
 
-To actually get context onto outgoing activities, I inject it at the point activities are invoked — via a small helper used by workflow implementations rather than another interceptor layer (deliberately; `WorkflowOutboundCallsInterceptor` exists and can do this centrally, but I found the explicit call site clearer to reason about for a first pass):
+To get context onto outgoing activities, I inject it at the point activities are invoked — via a small helper used by workflow implementations rather than another interceptor layer (deliberately; `WorkflowOutboundCallsInterceptor` exists and can do this centrally, but I found the explicit call site clearer to reason about for a first pass):
 
 ```kotlin
 fun injectTraceHeader(propagator: TextMapPropagator): Map<String, Payload> {
@@ -266,7 +263,7 @@ val workerOptions = WorkerOptions.newBuilder()
 val worker = factory.newWorker("my-task-queue", workerOptions)
 ```
 
-Note this is set on `WorkerOptions`, not `WorkerFactoryOptions` — worker-level interceptors, not factory-level. I mixed these up once and spent ten minutes confused about why my spans weren't showing up; the interceptor was registered but never invoked because I'd wired it into the wrong options builder.
+Set this on `WorkerOptions`, not `WorkerFactoryOptions` — worker-level interceptors, not factory-level. I mixed these up once and spent ten minutes confused about why my spans weren't showing up; the interceptor was registered but never invoked because I'd wired it into the wrong options builder.
 
 ## Step 5: verifying it actually works
 
@@ -326,6 +323,6 @@ If that assertion on `parentSpanId` passes, your header propagation is genuinely
 
 ## Takeaways
 
-If you're stuck without `temporal-opentelemetry` for your SDK version, hand-rolling activity-level tracing is a genuinely reasonable afternoon of work, not a rabbit hole — as long as you remember the one non-obvious rule: **capture `ActivityExecutionContext` in `init()`, never lazily**. Everything else here is mechanical extension of interfaces the SDK already hands you defaults for.
+If you're stuck without `temporal-opentelemetry` for your SDK version, hand-rolling activity-level tracing is a reasonable afternoon of work, not a rabbit hole — as long as you remember the one non-obvious rule: **capture `ActivityExecutionContext` in `init()`, never lazily**. Everything else here is mechanical extension of interfaces the SDK already hands you defaults for.
 
-I'd treat this as a bridge, not a permanent replacement — swap it out for the official module as soon as it lands for your SDK line, especially if you ever need signal/query/update-level tracing. But for activity spans, error status, and attempt-aware retry visibility, this gets you fully instrumented without waiting on upstream.
+Treat this as a bridge, not a permanent replacement — swap it out for the official module as soon as it lands for your SDK line, especially if you ever need signal/query/update-level tracing. But for activity spans, error status, and attempt-aware retry visibility, this gets you fully instrumented without waiting on upstream.

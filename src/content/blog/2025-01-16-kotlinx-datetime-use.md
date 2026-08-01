@@ -1,7 +1,7 @@
 ---
 title: "Documenting evaluating `kotlinx-datetime`"
 pubDate: "2025-01-16"
-tags: []
+tags: ["kotlin", "datetime", "library-evaluation", "android"]
 tier: "featured"
 permalink: "/2025/01/16/documenting-evaluating-kotlinx-datetime/"
 hide_frontmatter: false

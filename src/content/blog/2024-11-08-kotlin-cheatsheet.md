@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Cheatsheet"
 pubDate: "2024-11-08"
-tags: []
+tags: ["kotlin", "android", "cheatsheet", "programming"]
 tier: "featured"
 permalink: "/2024/11/08/kotlin-cheatsheet/"
 hide_frontmatter: false

@@ -12,14 +12,14 @@ const { prev, next } = Astro.props;
 {(prev || next) && (
   <nav class="post-nav" aria-label="Post navigation">
     {prev ? (
-      <a class="post-nav__prev" href={prev.permalink}>
+      <a class="post-nav__prev" href={prev.permalink} aria-label={`Previous post: ${prev.title}`}>
         {prev.title}
       </a>
     ) : (
       <span />
     )}
     {next ? (
-      <a class="post-nav__next" href={next.permalink}>
+      <a class="post-nav__next" href={next.permalink} aria-label={`Next post: ${next.title}`}>
         {next.title}
       </a>
     ) : (

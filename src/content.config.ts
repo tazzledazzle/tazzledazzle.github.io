@@ -1,4 +1,5 @@
-import {defineCollection, z} from "astro:content";
+import {defineCollection} from "astro:content";
+import {z} from "astro/zod";
 import {file, glob} from "astro/loaders";
 import * as yaml from "js-yaml";
 
@@ -35,10 +36,10 @@ const social = defineCollection({
   }),
   schema: z.object({
     name: z.string(),
-    email: z.string().email(),
-    github: z.object({ username: z.string(), url: z.string().url() }),
-    linkedin: z.object({ username: z.string(), url: z.string().url() }),
-    twitter: z.object({ username: z.string(), url: z.string().url() }),
+    email: z.email(),
+    github: z.object({ username: z.string(), url: z.url() }),
+    linkedin: z.object({ username: z.string(), url: z.url() }),
+    twitter: z.object({ username: z.string(), url: z.url() }),
     gravatar_hash: z.string()
   })
 });
@@ -71,8 +72,8 @@ const project = z.object({
   title: z.string(),
   summary: z.string(),
   tech_stack: z.array(z.string()).min(1),
-  github_url: z.string().url(),
-  demo_url: z.string().url().nullable(),
+  github_url: z.url(),
+  demo_url: z.url().nullable(),
   demo_status: z.enum(["live", "code_only", "broken"]),
   featured: z.boolean(),
   source: z.string()

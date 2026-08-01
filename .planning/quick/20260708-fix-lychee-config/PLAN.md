@@ -1,6 +1,7 @@
 ---
 slug: fix-lychee-config
-status: in-progress
+status: completed
+completed_at: 2026-07-31
 ---
 
 # Fix lychee.toml Config Error

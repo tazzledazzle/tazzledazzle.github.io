@@ -1,7 +1,7 @@
 ---
 title: "DevOps Helper Tool"
 pubDate: "2025-08-01"
-tags: []
+tags: ["devops", "tooling", "automation", "platform-engineering"]
 tier: "featured"
 permalink: "/2025/08/01/devops-helper-tool/"
 hide_frontmatter: false
@@ -12,21 +12,21 @@ hide_frontmatter: false
 
 # DevOps Helper tool
 
-This is a blueprint for designing and implementing a “dev-ops helper” Python library that wraps common AWS, GCP, and Kubernetes SDK calls, complete with authentication patterns.
+This is a blueprint for designing and implementing a "dev-ops helper" Python library that wraps common AWS, GCP, and Kubernetes SDK calls, complete with authentication patterns.
 
 ## **1. Design Goals**
 
 1. **Uniform API**
 
-The tool should expose simple, consistent methods (e.g. create_bucket(), list_clusters()) regardless of provider.
+The tool exposes simple, consistent methods (e.g. create_bucket(), list_clusters()) regardless of provider.
 
 2. **Pluggable Backends**
 
-Selection of AWS, GCP, or Kubernetes at runtime via configuration or environment.
+Select AWS, GCP, or Kubernetes at runtime via configuration or environment.
     
 3. **Authentication Agnostic**
     
-Automatically retrieve credentials from environment variables, configuration files, or from in-cluster metadata. The less hand-holding the better is a soft goal for this tool. 
+Automatically retrieve credentials from environment variables, configuration files, or in-cluster metadata. Minimal hand-holding is a soft goal.
     
 4. **Resilience & Observability**
     
@@ -34,7 +34,7 @@ Automatic default retries, timeouts, logging, and error handling.
     
 5. **Minimal Dependencies**
     
-Only include each cloud’s official SDK and common utilities.
+Only include each cloud's official SDK and common utilities.
     
 ----
 
@@ -220,7 +220,7 @@ AWS_REGION = os.getenv('AWS_REGION', 'us-west-2')
 
 ## **6. Testing & Packaging**
 
-1. **Tests**: mock SDK clients with moto (AWS), pytest-mock for GCP, and kubernetes-client’s fake client.
+1. **Tests**: mock SDK clients with moto (AWS), pytest-mock for GCP, and kubernetes-client's fake client.
 
    ```python
      import boto3
@@ -319,4 +319,4 @@ k8s = K8sHelper();   print(k8s.list_pods("production"))
 
 ---
 
-By following this pattern you’ll have a single, consistent library that abstracts away cloud-specific boilerplate, handles authentication automatically, and provides retries and logging for every infrastructure call.
+By following this pattern you get a single, consistent library that abstracts away cloud-specific boilerplate, handles authentication automatically, and provides retries and logging for every infrastructure call.

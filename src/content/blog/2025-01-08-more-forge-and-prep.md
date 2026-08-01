@@ -28,22 +28,22 @@ Deployment models for cloud computing.
   * Usually managed by governmental agencies or large enterprises that secure any data.
 * Hybrid Cloud: 
   * A combination of public and private clouds, allowing data and applications to be shared between them.
-  * describes IT which spans data centers owned by corp and also utilizing cloud services.
+  * Describes IT which spans data centers owned by the organization and also utilizes cloud services.
   * Advantages: Flexibility, cost-efficiency, scalability.
 * Community Cloud: 
   * Infrastructure is shared by several organizations with similar requirements and concerns.
   * Advantages: Cost-sharing, collaboration, industry-specific compliance.
-  * run by third party or shared ownership of orgs
+  * Run by a third party or shared ownership of organizations.
 
 
 ### What is the internet
-* The internet is a global network of interconnected computers communicating or documents linked together using a common protocol.
+* The internet is a global network of interconnected computers communicating using a common protocol, with documents linked together.
 #### URL --> Unified Resource Locator
 * A URL is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
 
 #### HTTP --> HyperText Transfer Protocol
-* HTTP is the foundation of data communication on the World Wide Web. It is used to load web pages using hypertext links.
-* stateless
+* HTTP is the foundation of data communication on the World Wide Web. It loads web pages using hypertext links.
+* Stateless.
 
 #### URI --> Uniform Resource Identifier
 * A URI is a string of characters that identifies a particular resource. It can be a URL or a URN.
@@ -51,8 +51,8 @@ Deployment models for cloud computing.
 
 
 Http Client
-* initiates a TCP connection to the server on port 80
-* sends an HTTP request to the server over this TCP connection
+* Initiates a TCP connection to the server on port 80.
+* Sends an HTTP request to the server over this TCP connection.
 * Request Methods
   * GET: Retrieve data from the server.
   * POST: Send data to the server to create a resource.
@@ -62,9 +62,9 @@ Http Client
   * OPTIONS: Retrieve the communication options for the target resource.
 
 Http Server
-* listens for incoming connections on port 80
-* receives the HTTP request from the client
-* Returns an HTTP response to the client and closes the connection
+* Listens for incoming connections on port 80.
+* Receives the HTTP request from the client.
+* Returns an HTTP response to the client and closes the connection.
 * Response Status Codes
   * 1xx: Informational
   * 2xx: Success
@@ -73,18 +73,18 @@ Http Server
   * 5xx: Server Error
 * MIME Types
   * Multipurpose Internet Mail Extensions
-  * Describes the type of data in a file
+  * Describes the type of data in a file.
   * Examples: text/html, image/jpeg, application/json
 
 ### HTTP Internet Helpers
 Web Caching
-* Web caching is the process of storing copies of web resources to reduce bandwidth usage, server load, and latency.
-* Caches can be located on the client side, server side, or between the client and server.
+* Web caching stores copies of web resources to reduce bandwidth usage, server load, and latency.
+* Caches can sit on the client side, server side, or between the client and server.
 * Advantages: Faster load times, reduced server load, improved user experience.
 * Disadvantages: Stale content, privacy concerns, cache consistency issues.
 HTTP Internet Optimizations
 * Intermediary servers
-* forward proxy
+* Forward proxy
 
 Use the Postman tool to send HTTP requests and view responses.
 

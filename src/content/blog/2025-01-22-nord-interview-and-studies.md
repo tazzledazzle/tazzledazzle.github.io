@@ -34,7 +34,7 @@ touch WORKSPACE
 
 1. **Add a** `BUILD` **File:**
 
-Create a `BUILD` file where you’ll define build rules.
+Create a `BUILD` file where you'll define build rules.
 
 ```bash
 touch BUILD
@@ -42,7 +42,7 @@ touch BUILD
 
 **Discussion:**
 
-The `WORKSPACE` file tells Bazel that this directory is the root of a Bazel workspace. The `BUILD`files define how Bazel should build your code.
+The `WORKSPACE` file tells Bazel that this directory is the root of a Bazel workspace. The `BUILD` files define how Bazel should build your code.
 
 ### 2. Writing a Simple Build Rule
 
@@ -90,7 +90,7 @@ bazel run //:hello_world
 
 **Discussion:**
 
-The cc_binary rule tells Bazel to build a C++ binary from the source file.
+The `cc_binary` rule tells Bazel to build a C++ binary from the source file.
 
 ### 3. Compiling a Java Project
 
@@ -167,7 +167,7 @@ java_binary(
 
 **Discussion:**
 
-Using `http_archive`, you can fetch external dependencies. The deps attribute in the build rule includes them in your build.
+Using `http_archive`, you can fetch external dependencies. The `deps` attribute in the build rule includes them in your build.
 
 ### 5. Writing a Custom Build Rule
 
@@ -201,7 +201,7 @@ srcs = ["file1.txt", "file2.txt"],
 
 **Discussion:**
 
-Custom rules allow you to extend Bazel’s functionality using Skylark, Bazel’s extension language.
+Custom rules let you extend Bazel's functionality using Skylark, Bazel's extension language.
 
 ### 6. Building Multiple Targets
 
@@ -267,7 +267,7 @@ genrule(
 
 **Discussion:**
 
-The `genrule` allows you to run custom shell commands as part of the build process.
+The `genrule` lets you run custom shell commands as part of the build process.
 
 ### 8. Running Tests with Bazel
 
@@ -309,7 +309,7 @@ java_test(
 
 **Discussion:**
 
-Bazel’s test rules allow you to run tests and integrate them into your build process.
+Bazel's test rules let you run tests and integrate them into your build process.
 
 ### 9. Using Bazel Query
 
@@ -334,7 +334,7 @@ Bazel’s test rules allow you to run tests and integrate them into your build p
 
 Bazel Query is a powerful tool for inspecting the build graph and dependencies.
 
-### 10. Using Bazel’s Remote Caching
+### 10. Using Bazel's Remote Caching
 
 **Problem:** Speed up builds by using remote caching.
 
@@ -349,7 +349,7 @@ Bazel Query is a powerful tool for inspecting the build graph and dependencies.
 
 **Discussion:**
 
-Remote caching allows build artifacts to be shared across different machines, speeding up builds.
+Remote caching lets build artifacts be shared across different machines, speeding up builds.
 
 ### 11. Cross-compiling with Bazel
 
@@ -416,7 +416,7 @@ py_binary(
 
 **Discussion:**
 
-Bazel supports Python through the py_binary and py_library rules.
+Bazel supports Python through the `py_binary` and `py_library` rules.
 
 ### 13. Using Bazel with Docker
 
@@ -464,7 +464,7 @@ Using `rules_docker`, Bazel can build and manage Docker images as part of your b
 
 **Discussion:**
 
-IDE integration allows for features like code completion and debugging while using Bazel builds.
+IDE integration enables features like code completion and debugging while using Bazel builds.
 
 ### 15. Using Toolchains in Bazel
 
@@ -490,7 +490,7 @@ register_toolchains("//tools:my_toolchain")
 
 **Discussion:**
 
-Toolchains allow you to specify different compilers or build tools for your project.
+Toolchains let you specify different compilers or build tools for your project.
 
 ### 16. Building Go Projects
 
@@ -537,9 +537,9 @@ func main() {
 ```
 
 **Discussion:**
-Bazel’s Go rules enable seamless building and testing of Go applications.
+Bazel's Go rules enable seamless building and testing of Go applications.
 
-### 17. Using Bazel’s Configurations
+### 17. Using Bazel's Configurations
 
 **Problem:** Build the project with different configurations (e.g., debug, release).
 **Solution:**
@@ -573,7 +573,7 @@ bazel build //:app -c dbg
 ```
 
 **Discussion:**
-Configurations allow for flexible build options based on specified conditions.
+Configurations enable flexible build options based on specified conditions.
 
 ### 18. Optimizing Build Performance
 
@@ -593,7 +593,7 @@ bazel build //:target --disk_cache=~/.bazel-cache
 * Use finer-grained targets.
 
 **Discussion:**
-Optimizing build performance can save time and resources, especially in large projects.
+Optimizing build performance saves time and resources, especially in large projects.
 
 ### 19. Handling Protobufs
 
@@ -627,7 +627,7 @@ cc_proto_library(
 </code></pre>
 
 **Discussion:**
-Bazel’s proto rules automate the compilation of `.proto` files into source code.
+Bazel's proto rules automate the compilation of `.proto` files into source code.
 
 ### 20. Building Android Apps
 
@@ -680,11 +680,11 @@ Bazel provides robust support for Android development, including resource proces
 ```
 
 **Discussion:**
-Adjusting output locations can help with build management and integration with other tools.
+Adjusting output locations helps with build management and integration with other tools.
 
 ### 22. Writing Skylark Extensions
 
-**Problem:** Extend Bazel’s functionality with custom Skylark extensions.
+**Problem:** Extend Bazel's functionality with custom Skylark extensions.
 **Solution:**
 
 1. **Create a** `.bzl` **File with Extension Functions:**
@@ -703,7 +703,7 @@ greet("Bazel User")
 </code></pre>
 
 **Discussion:**
-Skylark extensions allow you to write custom build logic in a Python-like language.
+Skylark extensions let you write custom build logic in a Python-like language.
 
 ### 23. Using Bazel with Continuous Integration
 
@@ -712,7 +712,7 @@ Skylark extensions allow you to write custom build logic in a Python-like langua
 
 1. **Write Build Scripts:**
 
-* Create scripts that can be called by your CI system to build and test your project.
+* Create scripts your CI system can call to build and test your project.
 
 2. **Configure CI System:**
 
@@ -760,7 +760,7 @@ cc_binary(
 </code></pre>
 
 **Discussion:**
-Bazel’s external dependencies can point to different versions, allowing side-by-side usage.
+Bazel's external dependencies can point to different versions, enabling side-by-side usage.
 
 ### 25. Advanced Testing Techniques
 
@@ -790,7 +790,7 @@ test_suite(
 ```
 
 **Discussion:**
-Advanced testing configurations can improve test coverage and execution time.
+Advanced testing configurations improve test coverage and execution time.
 
 ### 26. Using Bazel for Large Projects
 
@@ -809,7 +809,7 @@ Advanced testing configurations can improve test coverage and execution time.
 
 * Reduce unnecessary dependencies to minimize rebuilds.
 **Discussion:**
-Proper structuring and resource utilization are key for scaling Bazel in large projects.
+Proper structuring and resource utilization are key to scaling Bazel in large projects.
 
 ### 27. Debugging Builds
 
@@ -830,7 +830,7 @@ bazel query 'allpaths(//:target, //:dependency)'
 
  3. **Check Logs:**
 
-* Review Bazel’s log files for errors and warnings.
+* Review Bazel's log files for errors and warnings.
 
 **Discussion:**
 Debugging tools and commands help identify and resolve build problems.
@@ -882,7 +882,7 @@ cc_binary(
 
 **Discussion:**
 
-Generated sources can be seamlessly integrated into the build process using genrules.
+Generated sources integrate seamlessly into the build process using genrules.
 
 ### 30. Best Practices and Tips
 

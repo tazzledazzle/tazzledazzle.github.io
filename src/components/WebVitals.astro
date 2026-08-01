@@ -1,0 +1,25 @@
+---
+// WebVitals.astro — client:load island
+// Reports LCP, CLS, INP, TTFB, FCP to Umami custom events.
+// Skips silently if window.umami is not loaded.
+---
+
+<script>
+  import { onLCP, onCLS, onINP, onTTFB, onFCP } from "web-vitals";
+  import { buildVitalsPayload } from "../lib/vitals.ts";
+  import type { Metric } from "web-vitals";
+
+  function report(metric: Metric) {
+    const umami = (window as Window & { umami?: { track: (name: string, data: Record<string, unknown>) => void } }).umami;
+    if (!umami?.track) return;
+
+    const { name, data } = buildVitalsPayload(metric, window.location.pathname);
+    umami.track(name, data);
+  }
+
+  onLCP(report);
+  onCLS(report);
+  onINP(report);
+  onTTFB(report);
+  onFCP(report);
+</script>

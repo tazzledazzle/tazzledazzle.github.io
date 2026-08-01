@@ -12,7 +12,7 @@ Most Kubernetes tutorials stop right before the interesting part. They show you 
 coming up green, traffic flowing through. What they skip — the partial rollout at 3 a.m., the node that goes NotReady
 while your ReplicaSet is still converging, the architecture question your security team will ask before they sign off on
 your CI pipeline — is where the real decisions live. This post covers three scenarios that expose how well your deploy
-tooling, your runbooks, and your architecture actually hold up under pressure.
+tooling, your runbooks, and your architecture hold up under pressure.
 
 ---
 
@@ -183,7 +183,7 @@ the cluster and applies the manifest. A typical job looks like this:
     kubectl set image deployment/api api=$IMAGE_TAG
 ```
 
-The cluster trusts the CI system to be the source of truth. The CI system has credentials with write access to the
+The cluster trusts the CI system as the source of truth. The CI system holds credentials with write access to the
 cluster.
 
 **Advantages.** The deployment path is a single, linear pipeline. You can inspect exactly what ran, in what order, from
@@ -199,8 +199,8 @@ an unauthorized change by triggering a pipeline manually. The answers require ca
 scoping, and audit logging of every pipeline run.
 
 Drift is also a risk. If someone applies a manual `kubectl` change to the cluster outside the pipeline, the pipeline
-does not know — and on the next deploy, it may overwrite the manual change without warning, or it may leave the cluster
-in a partially inconsistent state.
+does not know — and on the next deploy, it may overwrite the manual change without warning, or leave the cluster in a
+partially inconsistent state.
 
 ### Pull-based (GitOps): a controller reconciles to git
 

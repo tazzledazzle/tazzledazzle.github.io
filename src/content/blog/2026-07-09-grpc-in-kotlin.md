@@ -9,12 +9,9 @@ hide_frontmatter: false
 
 # gRPC Services in Kotlin: Schema-First Design, Streaming, and Kubernetes Load Balancing
 
-gRPC is a high-performance *remote procedure call framework* built on HTTP/2 and Protocol Buffers. In a microservices 
-architecture, it's the natural choice for *synchronous service-to-service communication* when you need strong typing, 
-efficient serialization, bidirectional streaming, or per-language code generation from a single schema.
+gRPC is a high-performance *remote procedure call framework* built on HTTP/2 and Protocol Buffers. In a microservices architecture, it's the natural choice for *synchronous service-to-service communication* when you need strong typing, efficient serialization, bidirectional streaming, or per-language code generation from a single schema.
 
-
-This guide covers the order service gRPC implementation: 
+This guide covers the order service gRPC implementation:
 - the schema-first design workflow
 - Kotlin coroutine-based server implementation
 - interceptors
@@ -25,24 +22,27 @@ This guide covers the order service gRPC implementation:
 
 ## gRPC vs. REST for Internal Services
 
-REST is the right choice for public-facing APIs. JSON is human-readable, HTTP/1.1 is universally understood, and 
-tooling is ubiquitous. But for internal service-to-service communication, these properties matter less, and gRPC's 
-*advantages* become significant:
+REST is the right choice for public-facing APIs. JSON is human-readable, HTTP/1.1 is universally understood, and tooling is ubiquitous. But for internal service-to-service communication, these properties matter less, and gRPC's *advantages* become significant:
 
 ### **Protocol Buffers**
-- serialize to compact binary, typically 5–10× smaller than equivalent JSON. For high-volume internal calls, this *reduces bandwidth and deserialization CPU cost*.
+
+Protocol Buffers serialize to compact binary, typically 5–10x smaller than equivalent JSON. For high-volume internal calls, this *reduces bandwidth and deserialization CPU cost*.
 
 ### **Strong typing**
-- from a shared schema means the compiler catches breaking changes before deployment, not in production. A REST API returning a renamed field fails silently at runtime.
+
+A shared schema means the compiler catches breaking changes before deployment, not in production. A REST API returning a renamed field fails silently at runtime.
 
 ### **Code generation**
-- from `.proto` files produces client and server stubs in every major language. Adding a new service in Go that calls the Kotlin order service means running `protoc` — not writing an HTTP client from scratch.
+
+Code generation from `.proto` files produces client and server stubs in every major language. Adding a new service in Go that calls the Kotlin order service means running `protoc` — not writing an HTTP client from scratch.
 
 ### **HTTP/2 multiplexing**
-- allows multiple concurrent RPCs over a single TCP connection. For internal services making many parallel calls to the same backend, this significantly reduces connection overhead.
+
+HTTP/2 multiplexing allows multiple concurrent RPCs over a single TCP connection. For internal services making many parallel calls to the same backend, this significantly reduces connection overhead.
 
 ### **Native streaming**
-- is a first-class concept, not an afterthought. Server-sent events and WebSocket hacks are unnecessary.
+
+Streaming is a first-class concept in gRPC, not an afterthought. Server-sent events and WebSocket hacks are unnecessary.
 
 ---
 
@@ -156,9 +156,9 @@ override fun listOrders(request: ListOrdersRequest): Flow<Order> {
 }
 ```
 
-`listOrders` returns `Flow<Order>`. gRPC-Kotlin sends each emitted value as a separate streaming message. The client receives orders incrementally — it can start processing the first order before the last one is sent. For large result sets, this eliminates the "load everything into memory, serialize, send" pattern.
+`listOrders` returns `Flow<Order>`. gRPC-Kotlin sends each emitted value as a separate streaming message. The client receives orders incrementally — it can start processing the first order before the last one arrives. For large result sets, this eliminates the "load everything into memory, serialize, send" pattern.
 
-The filtering and `take(maxResults)` in the `Flow` pipeline executes lazily — only the orders actually consumed by the client are fully processed. In a production implementation backed by a database, this would push the filtering into the query rather than loading all records in memory.
+The filtering and `take(maxResults)` in the `Flow` pipeline execute lazily — the client fully processes only the orders it actually consumes. In a production implementation backed by a database, this would push the filtering into the query rather than loading all records in memory.
 
 ### The Four Streaming Patterns
 
@@ -204,7 +204,7 @@ class LoggingInterceptor : ServerInterceptor {
 }
 ```
 
-The interceptor pattern in gRPC works the same way as HTTP middleware: wrap the call, do something before/after, forward to the next handler. The comment in the implementation names the production extension points: trace context propagation (W3C traceparent or B3 headers from `Metadata`), request duration as a Prometheus histogram, and JWT validation if not delegated to the service mesh.
+The interceptor pattern in gRPC works the same way as HTTP middleware: wrap the call, do something before and after, forward to the next handler. The production extension points are trace context propagation (W3C traceparent or B3 headers from `Metadata`), request duration as a Prometheus histogram, and JWT validation if not delegated to the service mesh.
 
 The server wires everything together:
 
@@ -220,7 +220,7 @@ fun buildServer(port: Int): Server {
 }
 ```
 
-Multiple interceptors are applied in reverse registration order (last registered = first executed), matching the middleware convention in most frameworks.
+Multiple interceptors apply in reverse registration order (last registered = first executed), matching the middleware convention in most frameworks.
 
 ---
 
@@ -228,17 +228,17 @@ Multiple interceptors are applied in reverse registration order (last registered
 
 HTTP/1.1 opens a new TCP connection per request (or reuses connections briefly). Kubernetes Services work well with this model because kube-proxy can route each new connection to a different pod.
 
-gRPC uses HTTP/2, which multiplexes many RPCs over a single long-lived TCP connection. This means a client that connects to `orders-service` via a ClusterIP will open *one* connection to *one* pod and send all RPCs over it, even if there are 10 replicas. kube-proxy only sees the connection at establishment time — it doesn't balance individual RPCs.
+gRPC uses HTTP/2, which multiplexes many RPCs over a single long-lived TCP connection. A client that connects to `orders-service` via a ClusterIP opens *one* connection to *one* pod and sends all RPCs over it, even if there are 10 replicas. kube-proxy only sees the connection at establishment time — it doesn't balance individual RPCs.
 
 Solutions:
 
 **Client-side load balancing**: The gRPC client resolves DNS, gets all pod IPs (using a headless Service), and balances across them itself. gRPC has a built-in `round_robin` policy. This works but requires the client to handle DNS refresh and pod lifecycle.
 
-**Proxy-based load balancing (preferred)**: A proxy that understands HTTP/2 (Envoy, Istio, Linkerd) can load balance individual gRPC calls — not just connections. The service mesh pattern (pattern 08) uses Istio's Envoy sidecar to handle this transparently without changing application code.
+**Proxy-based load balancing (preferred)**: A proxy that understands HTTP/2 (Envoy, Istio, Linkerd) can load balance individual gRPC calls — not just connections. The service mesh pattern uses Istio's Envoy sidecar to handle this transparently without changing application code.
 
 **gRPC keepalive**: Even with proxy balancing, configure gRPC keepalive pings to detect dead connections without waiting for a request to fail. Set `KEEPALIVE_TIME_MS` on both client and server.
 
-For this Kotlin service running in Kubernetes with Istio, the service mesh handles gRPC load balancing. The application code makes no special accommodations — it exposes a standard gRPC server on port 9090 and the mesh handles the rest.
+For this Kotlin service running in Kubernetes with Istio, the service mesh handles gRPC load balancing. The application code makes no special accommodations — it exposes a standard gRPC server on port 9090, and the mesh handles the rest.
 
 ---
 

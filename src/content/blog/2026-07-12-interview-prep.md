@@ -59,8 +59,8 @@ return b
       count[prefix_sum] = count.get(prefix_sum, 0) + 1
   return   total
   ```
-  - Heap / Prioity Queue
-    - keep min or max accessible in O(log n) insert/remove, when you don't care about sort
+  - Heap / Priority Queue
+    - keeps min or max accessible in O(log n) insert/remove, when you don't care about full sort order
 - As seen in:
   - k-th largest element
   - merge k sorted lists
@@ -77,10 +77,10 @@ return b
   }
   ```
 - Two Pointers / Sliding Window
-  - instead of nested loops, walk one or two pointers across the array/string 
-  - expand or shink a window to avoid rescanning
+  - instead of nested loops, walk one or two pointers across the array/string
+  - expand or shrink a window to avoid rescanning
   - As seen in:
-    - logest substring without repeats
+    - longest substring without repeats
     - minimum window substring
     - container with most water
     - 3Sum
@@ -89,14 +89,14 @@ return b
     -
 - Union-Find
   - structure to answer "are these two things connected?"
-  - "merge two groups" in near-O(1) amortized time
+  - merges two groups in near-O(1) amortized time
   - uses path compression and union by rank
   - As seen in:
     - number of connected components
     - redundant connection
     - accounts merge
     - Kruskal's MST
-  - Tell
+  - Tell:
     - "groups" or "friend circles" or cycle detection
 
 ```java
@@ -147,7 +147,7 @@ func Find(e *Element) *Element {
 
 ```
 - Trie (Prefix Tree)
-  - tree where path from root spells a prefix
+  - tree where the path from root spells a prefix
   - As seen in:
     - word search II
     - implement autocomplete
@@ -220,7 +220,7 @@ func (trie *Trie) FindNode(word string) *Trie {
 - standard for general SWE
 ### Debugging
 - standard for general SWE
-- small, codebase
+- small codebase
 ### AI Assisted Project in 60-min
 - I'd bet this is like the take home assessments 
 - project size
@@ -236,9 +236,9 @@ func (trie *Trie) FindNode(word string) *Trie {
 - gRPC/Protocol Buffers
 - Progressive Delivery patterns
   - shipping software changes gradually and reversibly
-  - control exposure on "deploy" from "release" independently by decoupling them
+  - decouple "deploy" from "release" to control exposure independently
   - Family of Techniques
-    - ship code once, then control who experiences it, using signal deciding to widen or narrow exposure
+    - ship code once, then control who experiences it, using signal to decide whether to widen or narrow exposure
     - Patterns
       - feature flags
       - Canary releases
@@ -253,6 +253,7 @@ func (trie *Trie) FindNode(word string) *Trie {
 - Terraform Cloud
 - CI/CD (Buildkite/Argo/Spinnaker-class, integrated with Bazel's graph)
 - 
+
 
 
 
