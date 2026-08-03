@@ -6,7 +6,7 @@ tags: [astro, portfolio, engineering-process, ux, ci-cd]
 draft: false
 ---
 
-There is a particular kind of technical debt that only accumulates on side projects: the kind where everything *mostly* works. The CI passes. The build succeeds. The site loads. And yet, the hero heading is one broken CSS property away from being invisible. Ten featured posts have sat in a tag vacuum for months, invisible to anyone browsing by topic. A pubDate in the RSS feed has been quietly wrong since the post was written. Nobody's job was to notice.
+There is a particular kind of technical debt that only accumulates on side projects: the kind where everything *mostly* works. The CI passes. The build succeeds. The site loads. And yet, the hero heading is `one broken CSS property away from being invisible`. Ten featured posts have sat in a tag vacuum for months, invisible to anyone browsing by topic. A pubDate in the RSS feed has been quietly wrong since the post was written. Nobody's job was to notice.
 
 This site — a portfolio and technical blog modernized from Jekyll to Astro over several phases — had reached that point. Not broken. Not embarrassing. But not polished either, and polish is the point. A hiring site that mostly works is not meeting its brief. A recruiter who lands on a featured post and hits a dead end hasn't been impressed; they've been subtly let down.
 

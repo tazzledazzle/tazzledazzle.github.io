@@ -6,6 +6,7 @@ tier: "featured"
 permalink: "/2024/12/10/behavioral-questions/"
 hide_frontmatter: false
 ---
+It's good to have these behavioral questions handy when interviewing. Sometimes my mind goes blank when I'm asked questions under pressure, so it's nice to have a visual cue card like this:
 
 ## My Star Results
 
@@ -52,10 +53,10 @@ hide_frontmatter: false
     * R: Builds became faster and more predictable, establishing higher standards for future development work.
 
 8. Tell me about pushing back on a requirement.
-    * S: A last-minute feature request for bootstrapping bash scripts threatened to derail a stable release.
-    * T: I needed to communicate the technical risks clearly.
-    * A: I presented data on maintenance costs, integration tests, and the complexity of adjusting Bazel build modules, and recommended postponing the feature.
-    * R: The team delayed the feature, ensuring a stable, on-time release without undue risk.
+    * S: After we'd launched Bazel as Nerv's primary build system and completed Tableau's migration into Salesforce's GitHub ecosystem, a directive came down from PM/engineering leadership to fast-track a new bash-script bootstrapping feature in the project generator, in order to unblock a specific adopting team's upcoming product release.
+    * T: Rather than simply executing the directive, I needed to determine whether it was actually safe to ship — and if not, raise that with leadership in a way that would be taken seriously despite the decision already having been made above me.
+    * A: I audited the toolchain the proposed bootstrapper would install and found it pulled in known-vulnerable versions of curl, gcc, Java, and older ISO C++ library builds — a direct violation of Salesforce's parent-company mandate against introducing vulnerable dependencies into the newly-migrated GitHub ecosystem. I went back to leadership with the specific finding rather than a vague objection, made clear that shipping as directed would create a compliance violation, and proposed a path forward instead of just blocking: I'd source approved, compatible, replacement versions, and reconfigure Bazel's toolchain rules to manage them hermetically.
+    * R: The feature shipped on the adopting team's timeline, but without the compliance violation — and the toolchain-pinning pattern I built became reusable for future bootstrapper additions, closing off that entire class of risk going forward.
 
 9. Share a situation where you built consensus across teams.
     * S: Multiple teams needed to ramp up on Bazel.
@@ -63,8 +64,3 @@ hide_frontmatter: false
     * A: I compared workflows, demonstrated a unified approach to learning Bazel by mobbing on work items and rotating control of writing code, and documented an ensemble programming working agreement.
     * R: All teams agreed on a shared method, speeding up integration and enabling monorepo release.
 
-10. Tell me about a significant technical challenge you overcame.
-    * S: Our large codebase's complex dependencies slowed builds and testing.
-    * T: I was responsible for optimizing and modularizing certain components to enable faster builds.
-    * A: I created Bazel-compatible build files, split monolithic sections into manageable modules, and introduced test timeout functionality for existing integration tests.
-    * R: This modular approach reduced build times and made the codebase more maintainable, reliable, and ready for quicker, safer deployments.
