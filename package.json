@@ -55,6 +55,7 @@
     "typescript": "^5.9.0"
   },
   "overrides": {
-    "tmp": "0.2.7"
+    "tmp": "0.2.7",
+    "cookie": "2.0.1"
   }
 }
