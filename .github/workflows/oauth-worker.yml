@@ -1,0 +1,67 @@
+name: OAuth Worker CI/CD
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "workers/oauth/**"
+      - ".github/workflows/oauth-worker.yml"
+  pull_request:
+    paths:
+      - "workers/oauth/**"
+      - ".github/workflows/oauth-worker.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/oauth
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: workers/oauth/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Dry-run deploy (bundle + typecheck)
+        run: npx wrangler deploy --dry-run
+
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Cloudflare API token
+        id: cf
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::CLOUDFLARE_API_TOKEN is not set; skipping OAuth Worker deploy."
+            echo "Add the repository secret CLOUDFLARE_API_TOKEN to enable automatic deploys."
+          else
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.cf.outputs.has_token == 'true'
+        uses: actions/checkout@v6
+
+      - name: Deploy to Cloudflare Workers
+        if: steps.cf.outputs.has_token == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: workers/oauth

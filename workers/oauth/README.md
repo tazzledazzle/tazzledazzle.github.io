@@ -50,8 +50,23 @@ in the build step.
 Run the Worker locally with:
 
 ```bash
+npm install   # creates/updates package-lock.json — commit the lockfile
 npm run dev   # starts at http://localhost:8787
 ```
 
 Update `PUBLIC_OAUTH_WORKER_URL=http://localhost:8787` in `.env.local` to point the
 editor at the local Worker during development.
+
+## CI/CD
+
+GitHub Actions workflow [`.github/workflows/oauth-worker.yml`](../../.github/workflows/oauth-worker.yml)
+runs on changes under `workers/oauth/**`:
+
+| Event | Behavior |
+|-------|----------|
+| Pull request / push | `npm ci` + `wrangler deploy --dry-run` (bundle check) |
+| Push to `main` | Deploys via `cloudflare/wrangler-action@v3` when `CLOUDFLARE_API_TOKEN` is set; otherwise skips with a warning |
+
+Worker secrets (`GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`) stay in Cloudflare via
+`wrangler secret put` — they are not GitHub Actions secrets. See
+[docs/deploy-runbook.md](../../docs/deploy-runbook.md).
