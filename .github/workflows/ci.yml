@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Required check name for branch protection: quality
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: npm audit (high+)
+        run: npm audit --audit-level=high
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Config tests
+        run: npm run test:config
+
+      - name: Type check
+        run: npx astro check
+
+      - name: Build site
+        run: npm run build
+        env:
+          # Empty-safe on PRs without secrets (forks / unset repo secrets)
+          PUBLIC_GITHUB_APP_CLIENT_ID: ${{ secrets.PUBLIC_GITHUB_APP_CLIENT_ID }}
+          PUBLIC_OAUTH_WORKER_URL: ${{ secrets.PUBLIC_OAUTH_WORKER_URL }}
+          PUBLIC_UMAMI_URL: ${{ secrets.PUBLIC_UMAMI_URL }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.PUBLIC_UMAMI_WEBSITE_ID }}
+
+      - name: Contrast audit
+        run: npm run audit:contrast
+
+      - name: Alt text check
+        run: npm run check:alt
+
+      - name: Link check (lychee)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: --config lychee.toml --remap "https://tazzledazzle.github.io file://${{ github.workspace }}/dist" dist
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Accessibility tests (axe)
+        run: npm run test:a11y
+
+      - name: Lighthouse CI
+        run: npm run check:lighthouse
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          if-no-files-found: ignore
+
+      # Downloadable static preview for PR reviewers (see docs/deploy-runbook.md)
+      - name: Upload site preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: dist
+          retention-days: 7

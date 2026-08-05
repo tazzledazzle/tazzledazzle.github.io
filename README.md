@@ -26,6 +26,12 @@ npm run dev        # http://localhost:4321
 | `npm run check:links` | Check for broken links with lychee |
 | `npm run check:lighthouse` | Run Lighthouse CI quality audit |
 
+## Deploy
+
+Production deploys from `main` via `.github/workflows/deploy-pages.yml` (GitHub Actions → Pages). Pull requests run `.github/workflows/ci.yml` (required check name **`quality`**) and upload a downloadable **`site-preview`** artifact.
+
+Full happy path, rollback, concurrency notes, secrets, OAuth Worker, and branch protection checklist: **[docs/deploy-runbook.md](docs/deploy-runbook.md)**.
+
 ## Content Structure
 
 ```
@@ -44,7 +50,8 @@ public/                # Static assets (images, fonts)
 - **[Astro](https://astro.build/)** — static site generator, content collections
 - **[Tailwind CSS 4](https://tailwindcss.com/)** — utility-first styling
 - **[TypeScript](https://www.typescriptlang.org/)** — type-safe config and schemas
-- **[GitHub Pages](https://pages.github.com/)** — hosting via `withastro/action`
+- **[GitHub Pages](https://pages.github.com/)** — hosting via GitHub Actions (`actions/setup-node`, `upload-pages-artifact`, `deploy-pages`)
+- **Node.js 24** — pinned via `engines` / `.nvmrc` for local and CI builds
 
 ## Connect
 

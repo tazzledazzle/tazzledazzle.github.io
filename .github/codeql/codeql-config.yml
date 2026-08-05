@@ -1,0 +1,13 @@
+name: "JS/TS (site + OAuth worker)"
+
+paths:
+  - src
+  - workers/oauth
+  - public
+  - scripts
+
+paths-ignore:
+  - dist
+  - node_modules
+  - .astro
+  - "**/*.test.ts"
