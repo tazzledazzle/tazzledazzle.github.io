@@ -77,7 +77,8 @@ assertExcludes(archived, "application/ld+json", "D-119 archived no JSON-LD");
 // QUAL-01 / D-110, D-129
 assertIncludes(home, "preload", "QUAL-01 font preload");
 assertIncludes(home, "woff2", "QUAL-01 woff2 preload");
-await assertExists("public/fonts/inter-latin-400.woff2", "QUAL-01 Inter 400 font");
+await assertExists("public/fonts/ibm-plex-sans-latin-400.woff2", "QUAL-01 IBM Plex Sans 400 font");
+await assertExists("public/fonts/sora-latin-600.woff2", "QUAL-01 Sora 600 display font");
 
 // QUAL-06 / D-128
 await assertExists("public/og-default.png", "QUAL-06 og-default.png");

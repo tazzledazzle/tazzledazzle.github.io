@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -25,7 +28,8 @@
     "@astrojs/mdx": "^7.0.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
-    "@fontsource/inter": "^5.2.8",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/sora": "^5.3.0",
     "@tailwindcss/vite": "^4.3.2",
     "@tiptap/core": "^3.29.2",
     "@tiptap/extension-code-block-lowlight": "^3.29.2",
