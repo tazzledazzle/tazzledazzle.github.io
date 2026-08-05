@@ -10,7 +10,7 @@ export default defineConfig({
   webServer: {
     command: "node scripts/serve-dist.mjs",
     port: 4321,
-    reuseExistingServer: true,
+    reuseExistingServer: !process.env.CI,
     timeout: 120_000
   }
 });
