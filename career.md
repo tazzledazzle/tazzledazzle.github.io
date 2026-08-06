@@ -4,91 +4,53 @@ title: Career
 permalink: /career/
 ---
 
-# Career Journey
+# Career
+
+Senior platform and reliability engineer focused on release automation, build systems, and making CI/CD measurable before production fails.
+
+> **Note:** The live Astro site renders this timeline from [`src/data/career.yml`](src/data/career.yml). Keep that file in sync when editing career history.
 
 ## Professional Experience
 
-### Software Engineer
-*Building scalable systems and solving complex technical challenges*
+### Senior Site Reliability Engineer, FDE Data Platform
+**Invisible Technologies** · Jan 2025 – Present
 
-**Key Responsibilities:**
-- Design and implement backend services and APIs
-- Optimize system performance and scalability
-- Collaborate with cross-functional teams on product development
-- Mentor junior developers and contribute to technical documentation
+- Designed a platform-wide maturity audit across 28 microservices using GitHub Actions and DORA-style scoring, surfacing 14 critical reliability and release gaps.
+- Built a Temporal-orchestrated observability platform in Kotlin with OpenTelemetry, Prometheus, and Grafana, instrumenting 100% of critical AI workflow paths for distributed tracing.
+- Delivered a configurable AI pipeline scaffold in Kotlin with 6 plug-and-play components, taking end-to-end ownership across 3 concurrent infrastructure initiatives.
 
-**Technical Achievements:**
-- Architected and deployed cloud-native applications
-- Implemented CI/CD pipelines reducing deployment time by 60%
-- Optimized database queries improving application response time by 40%
-- Led technical initiatives for system modernization
+### Senior Software Engineer, Platform & Infrastructure
+**Tableau Software (Salesforce)** · Jan 2021 – Jul 2024
+
+- Reduced release lead time by 79% by redesigning CI/CD pipelines in TeamCity and GitLab CI with automated branching, deployment gates, and telemetry-gated canary rollouts.
+- Automated macOS code-signing and notarization end-to-end, eliminating ~720 hours of annual manual effort (360× improvement) via custom Python and Kotlin tooling.
+- Led migration of the legacy CMake/Ninja desktop build to Bazel for Apple Silicon, improving production defect detection by 25% with ASAN, TSAN, and UBSAN in CI.
+- Mentored 4+ engineers on CI/CD and release engineering; ran monthly onboarding sessions for 20+ new hires on internal pipeline architecture.
+
+### Software Engineer, Server Build & Platform Infrastructure
+**Tableau Software (Salesforce)** · Apr 2017 – Jan 2021
+
+- Built release branching automation in Kotlin/Gradle integrated with the GitLab API, reducing release engineering cycle time by 35% and eliminating manual multi-environment coordination errors.
+- Transitioned developer tooling to a multi-project Bazel environment, reducing incremental build times by up to 75% across a monolith serving hundreds of engineers.
+- Shipped custom Gradle plugins and Artifactory integration used by 200+ engineers; served as primary SME for Kotlin/Gradle build-system incident response.
 
 ## Education
 
 ### University of Washington Bothell
 **Bachelor of Science in Computer Science & Software Engineering**
 
-**Relevant Coursework:**
-- Data Structures & Algorithms
-- Operating Systems & Computer Architecture
-- Database Systems & Network Design
-- Software Engineering & System Analysis
-- Artificial Intelligence & Machine Learning
-- Web Development & Multimedia Processing
+## Technical focus
 
-**Academic Projects:**
-- Developed distributed systems for course projects
-- Implemented machine learning algorithms from scratch
-- Built full-stack web applications with modern frameworks
-- Contributed to open-source educational tools
+- **Platform & release:** CI/CD (GitHub Actions, TeamCity, GitLab CI), canary / progressive delivery, DORA metrics
+- **Build systems:** Bazel, Gradle/Kotlin, CMake → Bazel migrations, remote cache patterns
+- **Observability:** OpenTelemetry, Prometheus, Grafana, Temporal-orchestrated tracing
+- **Languages:** Kotlin, Python, TypeScript/JavaScript, Java, Swift (macOS tooling)
+- **Runtime & ops:** Kubernetes, Docker, macOS signing & notarization, Artifactory
 
-## Technical Skills
+## What I'm looking for
 
-### Programming Languages
-- **Proficient**: Swift, JavaScript, Python, Java
-- **Familiar**: C++, SQL, TypeScript, Kotlin
-
-### Frameworks & Technologies
-- **Backend**: Node.js, Express, Spring Boot
-- **Frontend**: React, HTML5, CSS3
-- **Mobile**: iOS Development (Swift/SwiftUI)
-- **Database**: PostgreSQL, MongoDB, Redis
-- **Cloud**: AWS, Docker, Kubernetes
-- **Tools**: Git, Jenkins, Xcode, IntelliJ
-
-### Areas of Expertise
-- System Architecture & Design
-- API Development & Integration
-- Database Design & Optimization
-- DevOps & CI/CD Implementation
-- Performance Tuning & Monitoring
-- Technical Writing & Documentation
-
-## Professional Development
-
-### Continuous Learning
-- Stay current with emerging technologies and industry trends
-- Participate in developer communities and technical forums
-- Contribute to open-source projects
-- Write technical articles and tutorials
-
-### Certifications & Training
-- Cloud platform certifications
-- Agile development methodologies
-- System design and architecture patterns
+Roles where platform reliability, release automation, and developer experience are first-class — not afterthoughts. Happy to dig into build graphs, canary gates, or maturity audits with hiring teams.
 
 ---
 
-## What I'm Looking For
-
-I'm passionate about working on challenging technical problems that have real-world impact. I thrive in collaborative environments where I can:
-
-- Build scalable, maintainable systems
-- Work with cutting-edge technologies
-- Mentor and learn from talented teammates
-- Contribute to product strategy and technical decisions
-
----
-
-*Interested in working together? Let's connect on [LinkedIn](https://linkedin.com/in/terenceschumacher) or [email me](mailto:terenceschumacher@gmail.com).*
-
+Connect on [LinkedIn](https://linkedin.com/in/terenceschumacher) or [email](mailto:terenceschumacher@gmail.com).
