@@ -6,9 +6,19 @@ export default {
       "Access-Control-Allow-Headers": "Content-Type",
     };
 
-    // Handle CORS preflight
+    // Handle CORS preflight (any path — browsers send OPTIONS before POST)
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: corsHeaders });
+    }
+
+    const { pathname } = new URL(request.url);
+
+    // Path guard: only POST /exchange is a valid API surface
+    if (pathname !== "/exchange") {
+      return new Response(JSON.stringify({ error: "Not found" }), {
+        status: 404,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     if (request.method !== "POST") {
