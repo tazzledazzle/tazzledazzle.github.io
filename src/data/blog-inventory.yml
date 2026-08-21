@@ -1,7 +1,7 @@
 ---
 meta:
   generated_at: '2026-07-31T00:00:00Z'
-  total_posts: 66
+  total_posts: 67
   tier_counts:
     featured: 15
     standard: 14
@@ -673,6 +673,16 @@ posts:
   title: "Stripe Card Validation: A Four-Part HackerRank Take-Home in Python"
   pub_date: '2026-08-07'
   permalink: "/2026/08/07/stripe-card-validation-python/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-08-11-brazil-buck2-bazel-gradle
+  filename: 2026-08-11-brazil-buck2-bazel-gradle.md
+  title: "Brazil, Buck2, Bazel, and Gradle: Four Build Systems, Three Philosophies"
+  pub_date: '2026-08-11'
+  permalink: "/2026/08/11/brazil-buck2-bazel-gradle/"
   tier: featured
   auto_rule: manual_featured
   hide_frontmatter: false
