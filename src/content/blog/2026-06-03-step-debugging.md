@@ -1,10 +1,10 @@
 ---
-title: 2026-06-03-step-debugging
-pubDate: 7/31/26
-tags: []
-tier: 
-permalink:
-hide_formatter: false
+title: "Step-by-Step Kubernetes Deployment Debugging"
+pubDate: "6/3/26"
+tags: [kubernetes, devops, debugging, incident-response]
+tier: "standard"
+permalink: "/2026/06/03/step-debugging/"
+hide_frontmatter: false
 ---
 
 1. A Deployment’s rollout is stuck at 80% —

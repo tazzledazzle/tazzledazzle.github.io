@@ -4,6 +4,8 @@ pubDate: "7/31/26"
 tags: [ kubernetes, devops, gitops, incident-response, fintech ]
 tier: "featured"
 description: "Rolling back a partial deploy across 40 replicas, handling a mid-deploy NotReady node, and choosing between push-based CI and GitOps for regulated environments."
+permalink: "/2026/07/31/kubernetes-deploy-scenarios/"
+hide_frontmatter: false
 ---
 
 # Three Kubernetes Deploy Scenarios That Will Test You in Production

@@ -3,7 +3,9 @@ title: "Three Perspectives on Modernizing a Technical Blog: A Multi-Agent Sprint
 pubDate: 2026-07-31
 description: "A Designer, a Principal SWE, and a Product Manager walk into a codebase. This is what they found, what they fixed, and where they disagreed."
 tags: [astro, portfolio, engineering-process, ux, ci-cd]
-draft: false
+tier: "featured"
+permalink: "/2026/07/31/multi-agent-portfolio-modernization/"
+hide_frontmatter: false
 ---
 
 There is a particular kind of technical debt that only accumulates on side projects: the kind where everything *mostly* works. The CI passes. The build succeeds. The site loads. And yet, the hero heading is `one broken CSS property away from being invisible`. Ten featured posts have sat in a tag vacuum for months, invisible to anyone browsing by topic. A pubDate in the RSS feed has been quietly wrong since the post was written. Nobody's job was to notice.

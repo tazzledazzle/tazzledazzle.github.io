@@ -1,7 +1,7 @@
 ---
 meta:
   generated_at: '2026-07-31T00:00:00Z'
-  total_posts: 57
+  total_posts: 61
   tier_counts:
     featured: 15
     standard: 14
@@ -603,6 +603,46 @@ posts:
   title: "How Kruskal's Algorithm Works"
   pub_date: '2026-07-30'
   permalink: "/2026/07/30/kruskals-algorithm/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-06-03-step-debugging
+  filename: 2026-06-03-step-debugging.md
+  title: "Step-by-Step Kubernetes Deployment Debugging"
+  pub_date: '2026-06-03'
+  permalink: "/2026/06/03/step-debugging/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-14-teaching-bazel
+  filename: 2026-07-14-teaching-bazel.md
+  title: "Teaching Bazel at Scale"
+  pub_date: '2026-07-14'
+  permalink: "/2026/07/14/teaching-bazel-at-scale/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-31-kubernetes-deploy-scenarios
+  filename: 2026-07-31-kubernetes-deploy-scenarios.md
+  title: "Three Kubernetes Deploy Scenarios That Will Test You in Production"
+  pub_date: '2026-07-31'
+  permalink: "/2026/07/31/kubernetes-deploy-scenarios/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-07-31-multi-agent-portfolio-modernization
+  filename: 2026-07-31-multi-agent-portfolio-modernization.md
+  title: "Multi-Agent Portfolio Modernization"
+  pub_date: '2026-07-31'
+  permalink: "/2026/07/31/multi-agent-portfolio-modernization/"
   tier: featured
   auto_rule: manual_featured
   hide_frontmatter: false
