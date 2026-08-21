@@ -1,7 +1,7 @@
 ---
 meta:
   generated_at: '2026-07-31T00:00:00Z'
-  total_posts: 61
+  total_posts: 62
   tier_counts:
     featured: 15
     standard: 14
@@ -613,6 +613,16 @@ posts:
   title: "Step-by-Step Kubernetes Deployment Debugging"
   pub_date: '2026-06-03'
   permalink: "/2026/06/03/step-debugging/"
+  tier: standard
+  auto_rule: remainder
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-06-22-three-perspectives
+  filename: 2026-06-22-three-perspectives.md
+  title: "Three Perspectives"
+  pub_date: '2026-06-22'
+  permalink: "/2026/06/22/three-perspectives/"
   tier: standard
   auto_rule: remainder
   hide_frontmatter: false

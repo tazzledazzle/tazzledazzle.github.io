@@ -1,10 +1,10 @@
 ---
-title: 2026-06-22-three-perspectives
-pubDate: 7/31/26
+title: "Three Perspectives"
+pubDate: "6/22/26"
 tags: []
-tier: 
-permalink:
-hide_formatter: false
+tier: "standard"
+permalink: "/2026/06/22/three-perspectives/"
+hide_frontmatter: false
 ---
 
 `
