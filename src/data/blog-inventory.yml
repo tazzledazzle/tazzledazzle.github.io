@@ -1,7 +1,7 @@
 ---
 meta:
   generated_at: '2026-07-31T00:00:00Z'
-  total_posts: 64
+  total_posts: 65
   tier_counts:
     featured: 15
     standard: 14
@@ -653,6 +653,16 @@ posts:
   title: "Multi-Agent Portfolio Modernization"
   pub_date: '2026-07-31'
   permalink: "/2026/07/31/multi-agent-portfolio-modernization/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-08-04-cicd-argo-flux-github-actions
+  filename: 2026-08-04-cicd-argo-flux-github-actions.md
+  title: "CI/CD with Argo CD, Flux, and GitHub Actions: What Each Tool Actually Controls"
+  pub_date: '2026-08-04'
+  permalink: "/2026/08/04/cicd-argo-flux-github-actions/"
   tier: featured
   auto_rule: manual_featured
   hide_frontmatter: false
