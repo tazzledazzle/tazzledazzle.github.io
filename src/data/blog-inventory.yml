@@ -1,7 +1,7 @@
 ---
 meta:
   generated_at: '2026-07-31T00:00:00Z'
-  total_posts: 65
+  total_posts: 66
   tier_counts:
     featured: 15
     standard: 14
@@ -663,6 +663,16 @@ posts:
   title: "CI/CD with Argo CD, Flux, and GitHub Actions: What Each Tool Actually Controls"
   pub_date: '2026-08-04'
   permalink: "/2026/08/04/cicd-argo-flux-github-actions/"
+  tier: featured
+  auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-08-07-stripe-card-validation-python
+  filename: 2026-08-07-stripe-card-validation-python.md
+  title: "Stripe Card Validation: A Four-Part HackerRank Take-Home in Python"
+  pub_date: '2026-08-07'
+  permalink: "/2026/08/07/stripe-card-validation-python/"
   tier: featured
   auto_rule: manual_featured
   hide_frontmatter: false
