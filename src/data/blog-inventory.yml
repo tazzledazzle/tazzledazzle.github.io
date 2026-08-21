@@ -1,7 +1,7 @@
 ---
 meta:
   generated_at: '2026-07-31T00:00:00Z'
-  total_posts: 62
+  total_posts: 63
   tier_counts:
     featured: 15
     standard: 14
@@ -655,6 +655,16 @@ posts:
   permalink: "/2026/07/31/multi-agent-portfolio-modernization/"
   tier: featured
   auto_rule: manual_featured
+  hide_frontmatter: false
+  canonical_slug:
+  duplicate_group:
+- id: 2026-08-17-circleci-datadog-integration
+  filename: 2026-08-17-circleci-datadog-integration.md
+  title: "Wiring CircleCI into Datadog: Pipeline Visibility Without the Guesswork"
+  pub_date: '2026-08-17'
+  permalink: "/2026/08/17/circleci-datadog-integration/"
+  tier: standard
+  auto_rule: remainder
   hide_frontmatter: false
   canonical_slug:
   duplicate_group:
