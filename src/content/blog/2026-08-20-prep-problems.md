@@ -292,11 +292,30 @@ def merge_intervals(intervals: list[list[int]]) -> list[int]:
         else:
             merged[-1][1] = max(merged[-1][1], interval[1])
     return merged
-    
+
 ```
 
 ## Beverage Bundle pricing
+Given a set of order records, the format is `["date", "item"]`. Rules: Buy popcorn and soda at the same time on the same day, try to pair them up for a bundle price of $9; buy soda alone for $2.5, and buy popcorn alone for $8. Calculate total price.
 
+```python
+from collections import defaultdict
+
+def calculate_total(orders):
+    daily = defaultdict(lambda: defaultdict(int))
+    for date, item in orders:
+        daily[date][item] += 1
+    total = 0.0
+    for date, items in daily.items():
+        popcorn_count = items.get("popcorn", 0)
+        soda_count = items.get("soda", 0)
+        bundles = min(popcorn_count, soda_count)
+        total += bundles * 9 
+        total += (popcorn_count - bundles) * 8
+        total += (soda_count - bundles) * 2.5
+
+    return total
+```
 
 ## Sort object array by two attributes
 
