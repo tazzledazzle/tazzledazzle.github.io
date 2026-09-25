@@ -12,6 +12,30 @@ hide_frontmatter: false
 
 # Problems
 
+## Self-Generating Sequence
+
+### Magical Strings
+
+```python
+def magical_string(n: int) -> int:
+    if n == 0:
+        return 0
+    if n <= 3:
+        return 1
+
+    s = [1, 2, 2]
+    i = 2
+
+    while len(s) < n:
+        next_val = 3 - s[-1]
+        run_length = s[i]
+        s.extend([next_val] * run_length)
+        i += 1
+
+    return s[:n].count(1)
+```
+
+
 ## Sliding Window
 
 ### Contains Duplicates II
@@ -77,3 +101,28 @@ def character_replacement(s: str, k: int) -> int:
 ## Rolling Hash
 
 ### Shortest Palindrome
+
+Given a string `s`, you can convert `s` to a palindrome by adding characters in front of it.
+Return the shortest palindrome you can find by performing this transformation.
+
+```python
+def shortest_palindrome(s: str) -> str:
+    # base check
+    if not s:
+        return s
+
+    combined = s + "#" + s[::-1]
+    n = len(combined)
+    fail = [0] * n
+
+    for i in range(1, n):
+        j = fail[i - 1]
+        while j > 0 and combined[i] != combined[j]:
+            j = fail[j - 1]
+        if combined[i] == combined[j]:
+            j += 1
+        fail[i] = j
+
+    longest_pal_prefix = fail[-1]
+    return s[longest_pal_prefix:][::-1] + s    
+```
