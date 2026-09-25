@@ -44,7 +44,49 @@ def decode_strings(s: str) -> str:
 ## Vertical Order Traversal of a Binary Tree
 
 ```python
+import collections
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+def vertical_traversal(root: Optional[TreeNode]) -> list[list[int]]
+    # check empty root
+    if not root:
+        return []
+    
+    # dict to store cols as keys and list of (row, node_val) as value
+    column_table = collections.defaultdict(list)
+    # queue for BFS storing (node, row, col)
+    queue = collections.deque([(root, 0, 0)])
+
+    # bfs
+    while queue:
+        # popleft from queue
+        node, row, col = queue.popleft()
+        if node:
+            # append to col in dict
+            column_table[col].append((row, node.val))
+            # left
+            if node.left:
+                queue.append((node.left, row + 1, col - 1))
+            # right
+            if node.right:
+                queue.append((node.right, row + 1, col + 1))
+    
+    # return result
+    result = []
+    # sort left to right
+    for col in sorted(column_table.keys()):
+        # sort by row first, then by val if rows identical
+        sorted_nodes = sorted(column_table[col], key=lambda x: (x[0], x[1]))
+        # add values to result
+        result.append([val for row, val in sorted_nodes])
+
+    return result
 
 ```
 
