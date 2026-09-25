@@ -254,7 +254,28 @@ def three_sum(nums: list[int]) -> list[int]:
 ```
 
 ## The longest valid bracket
+Given a string consisting only of `(` And `)`, find the length of the longest valid parentheses substring.
 
+Using stack record index, encounter ( Push into the stack and encounter ) To pop the stack, subtract the top index from the current index to get the current effective length.
+
+```python
+def longest_valid_parentheses(s: str) -> int:
+    stack = [-1]
+    answer = 0
+    for i, ch in enumerate(s):
+        if ch == '(':
+            stack.append(i)
+        else:
+            stack.pop()
+        
+        if not stack:
+            stack.append(i)
+        else:
+            answer = max(answer, i - stack[-1])
+    
+    return answer
+
+```
 
 
 ## Combined delivery time intervals
