@@ -279,7 +279,21 @@ def longest_valid_parentheses(s: str) -> int:
 
 
 ## Combined delivery time intervals
+Given a list of delivery time intervals `(start, end)`, merge all overlapping intervals.
 
+```python
+def merge_intervals(intervals: list[list[int]]) -> list[int]:
+    # sort by start
+    intervals.sort(key=lambda x: x[0])
+    merged = []
+    for interval in intervals:
+        if not merged or merged[-1][1] < interval[0]:
+            merged.append(interval)
+        else:
+            merged[-1][1] = max(merged[-1][1], interval[1])
+    return merged
+    
+```
 
 ## Beverage Bundle pricing
 
