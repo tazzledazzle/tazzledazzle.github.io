@@ -267,7 +267,15 @@ def three_sum(nums: list[int]) -> list[int]:
 
 
 ## Average order revenue by region
+Given two tables, find the average order revenue for each region in 2024, returning only regions that are above the overall average.
 
+```sql
+WITH region_avg AS (SELECT c.region, AVG(o.revenue) AS avg_rev 
+FROM orders o JOIN customers c ON o.customer_id = c.customer_id 
+    WHERE EXTRACT(YEAR FROM o.order_date) = 2024 GROUP BY c.region)
+SELECT region, avg_rev FROM region_avg 
+    WHERE avg_rev > (SELECT AVG(avg_rev) FROM region_avg);
+```
 
 ## Average monthly ratings of each product
 
@@ -281,5 +289,5 @@ SELECT product_id,
  FROM reviews GROUP BY product_id, 
      EXTRACT(MONTH FROM submit_date)
  ORDER BY month, product_id
- 
+
 ```
