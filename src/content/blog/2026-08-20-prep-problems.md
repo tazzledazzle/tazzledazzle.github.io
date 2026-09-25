@@ -94,7 +94,34 @@ def vertical_traversal(root: Optional[TreeNode]) -> list[list[int]]
 ## Maximum Value at a Given Index in a Bounded Array
 
 ```python
+def max_value(n: int, index: int, max_sum: int) -> int:
+    # helper func
+    def get_sum(val: int, length: int) -> int:
+        if val >= length:
+            return (val + val - length + 1) * length // 2
+        else:
+            return (val + 1) * val // 2 + (length - val)
 
+    # two pointers
+    left, right = 1, max_sum
+    result = 1
+
+    # traverse from both ends
+    while left <= right:
+        mid = (left + right) // 2
+
+        # calc sum if nums[idx] set to mid
+        left_len, right_len = index + 1, n - index
+
+        total = get_sum(mid, left_len) + get_sum(mid, right_len) - mid
+
+        if total <= max_sum:
+            result = mid
+            left = mid + 1  # inc
+        else:
+            right = mid - 1  # dec
+
+    return result
 
 ```
 
