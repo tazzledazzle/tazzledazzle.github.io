@@ -199,6 +199,8 @@ for _ in range(int(input().strip())):
 ## Top K frequent
 
 ```python
+form collections import Counter
+
 def top_k_frequent(nums: list[int], k: int) -> list[int]:
     counts = Counter(nums)
     buckets = [[] for _ in range(len(nums) + 1)]
