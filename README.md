@@ -55,3 +55,9 @@ public/                # Static assets (images, fonts)
 ## License
 
 Content & code © Terence Schumacher. Feel free to reference with attribution.
+
+
+### Devs
+- create page, name it in the form `YYYY-MM-DD-${subject_of_post}.md`
+- add page to `data/blog-inventory.yml` at the bottom, filling out the appropriate sections
+- commit and push
