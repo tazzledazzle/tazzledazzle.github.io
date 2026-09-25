@@ -167,10 +167,31 @@ def oranges_rotting(grid: list[list[int]]) -> int:
 ```
 
 
-## Apples and Oranges
+## Validating Credit Card Numbers
 
 ```python
+import re
 
+# read num test cases
+for _ in range(int(input().strip())):
+    card_number = input().strip()
+
+    # regex for cc - start with 4, 5, or 6 and 16 digit block
+    cc_pattern = r"^[456](?:\d{15}|\d{3}(?:-\d{4}){3})$"
+
+
+    # check struct
+    if re.match(cc_pattern, card_number):
+        # remove hypens
+        clean_num = card_number.replace("-", "")
+
+        # repeat check
+        if re.search(r"(\d)\1{3,}", clean_num):
+            print("Invalid")
+        else:
+            print("Value")
+    else:
+        print("Invalid")
 
 ```
 
