@@ -197,9 +197,12 @@ for _ in range(int(input().strip())):
 
 
 ## Top K frequent
+- IDEA: count, then bucket by frequency (index = count), scan from high to low. (Alternative: heapq.nlargest(k, counts, key=counts.get), O(n log k).)
+- EDGE: k == number of distinct values; all values equal.
+- COST: O(n) time, O(n) space.
 
 ```python
-form collections import Counter
+from collections import Counter
 
 def top_k_frequent(nums: list[int], k: int) -> list[int]:
     counts = Counter(nums)
@@ -218,7 +221,9 @@ def top_k_frequent(nums: list[int], k: int) -> list[int]:
 
 
 ## Three sum
-
+- IDEA: sort; fix i; two pointers lo/hi on the rest; skip duplicates at all three positions.
+- EDGE: fewer than 3 numbers, all zeros, all positive (break early).
+- COST: O(n^2) time.
 
 ```python
 def three_sum(nums: list[int]) -> list[int]:
