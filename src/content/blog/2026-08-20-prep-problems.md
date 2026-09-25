@@ -196,10 +196,21 @@ for _ in range(int(input().strip())):
 ```
 
 
-## Number Line Jumps
+## Top K frequent
 
 ```python
-
+def top_k_frequent(nums: list[int], k: int) -> list[int]:
+    counts = Counter(nums)
+    buckets = [[] for _ in range(len(nums) + 1)]
+    for value, c in counts.items():
+        buckets[c].append(value)
+    out = []
+    for c in range(len(buckets) - 1, 0, -1):
+        for value in buckets[c]:
+            out.append(value)
+            if len(out) == k:
+                return out
+    return out
 
 ```
 
