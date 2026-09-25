@@ -126,3 +126,28 @@ def shortest_palindrome(s: str) -> str:
     longest_pal_prefix = fail[-1]
     return s[longest_pal_prefix:][::-1] + s    
 ```
+
+### Longest Happy Prefix
+
+A string is called a `happy prefix` if it is a `non-empty` prefix which is also a suffix (excluding itself).
+
+Given a string `s`, return the `longest happy prefix` of `s`. Return empty string `""` if no prefix exists
+
+
+```python
+def longest_prefix(s: str) -> str:
+    n = len(s)
+    fail = [0] * n
+    
+    # apply KMP
+    for i in range(1, n):
+        j = fail[i - 1]
+        while j > 0 and s[i] != s[j]:
+            j = fail[j - 1]
+        if s[i] == s[j]:
+            j += 1
+        fail[i] = j
+
+    return s[:fail[-1]]
+
+```
