@@ -129,7 +129,40 @@ def max_value(n: int, index: int, max_sum: int) -> int:
 ## Rotting Oranges
 
 ```python
+from collections import deque
 
+def oranges_rotting(grid: list[list[int]]) -> int:
+    # base
+    if not grid:
+        return -1
+
+    # m, n
+    rows, cols = len(grid), len(grid[0])
+    queue = deque()
+    fresh_count = 0
+
+    # add all rotten and count fresh
+    for row in range(rows):
+        for col in range(cols):
+            if grid[row][col] == 2:
+                queue.append((row, col, 0))  # (row, col, min)
+            elif grid[row][col] == 1:
+                fresh_count += 1
+
+    min_elapsed, directions = 0, [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+    # bfs
+    while queue:
+        # take top tuple
+        row, col, min_elapsed = queue.popleft()
+
+        for dr, dc in directions:
+            nr, nc = r + dr, c + dc
+            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 1:
+                grid[nr][nc] = 2  # rotten
+                fresh_count -= 1
+                queue.append((nr, nc, min_elapsed + 1))
+    return min_elapsed if fresh_count == 0 else -1
 
 ```
 
