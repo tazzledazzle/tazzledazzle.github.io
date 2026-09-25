@@ -151,3 +151,30 @@ def longest_prefix(s: str) -> str:
     return s[:fail[-1]]
 
 ```
+
+
+### Sum of Scores of Built Strings
+
+Building a string `s` of `n` length, one character at a time, prepending eacvh new character to the front of the string. 
+The strings are labeled from `1` to `n`, where the string length `i` is labeled `s_i`.
+
+Given the final string `s`, return the sum of the score of every `s_i`.
+
+```python
+def sum_scores(s: str) -> int:
+    n = len(s)
+    z = [0] * n
+    z[0] = n
+    left, right = 0, 0
+
+    # Z-function
+    for i in range(1, n):
+        if i < right:
+            z[i] = min(right - i, z[i - left])
+        while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+            z[i] += 1
+        if i + z[i] > right:
+            left, right = i, i + z[i]
+
+    return sum(z)
+```
