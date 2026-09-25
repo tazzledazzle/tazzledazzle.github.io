@@ -253,5 +253,33 @@ def three_sum(nums: list[int]) -> list[int]:
 
 ```
 
+## The longest valid bracket
 
 
+
+## Combined delivery time intervals
+
+
+## Beverage Bundle pricing
+
+
+## Sort object array by two attributes
+
+
+## Average order revenue by region
+
+
+## Average monthly ratings of each product
+
+Given `Reviews(review_id, user_id, submit_date, product_id, stars)` Table, calculating the average monthly rating for each product.
+
+
+```sql
+SELECT product_id, 
+    EXTRACT(MONTH FROM submit_date) AS month,
+    AVG(stars) AS avg_stars 
+ FROM reviews GROUP BY product_id, 
+     EXTRACT(MONTH FROM submit_date)
+ ORDER BY month, product_id
+ 
+```
