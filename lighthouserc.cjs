@@ -10,7 +10,7 @@ module.exports = {
         "http://localhost:4321/blog/",
         "http://localhost:4321/2024/11/08/kotlin-cheatsheet/"
       ],
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: {
         formFactor: "mobile",
         throttlingMethod: "simulate",
